@@ -11,7 +11,7 @@ public class DoctorzcController {
 public String  doctorzc() {
 	
 
-	return "doctorzc";	  
+	return "loginb";	  
 }
 
 
