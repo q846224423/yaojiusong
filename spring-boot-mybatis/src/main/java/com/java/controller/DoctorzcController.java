@@ -3,6 +3,8 @@ package com.java.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sun.tools.internal.ws.processor.model.Model;
+
 
 @Controller
 public class DoctorzcController {
@@ -17,7 +19,9 @@ public String  doctorzc() {
 
 //这里跳转到医生个人信息界面
 @RequestMapping("/doctoruser")
-public String doctoruser() {
+public String doctoruser(Model model) {
+	
+	
 	
 	
 	
