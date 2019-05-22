@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 //echcache缓存
 @EnableCaching
 //定时器，一定时间执行
-/*@EnableScheduling*/
+@EnableScheduling
 public class App {
 	public static void main(String[] args) {
 		SpringApplication.run(App.class, args);
