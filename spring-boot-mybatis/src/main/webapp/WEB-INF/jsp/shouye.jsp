@@ -1,13 +1,10 @@
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description"
-	content="国药网隶属中国医药集团旗下电商网站，是经国家药监局认证正规医药网，国大保证，为用户提供品正价优的各类药品与保健品等，国药网将成为国药集团业务创新、产业升级的先锋和最重要的电商平台！网上买药认准国药网官网！Yao123.Com">
-<meta name="Keywords" content="国药网,医药网,网上药店,网上买药,网上药房,国大药房">
-<title>国药网-网上药店,网上药房,网上买药的正规网站,国家药监局认证,国大保证</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 <link rel="stylesheet"
 	href="https://www.yao123.com/static/lib/owl-carousel/owl.carousel.css">
 <link rel="stylesheet"
