@@ -1,4 +1,4 @@
-package com.java.controller;
+package com.java.pojo;
 //账号密码对应的人
 public class People {
 	private int id;
@@ -43,6 +43,4 @@ public class People {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-
 }
