@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>医生注册</title>
     <link rel="stylesheet" href="css/all.css"/>
     <script src="js/my.js"></script>
     <script>
@@ -103,7 +103,7 @@
     			<!--表单项-->
     			<div class="box default">
     				<input type="checkbox" id="ck" />
-    				<span>我已阅读并同意<a href="##">《京东用户注册协议》</a></span>
+    				<span>我已阅读并同意<a href="##">《医生用户注册协议》</a></span>
     			</div>
     			<!--提示信息-->
     			<div class="tip">
