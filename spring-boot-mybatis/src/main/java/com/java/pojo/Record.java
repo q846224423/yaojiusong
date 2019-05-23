@@ -1,8 +1,8 @@
 package com.java.pojo;
 
 public class Record {
-	private int r_id;//问诊记录id
-	private int d_id;//医生id
+	private Integer r_id;//问诊记录id
+	private Integer d_id;//医生id
 	private String isOpenDrug;//是否开处方笺 0：开；1：不开
 	private String isGetMedicine;//是否拿药 0：开；1：不开
 	public int getR_id() {

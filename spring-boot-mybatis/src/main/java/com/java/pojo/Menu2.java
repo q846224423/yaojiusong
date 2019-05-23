@@ -3,8 +3,8 @@ package com.java.pojo;
 import java.util.List;
 
 public class Menu2 {
-int menu2_id;
-int menu2_1id;   //对应的1的id
+	Integer menu2_id;
+	Integer menu2_1id;   //对应的1的id
 String menu2_name;  
 List<Menu3> chlidren ;
 public int getMenu2_id() {

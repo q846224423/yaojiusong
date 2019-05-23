@@ -1,10 +1,10 @@
 package com.java.pojo;
 //账号密码对应的人
 public class People {
-	private int id;//用户个人对应id
+	private Integer id;//用户个人对应id
 	private String username;//用户对应账号
 	private String pwd;//用户对应密码
-	private int role;//用户对应角色
+	private Integer role;//用户对应角色
 	public int getId() {
 		return id;
 	}

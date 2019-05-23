@@ -1,9 +1,9 @@
 package com.java.pojo;
 
 public class Ks {
-	private int ks_id;//科室id
+	private Integer ks_id;//科室id
 	private String ks_name;//科室名称
-	public int getKs_id() {
+	public Integer getKs_id() {
 		return ks_id;
 	}
 	public void setKs_id(int ks_id) {

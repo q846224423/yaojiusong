@@ -1,9 +1,9 @@
 package com.java.pojo;
 
 public class Admin {
-	private int id;//管理员id
+	private Integer id;//管理员id
 	private String  a_name;//管理员名字
-	private int People_id;//对应people——id
+	private Integer People_id;//对应people——id
 	public int getId() {
 		return id;
 	}

@@ -2,13 +2,13 @@ package com.java.pojo;
 
 public class Menu3_Shopcart {
 	
-	int menu3_id;
+	Integer menu3_id;
 	String menu3_name;
 	String ep_description;
 	double ep_price;
 	String ep_url;
-	int useraccountid;
-	int trade_num;
+	Integer useraccountid;
+	Integer trade_num;
 	double allprice;
 	public double getAllprice() {
 		return allprice;

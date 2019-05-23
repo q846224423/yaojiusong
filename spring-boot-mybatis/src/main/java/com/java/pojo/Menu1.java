@@ -3,7 +3,7 @@ package com.java.pojo;
 import java.util.List;
 
 public class Menu1 {
-	int menu1_id;
+	Integer menu1_id;
 	String menu1_name;
 	List<Menu2> chlidren ;
 	public int getMenu1_id() {

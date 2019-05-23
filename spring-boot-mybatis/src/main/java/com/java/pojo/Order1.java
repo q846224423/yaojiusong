@@ -1,12 +1,12 @@
 package com.java.pojo;
 
 public class Order1 {
-	private int order1_id;			//订单id
-	private int user_id;			//用户id
-	private int did;				//医生id
+	private Integer order1_id;			//订单id
+	private Integer user_id;			//用户id
+	private Integer did;				//医生id
 	private String cf_url;			//处方笺 0：开；1：不开
 	private String time;			//时间	
-	private int statu;				//状态
+	private Integer statu;				//状态
 	private String isGetMedicine;	//是否拿药 0：开；1：不开
 	@Override
 	public String toString() {

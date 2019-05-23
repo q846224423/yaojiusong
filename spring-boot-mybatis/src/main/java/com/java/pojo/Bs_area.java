@@ -1,17 +1,17 @@
 package com.java.pojo;
 
 public class Bs_area {
-	private int AREA_ID; 		 //自增列
+	private Integer AREA_ID; 		 //自增列
 	private String AREA_CODE;		 //区代码
 	private String CITY_CODE; 	 //父级市代码
 	private String AREA_NAME;	 //市名称
 	private String SHORT_NAME;	 //简称
 	private String LNG;			 //经度
 	private String LAT;			 //纬度
-	private int SORT;			 //排序
+	private Integer SORT;			 //排序
 	private String CREATED_DATE; //创建时间
 	private String MODIFY_DATE;	 //修改时间
-	private int DATA_STATE; 	 //备注
+	private Integer DATA_STATE; 	 //备注
 	@Override
 	public String toString() {
 		return "Bs_area [AREA_ID=" + AREA_ID + ", AREA_CODE=" + AREA_CODE + ", CITY_CODE=" + CITY_CODE + ", AREA_NAME="

@@ -1,13 +1,13 @@
 package com.java.pojo;
 
 public class Store_order {
-	private int yd_oid;//药店订单id
-	private int py_id;//配药订单信息
-	private int kh_id;//客户联系信息（姓名电话地址）
-	private int cf_id;//处方笺
-	private int d_id;//药师联系信息（姓名电话）
+	private Integer yd_oid;//药店订单id
+	private Integer py_id;//配药订单信息
+	private Integer kh_id;//客户联系信息（姓名电话地址）
+	private Integer cf_id;//处方笺
+	private Integer d_id;//药师联系信息（姓名电话）
 	private String get_state;//结单（是否取药）
-	private int yd_id;//药店id
+	private Integer yd_id;//药店id
 	public int getYd_oid() {
 		return yd_oid;
 	}

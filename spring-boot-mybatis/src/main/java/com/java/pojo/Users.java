@@ -1,16 +1,16 @@
 package com.java.pojo;
 
 public class Users {
-	private int user_id;//用户id
+	private Integer user_id;//用户id
 	private String user_name;//用户用户名
-	private int user_age;//用户年龄
+	private Integer user_age;//用户年龄
 	private String user_sex;//用户性别
 	private String user_card;//用户身份证
-	private	int user_control;//用户权限控制
+	private	Integer user_control;//用户权限控制
 	private String user_tel;//用户手机号
 	private String user_address;//收获地址
-	private int user_countyid;//县的id
-	private int people_id;//角色表id
+	private Integer user_countyid;//县的id
+	private Integer people_id;//角色表id
 	public int getUser_id() {
 		return user_id;
 	}

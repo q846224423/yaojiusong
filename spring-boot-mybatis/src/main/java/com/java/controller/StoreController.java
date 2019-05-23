@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class StoreController {
 
-	@RequestMapping
+	@RequestMapping("showmenu")
 	public String showmenu() {
 		
 		

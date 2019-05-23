@@ -1,8 +1,8 @@
 package com.java.pojo;
 
 public class Menu3 {
-int menu3_id;     //商品id
-int menu3_2id;     //对应上一级
+	Integer menu3_id;     //商品id
+	Integer menu3_2id;     //对应上一级
 String menu3_name;//药品名称
 double ep_price; //价格
 String ep_size; //规格

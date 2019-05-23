@@ -1,18 +1,18 @@
 package com.java.pojo;
 
 public class Bs_city {
-	private int CITY_ID;			//自增列
+	private Integer CITY_ID;			//自增列
 	private String CITY_CODE;		//市代码
 	private String CITY_NAME;		//市名称
 	private String SHORT_NAME;		//简称
 	private String PROVINCE_CODE;	//省代码
 	private String LNG;				//经度
 	private String LAT;				//纬度
-	private int SORT;				//排序
+	private Integer SORT;				//排序
 	private String CREATED_DATE;	//创建时间
 	private String MODIFY_DATE;		//修改时间
 	private String MEMO;			//备注
-	private int DATA_STATE;			//状态
+	private Integer DATA_STATE;			//状态
 	public int getCITY_ID() {
 		return CITY_ID;
 	}
