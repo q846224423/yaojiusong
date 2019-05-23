@@ -1,7 +1,9 @@
-
-<!DOCTYPE html>
-<html class=" js csstransforms3d"><head>
-	<meta charset="utf-8">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>网站后台管理系统</title>
@@ -21,18 +23,18 @@
 <div class="superWrap clearfix" style="height: 781px;">
 	<!--side S-->
 	<div class="super-side-menu">
-		<iframe src="public_left.html" width="205" height="100%" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
+		<iframe src="public_left.jsp" width="205" height="100%" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
 	</div>
 	<!--side E-->
 	<!--content S-->
 	<div class="superContent">
 		
 		<div class="super-header super-header2">
-			<iframe src="public_header.html" id="Pubheader" name="Pubheader" width="100%"  marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
+			<iframe src="public_header.jsp" id="Pubheader" name="Pubheader" width="100%"  marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
 		</div>
 		<!--header-->
 		<div class="superCtab superCtabBot" style="height: 695px;">
-			<iframe src="doctorInfo.html" id="Mainindex" name="Mainindex" width="100%" height="100%" marginheight="0" marginwidth="0" frameborder="0"></iframe>
+			<iframe src="doctorInfo.jsp" id="Mainindex" name="Mainindex" width="100%" height="100%" marginheight="0" marginwidth="0" frameborder="0"></iframe>
 		</div>
 		<!--main-->
 		

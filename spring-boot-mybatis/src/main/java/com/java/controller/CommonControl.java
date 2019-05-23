@@ -34,8 +34,9 @@ public class CommonControl {
 			return "admin";
 		}else if(p.getRole()==2) {
 			Doctor doctor = cm.getDoctor(p.getId());
+			
 			model.addAttribute("doctor",doctor);
-			return "doctorzc";
+			return "index";
 		}else if(p.getRole()==3) {
 			Users user = cm.getUser(p.getId());
 			model.addAttribute("user",user);
