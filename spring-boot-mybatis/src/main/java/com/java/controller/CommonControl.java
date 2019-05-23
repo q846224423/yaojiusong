@@ -62,9 +62,9 @@ public class CommonControl {
 		
 	}
 	//iframe显示jsp代码
-	@RequestMapping("doctorInfo")
+	@RequestMapping("doctoruser")
 	public String doctorInfo() {
-		return "doctorInfo";
+		return "doctoruser";
 		
 	}
 

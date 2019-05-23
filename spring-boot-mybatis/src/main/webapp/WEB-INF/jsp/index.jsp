@@ -33,7 +33,7 @@
 		</div>
 		<!--header-->
 		<div class="superCtab superCtabBot" style="height: 695px;">
-			<iframe src="doctorInfo" id="Mainindex" name="Mainindex" width="100%" height="100%" marginheight="0" marginwidth="0" frameborder="0"></iframe>
+			<iframe src="doctoruser" id="Mainindex" name="Mainindex" width="100%" height="100%" marginheight="0" marginwidth="0" frameborder="0"></iframe>
 		</div>
 		<!--main-->
 		

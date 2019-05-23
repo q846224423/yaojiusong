@@ -42,11 +42,6 @@
 <div id="main">
 
     <div class="page-settings">
-        <div class="top">
-            <div class="w960 mauto top_title">
-                <p>个人设置</p>
-            </div>
-        </div>
         <div class="setting pb10">
             <div class="nav-tabs pa">
                 <h class="baseinfo fl active">基本信息</h>
@@ -62,7 +57,7 @@
                             <div class="rlf-group">
                                 <img class="fl avator-img" id="js-portrait" src="http://img.mukewang.com/58492fe600012e8e01800180-200-200.jpg" data-portrait="58492fe600012e8e01800180" width="180" height="180">
                                 <div class="fl ml20 pr">
-                                    <div><input type="button" hidefocus="true" value="换一换" class="js-avator-try avator-try"></div>
+                                    <div><input type="button" hidefocus="true" value="请你认证" class="js-avator-try avator-try"></div>
                                     <div id="avator-btns" class="avator-btn-inner">
                                         <!--div class="avator-btn-snswrap">
                                             <span class="l-sns-btn l-sns-weibo" data-sns="weibo">从新浪微博同步头像</span>
@@ -87,9 +82,13 @@
                         <form id="profile" >
 
                             <div class="wlfg-wrap clearfix">
-                                <label class="label-name" for="nick" >昵称：</label>
+                               <label class="label-name" for="nick" >昵称：</label>
+                               <input type="text" name="nickname" id="nick"  autocomplete="off"  data-validate="require-nick"  class="moco-form-control" value="Sequin_YF" placeholder="请输入昵称."/>
+                                <label class="label-name" for="nick" >电话：</label>
+                                 <input type="text" name="nickname" id="nick"  autocomplete="off"  data-validate="require-nick"  class="moco-form-control" value="Sequin_YF" placeholder="请输入昵称."/>
                                 <div class="rlf-group">
-                                    <input type="text" name="nickname" id="nick"  autocomplete="off"  data-validate="require-nick"  class="moco-form-control" value="Sequin_YF" placeholder="请输入昵称."/>
+       <!--                             <input type="text" name="nickname" id="nick"  autocomplete="off"  data-validate="require-nick"  class="moco-form-control" value="Sequin_YF" placeholder="请输入昵称."/>
+                                <input type="text" name="nickname" id="nick"  autocomplete="off"  data-validate="require-nick"  class="moco-form-control" value="Sequin_YF" placeholder="请输入昵称."/> -->
                                     <p class="rlf-tip-wrap errorHint color-red" ></p>
                                 </div>
                             </div>
@@ -122,19 +121,19 @@
                             </div!-->
 
                             <div class="wlfg-wrap clearfix">
-                                <label class="label-name" for="province-select">城市：</label>
+                                <label class="label-name" for="province-select">科室：</label>
                                 <div class="rlf-group profile-address">
                                     <select id="province-select" class='moco-form-control' hidefocus="true">
-                                        <option value="0">选择省份</option>
+                                        <option value="0">选择科室</option>
                                         <option value="1">北京</option>
                                         <option value="2">天津</option>
 
                                     </select>
                                     <select class='moco-form-control' id="city-select" hidefocus="true">
-                                        <option value="0">选择城市</option>
+                                        <option value="0">选择科别</option>
                                     </select>
                                     <select class='moco-form-control mr0' id="area-select" hidefocus="true">
-                                        <option value="0">选择区县</option>
+                                        <option value="0">选择类型</option>
                                     </select>
                                     <div class="cb"></div>
                                     <p class="rlf-tip-wrap errorHint color-red"></p>
@@ -144,14 +143,35 @@
                             <div class="wlfg-wrap clearfix">
                                 <label class="label-name h16 lh16" >性别：</label>
                                 <div class="rlf-group rlf-radio-group">
-                                    <label  class="lh16"><input type="radio" hidefocus="true" value="0"   name="sex">保密</label>
+                                   
                                     <label  class="lh16"><input type="radio" hidefocus="true" value="1"  name="sex">男</label>
                                     <label  class="lh16"><input type="radio" hidefocus="true" value="2" checked="checked" name="sex">女</label>
+                                    
+
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                     <p class="rlf-tip-wrap errorHint color-red"></p>
                                 </div>
                             </div>
                             <div class="wlfg-wrap clearfix">
-                                <label class="label-name" for="aboutme">个性签名：</label>
+                                <label class="label-name" for="aboutme">个性介绍：</label>
                                 <div class="rlf-group">
                                     <div class="pr">
                                         <textarea name="aboutme"  id="aboutme"  rows="5" class="noresize js-sign moco-form-control"></textarea>
