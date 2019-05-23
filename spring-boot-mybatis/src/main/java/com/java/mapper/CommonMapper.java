@@ -7,11 +7,12 @@ import com.java.pojo.Admin;
 import com.java.pojo.Doctor;
 import com.java.pojo.DrugStore;
 import com.java.pojo.People;
+import com.java.pojo.Users;
 @Repository
 public interface CommonMapper {
 
 	//通过账号密码找到people的对象
-	@Select("select * from people where username=#{username} and pwd=#{pwd} ")
+	@Select("select * from people where username=#{0} and pwd=#{1}")
 	public People FindPeople(String username,String pwd);
 	
 	//如果people的role为1，调用该方法，返回admmin具体对象
@@ -23,11 +24,11 @@ public interface CommonMapper {
 	public Doctor getDoctor(int id);
 	
 	//如果people的role为3，调用该方法，返回admmin具体对象
-	//@Select("select * from users where user_id= #{id}")
-	//public User getUser(int id);
+	@Select("select * from users where user_id= #{id}")
+	public Users getUser(int id);
 	
 	//如果people的role为4，调用该方法，返回admmin具体对象
 	@Select("select * from drugstore where yd_id= #{id}")
-	public DrugStore getUser(int id);
+	public DrugStore getDrugStore(int id);
 	
 }
