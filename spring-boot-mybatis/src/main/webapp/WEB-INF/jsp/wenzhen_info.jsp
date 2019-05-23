@@ -24,7 +24,7 @@
 	<!--content S-->
 	<div class="super-content">
 		<div class="superCtab">
-			<div class="ctab-title zxtop-title clearfix"><h3>咨询管理</h3><a href="zixun_Team.html" class="backlistBtn"><i class="ico-back"></i>返回列表</a></div>
+			<div class="ctab-title zxtop-title clearfix"><h3>咨询管理</h3><a href="zixun_Team.jsp" class="backlistBtn"><i class="ico-back"></i>返回列表</a></div>
 		</div>
 		<!--main-->
 	</div>

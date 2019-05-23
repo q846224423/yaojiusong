@@ -20,21 +20,20 @@
 </head>
 
 <body>
-	<!--side S-->
+	<!-- side S -->
 	<div class="super-side-menu">
-		<div class="logo"><a href="public_super_cg.html" target="_parent"><img src="images/logo.png"></a></div>
+		<div class="logo"><a href="public_super_cg.jsp" target="_parent"><img src="images/logo.png"></a></div>
 		
 		<div class="side-menu">
 			<ul>
-				<li><a href="doctorInfo.html" target="Mainindex"><i class="ico-7"></i>我的信息</a></li>
-				<li class=""><a href="wenzhen.html" target="Mainindex"><i class="ico-1"></i>问诊记录</a></li>
-				<li><a href="zixun.html" target="Mainindex"><i class="ico-5"></i>咨询管理</a></li>
+				<li><a href="doctorInfo.jsp" target="Mainindex"><i class="ico-7"></i>我的信息</a></li>
+				<li class=""><a href="wenzhen.jsp" target="Mainindex"><i class="ico-1"></i>问诊记录</a></li>
+				<li><a href="zixun.jsp" target="Mainindex"><i class="ico-5"></i>咨询管理</a></li>
 				
 			</ul>
 		</div>
 	</div>
 	<!--side E-->
-
 <script type="text/javascript">
 	$(function(){
 		$('.side-menu li').click(function(){

@@ -48,12 +48,26 @@ public class CommonControl {
 		}else {
 			return "login";
 		}
-		
-		
-	
 	}
+	//iframe显示jsp代码
+	@RequestMapping("public_left")
+	public String public_left() {
+		return "public_left";
 		
+	}
+	//iframe显示jsp代码
+	@RequestMapping("public_header")
+	public String public_header() {
+		return "public_header";
 		
+	}
+	//iframe显示jsp代码
+	@RequestMapping("doctorInfo")
+	public String doctorInfo() {
+		return "doctorInfo";
+		
+	}
 
+	
 
 }

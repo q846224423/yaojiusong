@@ -48,42 +48,42 @@
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 							<tbody><tr class="wd">
 								<td class="t_1">2015001</td>
-								<td class="t_2_1"><a href="wenzhen_info.html" class="team-a">张三个人官网</a></td>
+								<td class="t_2_1"><a href="wenzhen_info.jsp" class="team-a">张三个人官网</a></td>
 								<td class="alcenter"><a href="#" class="export-a">导出数据</a></td>
 							</tr>
 							<tr class="wd">
 								<td class="t_1">2015001</td>
-								<td class="t_2_1"><a href="wenzhen_info.html" class="team-a">张三个人官网</a></td>
+								<td class="t_2_1"><a href="wenzhen_info.jsp" class="team-a">张三个人官网</a></td>
 								<td class="alcenter"><a href="#" class="export-a">导出数据</a></td>
 							</tr>
 							<tr>
 								<td class="t_1">2015001</td>
-								<td class="t_2_1"><a href="wenzhen_info.html" class="team-a">张三个人官网</a></td>
+								<td class="t_2_1"><a href="wenzhen_info.jsp" class="team-a">张三个人官网</a></td>
 								<td class="alcenter"><a href="#" class="export-a">导出数据</a></td>
 							</tr>
 							<tr>
 								<td class="t_1">2015001</td>
-								<td class="t_2_1"><a href="wenzhen_info.html" class="team-a">张三个人官网</a></td>
+								<td class="t_2_1"><a href="wenzhen_info.jsp" class="team-a">张三个人官网</a></td>
 								<td class="alcenter"><a href="#" class="export-a">导出数据</a></td>
 							</tr>
 							<tr>
 								<td class="t_1">2015001</td>
-								<td class="t_2_1"><a href="wenzhen_info.html" class="team-a">张三个人官网</a></td>
+								<td class="t_2_1"><a href="wenzhen_info.jsp" class="team-a">张三个人官网</a></td>
 								<td class="alcenter"><a href="#" class="export-a">导出数据</a></td>
 							</tr>
 							<tr>
 								<td class="t_1">2015001</td>
-								<td class="t_2_1"><a href="wenzhen_info.html" class="team-a">张三个人官网</a></td>
+								<td class="t_2_1"><a href="wenzhen_info.jsp" class="team-a">张三个人官网</a></td>
 								<td class="alcenter"><a href="#" class="export-a">导出数据</a></td>
 							</tr>
 							<tr>
 								<td class="t_1">2015001</td>
-								<td class="t_2_1"><a href="wenzhen_info.html" class="team-a">张三个人官网</a></td>
+								<td class="t_2_1"><a href="wenzhen_info.jsp" class="team-a">张三个人官网</a></td>
 								<td class="alcenter"><a href="#" class="export-a">导出数据</a></td>
 							</tr>
 							<tr>
 								<td class="t_1">2015001</td>
-								<td class="t_2_1"><a href="wenzhen_info.html" class="team-a">张三个人官网</a></td>
+								<td class="t_2_1"><a href="wenzhen_info.jsp" class="team-a">张三个人官网</a></td>
 								<td class="alcenter"><a href="#" class="export-a">导出数据</a></td>
 							</tr>
 							
