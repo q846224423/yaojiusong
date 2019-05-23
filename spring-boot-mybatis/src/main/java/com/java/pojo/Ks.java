@@ -1,8 +1,8 @@
 package com.java.pojo;
 
 public class Ks {
-	private int ks_id;
-	private String ks_name;
+	private int ks_id;//科室id
+	private String ks_name;//科室名称
 	public int getKs_id() {
 		return ks_id;
 	}
