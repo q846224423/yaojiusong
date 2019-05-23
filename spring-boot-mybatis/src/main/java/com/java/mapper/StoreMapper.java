@@ -23,7 +23,7 @@ public interface StoreMapper {
 	public List<Menu3> select3By2id(int id);
 	
 	//获取左侧三级菜单栏集合
-	public List<Menu1> getAllMenu();
+	//public List<Menu1> getAllMenu();
 	
 	/**
 	 * @各种菜单的点击查询
@@ -38,6 +38,5 @@ public interface StoreMapper {
 	//通过3级查询商品
 	@Select("select * from menuthree where menu3_id=#{id}")
 	public Menu3 select3By3id(int id);
-	
 	
 }
