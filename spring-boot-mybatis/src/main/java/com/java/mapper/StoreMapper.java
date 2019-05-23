@@ -39,8 +39,5 @@ public interface StoreMapper {
 	@Select("select * from menuthree where menu3_id=#{id}")
 	public Menu3 select3By3id(int id);
 	
-	/**
-	 * @商户的个人信息
-	 */
 	
 }
