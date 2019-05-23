@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -47,27 +48,24 @@
 	<body>
 		<div class="cc">
 			<div class="input"><input type="text" style="height: 34px; width: 1000px; "placeholder="输入科室名查找" /></div>
-			<div class="img"><img src="img/1558498361(1).jpg"></div>
+			<div class="img"><img src="img/132.jpg"></div>
 		</div>
-		<img src="img/banner_baobaokesou.jpg" width="1335px"/>
-		
+		<img src="img/1558592552.jpg" width="1335px"/>
 		<div class="table">
 			<table  border="1" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
-				<tr>
-					
-					 
-
-					<td>内科</td>
-					<td>外科</td>
-					<td>妇产科</td>
-					<td>儿童</td>
-				</tr>
+			<tr>
+					<td>${keshi[0].ks_name}</td>
+					<td>皮肤科</td>
+					<td>血管瘤</td>
+					<td>其他</td>
+				</tr> 
 				<tr>
 					<td>中医科</td>
 					<td>皮肤科</td>
 					<td>血管瘤</td>
 					<td>其他</td>
-				</tr>
+				</tr> 
+				
 			</table>
 			
 		</div>
