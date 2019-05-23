@@ -8,14 +8,13 @@ import com.java.pojo.Admin;
 import com.java.pojo.Doctor;
 import com.java.pojo.DrugStore;
 import com.java.pojo.People;
+import com.java.pojo.Users;
 import com.java.service.Commonservice;
 @Service
 public class Commonserviceipml implements Commonservice {
 	@Autowired
 	private CommonMapper commonMapper;
 	
-	
-
 	public People FindPeople(String username, String pwd) {
 		
 		return commonMapper.FindPeople(username, pwd);
@@ -29,8 +28,14 @@ public class Commonserviceipml implements Commonservice {
 		return commonMapper.getDoctor(id);
 	}
 
-	public DrugStore getUser(int id) {
+	@Override
+	public DrugStore getDrugStore(int id) {
+		return commonMapper.getDrugStore(id);
+	}
+
+	public Users getUser(int id) {
 		return commonMapper.getUser(id);
 	}
 
+	
 }

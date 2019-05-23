@@ -1,18 +1,56 @@
 package com.java.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.java.pojo.Admin;
+import com.java.pojo.Doctor;
+import com.java.pojo.DrugStore;
+import com.java.pojo.People;
+import com.java.pojo.Users;
+import com.java.service.impl.Commonserviceipml;
 
 @Controller
 public class CommonControl {
+	@Autowired
+	private Commonserviceipml cm;
 	
-		//这里跳转到医生注册界面
-		@RequestMapping("/doctrzc")
-		public String  doctorzc() {
-			
-
-			return "doctorzc";	  
+		//验证账号密码，跳转不同页面
+	@RequestMapping("/Tojump")
+	public String Tojump(String username,String pwd,Model model) {
+		//通过账号密码找到people中对象
+		People p = cm.FindPeople(username, pwd);
+		//如果找不到跳转首页
+		if(p==null) {
+			return "login";
 		}
+		
+		//判断角色，通过id确定具体的那个人
+		if(p.getRole()==1) {
+			Admin admin = cm.getAdmin(p.getId());
+			model.addAttribute("admin",admin);
+			return "admin";
+		}else if(p.getRole()==2) {
+			Doctor doctor = cm.getDoctor(p.getId());
+			model.addAttribute("doctor",doctor);
+			return "doctorzc";
+		}else if(p.getRole()==3) {
+			Users user = cm.getUser(p.getId());
+			model.addAttribute("user",user);
+			return "user";
+		}else if(p.getRole()==4) {
+			DrugStore drugStore = cm.getDrugStore(p.getId());
+			model.addAttribute("drugStore",drugStore);
+			return "drugStore";
+		}else {
+			return "login";
+		}
+		
+		
+	
+	}
 		
 		
 
