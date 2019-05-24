@@ -2,28 +2,36 @@ package com.java.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.java.mapper.DoctorMapper;
 import com.java.pojo.Doctor;
 import com.java.pojo.DrugStore;
 import com.java.pojo.Users;
 import com.java.service.AdminService;
 
+@Service
 public class AdminServiceImpl implements AdminService {
-
+	
+	@Autowired
+	private DoctorMapper doctor;
+	
 	//查询所有医生
 	public List<Doctor> selectAllDoctor() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Doctor> selectall = doctor.selectall();
+		return selectall;
 	}
 
 	//查询单个医生
 	public Doctor selectOneDoctor(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Doctor selectone = doctor.selectone(id);
+		return selectone;
 	}
 
 	//修改一个医生
 	public int updateDoctor(Doctor doctor) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
