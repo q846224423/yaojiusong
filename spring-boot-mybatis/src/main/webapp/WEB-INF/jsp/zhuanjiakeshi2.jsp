@@ -48,22 +48,22 @@
 	<body>
 		<div class="cc">
 			<div class="input"><input type="text" style="height: 34px; width: 1000px; "placeholder="输入科室名查找" /></div>
-			<div class="img"><img src="img/132.jpg"></div>
+			<div class="img"><img src="img/1558498361(1).jpg"></div>
 		</div>
-		<img src="img/1558592552.jpg" width="1335px"/>
+		<img src="img/123.jpg" width="1335px"/>
 		<div class="table">
 			<table  border="1" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
 			<tr>
 					<td>${keshi[0].ks_name}</td>
-					<td>皮肤科</td>
-					<td>血管瘤</td>
-					<td>其他</td>
+					<td>${keshi[1].ks_name}</td>
+					<td>${keshi[2].ks_name}</td>
+					<td>${keshi[3].ks_name}</td>
 				</tr> 
 				<tr>
-					<td>中医科</td>
-					<td>皮肤科</td>
-					<td>血管瘤</td>
-					<td>其他</td>
+					<td>${keshi[4].ks_name}</td>
+					<td>${keshi[5].ks_name}</td>
+					<td>${keshi[6].ks_name}</td>
+					<td>${keshi[7].ks_name}</td>
 				</tr> 
 				
 			</table>
