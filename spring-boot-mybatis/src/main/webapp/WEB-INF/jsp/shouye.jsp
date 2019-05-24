@@ -1,404 +1,476 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://www.yao123.com/static/lib/owl-carousel/owl.carousel.css">
-<link rel="stylesheet"
-	href="https://www.yao123.com/static/lib/owl-carousel/owl.theme.css">
-<link rel="stylesheet" href="https://www.yao123.com/static/dist/style/base.css?version=20190509">
-<link rel="stylesheet" href="https://www.yao123.com/static/dist/style/index.css?version=20190509">
-<script type="text/javascript" src="https://www.yao123.com/paramsForStatic"></script>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link type="text/css" rel="stylesheet" href="css/index/style.css" />   
+    <script type="text/javascript" src="js/index/jquery-1.11.1.min_044d0927.js"></script>
+	<script type="text/javascript" src="js/index/jquery.bxslider_e88acd1b.js"></script>
+    
+    <script type="text/javascript" src="js/index/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/index/menu.js"></script>    
+        
+	<script type="text/javascript" src="js/index/select.js"></script>
+    
+	<script type="text/javascript" src="js/index/lrscroll.js"></script>
+    
+    <script type="text/javascript" src="js/index/iban.js"></script>
+    <script type="text/javascript" src="js/index/fban.js"></script>
+    <script type="text/javascript" src="js/index/f_ban.js"></script>
+    <script type="text/javascript" src="js/index/mban.js"></script>
+    <script type="text/javascript" src="js/index/bban.js"></script>
+    <script type="text/javascript" src="js/index/hban.js"></script>
+    <script type="text/javascript" src="js/index/tban.js"></script>
+    <script type="text/javascript" src="js/index/jquery-3.js"></script>
+	<script type="text/javascript" src="js/index/lrscroll_1.js"></script>
+	
+<link rel="stylesheet"
+	href="css/index/owl.carousel.css">
+<link rel="stylesheet"
+	href="css/index/owl.theme.css">
+<link rel="stylesheet" href="css/index/base1.css">
+<link rel="stylesheet" href="css/index/index.css">
+<script type="text/javascript" src="js/index/paramsForStatic"></script>
+	
+<title>易买网</title>
 </head>
-<body>
-	<div style="display: none;">
-	<!--频道-->
-		<a href='https://www.yao123.com'>首页</a>
-		<a href='https://www.yao123.com/category_70'>高血压</a>
-		<a href='https://www.yao123.com/category_104'>呼吸系统</a>
-		<a href='https://www.yao123.com/category_88'>糖尿病</a>
-		<a href='https://www.yao123.com/category_80'>帕金森</a>
-		<a href='https://www.yao123.com/category_78'>抑郁症</a>
-		<a href='https://www.yao123.com/activity/20161013/index.html'>平安健康卡</a>
-	<!--热词-->
-		<a href='https://www.yao123.com/category_249'>纸尿裤</a>
-		<a href='https://www.yao123.com/search?keyword=SK-II'>SK-II</a>
-		<a href='https://www.yao123.com/search?keyword=%E6%89%8B%E6%9C%BA%E7%94%B5%E8%84%91'>手机电脑</a>
-		<a href='https://www.yao123.com/activity/20161013/index.html'>平安健康卡</a>
-		<a href='https://www.yao123.com/search/0-0-0-0-0-desc?keyword=%E7%94%B5%E9%A3%8E%E6%89%87'>电风扇</a>
-		<a href='https://www.yao123.com/search/0-0-5009?keyword=%E6%B5%B7%E8%93%9D%E4%B9%8B%E8%B0%9C'>海蓝之谜</a>
-		<a href='https://www.yao123.com/search?keyword=%E4%B9%B3%E8%83%B6%E6%9E%95'>乳胶枕</a>
-		<a href='https://www.yao123.com/search?keyword=%E9%98%B2%E6%99%92'>防晒</a>
-		<a href='https://www.yao123.com/search?keyword=益安宁丸'>益安宁丸</a>
-		<a href='https://www.yao123.com/search?keyword=哈药'>哈药</a>
-	<!--分类-->
-		<a href='https://www.yao123.com/category_7'>中西药品</a>
-			<a href='https://www.yao123.com/category_60'>心脑血管</a>
-				<a href='https://www.yao123.com/category_70'>高血压</a>
-				<a href='https://www.yao123.com/category_71'>脑血管病</a>
-				<a href='https://www.yao123.com/category_72'>冠心病</a>
-				<a href='https://www.yao123.com/category_73'>高血脂</a>
-				<a href='https://www.yao123.com/category_74'>心绞痛</a>
-				<a href='https://www.yao123.com/category_75'>静脉曲张</a>
-				<a href='https://www.yao123.com/category_76'>血液疾病</a>
-				<a href='https://www.yao123.com/category_77'>低血压</a>
-			<a href='https://www.yao123.com/category_8'>滋补调养</a>
-				<a href='https://www.yao123.com/category_24'>补肾壮阳</a>
-				<a href='https://www.yao123.com/category_23'>补血补气</a>
-				<a href='https://www.yao123.com/category_9'>免疫调节</a>
-				<a href='https://www.yao123.com/category_68'>增强抵抗力</a>
-				<a href='https://www.yao123.com/category_69'>安神助眠</a>
-				<a href='https://www.yao123.com/category_56'>减肥瘦身</a>
-			<a href='https://www.yao123.com/category_30'>风湿骨科</a>
-				<a href='https://www.yao123.com/category_45'>腰椎病</a>
-				<a href='https://www.yao123.com/category_46'>跌打损伤</a>
-				<a href='https://www.yao123.com/category_92'>风湿类风湿</a>
-				<a href='https://www.yao123.com/category_93'>骨关节炎</a>
-				<a href='https://www.yao123.com/category_94'>骨质疏松</a>
-				<a href='https://www.yao123.com/category_95'>痛风</a>
-				<a href='https://www.yao123.com/category_96'>外用贴膏</a>
-			<a href='https://www.yao123.com/category_32'>妇科疾病</a>
-				<a href='https://www.yao123.com/category_51'>保胎促孕</a>
-				<a href='https://www.yao123.com/category_55'>阴道炎</a>
-				<a href='https://www.yao123.com/category_134'>月经不调</a>
-				<a href='https://www.yao123.com/category_135'>避孕</a>
-				<a href='https://www.yao123.com/category_136'>更年期</a>
-				<a href='https://www.yao123.com/category_137'>子宫疾病</a>
-				<a href='https://www.yao123.com/category_138'>乳腺疾病</a>
-			<a href='https://www.yao123.com/category_33'>五官科</a>
-				<a href='https://www.yao123.com/category_34'>咽喉炎</a>
-				<a href='https://www.yao123.com/category_35'>眼部炎症</a>
-				<a href='https://www.yao123.com/category_36'>鼻炎</a>
-				<a href='https://www.yao123.com/category_129'>眼干眼涩</a>
-				<a href='https://www.yao123.com/category_130'>白内障</a>
-				<a href='https://www.yao123.com/category_131'>耳聋耳鸣</a>
-				<a href='https://www.yao123.com/category_132'>牙周疾病</a>
-				<a href='https://www.yao123.com/category_133'>口腔溃疡</a>
-			<a href='https://www.yao123.com/category_59'>男性疾病</a>
-				<a href='https://www.yao123.com/category_62'>性功能障碍</a>
-				<a href='https://www.yao123.com/category_63'>男性不育症</a>
-				<a href='https://www.yao123.com/category_64'>前列腺炎</a>
-				<a href='https://www.yao123.com/category_65'>肾病</a>
-				<a href='https://www.yao123.com/category_66'>泌尿系统疾病</a>
-				<a href='https://www.yao123.com/category_67'>补肾</a>
-			<a href='https://www.yao123.com/category_61'>神经系统</a>
-				<a href='https://www.yao123.com/category_78'>抑郁症</a>
-				<a href='https://www.yao123.com/category_79'>癫痫</a>
-				<a href='https://www.yao123.com/category_80'>帕金森</a>
-				<a href='https://www.yao123.com/category_81'>精神分裂症</a>
-				<a href='https://www.yao123.com/category_82'>老年痴呆</a>
-				<a href='https://www.yao123.com/category_83'>失眠</a>
-				<a href='https://www.yao123.com/category_84'>中风</a>
-				<a href='https://www.yao123.com/category_85'>神经性疼痛</a>
-				<a href='https://www.yao123.com/category_86'>多动症</a>
-			<a href='https://www.yao123.com/category_87'>内分泌科</a>
-				<a href='https://www.yao123.com/category_88'>糖尿病</a>
-				<a href='https://www.yao123.com/category_89'>抗感染</a>
-				<a href='https://www.yao123.com/category_90'>抗病毒</a>
-				<a href='https://www.yao123.com/category_91'>甲状腺疾病</a>
-			<a href='https://www.yao123.com/category_104'>呼吸道疾病</a>
-				<a href='https://www.yao123.com/category_105'>感冒发烧</a>
-				<a href='https://www.yao123.com/category_106'>咳嗽</a>
-				<a href='https://www.yao123.com/category_107'>上火</a>
-				<a href='https://www.yao123.com/category_108'>小儿感冒</a>
-				<a href='https://www.yao123.com/category_109'>哮喘</a>
-				<a href='https://www.yao123.com/category_110'>支气管炎</a>
-				<a href='https://www.yao123.com/category_111'>慢阻肺</a>
-			<a href='https://www.yao123.com/category_112'>肝病科</a>
-				<a href='https://www.yao123.com/category_113'>乙肝</a>
-				<a href='https://www.yao123.com/category_114'>保肝护肝</a>
-				<a href='https://www.yao123.com/category_115'>肝纤维化肝硬化</a>
-				<a href='https://www.yao123.com/category_116'>胆结石</a>
-				<a href='https://www.yao123.com/category_9'>免疫调节</a>
-				<a href='https://www.yao123.com/category_118'>胆道疾病</a>
-			<a href='https://www.yao123.com/category_119'>消化系统疾病</a>
-				<a href='https://www.yao123.com/category_120'>胃炎</a>
-				<a href='https://www.yao123.com/category_121'>胃肠溃疡</a>
-				<a href='https://www.yao123.com/category_122'>结肠炎</a>
-				<a href='https://www.yao123.com/category_123'>消化不良</a>
-				<a href='https://www.yao123.com/category_124'>便秘</a>
-				<a href='https://www.yao123.com/category_125'>腹泻</a>
-				<a href='https://www.yao123.com/category_126'>蛔虫病</a>
-				<a href='https://www.yao123.com/category_127'>痔疮</a>
-				<a href='https://www.yao123.com/category_128'>小儿肠胃病</a>
-			<a href='https://www.yao123.com/category_140'>肿瘤科</a>
-				<a href='https://www.yao123.com/category_141'>肺癌</a>
-				<a href='https://www.yao123.com/category_142'>肝癌</a>
-				<a href='https://www.yao123.com/category_143'>胃癌</a>
-				<a href='https://www.yao123.com/category_144'>食道癌</a>
-				<a href='https://www.yao123.com/category_145'>淋巴癌</a>
-				<a href='https://www.yao123.com/category_147'>白血病</a>
-				<a href='https://www.yao123.com/category_148'>乳腺癌</a>
-				<a href='https://www.yao123.com/category_150'>化疗提高营养</a>
-			<a href='https://www.yao123.com/category_209'>皮肤病</a>
-				<a href='https://www.yao123.com/category_210'>皮肤瘙痒症</a>
-				<a href='https://www.yao123.com/category_211'>白癜风</a>
-				<a href='https://www.yao123.com/category_212'>银屑病</a>
-				<a href='https://www.yao123.com/category_213'>痤疮</a>
-				<a href='https://www.yao123.com/category_214'>疤痕</a>
-				<a href='https://www.yao123.com/category_215'>脱发</a>
-				<a href='https://www.yao123.com/category_216'>灰指甲</a>
-				<a href='https://www.yao123.com/category_217'>黄褐斑</a>
-		<a href='https://www.yao123.com/category_30'>风湿骨科</a>
-			<a href='https://www.yao123.com/category_45'>腰椎病</a>
-			<a href='https://www.yao123.com/category_46'>跌打损伤</a>
-			<a href='https://www.yao123.com/category_92'>风湿类风湿</a>
-			<a href='https://www.yao123.com/category_93'>骨关节炎</a>
-			<a href='https://www.yao123.com/category_94'>骨质疏松</a>
-			<a href='https://www.yao123.com/category_95'>痛风</a>
-			<a href='https://www.yao123.com/category_96'>外用贴膏</a>
-		<a href='https://www.yao123.com/category_47'>医疗器械/电器</a>
-			<a href='https://www.yao123.com/category_139'>血糖用品</a>
-				<a href='https://www.yao123.com/category_149'>血糖试纸</a>
-				<a href='https://www.yao123.com/category_151'>血糖仪+试纸套装</a>
-				<a href='/search?keyword=血糖仪'>血糖仪</a>
-			<a href='https://www.yao123.com/category_152'>血压计</a>
-				<a href='https://www.yao123.com/category_153'>上臂式血压计</a>
-				<a href='https://www.yao123.com/category_154'>腕式血压计</a>
-			<a href='https://www.yao123.com/category_157'>日常监测</a>
-				<a href='https://www.yao123.com/category_158'> 体温计/体温枪</a>
-				<a href='https://www.yao123.com/category_159'>体重秤</a>
-				<a href='https://www.yao123.com/category_160'>计步器/脂肪检测仪</a>
-				<a href='https://www.yao123.com/category_164'>胎心仪</a>
-			<a href='https://www.yao123.com/category_169'>家庭常备</a>
-				<a href='https://www.yao123.com/category_170'>创可贴</a>
-				<a href='https://www.yao123.com/category_172'>药箱/药包</a>
-				<a href='https://www.yao123.com/category_173'>绷带/纱布/胶带</a>
-				<a href='https://www.yao123.com/category_179'>口罩</a>
-				<a href='https://www.yao123.com/category_180'>鼻腔喷雾器</a>
-			<a href='https://www.yao123.com/category_183'>康复理疗</a>
-				<a href='https://www.yao123.com/category_184'>电磁治疗仪</a>
-				<a href='https://www.yao123.com/category_185'>制氧机</a>
-				<a href='https://www.yao123.com/category_186'> 呼吸机</a>
-				<a href='https://www.yao123.com/category_187'>雾化器</a>
-			<a href='https://www.yao123.com/category_190'>辅助理疗</a>
-				<a href='/search?keyword=俞兆林'>针灸/拔罐</a>
-				<a href='https://www.yao123.com/category_192'>止痛贴</a>
-				<a href='https://www.yao123.com/category_193'>理疗贴</a>
-			<a href='https://www.yao123.com/category_198'>护具系列</a>
-				<a href='https://www.yao123.com/category_199'>护膝/护踝</a>
-				<a href='https://www.yao123.com/category_200'>护腰</a>
-				<a href='https://www.yao123.com/category_201'>护颈/护肩</a>
-				<a href='https://www.yao123.com/category_202'>护肘/护腕</a>
-			<a href='https://www.yao123.com/category_203'>辅助器材</a>
-				<a href='https://www.yao123.com/category_204'>助听器</a>
-				<a href='https://www.yao123.com/category_205'>轮椅</a>
-				<a href='/search?keyword=洗澡椅'>洗澡椅/坐便器</a>
-				<a href='https://www.yao123.com/category_207'>拐杖/助行器</a>
-				<a href='https://www.yao123.com/category_208'>防褥疮垫</a>
-			<a href='https://www.yao123.com/category_257'>生活电器</a>
-				<a href='https://www.yao123.com/category_428'>空气净化器</a>
-				<a href='https://www.yao123.com/category_429'>加湿器</a>
-				<a href='https://www.yao123.com/category_430'>净水设备</a>
-				<a href='https://www.yao123.com/category_431'>保温杯/壶</a>
-				<a href='https://www.yao123.com/category_432'>口腔护理</a>
-				<a href='https://www.yao123.com/category_433'>吸尘器</a>
-				<a href='https://www.yao123.com/category_434'>电吹风</a>
-				<a href='https://www.yao123.com/category_436'>剃/脱毛器</a>
-				<a href='https://www.yao123.com/category_435'>剃须刀</a>
-				<a href='https://www.yao123.com/category_824'>手机/电脑/数码</a>
-				<a href='https://www.yao123.com/category_840'>手表</a>
-				<a href='https://www.yao123.com/category_437'>其他生活电器</a>
-			<a href='https://www.yao123.com/category_258'>厨房电器</a>
-				<a href='https://www.yao123.com/category_438'>电饭煲</a>
-				<a href='https://www.yao123.com/category_439'>电炖锅</a>
-				<a href='/search?keyword=豆浆机'>豆浆机</a>
-				<a href='/search?keyword=焖烧杯'>电热饭盒/焖烧杯</a>
-				<a href='https://www.yao123.com/category_802'>电水壶</a>
-				<a href='https://www.yao123.com/category_443'>搅拌/料理机</a>
-				<a href='https://www.yao123.com/category_444'>多用途锅</a>
-				<a href='https://www.yao123.com/category_445'>电热火锅/电磁炉</a>
-				<a href='https://www.yao123.com/category_801'>洗碗机</a>
-				<a href='/search?keyword=搅拌器'>电动打蛋器</a>
-				<a href='https://www.yao123.com/category_448'>电烤箱/微波炉</a>
-				<a href='https://www.yao123.com/category_449'>其他厨房电器</a>
-			<a href='https://www.yao123.com/category_259'>健康家电</a>
-				<a href='https://www.yao123.com/category_451'>按摩器</a>
-				<a href='/search/257?keyword=足浴盆'>足浴盆</a>
-				<a href='/search?keyword=护眼灯'>护眼灯</a>
-				<a href='https://www.yao123.com/category_455'>美容仪/按摩仪</a>
-				<a href='https://www.yao123.com/category_457'>按摩椅</a>
-				<a href='https://www.yao123.com/category_459'>养生壶/机</a>
-				<a href='https://www.yao123.com/category_456'>甩脂仪</a>
-				<a href='https://www.yao123.com/category_454'>跑步机</a>
-				<a href='https://www.yao123.com/category_460'>其他健康家电</a>
-		<a href='https://www.yao123.com/category_260'>养生保健</a>
-			<a href='https://www.yao123.com/category_261'>基础营养</a>
-				<a href='https://www.yao123.com/category_461'>提高免疫</a>
-				<a href='https://www.yao123.com/category_462'>健脑益智</a>
-				<a href='https://www.yao123.com/category_463'>肠胃保健</a>
-				<a href='https://www.yao123.com/category_464'>改善视力</a>
-				<a href='https://www.yao123.com/category_465'>清咽润喉</a>
-				<a href='https://www.yao123.com/category_466'>润肠通便</a>
-			<a href='https://www.yao123.com/category_263'>强健男人</a>
-				<a href='https://www.yao123.com/category_474'>前列腺养护</a>
-				<a href='https://www.yao123.com/category_475'>缓解疲劳</a>
-				<a href='https://www.yao123.com/category_476'>解酒护肝</a>
-				<a href='https://www.yao123.com/category_477'>提升精力</a>
-				<a href='https://www.yao123.com/category_478'>健康塑身</a>
-			<a href='https://www.yao123.com/category_264'>完美女人</a>
-				<a href='https://www.yao123.com/category_479'>减肥瘦身</a>
-				<a href='https://www.yao123.com/category_480'>延缓衰老</a>
-				<a href='https://www.yao123.com/category_481'>滋阴补血</a>
-				<a href='https://www.yao123.com/category_482'>美白祛斑</a>
-				<a href='https://www.yao123.com/category_483'>调节内分泌</a>
-			<a href='https://www.yao123.com/category_268'>营养素</a>
-				<a href='https://www.yao123.com/category_491'>维生素/矿物质</a>
-				<a href='https://www.yao123.com/category_492'>蛋白质</a>
-				<a href='https://www.yao123.com/category_493'>鱼油/磷脂</a>
-				<a href='https://www.yao123.com/category_494'>螺旋藻</a>
-				<a href='https://www.yao123.com/category_495'>番茄红素</a>
-				<a href='https://www.yao123.com/category_496'>叶酸</a>
-				<a href='https://www.yao123.com/category_498'>左旋肉碱</a>
-				<a href='https://www.yao123.com/category_499'>辅酶Q10</a>
-				<a href='https://www.yao123.com/category_500'>玛咖</a>
-				<a href='https://www.yao123.com/category_501'>膳食纤维</a>
-				<a href='https://www.yao123.com/category_502'>牛初乳</a>
-				<a href='https://www.yao123.com/category_503'>胶原蛋白</a>
-				<a href='https://www.yao123.com/category_504'>大豆异黄酮</a>
-				<a href='https://www.yao123.com/category_505'>芦荟提取酵素</a>
-				<a href='https://www.yao123.com/category_506'>酵素</a>
-			<a href='https://www.yao123.com/category_262'>健康爸妈</a>
-				<a href='https://www.yao123.com/category_467'>调节三高</a>
-				<a href='https://www.yao123.com/category_468'>改善睡眠</a>
-				<a href='https://www.yao123.com/category_469'>润肠通便</a>
-				<a href='https://www.yao123.com/category_470'>骨骼健康</a>
-				<a href='https://www.yao123.com/category_471'>肠胃保健</a>
-				<a href='https://www.yao123.com/category_472'>改善视力</a>
-				<a href='https://www.yao123.com/category_473'>改善记忆力</a>
-			<a href='https://www.yao123.com/category_265'>快乐宝贝</a>
-				<a href='https://www.yao123.com/category_485'>提高免疫</a>
-				<a href='https://www.yao123.com/category_486'>健脑益智</a>
-				<a href='https://www.yao123.com/category_487'>保护视力</a>
-				<a href='https://www.yao123.com/category_488'>改善偏食厌食</a>
-			<a href='https://www.yao123.com/category_267'>孕婴营养</a>
-				<a href='https://www.yao123.com/category_489'>孕妇营养</a>
-			<a href='https://www.yao123.com/category_789'>食品</a>
-				<a href='https://www.yao123.com/category_798'>养生食品</a>
-		<a href='https://www.yao123.com/category_246'>母婴专区</a>
-			<a href='https://www.yao123.com/category_250'>喂养器具</a>
-				<a href='https://www.yao123.com/category_362'>奶瓶</a>
-				<a href='https://www.yao123.com/category_363'>奶嘴</a>
-				<a href='https://www.yao123.com/category_365'>水杯/餐具</a>
-				<a href='https://www.yao123.com/category_792'>牙胶安抚</a>
-				<a href='https://www.yao123.com/category_791'>食物存储</a>
-			<a href='https://www.yao123.com/category_368'>护理用品</a>
-			<a href='https://www.yao123.com/category_367'>洗浴用品</a>
-			<a href='https://www.yao123.com/category_787'>童车童床</a>
-			<a href='https://www.yao123.com/category_805'>成人尿裤</a>
-			<a href='https://www.yao123.com/category_832'>玩具乐器</a>
-			<a href='https://www.yao123.com/category_249'>尿片湿巾</a>
-		<a href='https://www.yao123.com/category_237'>美妆百货</a>
-			<a href='https://www.yao123.com/category_242'>个人洗护</a>
-				<a href='https://www.yao123.com/category_294'>洗发水</a>
-				<a href='https://www.yao123.com/category_295'>护发素/发膜</a>
-				<a href='https://www.yao123.com/category_296'>洗护套装</a>
-				<a href='https://www.yao123.com/category_297'>沐浴露</a>
-				<a href='https://www.yao123.com/category_298'>香皂</a>
-				<a href='https://www.yao123.com/category_299'>身体护理</a>
-			<a href='https://www.yao123.com/category_243'>口腔护理</a>
-				<a href='https://www.yao123.com/category_300'>牙膏</a>
-				<a href='https://www.yao123.com/category_301'>牙刷</a>
-				<a href='https://www.yao123.com/category_302'>漱口水</a>
-				<a href='https://www.yao123.com/category_307'>牙线</a>
-				<a href='https://www.yao123.com/category_308'>假牙清洁</a>
-			<a href='https://www.yao123.com/category_244'>女性护理</a>
-				<a href='https://www.yao123.com/category_309'>卫生巾</a>
-				<a href='https://www.yao123.com/category_310'>护垫/棉条</a>
-				<a href='https://www.yao123.com/category_311'>私处洗液</a>
-				<a href='https://www.yao123.com/category_312'>脱毛膏</a>
-			<a href='https://www.yao123.com/category_245'>生活用品</a>
-				<a href='https://www.yao123.com/category_784'>床垫</a>
-				<a href='https://www.yao123.com/category_783'>枕头</a>
-				<a href='https://www.yao123.com/category_314'>洗手液</a>
-				<a href='https://www.yao123.com/category_315'>洗洁精/油污净</a>
-				<a href='https://www.yao123.com/category_316'>洁厕液/洁厕宝</a>
-				<a href='https://www.yao123.com/category_317'>纸制品</a>
-				<a href='https://www.yao123.com/category_318'>洗衣粉/洗衣液/柔顺剂</a>
-				<a href='https://www.yao123.com/category_747'>防护用品</a>
-				<a href='https://www.yao123.com/category_748'>家电清洁</a>
-				<a href='https://www.yao123.com/category_775'>除螨帖</a>
-				<a href='https://www.yao123.com/category_780'>驱蚊片</a>
-				<a href='https://www.yao123.com/category_781'>驱蚊器</a>
-				<a href='https://www.yao123.com/category_764'>晴雨伞</a>
-				<a href='https://www.yao123.com/category_829'>除臭/除味 芳香用品</a>
-				<a href='https://www.yao123.com/category_830'>干洗剂/清洁剂/抛光剂</a>
-				<a href='https://www.yao123.com/category_831'>拖把</a>
-				<a href='https://www.yao123.com/category_834'>厨具</a>
-			<a href='https://www.yao123.com/category_239'>护肤品</a>
-				<a href='https://www.yao123.com/category_269'>洁面</a>
-				<a href='https://www.yao123.com/category_270'>化妆水/爽肤水</a>
-				<a href='https://www.yao123.com/category_271'>精华液</a>
-				<a href='https://www.yao123.com/category_272'>面霜/乳液</a>
-				<a href='https://www.yao123.com/category_273'>眼霜</a>
-				<a href='https://www.yao123.com/category_274'>护肤套装</a>
-				<a href='https://www.yao123.com/category_275'>面膜</a>
-				<a href='https://www.yao123.com/category_276'>喷雾</a>
-				<a href='https://www.yao123.com/category_277'>防晒隔离</a>
-			<a href='https://www.yao123.com/category_240'>彩妆</a>
-				<a href='https://www.yao123.com/category_288'>唇膏</a>
-				<a href='https://www.yao123.com/category_289'>卸妆</a>
-				<a href='https://www.yao123.com/category_282'>散粉蜜粉</a>
-				<a href='https://www.yao123.com/category_285'>眼线笔/眼线液</a>
-				<a href='https://www.yao123.com/category_286'>睫毛膏</a>
-				<a href='https://www.yao123.com/category_279'>粉饼</a>
-			<a href='https://www.yao123.com/category_241'>香水香氛</a>
-				<a href='https://www.yao123.com/category_291'>女士香水</a>
-			<a href='https://www.yao123.com/category_796'>休闲食品</a>
-				<a href='https://www.yao123.com/category_833'>食品礼券</a>
-				<a href='https://www.yao123.com/category_797'>巧克力</a>
-				<a href='https://www.yao123.com/category_800'>食品</a>
-			<a href='https://www.yao123.com/category_841'>家纺</a>
-				<a href='https://www.yao123.com/category_842'>床上用品</a>
-		<a href='https://www.yao123.com/category_232'>隐形眼镜</a>
-			<a href='https://www.yao123.com/category_233'>普通隐形眼镜</a>
-				<a href='https://www.yao123.com/category_319'>强生</a>
-				<a href='https://www.yao123.com/category_320'>海昌</a>
-				<a href='https://www.yao123.com/category_321'>博士伦</a>
-				<a href='https://www.yao123.com/category_323'>卫康</a>
-				<a href='https://www.yao123.com/category_322'>视康</a>
-				<a href='https://www.yao123.com/category_326'>库博/酷柏</a>
-				<a href='https://www.yao123.com/category_755'>KKR</a>
-				<a href='https://www.yao123.com/category_754'>SAP</a>
-			<a href='https://www.yao123.com/category_234'>彩色隐形眼镜</a>
-				<a href='https://www.yao123.com/category_327'>强生</a>
-				<a href='https://www.yao123.com/category_328'>博士伦</a>
-				<a href='https://www.yao123.com/category_334'>海昌</a>
-				<a href='https://www.yao123.com/category_331'>视康</a>
-				<a href='https://www.yao123.com/category_815'>实瞳/SEED</a>
-				<a href='https://www.yao123.com/category_338'>海俪恩</a>
-				<a href='https://www.yao123.com/category_325'>科莱博</a>
-				<a href='https://www.yao123.com/category_750'>KKR</a>
-				<a href='https://www.yao123.com/category_756'>SAP</a>
-				<a href='https://www.yao123.com/category_820'>绮芙莉</a>
-			<a href='https://www.yao123.com/category_235'>护理专区</a>
-				<a href='https://www.yao123.com/category_339'>护理液</a>
-				<a href='https://www.yao123.com/category_340'>润眼液</a>
-				<a href='https://www.yao123.com/category_341'>眼镜伴侣</a>
-			<a href='/search?keyword=隐形眼镜'>佩戴周期</a>
-				<a href='/search?keyword=日抛'>日抛</a>
-				<a href='/search?keyword=双周抛'>双周抛</a>
-				<a href='/search?keyword=月抛'>月抛</a>
-				<a href='/search?keyword=半年抛'>半年抛</a>
-				<a href='/search?keyword=年抛'>年抛</a>
-		<a href='https://www.yao123.com/category_53'>计生用品</a>
-			<a href='https://www.yao123.com/category_54'>避孕套</a>
-				<a href='https://www.yao123.com/category_97'>杜蕾斯</a>
-				<a href='https://www.yao123.com/category_218'>冈本</a>
-				<a href='https://www.yao123.com/category_818'>名流</a>
-				<a href='https://www.yao123.com/category_751'>倍力乐</a>
-			<a href='https://www.yao123.com/category_58'>情趣用品</a>
-				<a href='https://www.yao123.com/category_224'>震动棒/震动环/情趣跳蛋</a>
-				<a href='https://www.yao123.com/category_225'>润滑液/按摩油</a>
-				<a href='https://www.yao123.com/category_226'>飞机杯</a>
-				<a href='https://www.yao123.com/category_228'>延时产品</a>
-				<a href='https://www.yao123.com/category_227'>缩阴球</a>
-				<a href='https://www.yao123.com/category_231'>其他</a>
-	</div>
+<body>  
+<div class="bigdiv">
+<!--Begin Header Begin-->
+<div class="soubg">
+	<div class="sou">
+    	<!--Begin 所在收货地区 Begin-->
+    	<span class="s_city_b">
+        	<span class="fl">送货至：</span>
+            <span class="s_city">
+            	<span>四川</span>
+                <div class="s_city_bg">
+                	<div class="s_city_t"></div>
+                    <div class="s_city_c">
+                    	<h2>请选择所在的收货地区</h2>
+                        <table border="0" class="c_tab" style="width:235px; margin-top:10px;" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <th>A</th>
+                            <td class="c_h"><span>安徽</span><span>澳门</span></td>
+                          </tr>
+                          <tr>
+                            <th>B</th>
+                            <td class="c_h"><span>北京</span></td>
+                          </tr>
+                          <tr>
+                            <th>C</th>
+                            <td class="c_h"><span>重庆</span></td>
+                          </tr>
+                          <tr>
+                            <th>F</th>
+                            <td class="c_h"><span>福建</span></td>
+                          </tr>
+                          <tr>
+                            <th>G</th>
+                            <td class="c_h"><span>广东</span><span>广西</span><span>贵州</span><span>甘肃</span></td>
+                          </tr>
+                          <tr>
+                            <th>H</th>
+                            <td class="c_h"><span>河北</span><span>河南</span><span>黑龙江</span><span>海南</span><span>湖北</span><span>湖南</span></td>
+                          </tr>
+                          <tr>
+                            <th>J</th>
+                            <td class="c_h"><span>江苏</span><span>吉林</span><span>江西</span></td>
+                          </tr>
+                          <tr>
+                            <th>L</th>
+                            <td class="c_h"><span>辽宁</span></td>
+                          </tr>
+                          <tr>
+                            <th>N</th>
+                            <td class="c_h"><span>内蒙古</span><span>宁夏</span></td>
+                          </tr>
+                          <tr>
+                            <th>Q</th>
+                            <td class="c_h"><span>青海</span></td>
+                          </tr>
+                          <tr>
+                            <th>S</th>
+                            <td class="c_h"><span>上海</span><span>山东</span><span>山西</span><span class="c_check">四川</span><span>陕西</span></td>
+                          </tr>
+                          <tr>
+                            <th>T</th>
+                            <td class="c_h"><span>台湾</span><span>天津</span></td>
+                          </tr>
+                          <tr>
+                            <th>X</th>
+                            <td class="c_h"><span>西藏</span><span>香港</span><span>新疆</span></td>
+                          </tr>
+                          <tr>
+                            <th>Y</th>
+                            <td class="c_h"><span>云南</span></td>
+                          </tr>
+                          <tr>
+                            <th>Z</th>
+                            <td class="c_h"><span>浙江</span></td>
+                          </tr>
+                        </table>
+                    </div>
+                </div>
+            </span>
+        </span>
+        <!--End 所在收货地区 End-->
+        <span class="fr">
+        	<span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+        	<span class="ss">
+            	<div class="ss_list">
+                	<a href="#">收藏夹</a>
+                    <div class="ss_list_bg">
+                    	<div class="s_city_t"></div>
+                        <div class="ss_list_c">
+                        	<ul>
+                            	<li><a href="#">我的收藏夹</a></li>
+                                <li><a href="#">我的收藏夹</a></li>
+                            </ul>
+                        </div>
+                    </div>     
+                </div>
+                <div class="ss_list">
+                	<a href="#">客户服务</a>
+                    <div class="ss_list_bg">
+                    	<div class="s_city_t"></div>
+                        <div class="ss_list_c">
+                        	<ul>
+                            	<li><a href="#">客户服务</a></li>
+                                <li><a href="#">客户服务</a></li>
+                                <li><a href="#">客户服务</a></li>
+                            </ul>
+                        </div>
+                    </div>    
+                </div>
+                <div class="ss_list">
+                	<a href="#">网站导航</a>
+                    <div class="ss_list_bg">
+                    	<div class="s_city_t"></div>
+                        <div class="ss_list_c">
+                        	<ul>
+                            	<li><a href="#">网站导航</a></li>
+                                <li><a href="#">网站导航</a></li>
+                            </ul>
+                        </div>
+                    </div>    
+                </div>
+            </span>
+            <span class="fl">|&nbsp;关注我们：</span>
+            <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
+            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/index/s_tel.png" align="absmiddle" /></a></span>
+        </span>
+    </div>
+</div>
+<div class="top">
+    <div class="logo"><a href="Index.html"><img src="images/index/logo.png" /></a></div>
+    <div class="search">
+    	<form>
+        	<input type="text" value="" class="s_ipt" />
+            <input type="submit" value="搜索" class="s_btn" />
+        </form>                      
+        <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
+    </div>
+    <div class="i_car">
+    	<div class="car_t">购物车 [ <span>3</span> ]</div>
+        <div class="car_bg">
+       		<!--Begin 购物车未登录 Begin-->
+        	<div class="un_login">还未登录！<a href="Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+            <!--End 购物车未登录 End-->
+            <!--Begin 购物车已登录 Begin-->
+            <ul class="cars">
+            	<li>
+                	<div class="img"><a href="#"><img src="images/index/car1.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
+                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                </li>
+                <li>
+                	<div class="img"><a href="#"><img src="images/index/car2.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
+                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                </li>
+                <li>
+                	<div class="img"><a href="#"><img src="images/index/car2.jpg" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
+                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                </li>
+            </ul>
+            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
+            <div class="price_a"><a href="#">去购物车结算</a></div>
+            <!--End 购物车已登录 End-->
+        </div>
+    </div>
+</div>
+<!--End Header End--> 
+<!--Begin Menu Begin-->
+<div class="menu_bg">
+	<div class="menu">
+    	<!--Begin 商品分类详情 Begin-->    
+    	<div class="nav">
+        	<div class="nav_t">全部商品分类</div>
+            <div class="leftNav">
+                <ul>      
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/index/nav1.png" /></span>
+                            <span class="fl">进口食品、生鲜</span>
+                        </div>
+                        <div class="zj">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/index/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/index/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/index/nav2.png" /></span>
+                            <span class="fl">食品、饮料、酒</span>
+                        </div>
+                        <div class="zj" style="top:-40px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力2</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/index/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/index/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/index/nav3.png" /></span>
+                            <span class="fl">母婴、玩具、童装</span>
+                        </div>
+                        <div class="zj" style="top:-80px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力3</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/index/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/index/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/index/nav4.png" /></span>
+                            <span class="fl">家居、家庭清洁、纸品</span>
+                        </div>
+                        <div class="zj" style="top:-120px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力4</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/index/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/index/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/index/nav5.png" /></span>
+                            <span class="fl">美妆、个人护理、洗护</span>
+                        </div>
+                        <div class="zj" style="top:-160px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力5</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/index/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/index/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/index/nav6.png" /></span>
+                            <span class="fl">女装、内衣、中老年</span>
+                        </div>
+                        <div class="zj" style="top:-200px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力6</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/index/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/index/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/index/nav7.png" /></span>
+                            <span class="fl">鞋靴、箱包、腕表配饰</span>
+                        </div>
+                        <div class="zj" style="top:-240px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力7</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/index/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/index/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/index/nav8.png" /></span>
+                            <span class="fl">男装、运动</span>
+                        </div>
+                        <div class="zj" style="top:-280px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力8</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/index/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/index/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/index/nav9.png" /></span>
+                            <span class="fl">手机、小家电、电脑</span>
+                        </div>
+                        <div class="zj" style="top:-320px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力9</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/index/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/index/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>                    
+                    <li>
+                    	<div class="fj">
+                        	<span class="n_img"><span></span><img src="images/index/nav10.png" /></span>
+                            <span class="fl">礼品、充值</span>
+                        </div>
+                        <div class="zj" style="top:-360px;">
+                            <div class="zj_l">
+                                <div class="zj_l_c">
+                                    <h2>零食 / 糖果 / 巧克力10</h2>
+                                    <a href="#">坚果</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">巧克力</a>|
+                                    <a href="#">口香糖</a>|<a href="#">海苔</a>|<a href="#">鱼干</a>|<a href="#">蜜饯</a>|<a href="#">红枣</a>|
+                                    <a href="#">蜜饯</a>|<a href="#">红枣</a>|<a href="#">牛肉干</a>|<a href="#">蜜饯</a>|
+                                </div>
+                            </div>
+                            <div class="zj_r">
+                                <a href="#"><img src="images/index/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="images/index/n_img2.jpg" width="236" height="200" /></a>
+                            </div>
+                        </div>
+                    </li>                    	
+                </ul>            
+            </div>
+        </div>  
+        <!--End 商品分类详情 End-->                                                     
+    	<ul class="menu_r">                                                                                                                                               
+        	<li><a href="Index.html">首页</a></li>
+            <li><a href="Food.html">美食</a></li>
+            <li><a href="Fresh.html">生鲜</a></li>
+            <li><a href="HomeDecoration.html">家居</a></li>
+            <li><a href="SuitDress.html">女装</a></li>
+            <li><a href="MakeUp.html">美妆</a></li>
+            <li><a href="Digital.html">数码</a></li>
+            <li><a href="GroupBuying.html">团购</a></li>
+        </ul>
+        <div class="m_ad">中秋送好礼！</div>
+    </div>
+</div>
+<!--End Menu End--> 
+
+    
+    <!-- 上面为头部盒子 -->
+	
 	<div class="index">
 		<div class="focus" style="background-color: #7ac3f0;">
 			<div>
@@ -2433,7 +2505,7 @@
 	</div>
 	<!-- 尾页开始 -->
 	<div class="footer">
-	<img width="218" style="display:none;" alt="国药网,网上药店" src="https://www.yao123.com/static/image/logo/logo.png">
+	<img width="218" style="display:none;" alt="国药网,网上药店" src="">
 	<div class="slogen">
 		<div class="w1200" style="width: 900px;">
 			<ul style="slogen_li">
@@ -2596,15 +2668,14 @@
 	</div>
 	</div>
 	<!-- 尾页结束 -->
-	<script src="https://www.yao123.com/static/lib/jquery/jquery.js"
+	<script src="js/index/jquery.js"
 		type="text/javascript"></script>
-	<script src="https://www.yao123.com/static/lib/jquery/jquery.color.js"
+	<script src="js/index/jquery.color.js"
 		type="text/javascript"></script>
-	<script src="https://www.yao123.com/static/lib/owl-carousel/owl.carousel.min.js"
+	<script src="js/index/owl.carousel.min.js"
 		type="text/javascript"></script>
-	<script src="https://www.yao123.com/static/dist/script/base.js?version=20190509"
-		type="text/javascript"></script>
-	<script src="https://www.yao123.com/static/dist/script/index.js?version=20190509"
+	
+	<script src="js/index/index.js"
 		type="text/javascript"></script>
 	<!-- 百度统计代码 -->
 	<script>

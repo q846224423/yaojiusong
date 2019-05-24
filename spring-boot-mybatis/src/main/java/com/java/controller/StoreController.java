@@ -15,12 +15,11 @@ public class StoreController {
 
 	@Autowired
 	private StoreService ssi;
-	@RequestMapping("showmenu")
+	@RequestMapping("show")
 	public String showMenu(Model model) {
 		List<Menu1> list1 = ssi.getAllMenu();
-		model.addAttribute("list1",list1);
+		model.addAttribute("list",list1);
 		return "shouye";
-		
 	}
 	
 }

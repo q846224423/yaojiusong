@@ -45,6 +45,9 @@ public class StoreServiceImpl implements StoreService {
 				menu2.setChlidren(list3);
 				
 			}}	
+			///第一个名字
+			//list1.get(0)
+			//list1.get(0).getChlidren()
 			return 	list1;	
 	}
 
