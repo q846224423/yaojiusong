@@ -22,7 +22,7 @@ public interface DrugstoreMapper {
     int dsupdate(DrugStore drugStore);
     //门店添加数据
     @Insert("insert into `shop1`.`drugstore` (`yd_name`,`county_id`,`comment`,`regist_info`,`yd_statu`,`people_id`) values(#{yd_name},#{county_id},#{comment},#{regist_info},#{yd_statu},#{people_id})")
-    int dsinsert(DrugStore DrugStore);
+    int dsinsert(DrugStore drugStore);
     //门店删除数据
     @Delete("delete from drugstore where yd_id = #{id}")
     int dsdelete(int id);	
