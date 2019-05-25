@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.java.pojo.Doctor;
+import com.java.pojo.DrugStore;
 
 public interface DrugstoreMapper {
     //门店查询所有
@@ -18,10 +19,10 @@ public interface DrugstoreMapper {
     Doctor dsselectone(int id);
     //门店修改数据
     @Update("update `shop1`.`drugstore` set `yd_name` = #{yd_name},`county_id` = #{county_id},`comment` = #{comment},`regist_info` = #{regist_info},`yd_statu` = #{yd_statu},`people_id` = #{people_id} where `yd_id` = #{yd_id}")
-    int dsupdate(Doctor doctor);
+    int dsupdate(DrugStore drugStore);
     //门店添加数据
     @Insert("insert into `shop1`.`drugstore` (`yd_name`,`county_id`,`comment`,`regist_info`,`yd_statu`,`people_id`) values(#{yd_name},#{county_id},#{comment},#{regist_info},#{yd_statu},#{people_id})")
-    int dsinsert(Doctor doctor);
+    int dsinsert(DrugStore DrugStore);
     //门店删除数据
     @Delete("delete from drugstore where yd_id = #{id}")
     int dsdelete(int id);	
