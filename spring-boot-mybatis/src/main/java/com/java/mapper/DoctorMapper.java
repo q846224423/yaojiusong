@@ -11,7 +11,8 @@ import org.springframework.stereotype.Repository;
 import com.java.pojo.Doctor;
 @Repository
 public interface DoctorMapper {
-    //医生查询所有
+    
+	//医生查询所有
     @Select("select * from doctor")
     List<Doctor> selectall();
     //医生查询单条

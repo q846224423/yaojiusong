@@ -10,7 +10,9 @@ import com.java.pojo.Menu2;
 import com.java.pojo.Menu3;
 @Repository
 public interface StoreMapper {
-	/**@主页面的菜单
+	
+	/*
+	 *@主页面的菜单
 	 */
 	//所有1级药类
 	@Select("select * from menuone")
