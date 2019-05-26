@@ -16,13 +16,12 @@ public class DrugstoreServiceImpl implements DrugstoreService {
 	private DrugstoreMapper drugstoreMapper;
 
 	//门店查询所有
-	public List<Doctor> dsselectall() {
+	public List<DrugStore> dsselectall() {
 		return drugstoreMapper.dsselectall();
 	}
 
 	//门店查询单条
-	public Doctor dsselectone(int id) {
-		// TODO Auto-generated method stub
+	public DrugStore dsselectone(int id) {
 		return drugstoreMapper.dsselectone(id);
 	}
 
