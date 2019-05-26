@@ -11,50 +11,79 @@
 	margin: 0px;
 	padding: 0px;
 }
-
+   .biaoge{
+   background-color:rgb(240, 245, 241);
+   height: 80px;
+   	
+    border-top:1px solid  rgb(175, 174, 174);
+   }
 .cc {
 	background-color: rgb(240, 245, 241);
-	height: 60px;
-	line-height: 50px;
-	font-size: 25px;
-	font-weight: 550;
+	height: 45px;
+	line-height: 35px;
+	font-size: 20px;
+	font-weight: 500;
 }
 
 .cc span {
-	margin-left: 500px;
+	margin-left: 400px;
 }
 
 .span a {
 	text-decoration: none;
-	font-size: 20px;
-	font-weight: 300;
-	margin-left: -1050px;
+	font-size: 15px;
+	font-weight: 600;
+	margin-left: -870px;
+	color:rgb(175,175,175);
+	
 }
 
 .cla {
 	margin-left: 20px;
-	margin-top: 20px;
+	margin-top: 1px;
+	
 }
 
 .tab {
-	margin-left: 130px;
-	margin-top: -100px;
+	margin-left: 106px;
+	margin-top: -80px;
+	font-size: 13px;
 }
 
-.dier {
-	border-top: 1px solid rgb(221, 223, 224)
-}
+.sss{
+				height: 30px;
+				width: 60px;
+				background-color: rgb(8,194,207);
+				 text-align:center;
+				 line-height: 30px;
+				  border-radius: 8px;
+				  color: white;
+				 position: relative;
+				  left: 960px;
+				   top:-60px;
+				   font-size:13px;
+				   
+				  
+			}
+		.sss	a{
+				text-decoration: none;
+				 color: white;
+			}
+			.sss:hover{
+				background-color: rgb(4,176,188)
+				};
+
 </style>
 </head>
 <body>
 	 <div class="cc">
 		<span>医生列表</span><span class="span"><a href="ii">返回</a></span>
 	</div>
-	<div class="dier">
 	<c:forEach items="${yishishow}" var="show">
+	<div class="biaoge">
 	
 		<div class="cla">
-			<img src="img/${show.d_head}" style="height: 100px;">
+			<img src="img/${show.d_head}" style="height: 80px;">
 		</div>
 	
 		<table class="tab">
@@ -71,7 +100,10 @@
 				<td>${show.d_money}</td>
 			</tr>
 		</table>
+		<div class="sss">
+			<a href="">申请加号</a>
+		</div>
+		</div>
 		</c:forEach>
-	</div> 
 </body>
 </html>
