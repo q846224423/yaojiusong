@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html class=" js csstransforms3d"><head>
 	<meta charset="utf-8">
 	<meta name="renderer" content="webkit">
@@ -20,8 +21,7 @@
 <body style="background: #f6f5fa;">
 	<!--content S-->
 	<div class="super-content RightMain" id="RightMain">
-		
-		<div class="super-header clearfix">
+			<div class="super-header clearfix">
 			<h2>超级系统后台</h2>
 			<div class="head-right">
 				<i class="ico-user"></i>当前用户：
@@ -36,10 +36,9 @@
 				</div>
 			</div>
 		</div>
-		<!--header-->
 		<div class="superCtab">
 			<div class="cg-title clearfix">
-				<a href="javascript:;" class="default-add-btn newPdBtn"><i class="ico-add"></i>新建订单</a>
+				<a href="javascript:;" class="default-add-btn newPdBtn"><i class="ico-add"></i>添加用户</a>
 				<div class="searchBar">
 					<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
 					<input type="button" class="srhBtn" value="">
@@ -49,18 +48,17 @@
 				<div class="Mian-cont-wrap">
 					<div class="defaultTab-T">
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
-							<tbody><tr><th class="td_6">订单号</th><th class="td_7">用户id</th><th class="td_12">医生id</th><th class="td_8">处方筏</th><th class="td_11">问诊时间</th><th class="td_12">状态</th><th class="td_13">是否拿药</th><th class="td_10">操作</th></tr>
+							<tbody><tr><th class="td_6">用户姓名</th><th class="td_7">性别</th><th class="td_12">年龄</th><th class="td_8">联系电话</th><th class="td_11">收货地址</th><th class="td_12">身份证号码</th><th class="td_10">操作</th></tr>
 						</tbody></table>
 					</div>
 					<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 						<tbody><tr>
-							<td class="td_6">123</td>
-							<td class="td_7"><a href="#">123</a></td>
-							<td class="td_12">123</td>
-							<td class="td_8"><a href="#" class="txdoc">开</a></td>
-							<td class="td_11"><a href="super_cg_PinDao.html" class="txdoc">2019-1-1</a></td>
-							<td class="td_12">已问诊</td>
-							<td class="td_13">已取药</td>
+							<td class="td_6">张三</td>
+							<td class="td_7"><a href="#">男</a></td>
+							<td class="td_12">13</td>
+							<td class="td_8"><a href="#" class="txdoc">12345678901</a></td>
+							<td class="td_11"><a href="super_cg_PinDao.html" class="txdoc">翻斗小区一栋一单元</a></td>
+							<td class="td_12">21314131313131</td>
 							<td class="td_10"><div class="btn"><a href="javascript:;" class="modify cg-xiugai-a">修改</a></div><br><div class="btn"><a href="#" style="background: #ff980b; color: #fff;">删除</a></div></td>
 						</tr>
 						

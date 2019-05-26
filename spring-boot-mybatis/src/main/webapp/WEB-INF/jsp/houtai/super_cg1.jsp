@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html class=" js csstransforms3d"><head>
 	<meta charset="utf-8">
 	<meta name="renderer" content="webkit">
@@ -37,7 +39,7 @@
 		</div>
 		<div class="superCtab">
 			<div class="cg-title clearfix">
-				<a href="javascript:;" class="default-add-btn newPdBtn"><i class="ico-add"></i>添加用户</a>
+				<a href="javascript:;" class="default-add-btn newPdBtn"><i class="ico-add"></i>添加医师</a>
 				<div class="searchBar">
 					<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
 					<input type="button" class="srhBtn" value="">
@@ -47,17 +49,22 @@
 				<div class="Mian-cont-wrap">
 					<div class="defaultTab-T">
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
-							<tbody><tr><th class="td_6">用户姓名</th><th class="td_7">性别</th><th class="td_12">年龄</th><th class="td_8">联系电话</th><th class="td_11">收货地址</th><th class="td_12">身份证号码</th><th class="td_10">操作</th></tr>
+							<tbody><tr><th class="td_6">医师姓名</th><th class="td_7">性别</th><th class="td_12">年龄</th><th class="td_8">联系电话</th>
+								<th class="td_11">医师介绍</th><th class="td_12">医师职称</th><th class="td_13">科室科别</th><th class="td_14">医生状态</th><th class="td_10">操作</th></tr>
 						</tbody></table>
 					</div>
 					<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
-						<tbody><tr>
-							<td class="td_6">张三</td>
-							<td class="td_7"><a href="#">男</a></td>
-							<td class="td_12">13</td>
-							<td class="td_8"><a href="#" class="txdoc">12345678901</a></td>
-							<td class="td_11"><a href="super_cg_PinDao.html" class="txdoc">翻斗小区一栋一单元</a></td>
-							<td class="td_12">21314131313131</td>
+						<tbody>
+						<c:forEach items="${fj}" var="fj"></c:forEach>
+						<tr>
+							<td class="td_6">${fj.d_name }</td>
+							<td class="td_7">${fj.d_sex }</td>
+							<td class="td_12">${fj.d_age }</td>
+							<td class="td_8">${fj.d_tel }</td>
+							<td class="td_11">${fj.d_introduce }</td>
+							<td class="td_12">主任医师</td>
+							<td class="td_13">妇产科</td>
+							<td class="td_14">在线</td>
 							<td class="td_10"><div class="btn"><a href="javascript:;" class="modify cg-xiugai-a">修改</a></div><br><div class="btn"><a href="#" style="background: #ff980b; color: #fff;">删除</a></div></td>
 						</tr>
 						
@@ -87,10 +94,10 @@
 	<div class="layuiBg"></div><!--公共遮罩-->
 	<!--点击新建频道弹出-->
 	<div class="addFeileibox layuiBox newPindaoBox">
-		<div class="layer-title clearfix"><h2>新建用户</h2><span class="layerClose"></span></div>
+		<div class="layer-title clearfix"><h2>新建医师</h2><span class="layerClose"></span></div>
 		<div class="layer-content">
 			<dl class="PD-list clearfix">
-				<dt>用户姓名：</dt>
+				<dt>医师姓名：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
@@ -115,12 +122,17 @@
 			</dl>
 			
 			<dl class="PD-list clearfix">
-				<dt>收货地址：</dt>
+				<dt>医师介绍：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
 			<dl class="PD-list clearfix">
-				<dt>身份证号：</dt>
+				<dt>医师职称：</dt>
+				<dd><input type="text" class="txt">
+				</dd>
+			</dl>
+			<dl class="PD-list clearfix">
+				<dt>科室科别：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
@@ -134,7 +146,7 @@
 		<div class="layer-title clearfix"><h2>修改</h2><span class="layerClose"></span></div>
 		<div class="layer-content">
 			<dl class="PD-list clearfix">
-				<dt>姓名：</dt>
+				<dt>医师姓名：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
@@ -157,13 +169,24 @@
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
+			
 			<dl class="PD-list clearfix">
-				<dt>收货地址：</dt>
+				<dt>医师介绍：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
 			<dl class="PD-list clearfix">
-				<dt>身份号：</dt>
+				<dt>医师职称：</dt>
+				<dd><input type="text" class="txt">
+				</dd>
+			</dl>
+			<dl class="PD-list clearfix">
+				<dt>科室科别：</dt>
+				<dd><input type="text" class="txt">
+				</dd>
+			</dl>
+			<dl class="PD-list clearfix">
+				<dt>医生状态：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>

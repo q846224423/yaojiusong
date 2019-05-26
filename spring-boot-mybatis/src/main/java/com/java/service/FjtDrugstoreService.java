@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.java.pojo.DrugStore;
 
-public interface DrugstoreService {
+public interface FjtDrugstoreService {
 	
 	//门店查询所有
     public List<DrugStore> dsselectall();

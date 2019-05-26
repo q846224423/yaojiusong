@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html class=" js csstransforms3d"><head>
 	<meta charset="utf-8">
 	<meta name="renderer" content="webkit">
@@ -20,7 +21,8 @@
 <body style="background: #f6f5fa;">
 	<!--content S-->
 	<div class="super-content RightMain" id="RightMain">
-			<div class="super-header clearfix">
+		
+		<div class="super-header clearfix">
 			<h2>超级系统后台</h2>
 			<div class="head-right">
 				<i class="ico-user"></i>当前用户：
@@ -35,9 +37,10 @@
 				</div>
 			</div>
 		</div>
+		<!--header-->
 		<div class="superCtab">
 			<div class="cg-title clearfix">
-				<a href="javascript:;" class="default-add-btn newPdBtn"><i class="ico-add"></i>添加医师</a>
+				<a href="javascript:;" class="default-add-btn newPdBtn"><i class="ico-add"></i>新建订单</a>
 				<div class="searchBar">
 					<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
 					<input type="button" class="srhBtn" value="">
@@ -47,20 +50,18 @@
 				<div class="Mian-cont-wrap">
 					<div class="defaultTab-T">
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
-							<tbody><tr><th class="td_6">医师姓名</th><th class="td_7">性别</th><th class="td_12">年龄</th><th class="td_8">联系电话</th>
-								<th class="td_11">医师介绍</th><th class="td_12">医师职称</th><th class="td_13">科室科别</th><th class="td_14">医生状态</th><th class="td_10">操作</th></tr>
+							<tbody><tr><th class="td_6">订单号</th><th class="td_7">用户id</th><th class="td_12">医生id</th><th class="td_8">处方筏</th><th class="td_11">问诊时间</th><th class="td_12">状态</th><th class="td_13">是否拿药</th><th class="td_10">操作</th></tr>
 						</tbody></table>
 					</div>
 					<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 						<tbody><tr>
-							<td class="td_6">张医生</td>
-							<td class="td_7"><a href="#">男</a></td>
-							<td class="td_12">13</td>
-							<td class="td_8"><a href="#" class="txdoc">12345678901</a></td>
-							<td class="td_11"><a href="super_cg_PinDao.html" class="txdoc">老中医非常棒</a></td>
-							<td class="td_12">主任医师</td>
-							<td class="td_13">妇产科</td>
-							<td class="td_14">在线</td>
+							<td class="td_6">123</td>
+							<td class="td_7"><a href="#">123</a></td>
+							<td class="td_12">123</td>
+							<td class="td_8"><a href="#" class="txdoc">开</a></td>
+							<td class="td_11"><a href="super_cg_PinDao.html" class="txdoc">2019-1-1</a></td>
+							<td class="td_12">已问诊</td>
+							<td class="td_13">已取药</td>
 							<td class="td_10"><div class="btn"><a href="javascript:;" class="modify cg-xiugai-a">修改</a></div><br><div class="btn"><a href="#" style="background: #ff980b; color: #fff;">删除</a></div></td>
 						</tr>
 						
@@ -90,10 +91,10 @@
 	<div class="layuiBg"></div><!--公共遮罩-->
 	<!--点击新建频道弹出-->
 	<div class="addFeileibox layuiBox newPindaoBox">
-		<div class="layer-title clearfix"><h2>新建医师</h2><span class="layerClose"></span></div>
+		<div class="layer-title clearfix"><h2>新建用户</h2><span class="layerClose"></span></div>
 		<div class="layer-content">
 			<dl class="PD-list clearfix">
-				<dt>医师姓名：</dt>
+				<dt>用户姓名：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
@@ -118,17 +119,12 @@
 			</dl>
 			
 			<dl class="PD-list clearfix">
-				<dt>医师介绍：</dt>
+				<dt>收货地址：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
 			<dl class="PD-list clearfix">
-				<dt>医师职称：</dt>
-				<dd><input type="text" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>科室科别：</dt>
+				<dt>身份证号：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
@@ -142,7 +138,7 @@
 		<div class="layer-title clearfix"><h2>修改</h2><span class="layerClose"></span></div>
 		<div class="layer-content">
 			<dl class="PD-list clearfix">
-				<dt>医师姓名：</dt>
+				<dt>姓名：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
@@ -165,24 +161,13 @@
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
-			
 			<dl class="PD-list clearfix">
-				<dt>医师介绍：</dt>
+				<dt>收货地址：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>
 			<dl class="PD-list clearfix">
-				<dt>医师职称：</dt>
-				<dd><input type="text" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>科室科别：</dt>
-				<dd><input type="text" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>医生状态：</dt>
+				<dt>身份号：</dt>
 				<dd><input type="text" class="txt">
 				</dd>
 			</dl>

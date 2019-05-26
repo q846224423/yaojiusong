@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html class=" js csstransforms3d"><head>
 	<meta charset="utf-8">
 	<meta name="renderer" content="webkit">

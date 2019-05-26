@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import com.java.mapper.DrugstoreMapper;
 import com.java.pojo.Doctor;
 import com.java.pojo.DrugStore;
-import com.java.service.DrugstoreService;
+import com.java.service.FjtDrugstoreService;
 
 @Service
-public class DrugstoreServiceImpl implements DrugstoreService {
+public class DrugstoreServiceImpl implements FjtDrugstoreService {
 	@Autowired
 	private DrugstoreMapper drugstoreMapper;
 
