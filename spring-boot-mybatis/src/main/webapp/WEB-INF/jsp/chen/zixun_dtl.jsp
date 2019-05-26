@@ -60,7 +60,34 @@
 				
 				
 		<dl>
-			<dt>认证 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><a href="doctorrz">点我认证</a></dd>
+			<dt>认证 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>
+<%-- 			
+			if(${doctor.d_control}=0){                                                           
+			<a href="doctorrz">点我认证</a>			
+			}else if((${doctor.d_control}=1){
+			认证中
+			}else{			
+			已认证
+			}
+			
+			 --%>
+			
+			<c:choose>
+         <c:when test="${doctor.d_control == 0 }">
+       <span><a href="doctorrz" style=" color: red">点我认证</a></span>
+        </c:when>
+        <c:otherwise>
+           <c:if test="${doctor.d_control == 1 }">
+       <span>认证中</span>
+     </c:if>
+      <c:if test="${doctor.d_control == 2 }">
+     <span>已认证</span>
+     </c:if>
+      </c:otherwise>
+       </c:choose>
+
+			
+			</dd>
 		</dl>
 		
 		
