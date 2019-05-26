@@ -270,7 +270,7 @@ a.colu-xg:hover { background: #fe990b;}
 .addSortMain span { display: block;float: left; padding: 0 22px; height: 30px; line-height: 30px; border: 1px solid #d9d9d9; border-radius: 15px; -moz-border-radius: 15px; -webkit-border-radius: 15px; font-size: 16px; color: #666666; background: #fff; margin: 0 1px 25px 16px; cursor: pointer;}
 .addSortMain span.on ,.addSortMain span:hover { color: #fff; background: #00843e; border: 1px solid #11af10;}
 .addSortBtn { text-align: center; padding: 0 0 29px 0;}
-.backlistBtn { background: #fff; border: 1px solid #d8d8d8; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; position: absolute; top: 0px; right: 33px; width: 109px; height: 31px; line-height: 31px;}
+.backlistBtn { background: #fff; border: 1px solid #d8d8d8; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; position: absolute; top: 21px; right: 19px; width: 109px; height: 31px; line-height: 31px;}
 .backlistBtn i.ico-back { display: block; float: left; background: url(../images/ico_fabu_other.png) no-repeat 0 -154px; width: 15px; height: 15px; margin: 8px 6px 0 15px;}
 
 .hdColumnbox li.li-1 { width: 140px;}
@@ -465,11 +465,15 @@ a.default-add-btn:hover { background-color: #00843e;}
 a.default-add-btn i.ico-add {float: left; display: block; background: url(../images/ico_fabu_2.png) no-repeat; width: 17px; height: 15px; margin: 8px 6px 0 14px;}
 
 .cgsuperCtab { background: #f6f5fa; padding: 24px 0;}
-.defaultTable .td_6 { width: 10%; text-align: left; padding-left: 1%;}
-.defaultTable .td_7 { width: 20%; text-align: left;}
-.defaultTable .td_8 { width: 30%; text-align: center;}
-.defaultTable .td_9 { width: 30%; text-align: center;}
-.defaultTable .td_10 { width: 10%; text-align: center;}
+.defaultTable .td_6 { width: 10%; text-align: center; padding-left: 1%;}
+.defaultTable .td_7 { width: 10%; text-align: center;}
+.defaultTable .td_8 { width: 12%; text-align: center;}
+.defaultTable .td_9 { width: 15%; text-align: center;}
+.defaultTable .td_10 { width: 20%; text-align: center;}
+.defaultTable .td_11 { width: 20%; text-align: center;}
+.defaultTable .td_12 { width: 10%; text-align: center;}
+.defaultTable .td_13 { width: 10%; text-align: center;}
+.defaultTable .td_14 { width: 10%; text-align: center;}
 .defaultTable a.txdoc{ text-decoration: underline;}
 .cgsuperCtab .pageSelect { padding: 10px 0 40px;}
 .cgsuperCtab .pageSelect span { top: 10px;}
@@ -481,7 +485,7 @@ a.default-add-btn i.ico-add {float: left; display: block; background: url(../ima
 .PD-list { line-height: 37px; font-size: 16px; color: #626262; margin-bottom: 8px;}
 .PD-list dt { display: block; float: left; width: 132px; text-align: right;}
 .PD-list dd {float: left; width: 375px;}
-.PD-list dd .txt { display: block; width: 92%; height: 27px; padding: 5px; border: 1px solid #cdcdcd;}
+.PD-list dd .txt { display: block; width: 92%; height: 31px; padding: 5px; border: 1px solid #cdcdcd;}
 .PD-list dd .errortip { color: #e8000c; height: 49px; line-height: 49px;}
 .PD-list dd .errortip i.ico-error { display: block; float: left; width: 18px; height: 17px; background: url(../images/ico_wrong.png) no-repeat; margin: 15px 9px 0 0;}
 .PD-list .saveBtn { margin-left: 132px; margin-bottom: 20px;}
@@ -511,4 +515,4 @@ span.label { display: inline-block; background: #fff; border: 1px solid #00843e;
 .newLabelBox { width: 458px; padding-bottom: 30px;}
 .PDlabel-list { padding: 20px 20px 0;}
 .PDlabel-list dt { display: block; font-size: 16px; color: #626262; line-height: 45px;}
-.PDlabel-list dd input.txt { border: 1px solid #cdcdcd; height: 27px; padding: 5px 2%; width: 96%;}
+.PDlabel-list dd input.txt { border: 1px solid #cdcdcd; height: 37px; padding: 5px 2%; width: 96%;}
