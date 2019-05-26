@@ -62,8 +62,8 @@
 							<td class="td_12">${fj.d_age }</td>
 							<td class="td_8">${fj.d_tel }</td>
 							<td class="td_11">${fj.d_introduce }</td>
-							<td class="td_12">主任医师</td>
-							<td class="td_13">妇产科</td>
+							<td class="td_12">${fj.d_zc }</td>
+							<td class="td_13">${fj.d_zc }</td>
 							<td class="td_14">在线</td>
 							<td class="td_10"><div class="btn"><a href="javascript:;" class="modify cg-xiugai-a">修改</a></div><br><div class="btn"><a href="#" style="background: #ff980b; color: #fff;">删除</a></div></td>
 						</tr>
