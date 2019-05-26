@@ -55,7 +55,7 @@
 					</div>
 					<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 						<tbody>
-						<c:forEach items="${fj}" var="fj"></c:forEach>
+						<c:forEach items="${fjt}" var="fj">
 						<tr>
 							<td class="td_6">${fj.d_name }</td>
 							<td class="td_7">${fj.d_sex }</td>
@@ -67,7 +67,7 @@
 							<td class="td_14">在线</td>
 							<td class="td_10"><div class="btn"><a href="javascript:;" class="modify cg-xiugai-a">修改</a></div><br><div class="btn"><a href="#" style="background: #ff980b; color: #fff;">删除</a></div></td>
 						</tr>
-						
+						</c:forEach>
 						
 					</tbody></table>
 					<!--pages S-->
