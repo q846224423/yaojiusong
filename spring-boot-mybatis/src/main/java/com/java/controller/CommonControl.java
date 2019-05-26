@@ -36,7 +36,7 @@ public class CommonControl {
 			Doctor doctor = cm.getDoctor(p.getId());
 			
 			model.addAttribute("doctor",doctor);
-			return "index";
+			return "chen/index1";
 		}else if(p.getRole()==3) {
 			Users user = cm.getUser(p.getId());
 			model.addAttribute("user",user);
@@ -49,29 +49,73 @@ public class CommonControl {
 			return "login";
 		}
 	}
-	//iframe显示jsp代码
+	//iframe显示jsp代码左                                    不要动
 	@RequestMapping("public_left")
 	public String public_left() {
-		return "public_left";
+		return "chen/public_left";
 		
 	}
-	//iframe显示jsp代码
+	//iframe显示jsp代码头                                   不要动
 	@RequestMapping("public_header")
 	public String public_header() {
-		return "public_header";
+		return "chen/public_header";
 		
 	}
-	//iframe显示jsp代码
-	@RequestMapping("doctoruser")
+	//iframe显示jsp代码医生个人信息                                   不要动
+	@RequestMapping("zixun_dtl")
 	public String doctorInfo() {
-		return "doctoruser";
+		return "chen/zixun_dtl";
 		
 	}
+	//iframe显示jsp代码                                  不要动
+		@RequestMapping("change_psw")
+		public String change_psw() {
+			return "chen/change_psw";
+			
+		}
+		
+		//iframe显示jsp代码                                  不要动
+		@RequestMapping("doctorrz")
+		public String doctorrz() {
+			return "chen/doctorrz";
+			
+		}
+		//iframe显示jsp代码                                  不要动
+		@RequestMapping("doctorupdate")
+		public String doctorupdate() {
+			return "chen/doctorupdate";
+			
+		}
+		//iframe显示jsp代码                                  不要动
+		@RequestMapping("doctorwzjlu")
+		public String doctorwzjlu() {
+			return "chen/doctorwzjlu";
+			
+		}
+		//iframe显示jsp代码                                  不要动
+		@RequestMapping("doctorwzjlu1")
+		public String doctorwzjlu1() {
+			return "chen/doctorwzjlu1";
+			
+		}
+		
+		//iframe显示jsp代码                                  不要动
+		@RequestMapping("loginb1")
+		public String loginb1() {
+			return "chen/loginb1";
+			
+		}
+
+
+				
 	
-	public String  phone() {
-		return null;
+	//电话****方法
+	public String  phone(int d_tel) {
 		
-		
+        String phone = String.valueOf(d_tel);
+        String phoneNumber = phone.substring(0, 3) + "****" + phone.substring(7, phone.length());
+        
+		return phoneNumber;				
 	}
 
 	
