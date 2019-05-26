@@ -1,0 +1,177 @@
+/*
+ * @author wangna date 2015.12.07
+ * @description 城市选择插件 
+ * @功能：城市级联选择
+ * @ settings 参数说明
+ * demo:
+ * $("#location").citySelect({d:['','','']});
+ */
+
+(function($) {
+    $.fn.citySelect = function(settings) {
+        if (this.length < 1) {
+            return;
+        };
+        // 默认值
+        settings = $.extend({
+            url: {
+                prov: GY.host.main + '/cmowAddressAction.do',
+                city: GY.host.main + '/cmowAddressAction.do',
+                dist: GY.host.main + '/cmowAddressAction.do'
+            },
+            prov: ".prov", //省
+            city: ".city", //市
+            dist: ".dist", //区/县
+            d: false,
+            nodata: null,
+            required: false
+        }, settings);
+
+        var t = this,
+            $t = $(this);
+
+        var $prov = $t.find(settings.prov),
+            $city = $t.find(settings.city),
+            $dist = $t.find(settings.dist);
+
+        $prov.bind("change", function() {
+            if ($prov.text() == '请选择') {
+                return false;
+            }
+            if ($city.length == 0) {
+                return false;
+            }
+
+            var _v = $(this).val();
+            var _code = $(this).find("option:selected").attr('code');
+
+            if (_v.length == 0) {
+                var cityno1 = $city.find("option:first"),
+                    distno1 = $dist.find("option:first");
+
+                $city[0].options.length = 0;
+
+                if ($dist.length) {
+                    $dist[0].options.length = 0;
+                    $dist.append(distno1);
+                }
+                $city.append(cityno1);
+                return false;
+            }
+            GY.iop({
+                //url: GY.interface['userCar'].url,
+                url: settings.url.city,
+                data: {
+                    method: 'getAddressByParentIdAndType',
+                    type: 2,
+                    code: _code
+                }
+            }).done(function(data) {
+                if (data.status == 0) {
+                    selectProvince(data.data);
+                }
+            });
+
+            if (settings.required && settings.required.prov) {
+                settings.required.prov.apply(this, ["prov", _v]);
+            }
+
+        }).val(settings.d[0]).trigger("change");
+
+        $city.bind("change", function() {
+            if ($dist.length == 0) {
+                return false;
+            }
+            var _v = $(this).val();
+            var _code = $(this).find("option:selected").attr('code');
+
+            if (_v.length == 0) {
+                var distno1 = $dist.find("option:first");
+                $dist[0].options.length = 0;
+                $dist.append(distno1);
+                return false;
+            }
+            GY.iop({
+                url: settings.url.dist,
+                data: {
+                    method: 'getAddressByParentIdAndType',
+                    type: 3,
+                    code: _code
+                }
+            }).done(function(data) {
+                if (data.status == 0) {
+                    // console.log(data);    
+                    selectCity(data.data);
+                }
+            });
+
+        });
+        //获取省
+        GY.iop({
+            //url: GY.interface['userCar'].url,
+            url: settings.url.prov,
+            data: {
+                method: 'getAddressByParentIdAndType',
+                type: 1
+            }
+        }).done(function(data) {
+
+            if (data.status == 0) {
+                getProvince(data.data);
+            }
+        });
+
+        var getProvince = function(d) {
+            $.each(d, function(i, p) {
+                $prov.append('<option value="' + p.id + '" code="' + p.code + '">' + p.name + '</option>');
+            });
+            if (settings.d[0]) {
+                $prov.find("option[code='" + settings.d[0] + "']").attr("selected", true).end().trigger("change");
+                settings.d[0] = false;
+            }
+        }
+
+        var selectProvince = function(d) {
+
+            var cityno1 = $city.find("option:first"),
+                distno1 = $dist.find("option:first");
+
+            $city[0].options.length = 0;
+            $city.append(cityno1);
+
+            if ($dist.length > 0) {
+                $dist[0].options.length = 0;
+                $dist.append(distno1);
+            }
+
+            $.each(d, function(i, p) {
+                $city.append('<option value="' + p.id + '" code="' + p.code + '">' + p.name + '</option>');
+            });
+            if (settings.d[1]) {
+                $city.find("option[code='" + settings.d[1] + "']").attr("selected", true).end().trigger("change");
+                settings.d[1] = false;
+            }
+
+        };
+
+        var selectCity = function(d) {
+
+            var no1 = $dist.find("option:first");
+            //$prov[0].options.length = 0;
+            $dist[0].options.length = 0;
+            $dist.append(no1);
+            $.each(d, function(i, p) {
+
+                $dist.append('<option value="' + p.id + '" code="' + p.code + '">' + p.name + '</option>');
+            });
+            if (settings.d[2]) {
+                $dist.find("option[code='" + settings.d[2] + "']").attr("selected", true);
+                settings.d[2] = false;
+            }
+        };
+
+    };
+
+
+
+})(jQuery);

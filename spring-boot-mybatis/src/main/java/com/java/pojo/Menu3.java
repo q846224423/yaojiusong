@@ -2,7 +2,7 @@ package com.java.pojo;
 
 public class Menu3 {
 	Integer menu3_id;     //商品id
-	Integer menu3_2id;     //对应上一级
+	Integer menu3_menu2_id;     //对应上一级
 String menu3_name;//药品名称
 double ep_price; //价格
 String ep_size; //规格
@@ -17,11 +17,11 @@ public int getMenu3_id() {
 public void setMenu3_id(int menu3_id) {
 	this.menu3_id = menu3_id;
 }
-public int getMenu3_2id() {
-	return menu3_2id;
+public int getMenu3_menu2_id() {
+	return menu3_menu2_id;
 }
-public void setMenu3_2id(int menu3_2id) {
-	this.menu3_2id = menu3_2id;
+public void menu3_menu2_id(int menu3_menu2_id) {
+	this.menu3_menu2_id = menu3_menu2_id;
 }
 public String getMenu3_name() {
 	return menu3_name;
@@ -73,10 +73,11 @@ public void setYd_id(Integer yd_id) {
 }
 @Override
 public String toString() {
-	return "Menu3 [menu3_id=" + menu3_id + ", menu3_2id=" + menu3_2id + ", menu3_name=" + menu3_name + ", ep_price="
-			+ ep_price + ", ep_size=" + ep_size + ", ep_description=" + ep_description + ", ep_stock=" + ep_stock
-			+ ", ep_url=" + ep_url + ", ep_stick=" + ep_stick + ", yd_id=" + yd_id + "]";
+	return "Menu3 [menu3_id=" + menu3_id + ", menu3_menu2_id=" + menu3_menu2_id + ", menu3_name=" + menu3_name
+			+ ", ep_price=" + ep_price + ", ep_size=" + ep_size + ", ep_description=" + ep_description + ", ep_stock="
+			+ ep_stock + ", ep_url=" + ep_url + ", ep_stick=" + ep_stick + ", yd_id=" + yd_id + "]";
 }
+
 
 
 }

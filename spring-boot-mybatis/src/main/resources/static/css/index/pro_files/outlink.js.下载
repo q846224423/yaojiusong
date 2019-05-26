@@ -1,0 +1,17 @@
+/**
+ * Created by tyrael on 2016/9/13.
+ */
+$(function(){
+    var params = location.search;
+    if(params&&params.indexOf("from_url")>-1){
+        params=params.replace("?","");
+        params=params.split("&");
+        var paramMap={};
+        for(var i=0;i<params.length;i++){
+            var pair = params[i].split("=");
+            paramMap[pair[0]]=pair[1];
+        }
+        var fromUrl=paramMap['from_url'];
+        $.cookie("OUTLINK",fromUrl+"&"+encodeURIComponent(location.href),{path:"/"});
+    }
+});

@@ -119,7 +119,11 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+        <c:choose>
+        <c:when test="${user==null}"><span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a></c:when>
+        <c:otherwise> <span class="fl">${user.user_name},你好&nbsp; <a href="userMessage" style="color:#ff4e00;">我的信息</a></c:otherwise>
+        	</c:choose>
+        	&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -166,13 +170,13 @@
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.html"><img src="images/index/logo.png" /></a></div>
+    <div class="logo"><a href="show"><img src="images/index/logo.png" /></a></div>
     <div class="search">
-    	<form>
-        	<input type="text" value="" class="s_ipt" />
+    	<form action="showByname" method="post" >
+        	<input type="text" name="name" class="s_ipt" />
             <input type="submit" value="搜索" class="s_btn" />
         </form>                      
-        <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
+        <span class="fl"><a href="Showinfo?id=1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;葵花 胃康灵</a><a href="Showinfo?id=4">云南白药</a><a href="Showinfo?id=13">阿莫西林颗粒</a><a href="Showinfo?id=21">桂林西瓜霜</a><a href="Showinfo?id=17">健兴 肺力咳合剂</a></span>
     </div>
     <div class="i_car">
     	<div class="car_t">购物车 [ <span>3</span> ]</div>
@@ -249,14 +253,13 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
     	<ul class="menu_r">                                                                                                                                               
-        	<li><a href="Index.html">首页</a></li>
-            <li><a href="Food.html">美食</a></li>
-            <li><a href="Fresh.html">生鲜</a></li>
-            <li><a href="HomeDecoration.html">家居</a></li>
-            <li><a href="SuitDress.html">女装</a></li>
-            <li><a href="MakeUp.html">美妆</a></li>
-            <li><a href="Digital.html">数码</a></li>
-            <li><a href="GroupBuying.html">团购</a></li>
+        	<li><a href="show">首页</a></li>
+            <li><a href="showBy1id?id=1">中西药品</a></li>
+            <li><a href="showBy1id?id=2">医疗器械</a></li>
+            <li><a href="showBy1id?id=3">养生保健</a></li>
+            <li><a href="showBy1id?id=4">美容护肤</a></li>
+            <li><a href="showBy1id?id=5">计生用品</a></li>
+            <li><a href="showBy1id?id=6">中药饮品</a></li>
         </ul>
         <div class="m_ad">中秋送好礼！</div>
     </div>

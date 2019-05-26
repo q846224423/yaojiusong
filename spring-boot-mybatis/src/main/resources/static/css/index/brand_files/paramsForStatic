@@ -1,0 +1,24 @@
+var GY = {};
+! function(GY){
+return GY.host={
+'imgSource':'https://img.yao123.cn/',    //服务器图片地址
+'rethost':'https://www.yao123.com',    //主域名
+'search':'http://101.200.76.127:8080',    //搜索中心域名
+'goods':'http://123.57.14.63',    //商品中心域名
+'main':'https://www.yao123.com',    //接口主域名
+'static_resources_directory':'https://www.yao123.com/',    //静态化资源根目录
+'cps_address':'https://ad.yao123.com/adanalysis/adAnalysis.do',    //cps接收地址
+'usercenterUrl':'https://login.yao123.com',    //用户中心地址
+'zk_address':'10.51.93.203:2181',    //zookeeper地址
+'mobile_main':'https://m.yao123.com',    //移动官网主域名
+'system':'production',    //系统环境配置 
+'outlink_address':'https://ad.yao123.com/adanalysis/outLinkOrder.do',    //外链订单接收地址
+'appId':'wx855b5986f6c18448',    //appid
+'outlink_needs_address':'https://ad.yao123.com/adanalysis/outLinkNeedsOrder.do',    //外链需求单接收地址
+'imgSourceSku':'https://img.yao123.com/',    //商品图片地址
+'js_version':'20190509',    //前台js版本号
+'usercenterUrl_mobile':'https://login.m.yao123.com',    //移动端用户中心地址
+'current_platform':'gw',    //当前平台
+'scCachePageSize':'2',    //收藏缓存页数
+'param_end':'1'}
+}(GY);

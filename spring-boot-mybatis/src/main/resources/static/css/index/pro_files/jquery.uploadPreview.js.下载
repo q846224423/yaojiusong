@@ -1,0 +1,101 @@
+jQuery.support.cors = true;
+jQuery.fn.extend({
+    uploadPreview: function (opts) {
+        var _self = this,
+            _this = $(this);
+        opts = jQuery.extend({
+            Img: "ImgPr",
+            Width: 100,
+            Height: 100,
+            ImgType: ["jpeg", "jpg", "png"],
+            Callback: function () {},
+            before:function(){}
+        }, opts || {});
+        _self.getObjectURL = function (file) {
+            var url = null;
+            if (window.createObjectURL != undefined) {
+                url = window.createObjectURL(file)
+            } else if (window.URL != undefined) {
+                url = window.URL.createObjectURL(file)
+            } else if (window.webkitURL != undefined) {
+                url = window.webkitURL.createObjectURL(file)
+            }
+            return url
+        };
+        _this.change(function () {
+            if (this.value) {
+                if (!RegExp("\.(" + opts.ImgType.join("|") + ")$", "i").test(this.value.toLowerCase())) {
+                    //$('.tsimg').text("选择文件错误,图片类型必须是" + opts.ImgType.join("，") + "中的一种");
+                    this.value = "";
+                    return false
+                }
+             
+                if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE6.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE7.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE8.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE9.0") {
+                    try {
+                        $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]))
+                    } catch (e) {
+                        var src = "";
+                        var obj = $("#" + opts.Img);
+                        var div = obj.parent("span")[0];
+                        _self.select();
+                        if (top != self) {
+                            window.parent.document.body.focus()
+                        } else {
+                            _self.blur()
+                        }
+                        src = document.selection.createRange().text;
+                        document.selection.empty();
+                        obj.hide();
+                        obj.parent("span").css({
+                            'filter': 'progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)',
+                            'width': opts.Width + 'px',
+                            'height': opts.Height + 'px'
+                        });
+                        div.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = src
+                    }
+                               
+                   var filePath = this.value;   
+                   var fileSystem = new ActiveXObject("Scripting.FileSystemObject");     
+                   var file = fileSystem.GetFile(filePath);   
+                    _this.attr('size',file.Size);
+                    _this.attr('imgname',file.Name);
+                  /*转base64*/
+                         // var realPath=getFilePath(filePath);//获取文件的真实本地路径.
+                  var xmlHttp = new ActiveXObject("MSXML2.XMLHTTP");
+                  xmlHttp.open("POST",'/static/image/logo/logo.png', false);
+                  xmlHttp.send("");
+
+                  var xml_dom = new ActiveXObject("MSXML2.DOMDocument");
+                  var tmpNode = xml_dom.createElement("tmpNode");
+                  tmpNode.dataType = "bin.base64";
+                  tmpNode.nodeTypedValue = xmlHttp.responseBody;
+                  var imgBase64Data = tmpNode.text;
+
+                  obj.attr('src', 'data:image/bmp;base64,'+imgBase64Data+'');
+
+
+                } else{
+                     var kb = (this.files[0].size / 1024).toFixed(2);
+                     var zj = (this.files[0].size).toFixed(2);
+                     var imgname = this.files[0].name; 
+                
+                     _this.attr('imgname',imgname);  
+                     _this.attr('size',zj);
+                     _this.attr('kb',kb);
+                      opts.before();
+                     if (kb>2048) {
+                        this.value = "";
+                        //$('.tsimg').text("图片不能大于2M")
+                        return false
+                    }
+                    $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]));
+                     var reader = new FileReader();
+                     var img = $('#image');
+                     reader.onload = function(evt){$("#" + opts.Img).attr('src', evt.target.result);}
+                     reader.readAsDataURL(this.files[0]);                    
+                     opts.Callback();
+                }
+            }
+        })
+    }
+});
