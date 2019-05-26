@@ -67,6 +67,12 @@ public class CommonControl {
 		return "doctoruser";
 		
 	}
+	
+	public String  phone() {
+		return null;
+		
+		
+	}
 
 	
 
