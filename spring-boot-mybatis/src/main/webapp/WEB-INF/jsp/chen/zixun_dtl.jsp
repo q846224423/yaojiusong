@@ -42,22 +42,20 @@
 	 &nbsp;	<dt>	 &nbsp;&nbsp;姓名 &nbsp; &nbsp;： &nbsp; &nbsp;</dt><dd>${doctor.d_name}</dd>&nbsp;&nbsp;
 		</dl>
 		<dl>
-			 <dt>年龄 &nbsp; &nbsp;   : &nbsp; &nbsp;</dt><dd>${doctor.d_name}</dd>
+			 <dt>年龄 &nbsp; &nbsp;   : &nbsp; &nbsp;</dt><dd>${doctor.d_age}</dd>
 		</dl>
 		<dl>
-			<dt>性别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_name}</dd>
+			<dt>性别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_sex}</dd>
 		</dl>
 		<dl>
-			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_name}</dd>
+			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_tel}</dd>
 		</dl>
 		<dl>
 			<dt>科室 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_name}</dd>
 		</dl>
+
 		<dl>
-			<dt>科别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>儿童皮肤科</dd>
-		</dl>
-		<dl>
-			<dt>职位 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>主治医生</dd>
+			<dt>职位 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_zc}</dd>
 		</dl>
 				
 				
@@ -69,7 +67,7 @@
 		
 		
 		<dl>
-			<dt>介绍 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><textarea name="" style="border:solid skyblue; 1px"></textarea></dd>
+			<dt>介绍 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_introduce}</dd>
 		</dl>
 		 
 		

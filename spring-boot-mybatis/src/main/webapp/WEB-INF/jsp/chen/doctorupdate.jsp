@@ -42,9 +42,7 @@
 		<dl>
 			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="" required="required"></dd>
 		</dl>
-		<dl>
-			<dt>科室 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="" required="required"></dd>
-		</dl>
+
 		<dl>
 			<dt>科别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="" required="required"></dd>
 		</dl>
