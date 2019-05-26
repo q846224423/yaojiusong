@@ -18,7 +18,7 @@ public interface UsersMapper {
 	public List<Users> selectAllUsers();
 	//查询单个用户
 	@Select("select * from users where user_id = {id}")
-	public List<Users> selectOneUsers(int id);
+	public Users selectOneUsers(int id);
 	//增加用户
 	@Insert("inser into users (user_name,user_age,user_sex,user_card,user_control,user_tel,user_address,user_countyid,people_id) values (#{user_name},#{user_age},#{user_sex},#{user_card},#{user_control},#{user_tel},#{user_address},#{user_countyid},#{people_id})")
 	public int insertOneUsers(Users users);
