@@ -31,4 +31,7 @@ public interface CommonMapper {
 	@Select("select * from drugstore where people_id= #{id}")
 	public DrugStore getDrugStore(int id);
 	
+	//多级连动视图查询方法根据id
+
+	
 }

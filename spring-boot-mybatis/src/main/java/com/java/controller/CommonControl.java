@@ -43,7 +43,7 @@ public class CommonControl {
 		}else if(p.getRole()==2) {
 			Doctor doctor = cm.getDoctor(p.getId());
 			session.setAttribute("doctor",doctor);
-			return "index";
+			return "chen/index1";
 		}else if(p.getRole()==3) {
 			Users user = cm.getUser(p.getId());
 			List<Menu1> list1 = ssi.getAllMenu();

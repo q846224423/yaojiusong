@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,26 +32,26 @@
 		<!--main-->
 	</div>
 	<!--content E-->
+	
 	<div class="zx-dtlMain">
-		<div style="position: relative; width: 200px; height: 200px; border: solid seagreen 1px; left: 70px; top: 6px;"></div>
+		<div style="position: relative; width: 200px; height: 200px; border: solid seagreen 1px; left: 70px; top: 6px;">
+		<img src="images/${doctor.d_head}" /> </div>
 		
 		
-		
-		
 		<dl>
-	 &nbsp;	<dt>	 &nbsp;&nbsp;姓名 &nbsp; &nbsp;： &nbsp; &nbsp;</dt><dd>uimaker</dd>&nbsp;&nbsp;
+	 &nbsp;	<dt>	 &nbsp;&nbsp;姓名 &nbsp; &nbsp;： &nbsp; &nbsp;</dt><dd>${doctor.d_name}</dd>&nbsp;&nbsp;
 		</dl>
 		<dl>
-			 <dt>年龄 &nbsp; &nbsp;   : &nbsp; &nbsp;</dt><dd>36</dd>
+			 <dt>年龄 &nbsp; &nbsp;   : &nbsp; &nbsp;</dt><dd>${doctor.d_name}</dd>
 		</dl>
 		<dl>
-			<dt>性别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>男</dd>
+			<dt>性别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_name}</dd>
 		</dl>
 		<dl>
-			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>18652072556</dd>
+			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_name}</dd>
 		</dl>
 		<dl>
-			<dt>科室 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>皮肤科</dd>
+			<dt>科室 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_name}</dd>
 		</dl>
 		<dl>
 			<dt>科别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>儿童皮肤科</dd>
@@ -70,7 +71,7 @@
 		<dl>
 			<dt>介绍 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><textarea name="" style="border:solid skyblue; 1px"></textarea></dd>
 		</dl>
-		
+		 
 		
 	</div>
 		

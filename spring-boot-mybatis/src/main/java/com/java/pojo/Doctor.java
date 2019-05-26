@@ -11,7 +11,7 @@ public class Doctor {
 	private String d_introduce;//医生介绍
 	private Integer d_state;//医生状态 0 离线  1在线  2 问诊中
 	private Integer kb_id;//科室科别
-	private Integer d_zc;//医生职称
+	private String d_zc;//医生职称
 	private double d_money;//看病金额
 	private String d_tel; //医生电话
 	private Integer people_id; //对应people——id
@@ -76,10 +76,10 @@ public class Doctor {
 	public void setKb_id(Integer kb_id) {
 		this.kb_id = kb_id;
 	}
-	public Integer getD_zc() {
+	public String getD_zc() {
 		return d_zc;
 	}
-	public void setD_zc(Integer d_zc) {
+	public void setD_zc(String d_zc) {
 		this.d_zc = d_zc;
 	}
 	public double getD_money() {
