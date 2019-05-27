@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
+import com.java.pojo.Ks;
 @Repository
 public interface DoctorMapper {
     
@@ -28,4 +29,9 @@ public interface DoctorMapper {
     //医生删除数据
     @Delete("delete from doctor where d_id = #{id}")
     int delete(int id);
+    //查询所以科室
+    @Select("select * from ks")
+    List<Ks> selectallKs();
+
+    
 }

@@ -13,6 +13,7 @@ import com.java.pojo.Admin;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
+import com.java.pojo.Ks;
 import com.java.pojo.Menu1;
 import com.java.pojo.People;
 import com.java.pojo.Users;
@@ -28,6 +29,8 @@ public class CommonControl {
 	private StoreService ssi;
 	@Autowired
 	private Doctorservice big;
+	@Autowired
+	private Doctorservice ks;
 
 	// 验证账号密码，跳转不同页面
 	@RequestMapping("/Tojump")
@@ -45,8 +48,11 @@ public class CommonControl {
 			session.setAttribute("admin", admin);
 			return "admin";
 		} else if (p.getRole() == 2) {
+			
 			Doctor_big doctor = big.selectone(p.getId());
-			session.setAttribute("doctor", doctor);
+			List<Ks> Ks = ks.selectallKs();
+			session.setAttribute("doctor",doctor);
+			session.setAttribute("Ks",Ks);
 
 			return "chen/index1";
 		} else if (p.getRole() == 3) {

@@ -8,12 +8,13 @@ import org.springframework.stereotype.Service;
 import com.java.mapper.DoctorMapper;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
+import com.java.pojo.Kb;
+import com.java.pojo.Ks;
 import com.java.service.Doctorservice;
 @Service
 public class Doctorserviceimpl implements Doctorservice {
 @Autowired
 private DoctorMapper doctorMapper;
-	
 
 
 	@Override
@@ -45,5 +46,12 @@ private DoctorMapper doctorMapper;
 		
 		return doctorMapper.delete(id);
 	}
+
+	@Override
+	public List<Ks> selectallKs() {
+		
+		return doctorMapper.selectallKs();
+	}
+
 
 }

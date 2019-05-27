@@ -1,5 +1,7 @@
 package com.java.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,15 +9,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
+import com.java.pojo.Kb;
 import com.java.service.Doctorservice;
+import com.java.service.KbService;
 
 @Controller
 public class DoctorController {
 	@Autowired
 	private Doctorservice big;
+	
+	@Autowired
+	private KbService kb;
+	
+
 	
 	// iframe显示jsp代码左 不要动
 		@RequestMapping("public_left")
@@ -91,5 +102,13 @@ public class DoctorController {
 			
 			return  "chen/doctorupdate";
 		}
+		//通过科室的id查科别
+		@ResponseBody
+		@RequestMapping(value = "doctorkb", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")	
+		public List<Kb> doctorkb(int id) {
+
 	
+		
+			 return kb.selectkb(id);		
+		}
 }

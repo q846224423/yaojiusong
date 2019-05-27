@@ -19,7 +19,35 @@
 	<script type="text/javascript" src="js/modernizr.js"></script>
 	<!--[if IE]>
 	<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
-	<![endif]-->
+	<![endif]-->		
+<!-- 	分类一变化与分类二中下拉框的联动  -->
+	<script type="text/javascript">
+	$(function(){
+		$("#menu1").change(function(){
+		var id = $(this).val();
+
+		$.ajax({
+			url:"doctorkb",
+			type:"post",
+			data:{"id":id},
+			dataType:"json", 
+			success:function(data){			  
+				$("#menu2").text("");
+				
+				for(var i in data){ 
+					$("#menu2").append('<option value="'+data[i].kb_id+'" >'+data[i].kb_name+'</option>');			
+						}
+					},
+					error:function(){
+						
+					}
+		})
+		})
+	});
+	</script>
+	
+	
+	
 </head>
 
 <body style="background: #f6f5fa;">
@@ -44,10 +72,25 @@
 			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_tel}" required="required"></dd>
 		</dl>
 		<dl>
-			<dt>科室 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.ks_name}" required="required"></dd>
+			<dt>科室 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>
+			<select id="menu1" name="menu1"   style="border:solid skyblue; 1px">
+			<option>-请选择-</option>
+             <c:forEach items="${Ks}" var="ks1">
+              <option value="${ks1.ks_id }" >${ks1.ks_name}</option>
+              </c:forEach>
+   </select>
+			
+			
+			</dd>
 		</dl>
 		<dl>
-			<dt>科别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.kb_name}" required="required"></dd>
+			<dt>科别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>
+			
+			<select id="menu2" name="menu2"><option>-请选择-</option></select>
+			
+			
+			
+			</dd>
 		</dl>
 		<dl>
 			<dt>价格 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_money}" required="required"></dd>

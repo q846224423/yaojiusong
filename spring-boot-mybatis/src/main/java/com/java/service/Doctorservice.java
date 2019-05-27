@@ -2,8 +2,11 @@ package com.java.service;
 
 import java.util.List;
 
+
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
+
+import com.java.pojo.Ks;
 
 public interface Doctorservice {
 
@@ -17,5 +20,8 @@ public interface Doctorservice {
     public int insert(Doctor doctor);
     //删除数据
     public int delete(int id);
+    //查询所以科室
+    List<Ks> selectallKs();
+
 
 }
