@@ -31,7 +31,7 @@
 				<li><a href="super_cg" target="Mainindex"><i class="ico-3"></i>问诊管理</a></li>
 				<li><a href="super_cg" target="Mainindex"><i class="ico-4"></i>评价管理</a></li>
 				<li><a href="super_cg" target="Mainindex"><i class="ico-5"></i>视频管理</a></li>
-				<li><a href="super_cg." target="Mainindex"><i class="ico-6"></i>科别管理</a></li>
+				<li><a href="super_cg" target="Mainindex"><i class="ico-6"></i>科别管理</a></li>
 			</ul>
 		</div>
 	</div>

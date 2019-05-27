@@ -19,4 +19,9 @@ public class AdminController {
 		return "houtai/super_cg1";
 	}
 	
+	@RequestMapping("/show2")
+	public String Index() {
+		return "houtai/public_super_cg";
+	}
+	
 }
