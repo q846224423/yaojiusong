@@ -28,10 +28,10 @@
 				<li><a href="super_cg1" target="Mainindex"><i class="ico-9"></i>医师管理</a></li>
 				<li><a href="super_cg2" target="Mainindex"><i class="ico-1"></i>门店管理</a></li>
 				<li><a href="super_cg3" target="Mainindex"><i class="ico-2"></i>订单管理</a></li>
-				<li><a href="super_cg" target="Mainindex"><i class="ico-3"></i>问诊管理</a></li>
-				<li><a href="super_cg" target="Mainindex"><i class="ico-4"></i>评价管理</a></li>
+				<li><a href="super_cg4" target="Mainindex"><i class="ico-3"></i>科别管理</a></li>
+				<li><a href="super_cg5" target="Mainindex"><i class="ico-4"></i>处方管理</a></li>
 				<li><a href="super_cg" target="Mainindex"><i class="ico-5"></i>视频管理</a></li>
-				<li><a href="super_cg" target="Mainindex"><i class="ico-6"></i>科别管理</a></li>
+				<li><a href="super_cg" target="Mainindex"><i class="ico-6"></i>评价管理</a></li>
 			</ul>
 		</div>
 	</div>

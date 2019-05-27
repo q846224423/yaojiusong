@@ -12,14 +12,13 @@ public class AdminController {
 
 	@Autowired
 	private Doctorservice doctorservice;
-	
+
 	// iframe显示jsp代码 不要动
-		@RequestMapping("public_super_cg")
-		public String public_super_cg() {
-			return "houtai/public_super_cg";
-		}
-	
-	
+	@RequestMapping("public_super_cg")
+	public String public_super_cg() {
+		return "houtai/public_super_cg";
+	}
+
 	// iframe显示jsp代码 不要动
 	@RequestMapping("super_cg")
 	public String super_cg() {
@@ -51,4 +50,15 @@ public class AdminController {
 		return "houtai/super_cg3";
 	}
 
+	// iframe显示jsp代码 不要动
+	@RequestMapping("super_cg4")
+	public String super_cg4() {
+		return "houtai/super_cg4";
+	}
+
+	// iframe显示jsp代码 不要动
+	@RequestMapping("super_cg5")
+	public String super_cg5() {
+		return "houtai/super_cg5";
+	}
 }
