@@ -73,37 +73,6 @@ public class DoctorController {
 
 		}
 
-		// iframe显示jsp代码 不要动
-		@RequestMapping("super_cg")
-		public String AdminIndex() {
-			return "houtai/super_cg";
-
-		}
-
-		// iframe显示jsp代码 不要动
-		@RequestMapping("public_left_cg")
-		public String AdminLeft() {
-			return "houtai/public_left_cg";
-		}
-
-		// iframe显示jsp代码 不要动
-		@RequestMapping("super_cg1")
-		public String super_cg1() {
-			return "houtai/super_cg1";
-		}
-
-		// iframe显示jsp代码 不要动
-		@RequestMapping("super_cg2")
-		 public String super_cg2() {
-			return "houtai/super_cg2";
-		}
-
-		// iframe显示jsp代码 不要动
-		@RequestMapping("super_cg3")
-		public String super_cg3() {
-			return "houtai/super_cg3";
-		}
-	
 	
 	//修改跳转
 		@RequestMapping("updatesession")

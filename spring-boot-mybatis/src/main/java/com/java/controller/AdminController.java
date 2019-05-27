@@ -9,19 +9,46 @@ import com.java.service.Doctorservice;
 
 @Controller
 public class AdminController {
-	
-	@Autowired	
+
+	@Autowired
 	private Doctorservice doctorservice;
 	
-	@RequestMapping("/show1")
-	public String ShowDoctorAll(Model model) {
-		model.addAttribute("fjt", doctorservice.selectall());
+	// iframe显示jsp代码 不要动
+		@RequestMapping("public_super_cg")
+		public String public_super_cg() {
+			return "houtai/public_super_cg";
+		}
+	
+	
+	// iframe显示jsp代码 不要动
+	@RequestMapping("super_cg")
+	public String super_cg() {
+		return "houtai/super_cg";
+
+	}
+
+	// iframe显示jsp代码 不要动
+	@RequestMapping("public_left_cg")
+	public String AdminLeft() {
+		return "houtai/public_left_cg";
+	}
+
+	// iframe显示jsp代码 不要动
+	@RequestMapping("super_cg1")
+	public String super_cg1() {
 		return "houtai/super_cg1";
 	}
-	
-	@RequestMapping("/show2")
-	public String Index() {
-		return "houtai/public_super_cg";
+
+	// iframe显示jsp代码 不要动
+	@RequestMapping("super_cg2")
+	public String super_cg2() {
+		return "houtai/super_cg2";
 	}
-	
+
+	// iframe显示jsp代码 不要动
+	@RequestMapping("super_cg3")
+	public String super_cg3() {
+		return "houtai/super_cg3";
+	}
+
 }
