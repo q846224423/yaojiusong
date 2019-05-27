@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.java.pojo.Admin;
 import com.java.pojo.Doctor;
+import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
 import com.java.pojo.Menu1;
 import com.java.pojo.People;
 import com.java.pojo.Users;
+import com.java.service.Doctorservice;
 import com.java.service.StoreService;
 import com.java.service.impl.Commonserviceipml;
 
@@ -24,6 +26,8 @@ public class CommonControl {
 	private Commonserviceipml cm;
 	@Autowired
 	private StoreService ssi;
+	@Autowired
+	private Doctorservice big;
 	
 		//验证账号密码，跳转不同页面
 	@RequestMapping("/Tojump")
@@ -41,8 +45,9 @@ public class CommonControl {
 			session.setAttribute("admin",admin);
 			return "admin";
 		}else if(p.getRole()==2) {
-			Doctor doctor = cm.getDoctor(p.getId());
+			Doctor_big doctor = big.selectone(p.getId());
 			session.setAttribute("doctor",doctor);
+			
 			return "chen/index1";
 		}else if(p.getRole()==3) {
 			Users user = cm.getUser(p.getId());
@@ -91,12 +96,7 @@ public class CommonControl {
 			return "chen/doctorrz";
 			
 		}
-		//iframe显示jsp代码                                  不要动
-		@RequestMapping("doctorupdate")
-		public String doctorupdate() {
-			return "chen/doctorupdate";
-			
-		}
+
 		//iframe显示jsp代码                                  不要动
 		@RequestMapping("doctorwzjlu")
 		public String doctorwzjlu() {

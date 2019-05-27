@@ -51,7 +51,13 @@
 			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_tel}</dd>
 		</dl>
 		<dl>
-			<dt>科室 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_name}</dd>
+			<dt>科室 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.ks_name}</dd>
+		</dl>
+		<dl>
+			<dt>科别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.kb_name}</dd>
+		</dl>
+		<dl>
+			<dt>价格 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_money}</dd>
 		</dl>
 
 		<dl>

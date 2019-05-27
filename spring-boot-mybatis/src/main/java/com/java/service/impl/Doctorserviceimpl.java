@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.java.mapper.DoctorMapper;
 import com.java.pojo.Doctor;
+import com.java.pojo.Doctor_big;
 import com.java.service.Doctorservice;
 @Service
 public class Doctorserviceimpl implements Doctorservice {
@@ -22,7 +23,7 @@ private DoctorMapper doctorMapper;
 	}
 
 	@Override
-	public Doctor selectone(int id) {
+	public Doctor_big selectone(int id) {
 		
 		return doctorMapper.selectone(id);
 	}

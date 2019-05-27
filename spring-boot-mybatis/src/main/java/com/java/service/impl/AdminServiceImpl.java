@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.java.mapper.DoctorMapper;
 import com.java.pojo.Doctor;
+import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
 import com.java.pojo.Users;
 import com.java.service.AdminService;
@@ -28,8 +29,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	//查询单个医生
-	public Doctor selectOneDoctor(int id) {
-		Doctor selectone = doctorMapper.selectone(id);
+	public Doctor_big selectOneDoctor(int id) {
+		Doctor_big selectone = doctorMapper.selectone(id);
 		return selectone;
 	}
 

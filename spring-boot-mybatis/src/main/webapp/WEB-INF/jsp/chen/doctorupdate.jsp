@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,23 +32,31 @@
 	<div class="zx-dtlMain">
 	<br />
 		<dl>
-			<dt>&nbsp;&nbsp;姓名 &nbsp; &nbsp;： &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value=""required="required"></dd>&nbsp;&nbsp;&nbsp;
+			<dt>&nbsp;&nbsp;姓名 &nbsp; &nbsp;： &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_name}" required="required"></dd>&nbsp;&nbsp;&nbsp;
 		</dl>
 		<dl>
-			 <dt>年龄 &nbsp; &nbsp;   : &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="" required="required" ></dd>
+			 <dt>年龄 &nbsp; &nbsp;   : &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_age}" required="required" ></dd>
 		</dl>
 		<dl>
-			<dt>性别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="" required="required"></dd>
+			<dt>性别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_sex}" required="required"></dd>
 		</dl>
 		<dl>
-			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="" required="required"></dd>
-		</dl>
-
-		<dl>
-			<dt>科别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="" required="required"></dd>
+			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_tel}" required="required"></dd>
 		</dl>
 		<dl>
-			<dt>职位 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="" required="required"></dd>
+			<dt>科室 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.ks_name}" required="required"></dd>
+		</dl>
+		<dl>
+			<dt>科别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.kb_name}" required="required"></dd>
+		</dl>
+		<dl>
+			<dt>价格 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_money}" required="required"></dd>
+		</dl>
+		<dl>
+			<dt>职位 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_zc}" required="required"></dd>
+		</dl>
+		<dl>
+			<dt>介绍&nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><textarea  style=" border:solid skyblue; 1px " required="required">${doctor.d_introduce} </textarea></dd>
 		</dl>
 		<dl>
 			<dt>头像 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border: 1px" type="file" name="filename" value="" required="required"></dd>

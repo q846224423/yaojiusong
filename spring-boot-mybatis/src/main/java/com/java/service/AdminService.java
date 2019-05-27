@@ -3,6 +3,7 @@ package com.java.service;
 import java.util.List;
 
 import com.java.pojo.Doctor;
+import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
 import com.java.pojo.Users;
 
@@ -15,7 +16,7 @@ public interface AdminService {
 	//查询所有医生
     public List<Doctor> selectAllDoctor();
     //查询单个医生
-    public Doctor selectOneDoctor(int id);
+    public Doctor_big selectOneDoctor(int id);
     //修改一个医生
     public int updateDoctor(Doctor doctor);
     //添加一个医生

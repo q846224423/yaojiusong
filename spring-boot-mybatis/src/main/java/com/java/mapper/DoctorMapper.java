@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.java.pojo.Doctor;
+import com.java.pojo.Doctor_big;
 @Repository
 public interface DoctorMapper {
     
@@ -16,8 +17,8 @@ public interface DoctorMapper {
     @Select("select * from doctor")
     List<Doctor> selectall();
     //医生查询单条
-    @Select("select * from doctor where d_id=#{id}")
-    Doctor selectone(int id);
+    @Select("select * from shituone where people_id=#{id}")
+    Doctor_big selectone(int id);
     //医生修改数据
     @Update("update `shop1`.`doctor` set`d_name` = #{d_name},`d_sex` = #{d_sex},`d_age` = #{d_age},`d_control` = #{d_control},`d_url` = #{d_url},`d_introduce` = #{d_introduce},`d_state` = #{d_state},`kb_id` = #{kb_id},`d_zc` = #{d_zc},`d_money` = #{d_money},`d_tel` = #{d_tel},`people_id` = #{people_id},`d_head` = #{d_head} where `d_id` = #{d_id}")
     int update(Doctor doctor);
