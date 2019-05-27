@@ -24,15 +24,14 @@
 		<div class="logo"><a href="index.html" target="_parent"><img src="images/logo.png"></a></div>
 		<div class="side-menu">
 			<ul>
-				<li class="on"><a href="super_cg.html" target="Mainindex"><i class="ico-8"></i>用户管理</a></li>
-				<li><a href="super_cg1.html" target="Mainindex"><i class="ico-9"></i>医师管理</a></li>
-				<li><a href="super_cg2.html" target="Mainindex"><i class="ico-1"></i>门店管理</a></li>
-				<li><a href="super_cg3.html" target="Mainindex"><i class="ico-2"></i>订单管理</a></li>
-				<li><a href="super_cg.html" target="Mainindex"><i class="ico-3"></i>问诊管理</a></li>
-				<li><a href="super_cg.html" target="Mainindex"><i class="ico-4"></i>评价管理</a></li>
-				<li><a href="super_cg.html" target="Mainindex"><i class="ico-5"></i>视频管理</a></li>
-				<li><a href="super_cg.html" target="Mainindex"><i class="ico-6"></i>科别管理</a></li>
-				<li><a href="super_cg.html" target="Mainindex"><i class="ico-7"></i>系统设置</a></li>
+				<li class="on"><a href="super_cg" target="Mainindex"><i class="ico-8"></i>用户管理</a></li>
+				<li><a href="super_cg1" target="Mainindex"><i class="ico-9"></i>医师管理</a></li>
+				<li><a href="super_cg2" target="Mainindex"><i class="ico-1"></i>门店管理</a></li>
+				<li><a href="super_cg3" target="Mainindex"><i class="ico-2"></i>订单管理</a></li>
+				<li><a href="super_cg" target="Mainindex"><i class="ico-3"></i>问诊管理</a></li>
+				<li><a href="super_cg" target="Mainindex"><i class="ico-4"></i>评价管理</a></li>
+				<li><a href="super_cg" target="Mainindex"><i class="ico-5"></i>视频管理</a></li>
+				<li><a href="super_cg." target="Mainindex"><i class="ico-6"></i>科别管理</a></li>
 			</ul>
 		</div>
 	</div>

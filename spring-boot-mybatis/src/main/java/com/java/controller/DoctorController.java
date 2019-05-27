@@ -17,14 +17,6 @@ public class DoctorController {
 	@Autowired
 	private Doctorservice big;
 	
-	@Autowired	
-	private Doctorservice doctorservice;
-	
-	@RequestMapping("/show1")
-	public String ShowDoctorAll(Model model) {
-		model.addAttribute("fjt", doctorservice.selectall());
-		return "houtai/super_cg1";
-	}
 	//修改跳转
 		@RequestMapping("updatesession")
 		public String doctorupdate(HttpServletRequest request ,Doctor doctor) {
