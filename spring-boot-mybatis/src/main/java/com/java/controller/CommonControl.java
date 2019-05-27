@@ -54,6 +54,7 @@ public class CommonControl {
 			List<Menu1> list1 = ssi.getAllMenu();
 			session.setAttribute("list", list1);
 			session.setAttribute("user", user);
+			session.setAttribute("p",p);
 			return "store/shouye";
 		} else if (p.getRole() == 4) {
 			DrugStore drugStore = cm.getDrugStore(p.getId());

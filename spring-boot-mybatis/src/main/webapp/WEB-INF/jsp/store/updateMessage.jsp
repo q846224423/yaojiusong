@@ -18,33 +18,7 @@ pageEncoding="UTF-8"%>
         
 	<script type="text/javascript" src="js/index/select.js"></script>
  <script>
- function change_pwd(){
-	 jQuery("#input_pwd").show();
- }
 
- function change_message(){
-	 window.location.href ="toupdateMessage";
- }
- function check(){
-     if (document.form1.pwd.value==""){
-    	 jQuery("#tishi").text("请输入登录密码!");
-   return false;
-   }
-    if (document.form1.pwds.value==""){
-  jQuery("#tishi").text("请输入重复密码!");
-   return false;
-   }
-      if (document.form1.pwd.value!=document.form1.pwds.value){
-    	  jQuery("#tishi").text("密码不一致!");
-   return false;
-   }else{
-	   jQuery("#tishi").text("");
-	   return true; 
-   }
-
- 
-
- }
 </script>
     
 <title>我的信息</title>
@@ -266,55 +240,27 @@ pageEncoding="UTF-8"%>
             <!-- 通过点击改变div内容 -->
             <div style="width: 950px;height: 250px" id="mem_tab">
             <table border="0" class="mon_tab" style="width:870px; margin-bottom:20px;" cellspacing="0" cellpadding="0">
-            
-                <tr>
-                <td width="30%">姓名：<span style="color:#555555;">${user.user_name}</span></td>
+              <tr>
+                <td width="30%">姓名：<input type="text" name="user_name" value="${user.user_name}" /></td>
               </tr>
               <tr>
-                <td width="30%">年龄：<span style="color:#555555;">${user.user_age}</span></td>
+                <td width="30%">年龄：<input type="text" name="user_age" value="${user.user_age}" /></td>
               </tr>
-              <tr>
-                <td width="30%">性别：<span style="color:#555555;">${user.user_sex}</span></td>
-              </tr>
-              
-              <!-- 判断是否需要认证 -->
-              <c:choose>
-              <c:when test="${user.user_card==null}">
                <tr>
-                <td width="30%">实名认证：<span style="color:#555555;">未认证</span></td>
+                <td width="30%">性别：<input type="text" name="user_sex" value="${user.user_sex}" /></td>
               </tr>
-              </c:when>
-              <c:otherwise>
               <tr>
-                <td width="30%">身份证号：<span style="color:#555555;">${user.user_card}</span></td>
+                <td width="30%">手机号：<input type="text" name="user_sex" value="${user.user_tel}" /></td>
               </tr>
-              </c:otherwise>
-              </c:choose>
-              
-              
               <tr>
-                <td>电&nbsp; &nbsp; 话：<span style="color:#555555;">${user.user_tel}</span></td>
-                 </tr>
-              <tr><td height="26px"><span id="tishi"></span> </td> </tr>
-              <tr>
-              <td>
-            <div id="input_pwd" style="display: none">
-            <form action="updatePwd" method="post" name="form1" >
-            <input type="hidden" name="id" value="${p.id }"/>
-           密码： <input type="password" name="pwd" onblur="check()" />
-           重新输入： <input type="password" name="pwds" onchange="check()" />
-          <input type="submit" value="提交" onclick="return check()"  />
-            </td>
-            </form>
-            </div>
-              </tr> 
-                
+                <td width="30%">具体地址：<input type="text" name="user_address" value="${user.user_address}" /></td>
+              </tr>
+             
             </table>
             </div>
             
             <div style="position:relative;left:50px;top:20px">
-            <input type="button" value="完善信息" id="change_message" onclick="change_message();"/>
-            <input type="button" value="修改密码" id="change_pwd" onclick="change_pwd();"/>
+            <input type="button" value="修改" id="change_pwd" onclick=""/>
             </div>
             
                

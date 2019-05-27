@@ -3,11 +3,13 @@ package com.java.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.java.pojo.Menu1;
 import com.java.pojo.Menu2;
 import com.java.pojo.Menu3;
+import com.java.pojo.People;
 @Repository
 public interface StoreMapper {
 	
@@ -40,5 +42,13 @@ public interface StoreMapper {
 	//通过3级查询商品
 	@Select("select * from menuthree where menu3_id=#{id}")
 	public Menu3 select3By3id(int id);
+	
+	/**
+	 * @修改信息
+	 */
+	//修改密码
+	@Update("update people set pwd=#{pwd} where id=#{id}")
+	public void updatePwd(People p);
+	
 	
 }

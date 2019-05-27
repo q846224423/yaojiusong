@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.java.pojo.Menu1;
 import com.java.pojo.Menu3;
+import com.java.pojo.People;
 import com.java.service.StoreService;
 
 @Controller
@@ -21,7 +22,10 @@ public class StoreController {
 
 	// 展示所有的左侧菜单
 	@RequestMapping("show")
-	public String showMenu(Model model) {
+	public String showMenu(Model model, HttpSession session) {
+		List<Menu1> list1 = ssi.getAllMenu();
+		// 菜单列表
+		session.setAttribute("list", list1);
 		return "store/shouye";
 	}
 
@@ -49,12 +53,23 @@ public class StoreController {
 		System.out.println(list.toString());
 		return "store/BrandByName";
 	}
-	
-	// 跳转用户个人信息
-		@RequestMapping("userMessage")
-		public String touserMessage(Model model) {
-			return "store/userMessage";
-		}
-	
 
+	// 跳转用户个人信息
+	@RequestMapping("userMessage")
+	public String touserMessage(Model model) {
+		return "store/userMessage";
+	}
+
+	// 修改用户密码
+	@RequestMapping("updatePwd")
+	public String updatePwd(Model model, People p) {
+		ssi.updatePwd(p);
+		return "store/updateMessage";
+	}
+	
+	// 跳转修改信息页面
+	@RequestMapping("toupdateMessage")
+	public String toupdateMessage(Model model) {
+		return "store/updateMessage";
+	}
 }

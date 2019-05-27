@@ -120,7 +120,7 @@
         <!--End 所在收货地区 End-->
         <span class="fr">
         <c:choose>
-        <c:when test="${user==null}"><span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a></c:when>
+        <c:when test="${user==null}"><span class="fl">你好，请<a href="Loginb.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a></c:when>
         <c:otherwise> <span class="fl">${user.user_name},你好&nbsp; <a href="userMessage" style="color:#ff4e00;">我的信息</a></c:otherwise>
         	</c:choose>
         	&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>

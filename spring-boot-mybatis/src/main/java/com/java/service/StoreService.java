@@ -2,11 +2,13 @@ package com.java.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Update;
 import org.springframework.cache.annotation.Cacheable;
 
 import com.java.pojo.Menu1;
 import com.java.pojo.Menu2;
 import com.java.pojo.Menu3;
+import com.java.pojo.People;
 
 public interface StoreService {
 
@@ -34,4 +36,7 @@ public interface StoreService {
 	//通过2级查询所有商品  select3By2id
 	//通过3级查询商品
 	public Menu3 select3By3id(int id);
+	
+	//修改密码
+		public void updatePwd(People p);
 }

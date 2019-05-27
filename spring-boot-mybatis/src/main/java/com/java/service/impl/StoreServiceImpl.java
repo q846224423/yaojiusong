@@ -10,6 +10,7 @@ import com.java.mapper.StoreMapper;
 import com.java.pojo.Menu1;
 import com.java.pojo.Menu2;
 import com.java.pojo.Menu3;
+import com.java.pojo.People;
 import com.java.service.StoreService;
 
 @Service
@@ -45,9 +46,6 @@ public class StoreServiceImpl implements StoreService {
 				menu2.setChlidren(list3);
 				
 			}}	
-			///第一个名字
-			//list1.get(0)
-			//list1.get(0).getChlidren()
 			return 	list1;	
 	}
 
@@ -64,6 +62,11 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public Menu3 select3By3id(int id) {
 		return ss.select3By3id(id);
+	}
+
+	@Override
+	public void updatePwd(People p) {
+		ss.updatePwd(p);
 	}
 
 }
