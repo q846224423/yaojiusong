@@ -21,7 +21,7 @@
 <body>
 	<!--side S-->
 	<div class="super-side-menu">
-		<div class="logo"><a href="index.html" target="_parent"><img src="images/logo.png"></a></div>
+		<div class="logo"><a href="public_super_cg" target="_parent"><img src="images/logo.png"></a></div>
 		<div class="side-menu">
 			<ul>
 				<li class="on"><a href="super_cg" target="Mainindex"><i class="ico-8"></i>用户管理</a></li>
