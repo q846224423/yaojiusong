@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.java.pojo.Admin;
-import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
 import com.java.pojo.Ks;
@@ -72,11 +71,9 @@ public class CommonControl {
 	}
 
 	// 电话****方法
-	public String phone(int d_tel) {
-
+	public static String phone(int d_tel) {
 		String phone = String.valueOf(d_tel);
 		String phoneNumber = phone.substring(0, 3) + "****" + phone.substring(7, phone.length());
-
 		return phoneNumber;
 	}
 

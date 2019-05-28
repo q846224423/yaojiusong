@@ -1,5 +1,6 @@
+<%@page import="com.java.controller.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -48,7 +49,11 @@
 			<dt>性别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_sex}</dd>
 		</dl>
 		<dl>
-			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_tel}</dd>
+			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>
+
+		  <%=CommonControl.phone(${doctor.d_tel})%>
+			
+			</dd>
 		</dl>
 		<dl>
 			<dt>科室 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.ks_name}</dd>

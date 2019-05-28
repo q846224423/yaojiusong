@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -83,7 +82,6 @@ public class DoctorController {
 			return "chen/loginb1";
 
 		}
-
 	
 	//修改跳转
 		@RequestMapping("updatesession")
@@ -106,9 +104,7 @@ public class DoctorController {
 		@ResponseBody
 		@RequestMapping(value = "doctorkb", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")	
 		public List<Kb> doctorkb(int id) {
-
-	
-		
+			
 			 return kb.selectkb(id);		
 		}
 }
