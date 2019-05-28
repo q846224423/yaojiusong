@@ -14,7 +14,7 @@ public interface KsMapper {
 	
 	//查询所有科室
 	@Select("select * from ks")
-	List<Ks> KsList();
+	List<Ks> selectAllKs();
 	//查询单个科室
 	@Select("select * from ks where ks_id=#{id}")
 	public Ks selectOneKs(int id);

@@ -100,11 +100,35 @@ public class DoctorController {
 			
 			return  "chen/doctorupdate";
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		//通过科室的id查科别
 		@ResponseBody
 		@RequestMapping(value = "doctorkb", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")	
 		public List<Kb> doctorkb(int id) {
+<<<<<<< HEAD
 			
+=======
+>>>>>>> branch 'master' of https://github.com/q846224423/yaojiusong.git
 			 return kb.selectkb(id);		
 		}
 }
