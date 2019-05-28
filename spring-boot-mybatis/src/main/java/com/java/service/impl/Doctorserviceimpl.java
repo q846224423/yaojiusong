@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.mapper.DoctorMapper;
+import com.java.mapper.KsMapper;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.Kb;
@@ -15,6 +16,8 @@ import com.java.service.Doctorservice;
 public class Doctorserviceimpl implements Doctorservice {
 @Autowired
 private DoctorMapper doctorMapper;
+@Autowired
+private KsMapper ksMapper;
 
 
 	@Override
@@ -50,7 +53,7 @@ private DoctorMapper doctorMapper;
 	@Override
 	public List<Ks> selectallKs() {
 		
-		return doctorMapper.selectallKs();
+		return ksMapper.selectAllKs();
 	}
 
 

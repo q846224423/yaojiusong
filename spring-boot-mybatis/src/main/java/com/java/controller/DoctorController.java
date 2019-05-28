@@ -106,9 +106,6 @@ public class DoctorController {
 		@ResponseBody
 		@RequestMapping(value = "doctorkb", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")	
 		public List<Kb> doctorkb(int id) {
-
-	
-		
 			 return kb.selectkb(id);		
 		}
 }

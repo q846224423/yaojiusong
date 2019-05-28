@@ -15,7 +15,7 @@ public class KsServiceImpl implements KsService {
 
 	// 查询所有科室
 	public List<Ks> KsList() {
-		return km.KsList();
+		return km.selectAllKs();
 	}
 
 }
