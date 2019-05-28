@@ -15,6 +15,7 @@ import com.java.pojo.DrugStore;
 import com.java.pojo.Ks;
 import com.java.pojo.Menu1;
 import com.java.pojo.People;
+import com.java.pojo.User_big;
 import com.java.pojo.Users;
 import com.java.service.Doctorservice;
 import com.java.service.StoreService;
@@ -55,11 +56,10 @@ public class CommonControl {
 
 			return "chen/index1";
 		} else if (p.getRole() == 3) {
-			Users user = cm.getUser(p.getId());
+			User_big user = ssi.getUser(p.getId());
 			List<Menu1> list1 = ssi.getAllMenu();
 			session.setAttribute("list", list1);
 			session.setAttribute("user", user);
-			session.setAttribute("p",p);
 			return "store/shouye";
 		} else if (p.getRole() == 4) {
 			DrugStore drugStore = cm.getDrugStore(p.getId());
