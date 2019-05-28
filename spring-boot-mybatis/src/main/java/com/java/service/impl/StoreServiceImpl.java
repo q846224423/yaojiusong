@@ -3,14 +3,20 @@ package com.java.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.java.mapper.StoreMapper;
+import com.java.mapper.UsersMapper;
+import com.java.pojo.FjtArea;
+import com.java.pojo.FjtCity;
+import com.java.pojo.FjtProvince;
 import com.java.pojo.Menu1;
 import com.java.pojo.Menu2;
 import com.java.pojo.Menu3;
 import com.java.pojo.People;
+import com.java.pojo.User_big;
+import com.java.pojo.Users;
+import com.java.pojo.Users_copy;
 import com.java.service.StoreService;
 
 @Service
@@ -18,6 +24,9 @@ public class StoreServiceImpl implements StoreService {
 
 	@Autowired
 	private StoreMapper ss;
+	
+	@Autowired
+	private UsersMapper um;
 	
 	@Override
 	public List<Menu1> selectA1() {
@@ -67,6 +76,48 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public void updatePwd(People p) {
 		ss.updatePwd(p);
+	}
+
+	@Override
+	public List<FjtProvince> getProvince() {
+		// TODO Auto-generated method stub
+		return ss.getProvince();
+	}
+
+	@Override
+	public List<FjtCity> getCity(String code) {
+		// TODO Auto-generated method stub
+		return ss.getCity(code);
+	}
+
+	@Override
+	public List<FjtArea> getArea(String code) {
+		// TODO Auto-generated method stub
+		return ss.getArea(code);
+	}
+
+	@Override
+	public User_big getUser(int id) {
+		// TODO Auto-generated method stub
+		return um.getUser(id);
+	}
+
+	@Override
+	public void updateUser(Users users) {
+		um.updateUser(users);
+		
+	}
+
+	@Override
+	public void checkIdcard(Users_copy users_copy) {
+		um.checkIdcard(users_copy);
+		
+	}
+
+	@Override
+	public void change_control(int id) {
+		um.change_control(id);
+		
 	}
 
 }

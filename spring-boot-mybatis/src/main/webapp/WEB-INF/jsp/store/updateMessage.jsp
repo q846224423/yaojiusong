@@ -17,9 +17,51 @@ pageEncoding="UTF-8"%>
     <script type="text/javascript" src="js/index/menu.js"></script>    
         
 	<script type="text/javascript" src="js/index/select.js"></script>
- <script>
-
-</script>
+	<script type="text/javascript">
+    	jQuery(function(){
+			jQuery.ajax({
+				"url":"getProvince",
+				"type":"post",
+				"data":{},
+				"dataType":"json",
+				"success":function(res){
+					jQuery.each(res,function(){
+						jQuery("#province").append('<option value="'+this.provinceCode+'" >'+this.provinceName+'</option>');
+					 }) 
+				}
+			})
+			jQuery("#province").change(function(){
+				var provinceCode = jQuery(this).val();
+				jQuery.ajax({
+				"url":"getCity",
+				"type":"post",
+				"data":{"provinceCode":provinceCode},
+				"dataType":"json",
+				"success":function(res){
+					jQuery("#city>option:gt(0)").remove();
+					jQuery.each(res,function(){
+						jQuery("#city").append('<option value="'+this.cityCode+'" >'+this.cityName+'</option>');
+					 }) 
+				}
+			})
+		})
+		 jQuery("#city").change(function(){
+				var cityCode = jQuery(this).val();
+				jQuery.ajax({
+				"url":"getArea",
+				"type":"post",
+				"data":{"cityCode":cityCode},
+				"dataType":"json",
+				"success":function(res){
+					jQuery("#area>option:gt(0)").remove();
+					jQuery.each(res,function(){
+						jQuery("#area").append('<option value="'+this.areaId+'" >'+this.areaName+'</option>');
+					 }) 
+				}
+			})
+		}) 
+	})
+	</script>
     
 <title>我的信息</title>
 </head>
@@ -239,7 +281,15 @@ pageEncoding="UTF-8"%>
             <div class="mem_t">账号信息</div>
             <!-- 通过点击改变div内容 -->
             <div style="width: 950px;height: 250px" id="mem_tab">
+            <form action="updateUser" method="post">
             <table border="0" class="mon_tab" style="width:870px; margin-bottom:20px;" cellspacing="0" cellpadding="0">
+             <tr>
+                <td width="30%"><input type="hidden" name="user_id" value="${user.user_id}" /></td>
+              </tr>
+                <tr>
+                <td width="30%"><input type="hidden" name="people_id" value="${user.people_id}" /></td>
+              </tr>
+              
               <tr>
                 <td width="30%">姓名：<input type="text" name="user_name" value="${user.user_name}" /></td>
               </tr>
@@ -250,20 +300,35 @@ pageEncoding="UTF-8"%>
                 <td width="30%">性别：<input type="text" name="user_sex" value="${user.user_sex}" /></td>
               </tr>
               <tr>
-                <td width="30%">手机号：<input type="text" name="user_sex" value="${user.user_tel}" /></td>
+                <td width="30%">手机号：<input type="text" name="user_tel" value="${user.user_tel}" /></td>
+              </tr>
+              <tr>
+             <td width="135" align="left">配送地区：</td>
+                   <td colspan="3" style="font-family:'宋体';">
+                	<select id="province" style="font-size: 14px;" name="province" >
+					<option value="0">${user.provinceName }</option>
+					</select> <br/>
+                	<select  id="city" style="font-size: 14px" name="city">
+                      <option value="0" >${user.cityName }</option>
+                    </select><br/>
+                    <select   id="area" style="font-size: 14px;" name="user_countyid">
+                      <option value="0" >${user.areaName }</option>
+                    </select>
+                    （必填）
+                </td>
               </tr>
               <tr>
                 <td width="30%">具体地址：<input type="text" name="user_address" value="${user.user_address}" /></td>
               </tr>
-             
+              <tr><td>
+              <input type="submit" value="修改" id="change_pwd"/>
+              </td></tr>
+              
             </table>
+            </form>
             </div>
             
-            <div style="position:relative;left:50px;top:20px">
-            <input type="button" value="修改" id="change_pwd" onclick=""/>
-            </div>
             
-               
         </div>
     </div>
 	<!--End 用户中心 End--> 
