@@ -79,25 +79,25 @@
 	 <div class="cc">
 		<span>医生列表</span><span class="span"><a href="ii">返回</a></span>
 	</div>
-	<c:forEach items="${yishishow}" var="show">
+	<c:forEach items="${pageInfo.list}" var="list">
 	<div class="biaoge">
 	
 		<div class="cla">
-			<img src="img/${show.d_head}" style="height: 80px;">
+			<img src="img/${list.d_head}" style="height: 80px;">
 		</div>
 	
 		<table class="tab">
 			<tr>
-				<td>${show.d_name}</td>
+				<td>${list.d_name}</td>
 			</tr>
 			<tr>
-				<td>${show.kb_name}</td>
+				<td>${list.kb_name}</td>
 			</tr>
 			<tr>
-				<td>${show.d_zc}</td>
+				<td>${list.d_zc}</td>
 			</tr>
 			<tr>
-				<td>${show.d_money}</td>
+				<td>${list.d_money}</td>
 			</tr>
 		</table>
 		<div class="sss">
@@ -105,5 +105,9 @@
 		</div>
 		</div>
 		</c:forEach>
+		<a href="show?pageNum=1">首页</a>
+	<a href="yisheng?pageNum=${pageInfo.pageNum-1}">上一页</a>
+	<a href="yisheng?pageNum=${pageInfo.pageNum+1}">下一页</a>
+	<a href="yisheng?pageNum=${pageInfo.pages}">尾页</a>
 </body>
 </html>

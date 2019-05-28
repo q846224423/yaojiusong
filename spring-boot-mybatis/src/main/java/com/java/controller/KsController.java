@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.java.pojo.Ks;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.impl.KsServiceImpl;
@@ -29,13 +32,13 @@ public class KsController {
 
 	// 通过科室ID查询到所有医师返回所有医师界面
 	@RequestMapping("yisheng")
-	public String selectyishi(Model model) {
+	public String selectyishi(Model model ,@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
 		int id = 5;
+		 PageHelper.startPage(pageNum,2);
 		List<ZhongjianCalssYiShi> shouAll = ysi.yishiShouAll(id);
-		model.addAttribute("yishishow", shouAll);
-		for (int i = 0; i < shouAll.size(); i++) {
-			System.out.println(shouAll.get(i).getD_head());
-		}
+		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(shouAll);
+		model.addAttribute("pageInfo", pageInfo);
+		
 		return "yishi";
 	}
 }
