@@ -61,4 +61,5 @@ public class AdminController {
 	public String super_cg5() {
 		return "houtai/super_cg5";
 	}
+	
 }
