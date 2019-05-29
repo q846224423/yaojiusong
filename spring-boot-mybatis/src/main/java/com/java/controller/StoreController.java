@@ -119,7 +119,7 @@ public class StoreController {
 		@RequestMapping("checkIdcard")
 		public String checkIdcard(MultipartFile file,HttpServletRequest rq) throws IllegalStateException, IOException {
 			//获取IDcard文件夹所在的绝对路径
-			String path="c:/Users/Administrator/git/yaojiusongy/spring-boot-mybatis/src/main/resources/static/upload/IDcard";
+			String path="c:/Users/Administrator/git/yaojiusongy/spring-boot-mybatis/src/main/resources/static/upload/IDcard/";
 			String fileName = file.getOriginalFilename();
 			//上传
 			MultipartHttpServletRequest request = (MultipartHttpServletRequest)rq;

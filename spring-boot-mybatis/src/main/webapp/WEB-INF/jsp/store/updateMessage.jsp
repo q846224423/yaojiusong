@@ -312,7 +312,7 @@ pageEncoding="UTF-8"%>
                       <option value="0" >${user.cityName }</option>
                     </select><br/>
                     <select   id="area" style="font-size: 14px;" name="user_countyid">
-                      <option value="0" >${user.areaName }</option>
+                      <option value="${user.user_countyid }" >${user.areaName }</option>
                     </select>
                     （必填）
                 </td>

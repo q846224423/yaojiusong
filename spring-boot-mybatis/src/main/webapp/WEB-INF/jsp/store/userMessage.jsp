@@ -352,7 +352,7 @@ function closeDialog(){
 							<c:when test="${user.user_control==1}">
 								<tr>
 									<td width="30%">实名认证：<span style="color: #555555;">
-									<a href = "JavaScript:void(0)">认证中</a></span></td>
+									<a href = "JavaScript:void(0)">审核中</a></span></td>
 								</tr>
 							</c:when>
 							<c:otherwise>
