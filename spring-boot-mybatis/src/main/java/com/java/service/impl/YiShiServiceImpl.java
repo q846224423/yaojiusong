@@ -18,5 +18,10 @@ public class YiShiServiceImpl implements YiShiService {
 	public List<ZhongjianCalssYiShi> yishiShouAll(int id) {
 		return ym.yishiShouAll( id);
 	}
+	//通过科室ID医生ID找到医师的详细信息
+	public ZhongjianCalssYiShi yishiShouOne(int ks_id, int d_id) {
+		
+		return ym.yishiShouOne(ks_id, d_id);
+	}
 
 }

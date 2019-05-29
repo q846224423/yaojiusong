@@ -12,7 +12,6 @@ import com.java.service.KsService;
 public class KsServiceImpl implements KsService {
 	@Autowired
 	KsMapper km;
-
 	// 查询所有科室
 	public List<Ks> KsList() {
 		return km.selectAllKs();

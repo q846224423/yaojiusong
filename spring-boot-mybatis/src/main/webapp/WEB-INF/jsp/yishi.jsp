@@ -32,7 +32,7 @@
 .span a {
 	text-decoration: none;
 	font-size: 15px;
-	font-weight: 600;
+	font-weight: 600px;
 	margin-left: -870px;
 	color:rgb(175,175,175);
 	
@@ -51,15 +51,15 @@
 }
 
 .sss{
-				height: 30px;
-				width: 60px;
+				height: 35px;
+				width: 65px;
 				background-color: rgb(8,194,207);
 				 text-align:center;
-				 line-height: 30px;
+				 line-height: 35px;
 				  border-radius: 8px;
 				  color: white;
 				 position: relative;
-				  left: 960px;
+				  left: 1100px;
 				   top:-60px;
 				   font-size:13px;
 				   
@@ -101,7 +101,8 @@
 			</tr>
 		</table>
 		<div class="sss">
-			<a href="">申请加号</a>
+			<a href="yishengone?ks_id=${list.ks_id}&d_id=${list.d_id}&pageNum=${pageInfo.pageNum}">
+			${list.d_state==0?"忙碌中":"在线"}</a>
 		</div>
 		</div>
 		</c:forEach>
