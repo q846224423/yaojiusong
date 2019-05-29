@@ -117,13 +117,13 @@ public class AdminServiceImpl implements AdminService {
 	//添加一个用户
 	public int insertUsers(Users users) {
 		int insertOneUsers = usersMapper.insertOneUsers(users);
-		return 0;
+		return insertOneUsers;
 	}
 
 	//删除一个用户
 	public int deleteOneUsers(int id) {
 		int deleteOneUsers = usersMapper.deleteOneUsers(id);
-		return 0;
+		return deleteOneUsers;
 	}
 	
 }
