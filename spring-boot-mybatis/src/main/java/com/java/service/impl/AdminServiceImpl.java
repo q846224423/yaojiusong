@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.mapper.DoctorMapper;
+import com.java.mapper.DrugstoreMapper;
+import com.java.mapper.UsersMapper;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
@@ -17,6 +19,10 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
 	private DoctorMapper doctorMapper;
+	@Autowired
+	private DrugstoreMapper drugstoreMapper;
+	@Autowired
+	private UsersMapper usersMapper;
 	
 	/*
 	 * 所有医生操作
@@ -58,32 +64,32 @@ public class AdminServiceImpl implements AdminService {
 	
 	//查询所有药店
 	public List<DrugStore> selectAllDrugStore() {
-		// TODO Auto-generated method stub
-		return null;
+		List<DrugStore> dsselectall = drugstoreMapper.dsselectall();
+		return dsselectall;
 	}
 
 	//查询单个药店
-	public DrugStore selectOneDrugStore() {
-		// TODO Auto-generated method stub
-		return null;
+	public DrugStore selectOneDrugStore(int id) {
+		DrugStore dsselectone = drugstoreMapper.dsselectone(id);
+		return dsselectone;
 	}
 
 	//修改一个药店
 	public int updateDrugStore(DrugStore drugStore) {
-		// TODO Auto-generated method stub
-		return 0;
+		int dsupdate = drugstoreMapper.dsupdate(drugStore);
+		return dsupdate;
 	}
 
 	//添加一个药店
 	public int insertDrugStore(DrugStore drugStore) {
-		// TODO Auto-generated method stub
-		return 0;
+		int dsinsert = drugstoreMapper.dsinsert(drugStore);
+		return dsinsert;
 	}
 
 	//删除一个药店
 	public int deleteOneDrugStore(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		int dsdelete = drugstoreMapper.dsdelete(id);
+		return dsdelete;
 	}
 	
 	/*
@@ -92,31 +98,31 @@ public class AdminServiceImpl implements AdminService {
 	
 	//查询所有用户
 	public List<Users> selectAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Users> selectAllUsers = usersMapper.selectAllUsers();
+		return selectAllUsers;
 	}
 
 	//查询单个用户
-	public Users selectOneUsers() {
-		// TODO Auto-generated method stub
-		return null;
+	public Users selectOneUsers(int id) {
+		Users selectOneUsers = usersMapper.selectOneUsers(id);
+		return selectOneUsers;
 	}
 
 	//修改一个用户
 	public int updateUsers(Users users) {
-		// TODO Auto-generated method stub
-		return 0;
+		int updateUsers = usersMapper.updateUsers(users);
+		return updateUsers;
 	}
 
 	//添加一个用户
 	public int insertUsers(Users users) {
-		// TODO Auto-generated method stub
+		int insertOneUsers = usersMapper.insertOneUsers(users);
 		return 0;
 	}
 
 	//删除一个用户
 	public int deleteOneUsers(int id) {
-		// TODO Auto-generated method stub
+		int deleteOneUsers = usersMapper.deleteOneUsers(id);
 		return 0;
 	}
 	

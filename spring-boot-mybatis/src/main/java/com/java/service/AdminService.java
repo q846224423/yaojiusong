@@ -32,7 +32,7 @@ public interface AdminService {
     //查询所有药店
     public List<DrugStore> selectAllDrugStore();
     //查询单个药店
-    public DrugStore selectOneDrugStore();
+    public DrugStore selectOneDrugStore(int id);
     //修改一个药店
     public int updateDrugStore(DrugStore drugStore);
     //添加一个药店
@@ -46,7 +46,7 @@ public interface AdminService {
     //查询所有用户
     public List<Users> selectAllUsers();
     //查询单个用户
-    public Users selectOneUsers();
+    public Users selectOneUsers(int id);
     //修改一个用户
     public int updateUsers(Users users);
     //添加一个用户
