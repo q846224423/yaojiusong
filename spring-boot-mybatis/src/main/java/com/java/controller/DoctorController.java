@@ -111,4 +111,14 @@ public class DoctorController {
 		
 			 return kb.selectkb(id);		
 		}
+		//修改完成审核
+		@RequestMapping("examine")
+		public String examine() {
+
+			
+			
+			return "chen/zixun_dtl";	
+		}
+		
+		
 }

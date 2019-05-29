@@ -15,6 +15,7 @@ public class Doctor {
 	private double d_money;//看病金额
 	private String d_tel; //医生电话
 	private Integer people_id; //对应people——id
+	private String  d_change;//默认0 修改后的数据通过是1
 	
 	public Integer getD_id() {
 		return d_id;
@@ -99,39 +100,25 @@ public class Doctor {
 	}
 	public void setPeople_id(Integer people_id) {
 		this.people_id = people_id;
+		
+		
+	}
+	public String getD_change() {
+		return d_change;
+	}
+	public void setD_change(String d_change) {
+		this.d_change = d_change;
 	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Doctor [d_id=");
-		builder.append(d_id);
-		builder.append(", d_name=");
-		builder.append(d_name);
-		builder.append(", d_age=");
-		builder.append(d_age);
-		builder.append(", d_sex=");
-		builder.append(d_sex);
-		builder.append(", d_control=");
-		builder.append(d_control);
-		builder.append(", d_url=");
-		builder.append(d_url);
-		builder.append(", d_head=");
-		builder.append(d_head);
-		builder.append(", d_introduce=");
-		builder.append(d_introduce);
-		builder.append(", d_state=");
-		builder.append(d_state);
-		builder.append(", kb_id=");
-		builder.append(kb_id);
-		builder.append(", d_zc=");
-		builder.append(d_zc);
-		builder.append(", d_money=");
-		builder.append(d_money);
-		builder.append(", d_tel=");
-		builder.append(d_tel);
-		builder.append(", people_id=");
-		builder.append(people_id);
-		builder.append("]");
+		builder.append("Doctor [d_id=").append(d_id).append(", d_name=").append(d_name).append(", d_age=").append(d_age)
+				.append(", d_sex=").append(d_sex).append(", d_control=").append(d_control).append(", d_url=")
+				.append(d_url).append(", d_head=").append(d_head).append(", d_introduce=").append(d_introduce)
+				.append(", d_state=").append(d_state).append(", kb_id=").append(kb_id).append(", d_zc=").append(d_zc)
+				.append(", d_money=").append(d_money).append(", d_tel=").append(d_tel).append(", people_id=")
+				.append(people_id).append(", d_change=").append(d_change).append("]");
 		return builder.toString();
-	}	
+	}
+	
 }

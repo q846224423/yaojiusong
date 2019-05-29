@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.java.pojo.Ks;
-@Repository
+@Repository 
 public interface KsMapper {
 	
 	//查询所有科室

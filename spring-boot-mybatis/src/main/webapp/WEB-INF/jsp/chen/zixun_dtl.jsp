@@ -51,7 +51,7 @@
 		<dl>
 			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>
 
-		  <%=CommonControl.phone(${doctor.d_tel})%>
+		  <%-- <%=CommonControl.phone(${doctor.d_tel})%> --%>
 			
 			</dd>
 		</dl>
