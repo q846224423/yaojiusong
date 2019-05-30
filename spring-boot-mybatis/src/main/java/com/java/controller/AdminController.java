@@ -158,8 +158,8 @@ public class AdminController {
 	@RequestMapping("yishi_guanli")
 	public String yishi_guanli(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		PageHelper.startPage(pageNum,5);
-		List<Doctor> selectAllDoctor = adminService.selectAll01();
-		PageInfo<Doctor> pageInfo = new PageInfo<Doctor>(selectAllDoctor);
+		 List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll01();
+		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(selectAll01);
 		model.addAttribute("selectAllDoctor",pageInfo);
 		int allDoctorNum = adminService.AllDoctorNum();
 		model.addAttribute("allDoctorNum",allDoctorNum);

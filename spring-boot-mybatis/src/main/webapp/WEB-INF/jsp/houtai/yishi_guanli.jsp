@@ -92,7 +92,7 @@
 											<a href="#" class="txdoc">${list.d_introduce }</a>
 										</td>
 										<td class="td_12">${list.d_zc }</td>
-										<td class="td_13">${list.kb_id }</td>
+										<td class="td_13">${list.kb_name }</td>
 										<td class="td_14">${list.d_state }</td>
 										<td class="td_10">
 											<div class="btn">

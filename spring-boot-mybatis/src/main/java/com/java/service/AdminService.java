@@ -6,6 +6,7 @@ import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
 import com.java.pojo.Users;
+import com.java.pojo.ZhongjianCalssYiShi;
 
 public interface AdminService {
 	
@@ -25,8 +26,8 @@ public interface AdminService {
     public int deleteDoctor(int id);
     //查询医生总条数
   	public int AllDoctorNum();
-  	//根据科室id查科室名
-  	public List<Doctor> selectAll01();
+  	//查所有医师
+  	public List<ZhongjianCalssYiShi> selectAll01();
     
     
     /*

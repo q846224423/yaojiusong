@@ -9,7 +9,36 @@ public class ZhongjianCalssYiShi {
 	double d_money;// 金额
 	int d_state;// 状态
 	int ks_id;//科室ID
+	String d_sex;//性别
+	int d_age;//年龄
+	String d_introduce;//介绍
+	String d_tel;//电话
 	
+	public String getD_sex() {
+		return d_sex;
+	}
+	public void setD_sex(String d_sex) {
+		this.d_sex = d_sex;
+	}
+	public int getD_age() {
+		return d_age;
+	}
+	public void setD_age(int d_age) {
+		this.d_age = d_age;
+	}
+	public String getD_introduce() {
+		return d_introduce;
+	}
+	public void setD_introduce(String d_introduce) {
+		this.d_introduce = d_introduce;
+	}
+	
+	public String getD_tel() {
+		return d_tel;
+	}
+	public void setD_tel(String d_tel) {
+		this.d_tel = d_tel;
+	}
 	public int getD_id() {
 		return d_id;
 	}
@@ -55,13 +84,15 @@ public class ZhongjianCalssYiShi {
 	public int getKs_id() {
 		return ks_id;
 	}
+	
+	public void setKs_id(int ks_id) {
+		this.ks_id = ks_id;
+	}
 	@Override
 	public String toString() {
 		return "ZhongjianCalssYiShi [d_id=" + d_id + ", d_head=" + d_head + ", d_zc=" + d_zc + ", kb_name=" + kb_name
-				+ ", d_name=" + d_name + ", d_money=" + d_money + ", d_state=" + d_state + ", ks_id=" + ks_id + "]";
-	}
-	public void setKs_id(int ks_id) {
-		this.ks_id = ks_id;
+				+ ", d_name=" + d_name + ", d_money=" + d_money + ", d_state=" + d_state + ", ks_id=" + ks_id
+				+ ", d_sex=" + d_sex + ", d_age=" + d_age + ", d_introduce=" + d_introduce + ", d_tel=" + d_tel + "]";
 	}
 
 

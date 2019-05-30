@@ -12,6 +12,7 @@ import com.java.pojo.Doctor;
 import com.java.pojo.DoctorChange;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.Ks;
+import com.java.pojo.ZhongjianCalssYiShi;
 @Repository
 public interface DoctorMapper {
     
@@ -51,6 +52,7 @@ public interface DoctorMapper {
 	@Select("select count(0) from doctor")
 	public int AllDoctorNum();
 	
-	@Select("select * from doctor left join kb on doctor.`kb_id`=kb.`kb_id` ")
-	List<Doctor> selectAll01();
+	//查询所有医师
+	@Select("select * from shituone")
+	List<ZhongjianCalssYiShi> selectAll01();
 }

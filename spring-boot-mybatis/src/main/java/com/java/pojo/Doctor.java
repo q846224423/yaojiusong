@@ -16,7 +16,6 @@ public class Doctor {
 	private String d_tel; //医生电话
 	private Integer people_id; //对应people——id
 	private String  d_change;//默认0 修改后的数据通过是1
-	private Kb kb;
 	public Integer getD_id() {
 		return d_id;
 	}
@@ -25,12 +24,6 @@ public class Doctor {
 	}
 	public String getD_name() {
 		return d_name;
-	}
-	public Kb getKb() {
-		return kb;
-	}
-	public void setKb(Kb kb) {
-		this.kb = kb;
 	}
 	public void setD_name(String d_name) {
 		this.d_name = d_name;
@@ -120,8 +113,9 @@ public class Doctor {
 		return "Doctor [d_id=" + d_id + ", d_name=" + d_name + ", d_age=" + d_age + ", d_sex=" + d_sex + ", d_control="
 				+ d_control + ", d_url=" + d_url + ", d_head=" + d_head + ", d_introduce=" + d_introduce + ", d_state="
 				+ d_state + ", kb_id=" + kb_id + ", d_zc=" + d_zc + ", d_money=" + d_money + ", d_tel=" + d_tel
-				+ ", people_id=" + people_id + ", d_change=" + d_change + ", kb=" + kb + "]";
+				+ ", people_id=" + people_id + ", d_change=" + d_change + "]";
 	}
+	
 	
 	
 }

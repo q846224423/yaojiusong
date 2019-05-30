@@ -57,11 +57,13 @@
 					</div>
 					<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 						<tbody>
+							
 							<tr>
 								<td style="width: 40%; text-align: center;">1</td>
-								<td style="width: 40%; text-align: center;"><a href="super_cg6">皮肤科</a></td>
+								<td style="width: 40%; text-align: center;"><a href="super_cg6" style="color: red;">皮肤科</a></td>
 								<td class="td_10"><div class="btn"><a href="javascript:;" class="modify cg-xiugai-a">添加科别</a></div></td>
 							</tr>
+							
 						</tbody>
 					</table>
 					<!--pages S-->
@@ -86,40 +88,17 @@
 	<!--content E-->
 	
 	<div class="layuiBg"></div><!--公共遮罩-->
-	<!--点击新建频道弹出-->
-	<div class="addFeileibox layuiBox newPindaoBox">
-		<div class="layer-title clearfix"><h2>新建科室</h2><span class="layerClose"></span></div>
-		<div class="layer-content">
-			<dl class="PD-list clearfix">
-				<dt>科室号：</dt>
-				<dd><input type="text" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>科室名称：</dt>
-				<dd><input type="text" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<input type="submit" value="保存" class="saveBtn">
-			</dl>
-		</div>
-	</div>
 	<!--点击修改弹出-->
 	<div class="xcXgBox layuiBox newPindaoBox newPindaoBox-xg">
 		<div class="layer-title clearfix"><h2>修改</h2><span class="layerClose"></span></div>
 		<div class="layer-content">
 			<dl class="PD-list clearfix">
-					<dt>科别：</dt>
-					<dd>
-						<select id="kebie" class="txt">
-							<option>小儿皮肤科</option>
-							<option>中医皮肤科</option>
-						</select>
+					<dt>科室：</dt>
+					<dd><input type="text" class="keshi">
 					</dd>
 				</dl>
 			<dl class="PD-list clearfix">
-				<input type="button" value="保存" class="saveBtn">
+				<input type="submit" value="保存" class="saveBtn">
 			</dl>
 		</div>
 	</div>

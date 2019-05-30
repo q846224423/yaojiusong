@@ -13,6 +13,7 @@ import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
 import com.java.pojo.Users;
+import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.AdminService;
 
 @Service
@@ -64,8 +65,9 @@ public class AdminServiceImpl implements AdminService {
 	public int AllDoctorNum() {
 		return doctorMapper.AllDoctorNum();
 	}
-	//根据科室id查科室
-	public List<Doctor> selectAll01() {
+	
+	//查所有医师
+	public List<ZhongjianCalssYiShi> selectAll01() {
 		return doctorMapper.selectAll01();
 	}
 	
@@ -148,6 +150,8 @@ public class AdminServiceImpl implements AdminService {
 		int deleteP = commonMapper.deleteP(id);
 		return deleteP;
 	}
+
+
 
 	
 		
