@@ -5,25 +5,79 @@ pageEncoding="UTF-8"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="css/index/style.css" />
     <!--[if IE 6]>
-    <script src="js/iepng.js" type="text/javascript"></script>
+    <script src="js/index/iepng.js" type="text/javascript"></script>
         <script type="text/javascript">
            EvPNG.fix('div, ul, img, li, input, a'); 
         </script>
     <![endif]-->
     
-    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="js/menu.js"></script>    
-    <script type="text/javascript" src="js/jquery-1.12.4.min.js">             
-	<script type="text/javascript" src="js/n_nav.js"></script>   
+    <script type="text/javascript" src="js/index/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/index/menu.js"></script>    
+    <script type="text/javascript" src="js/index/jquery-1.12.4.min.js">             
+	<script type="text/javascript" src="js/index/n_nav.js"></script>   
     
-    <script type="text/javascript" src="js/num.js">
+    <script type="text/javascript" src="js/index/num.js">
     	var jq = jQuery.noConflict();
     </script>     
     
-    <script type="text/javascript" src="js/shade.js"></script>
-    
+    <script type="text/javascript" src="js/index/shade.js"></script>
+<script>
+function updateCar(car_id,num){
+	var trade_num = num.parent().find(".car_ipt").val();
+	jQuery.ajax({
+		url:"updateCar",
+		type:"post",
+		data:{"car_id":car_id,"trade_num":trade_num},
+	    dataType:"json",
+	    success:function(data){
+	    	
+	    },
+	    error:function(){
+	    	//alert("操作有误");
+	    }
+	});	
+}
+
+function changeNum(menu3_id,num){
+	var trade_num = num.parent().find(".car_ipt").val();
+	jQuery.ajax({
+		url:"changeXj",
+		type:"post",
+		data:{"menu3_id":menu3_id,"trade_num":trade_num},
+	    dataType:"json",
+	    success:function(data){
+	    	//alert("数量"+data.trade_num);
+	    	//alert("提示"+data.tip);
+	    	//alert("小计"+data.doubleValue);
+	    	num.parent().parent().parent().find("#num").val(data.trade_num);
+	    	num.parent().parent().parent().find("#tip").text(data.tip);
+	    	num.parent().parent().parent().find(".doubleValue").text(data.doubleValue);
+	    	CalTotal();
+	    },
+	    error:function(){
+	    	//alert("操作有误");
+	    }
+	});	
+}
+
+function CalTotal(){
+	//定义一个总价
+var total = 0.0;
+//获取表格指定列
+	var tds = jQuery(".doubleValue");
+	//遍历这个列所有内容
+	tds.each(function(){
+		//获取每一行的数据
+	var v = jQuery(this).text();
+		//计算总和
+	total=total+parseFloat(v);
+	});
+	//输出总和
+	jQuery("#ajax_sumprice").text(total.toFixed(2))
+}
+</script>
 <title>购物车</title>
 </head>
 <body>  
@@ -107,8 +161,11 @@ pageEncoding="UTF-8"%>
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-       
-        	<span class="fl">${nameshouye1==null?"你好":"欢迎你,"}<a href="Login.jsp">${nameshouye1==null?",请登录":nameshouye1}</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="WY_order1SelectAllServlet?userid=${userid }">我的订单</a>&nbsp;|</span>
+        <c:choose>
+        <c:when test="${user==null}"><span class="fl">你好，请<a href="Loginb.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a></c:when>
+        <c:otherwise> <span class="fl">${user.user_name},你好&nbsp; <a href="userMessage" style="color:#ff4e00;">我的信息</a></c:otherwise>
+        	</c:choose>
+        	&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -150,24 +207,24 @@ pageEncoding="UTF-8"%>
             </span>
             <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/s_tel.png" align="absmiddle" /></a></span>
+            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/index/s_tel.png" align="absmiddle" /></a></span>
         </span>
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.jsp"><img src="images/logo.png" /></a></div>
+   <div class="logo"><a href="show"><img src="images/index/logo.png" /></a></div>
     <div class="search">
-    	 <form action="QueryByName" method="post">
-        	<input type="text" class="s_ipt" name="ybquery" />
+    	<form action="showByname" method="post" >
+        	<input type="text" name="name" class="s_ipt" />
             <input type="submit" value="搜索" class="s_btn" />
         </form>                      
-        <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
+        <span class="fl"><a href="Showinfo?id=1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;葵花 胃康灵</a><a href="Showinfo?id=4">云南白药</a><a href="Showinfo?id=13">阿莫西林颗粒</a><a href="Showinfo?id=33">桂林西瓜霜</a><a href="Showinfo?id=30">健兴 肺力咳合剂</a></span>
     </div>
     <div class="i_car">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;购物车
     <c:choose>
     
-    <c:when test="${userid == null }">
+    <c:when test="${user== null }">
     <div class="car_bg">
     <ul class="cars">
     <li>
@@ -178,22 +235,22 @@ pageEncoding="UTF-8"%>
     </c:when>
     
     <c:otherwise>
-    <div class="car_t">购物车 [ <span>${shoplist.size() }</span> ]</div>
-        <div class="car_bg">
+    <div class="car_t" >购物车 [ <span>${Cartlist.size() }</span> ]</div>
+        <div class="car_bg" style="display:none">
             <!--Begin 购物车已登录 Begin-->
             <div class="un_login" style="color:#ff4e00">欢迎登录！</div>
             <ul class="cars">
-            <c:forEach items="${shoplist }" var="shop">
+            <c:forEach items="${Cartlist }" var="shop">
             	<li>
                 	<div class="img"><a href="#"><img src="${shop.ep_url }" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">${shop.menu3_name } ${shop.ep_description }</a></div>
+                    <div class="name"><a href="#">${shop.menu3_name } ${shop.ep_size }</a></div>
                     <div class="price"><font color="#ff4e00">￥${shop.ep_price }</font> X${shop.trade_num }</div>
                 </li>
             </c:forEach>
               
             </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>${AllPrice1 }</span></div>
-            <div class="price_a"><a href="WY_ShopCartOneServlet">去购物车结算</a></div>
+            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span id="AllPrice">${AllPrice }</span></div>
+            <div class="price_a"><a style="color:black" href="buycar1">去购物车结算</a></div>
             <!--End 购物车已登录 End-->
         </div>
       	  </c:otherwise>
@@ -205,7 +262,7 @@ pageEncoding="UTF-8"%>
 <!--Begin Menu Begin-->
 <div class="i_bg">  
     <div class="content mar_20">
-    	<img src="images/img1.jpg" />        
+    	<img src="images/index/img1.jpg" />        
     </div>
     
     <!--Begin 第一步：查看购物车 Begin -->
@@ -213,13 +270,14 @@ pageEncoding="UTF-8"%>
     	<table border="0" class="car_tab" style="width:1200px; margin-bottom:50px;" cellspacing="0" cellpadding="0">
           <tr>
             <td class="car_th" width="15%">商品名称</td>
-            <td class="car_th" width="15%">商品属性</td>
-            <td class="car_th" width="25%">购买数量</td>
-            <td class="car_th" width="25%">小计</td>
-            <td class="car_th" width="35%">操作</td>
+            <td class="car_th" width="20%">商品属性</td>
+            <td class="car_th" width="10%">单价</td>
+            <td class="car_th" width="20%">购买数量</td>
+            <td class="car_th" width="20%">小计</td>
+            <td class="car_th" width="30%">操作</td>
           </tr>
          
-         <c:forEach items="${list }" var ="shop">
+         <c:forEach items="${Cartlist }" var ="shop">
          
          <tr class="car_tr">
             <td>
@@ -229,30 +287,36 @@ pageEncoding="UTF-8"%>
             <td align="center">
             	<c:out value="${shop.ep_description}"></c:out>
             </td>
+            <td align="center" id = "price" style="color:#ff4e00;"><a id="dd" style="font-size: medium; " href="javascript:void(0)">${shop.ep_price}</a>  <br/>
+            </td>
             <td align="center">
             	<div class="c_num">
                    <%--  <a href ="ReduceShopNumServlet?trade_num=${shop.trade_num}&menu3_id=${shop.menu3_id}"><input type="button" value="" class="car_btn_1" /></a> --%>
-                	<input  type="button" value="" onclick="jianUpdate1(jq(this));changeNum('${shop.menu3_id}',$(this))"  class="car_btn_1" />
-                	<input  type="text" value="${shop.trade_num}" name="" class="car_ipt" onblur="changeNum('${shop.menu3_id}',$(this))"/>  
-                	<input  type="button" value="" onclick="addUpdate1(jq(this));changeNum('${shop.menu3_id}',$(this))"  class="car_btn_2" />
+                	<input  type="button" value="-" onclick="jianUpdate1(jq(this));changeNum('${shop.menu3_id}',jQuery(this))" onblur="updateCar('${shop.car_id}',jQuery(this));"  class="car_btn_1" />
+                	<input  type="text" value="${shop.trade_num}" name="num" id="num" class="car_ipt" onblur="changeNum('${shop.menu3_id}',jQuery(this)),updateCar('${shop.car_id}',jQuery(this));"/> 
+                	<input  type="button" value="+" onclick="addUpdate1(jq(this));changeNum('${shop.menu3_id}',jQuery(this));"onblur="updateCar('${shop.car_id}',jQuery(this));"  class="car_btn_2" />
                     <%-- <a href ="AddShopNumServlet?trade_num=${shop.trade_num}&menu3_id=${shop.menu3_id}"><input type="button" value="" class="car_btn_2" /></a> --%>
                 </div>
             </td>
-            <td align="center" id = "AllPrice" style="color:#ff4e00;">${shop.allprice}</td>
-            <td align="center"><a onclick="ShowDiv('MyDiv','fade',${shop.menu3_id})">删除</a></td>
+             
+            <td align="center" id = "AllPrice" style="color:#ff4e00;"><a class="doubleValue" style="font-size: medium; " href="javascript:void(0)">${shop.sum_price}</a>  <br/>
+              <span align="center" id="tip"></span>
+            </td>
+          
+            <td align="center"><a onclick="ShowDiv('MyDiv','fade',${shop.car_id})">删除</a></td>
           </tr>
          
          </c:forEach>
          
          <tr height="70">
          	<td colspan="5" style="font-family:'Microsoft YaHei'; border-bottom:0;">
-         		<span class="fr">商品总价：<b style="font-size:22px; color:#ff4e00;">￥${allprice }</b></span>
+         		<span class="fr">商品总价：<b id="ajax_sumprice" style="font-size:22px; color:#ff4e00;">￥${AllPrice }</b></span>
          	</td>
          </tr>
          
           <tr valign="top" height="150">
           	<td colspan="5" align="right">
-            	<a href="ShowMenu"><img src="images/buy1.gif" /></a>&nbsp; &nbsp; <a href="Getaddressservlet?"><img src="images/buy2.gif" /></a>
+            	<a href="show"><img src="images/index/buy1.gif" /></a>&nbsp; &nbsp; <a href="buycar2"><img src="images/index/buy2.gif" /></a>
             </td>
           </tr>
         </table>
@@ -270,16 +334,17 @@ pageEncoding="UTF-8"%>
             </div>
             <div class="notice_c">
            		
-           	<form action="DeleteShopNum" method="post">
+           	<form action="delcarByid" method="post">
                 <table border="0" align="center" style="font-size:16px;" cellspacing="0" cellpadding="0">
                   <tr valign="top">
                     <td>您确定要把该商品移除购物车吗？</td>
-                    <input value="" type="hidden" name="sssid" class="sssid"/>
+                   <td></td> 
                   </tr>
                   <tr height="50" valign="bottom">
                     <td>
+                    <input type="hidden" name="sssid" class="sssid" id="sssid" />
                     <input type="submit" class="b_sure" value="确定"/>
-                    <a href="WY_ShopCartOneServlet" class="b_buy">取消</a>
+                    <a href="buycar1" class="b_buy">取消</a>
                     </td>
                   </tr>
                 </table>
@@ -295,25 +360,25 @@ pageEncoding="UTF-8"%>
         <div class="b_btm">
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b1.png" width="62" height="62" /></td>
+                <td width="72"><img src="images/index/b1.png" width="62" height="62" /></td>
                 <td><h2>正品保障</h2>正品行货  放心购买</td>
               </tr>
             </table>
 			<table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b2.png" width="62" height="62" /></td>
+                <td width="72"><img src="images/index/b2.png" width="62" height="62" /></td>
                 <td><h2>满38包邮</h2>满38包邮 免运费</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b3.png" width="62" height="62" /></td>
+                <td width="72"><img src="images/index/b3.png" width="62" height="62" /></td>
                 <td><h2>天天低价</h2>天天低价 畅选无忧</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b4.png" width="62" height="62" /></td>
+                <td width="72"><img src="images/index/b4.png" width="62" height="62" /></td>
                 <td><h2>准时送达</h2>收货时间由你做主</td>
               </tr>
             </table>
@@ -361,14 +426,14 @@ pageEncoding="UTF-8"%>
             </p>
         </div>
         <div class="b_er">
-            <div class="b_er_c"><img src="images/er.gif" width="118" height="118" /></div>
-            <img src="images/ss.png" />
+            <div class="b_er_c"><img src="images/index/er.gif" width="118" height="118" /></div>
+            <img src="images/index/ss.png" />
         </div>
     </div>    
     <div class="btmbg">
 		<div class="btm">
         	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
-            <img src="images/b_1.gif" width="98" height="33" /><img src="images/b_2.gif" width="98" height="33" /><img src="images/b_3.gif" width="98" height="33" /><img src="images/b_4.gif" width="98" height="33" /><img src="images/b_5.gif" width="98" height="33" /><img src="images/b_6.gif" width="98" height="33" />
+            <img src="images/index/b_1.gif" width="98" height="33" /><img src="images/index/b_2.gif" width="98" height="33" /><img src="images/index/b_3.gif" width="98" height="33" /><img src="images/index/b_4.gif" width="98" height="33" /><img src="images/index/b_5.gif" width="98" height="33" /><img src="images/index/b_6.gif" width="98" height="33" />
         </div>    	
     </div>
     <!--End Footer End -->    

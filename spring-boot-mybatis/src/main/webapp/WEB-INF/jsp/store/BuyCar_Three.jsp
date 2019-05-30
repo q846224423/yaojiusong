@@ -5,24 +5,24 @@ pageEncoding="UTF-8"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="css/index/style.css" />
     <!--[if IE 6]>
-    <script src="js/iepng.js" type="text/javascript"></script>
+    <script src="js/index/iepng.js" type="text/javascript"></script>
         <script type="text/javascript">
            EvPNG.fix('div, ul, img, li, input, a'); 
         </script>
     <![endif]-->
     
-    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="js/menu.js"></script>    
-    <script type="text/javascript" src="js/jquery-1.12.4.min.js">             
-	<script type="text/javascript" src="js/n_nav.js"></script>   
+    <script type="text/javascript" src="js/index/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/index/menu.js"></script>    
+    <script type="text/javascript" src="js/index/jquery-1.12.4.min.js">             
+	<script type="text/javascript" src="js/index/n_nav.js"></script>   
     
-    <script type="text/javascript" src="js/num.js">
+    <script type="text/javascript" src="js/index/num.js">
     	var jq = jQuery.noConflict();
     </script>     
     
-    <script type="text/javascript" src="js/shade.js"></script>
+    <script type="text/javascript" src="js/index/shade.js"></script>
     
 <title>购物车</title>
 </head>
@@ -107,8 +107,11 @@ pageEncoding="UTF-8"%>
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-       
-        	<span class="fl">${nameshouye1==null?"你好":"欢迎你,"}<a href="Login.jsp">${nameshouye1==null?",请登录":nameshouye1}</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="WY_order1SelectAllServlet?userid=${userid }">我的订单</a>&nbsp;|</span>
+        <c:choose>
+        <c:when test="${user==null}"><span class="fl">你好，请<a href="Loginb.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a></c:when>
+        <c:otherwise> <span class="fl">${user.user_name},你好&nbsp; <a href="userMessage" style="color:#ff4e00;">我的信息</a></c:otherwise>
+        	</c:choose>
+        	&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -150,24 +153,24 @@ pageEncoding="UTF-8"%>
             </span>
             <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/s_tel.png" align="absmiddle" /></a></span>
+            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/index/s_tel.png" align="absmiddle" /></a></span>
         </span>
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.jsp"><img src="images/logo.png" /></a></div>
+   <div class="logo"><a href="show"><img src="images/index/logo.png" /></a></div>
     <div class="search">
-    	 <form action="QueryByName" method="post">
-        	<input type="text" class="s_ipt" name="ybquery" />
+    	<form action="showByname" method="post" >
+        	<input type="text" name="name" class="s_ipt" />
             <input type="submit" value="搜索" class="s_btn" />
         </form>                      
-        <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
+        <span class="fl"><a href="Showinfo?id=1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;葵花 胃康灵</a><a href="Showinfo?id=4">云南白药</a><a href="Showinfo?id=13">阿莫西林颗粒</a><a href="Showinfo?id=33">桂林西瓜霜</a><a href="Showinfo?id=30">健兴 肺力咳合剂</a></span>
     </div>
     <div class="i_car">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;购物车
     <c:choose>
     
-    <c:when test="${userid == null }">
+    <c:when test="${user== null }">
     <div class="car_bg">
     <ul class="cars">
     <li>
@@ -178,28 +181,29 @@ pageEncoding="UTF-8"%>
     </c:when>
     
     <c:otherwise>
-    <div class="car_t">购物车 [ <span>${shoplist.size() }</span> ]</div>
+    <div class="car_t">购物车 [ <span>${Cartlist.size() }</span> ]</div>
         <div class="car_bg">
             <!--Begin 购物车已登录 Begin-->
             <div class="un_login" style="color:#ff4e00">欢迎登录！</div>
             <ul class="cars">
-            <c:forEach items="${shoplist }" var="shop">
+            <c:forEach items="${Cartlist }" var="shop">
             	<li>
                 	<div class="img"><a href="#"><img src="${shop.ep_url }" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">${shop.menu3_name } ${shop.ep_description }</a></div>
+                    <div class="name"><a href="#">${shop.menu3_name } ${shop.ep_size }</a></div>
                     <div class="price"><font color="#ff4e00">￥${shop.ep_price }</font> X${shop.trade_num }</div>
                 </li>
             </c:forEach>
               
             </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>${AllPrice1 }</span></div>
-            <div class="price_a"><a href="WY_ShopCartOneServlet">去购物车结算</a></div>
+            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span id="AllPrice">${AllPrice }</span></div>
+            <div class="price_a"><a style="color:black" href="WY_ShopCartOneServlet">去购物车结算</a></div>
             <!--End 购物车已登录 End-->
         </div>
       	  </c:otherwise>
    		 </c:choose>
         </div> 
  </div>	 	
+
 
 
 <div class="i_bg">  
@@ -229,8 +233,8 @@ pageEncoding="UTF-8"%>
               </tr>
               <tr>
                 <td>
-                	<div class="btn_u" style="margin:0 auto; padding:0 20px; width:120px;"><a href="indexx.jsp?money=${pay}">立即使用支付宝支付</a></div>
-                	<a href="ShowMenu">首页</a> &nbsp; &nbsp; <a href="WY_order1SelectAllServlet?userid=${userid }">用户中心</a>
+                	<div class="btn_u" style="margin:0 auto; padding:0 20px; width:120px;"><a href="goPay">立即使用支付宝支付</a></div>
+                	<a href="show">首页</a> &nbsp; &nbsp; <a href="userMessage">用户中心</a>
                 </td>
               </tr>
             </table>        	

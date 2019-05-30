@@ -10,10 +10,12 @@ import com.java.mapper.UsersMapper;
 import com.java.pojo.FjtArea;
 import com.java.pojo.FjtCity;
 import com.java.pojo.FjtProvince;
+import com.java.pojo.Lookcart;
 import com.java.pojo.Menu1;
 import com.java.pojo.Menu2;
 import com.java.pojo.Menu3;
 import com.java.pojo.People;
+import com.java.pojo.Shopcart;
 import com.java.pojo.User_big;
 import com.java.pojo.Users;
 import com.java.pojo.Users_copy;
@@ -120,4 +122,38 @@ public class StoreServiceImpl implements StoreService {
 		
 	}
 
+	@Override
+	public void addshopcar(Shopcart cart) {
+		um.addshopcar(cart);
+		
+	}
+
+	@Override
+	public List<Lookcart> lookCart(int userid) {
+		return um.lookCart(userid);
+	}
+
+	@Override
+	public double getAllPrice(List<Lookcart> list) {
+		double allprice = 0.0;
+		for (Lookcart lookcart : list) {
+			allprice=allprice+lookcart.getSum_price();
+		}
+		System.out.println(allprice);
+		return allprice;
+	}
+
+	@Override
+	public void delcarByid(int id) {
+		um.delcarByid(id);
+		
+	}
+
+	@Override
+	public void updateCar(int num, int car_id) {
+		um.updateCar(num, car_id);
+		
+	}
+
+	
 }

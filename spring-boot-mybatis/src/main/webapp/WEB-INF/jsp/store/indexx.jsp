@@ -396,7 +396,7 @@ h2 {
 		sNow += String(vNow.getMilliseconds());
 		document.getElementById("WIDout_trade_no").value =  sNow;
 		document.getElementById("WIDsubject").value = "商品";
-		document.getElementById("WIDtotal_amount").value =<%=request.getParameter("money")%>;
+		document.getElementById("WIDtotal_amount").value =<%=Double.parseDouble(request.getAttribute("money").toString()) %>;
 	}
 	GetDateNow();
 </script>

@@ -2,13 +2,18 @@ package com.java.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Update;
+
 import com.java.pojo.FjtArea;
 import com.java.pojo.FjtCity;
 import com.java.pojo.FjtProvince;
+import com.java.pojo.Lookcart;
 import com.java.pojo.Menu1;
 import com.java.pojo.Menu2;
 import com.java.pojo.Menu3;
 import com.java.pojo.People;
+import com.java.pojo.Shopcart;
 import com.java.pojo.User_big;
 import com.java.pojo.Users;
 import com.java.pojo.Users_copy;
@@ -68,4 +73,19 @@ public interface StoreService {
 	public void checkIdcard(Users_copy users_copy);
 	//提交后改变状态为审核中
 	public void change_control(int id);
+	
+	//用户添加商品进购物车
+	public void addshopcar(Shopcart cart);
+	
+	//查看购物车
+	public List<Lookcart> lookCart(int userid);
+	
+	//查询购物车药品总价
+	public double getAllPrice(List<Lookcart> list);
+	
+	//删除购物车某商品
+	public void delcarByid(int id);
+	
+	//改变购物车商品数量/buycar1页面
+	public void updateCar(int num,int car_id);
 }

@@ -5,26 +5,26 @@ pageEncoding="UTF-8"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="css/index/style.css" />
     <!--[if IE 6]>
-    <script src="js/iepng.js" type="text/javascript"></script>
+    <script src="js/index/iepng.js" type="text/javascript"></script>
         <script type="text/javascript">
            EvPNG.fix('div, ul, img, li, input, a'); 
         </script>
     <![endif]-->
     
-    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="js/menu.js"></script>    
-        <script type="text/javascript" src="js/jquery-1.12.4.min.js">             
-	<script type="text/javascript" src="js/n_nav.js"></script>   
+    <script type="text/javascript" src="js/index/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/index/menu.js"></script>    
+        <script type="text/javascript" src="js/index/jquery-1.12.4.min.js">             
+	<script type="text/javascript" src="js/index/n_nav.js"></script>   
     
-    <script type="text/javascript" src="js/select.js"></script>
+    <script type="text/javascript" src="js/index/select.js"></script>
     
-    <script type="text/javascript" src="js/num.js">
+    <script type="text/javascript" src="js/index/num.js">
     	var jq = jQuery.noConflict();
     </script>     
     
-    <script type="text/javascript" src="js/shade.js"></script>
+    <script type="text/javascript" src="js/index/shade.js"></script>
     
 <title>购物车</title>
 </head>
@@ -109,8 +109,11 @@ pageEncoding="UTF-8"%>
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-       
-        	<span class="fl">${nameshouye1==null?"你好":"欢迎你,"}<a href="Login.jsp">${nameshouye1==null?",请登录":nameshouye1}</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="WY_order1SelectAllServlet?userid=${userid }">我的订单</a>&nbsp;|</span>
+        <c:choose>
+        <c:when test="${user==null}"><span class="fl">你好，请<a href="Loginb.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a></c:when>
+        <c:otherwise> <span class="fl">${user.user_name},你好&nbsp; <a href="userMessage" style="color:#ff4e00;">我的信息</a></c:otherwise>
+        	</c:choose>
+        	&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -152,24 +155,24 @@ pageEncoding="UTF-8"%>
             </span>
             <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/s_tel.png" align="absmiddle" /></a></span>
+            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/index/s_tel.png" align="absmiddle" /></a></span>
         </span>
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.jsp"><img src="images/logo.png" /></a></div>
+   <div class="logo"><a href="show"><img src="images/index/logo.png" /></a></div>
     <div class="search">
-    	 <form action="QueryByName" method="post">
-        	<input type="text" class="s_ipt" name="ybquery" />
+    	<form action="showByname" method="post" >
+        	<input type="text" name="name" class="s_ipt" />
             <input type="submit" value="搜索" class="s_btn" />
         </form>                      
-        <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
+        <span class="fl"><a href="Showinfo?id=1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;葵花 胃康灵</a><a href="Showinfo?id=4">云南白药</a><a href="Showinfo?id=13">阿莫西林颗粒</a><a href="Showinfo?id=33">桂林西瓜霜</a><a href="Showinfo?id=30">健兴 肺力咳合剂</a></span>
     </div>
     <div class="i_car">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;购物车
     <c:choose>
     
-    <c:when test="${userid == null }">
+    <c:when test="${user== null }">
     <div class="car_bg">
     <ul class="cars">
     <li>
@@ -180,22 +183,22 @@ pageEncoding="UTF-8"%>
     </c:when>
     
     <c:otherwise>
-    <div class="car_t">购物车 [ <span>${shoplist.size() }</span> ]</div>
+    <div class="car_t">购物车 [ <span>${Cartlist.size() }</span> ]</div>
         <div class="car_bg">
             <!--Begin 购物车已登录 Begin-->
             <div class="un_login" style="color:#ff4e00">欢迎登录！</div>
             <ul class="cars">
-            <c:forEach items="${shoplist }" var="shop">
+            <c:forEach items="${Cartlist }" var="shop">
             	<li>
                 	<div class="img"><a href="#"><img src="${shop.ep_url }" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">${shop.menu3_name } ${shop.ep_description }</a></div>
+                    <div class="name"><a href="#">${shop.menu3_name } ${shop.ep_size }</a></div>
                     <div class="price"><font color="#ff4e00">￥${shop.ep_price }</font> X${shop.trade_num }</div>
                 </li>
             </c:forEach>
               
             </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>${AllPrice1 }</span></div>
-            <div class="price_a"><a href="WY_ShopCartOneServlet">去购物车结算</a></div>
+            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span id="AllPrice">${AllPrice }</span></div>
+            <div class="price_a"><a style="color:black" href="WY_ShopCartOneServlet">去购物车结算</a></div>
             <!--End 购物车已登录 End-->
         </div>
       	  </c:otherwise>
@@ -204,16 +207,17 @@ pageEncoding="UTF-8"%>
  </div>	 	
 
 
+
 <div class="i_bg">  
     <div class="content mar_20">
-    	<img src="images/img2.jpg" />        
+    	<img src="images/index/img2.jpg" />        
     </div>
     
     <!--Begin 第二步：确认订单信息 Begin -->
     <div class="content mar_20">
     	<div class="two_bg">
         	<div class="two_t">
-            	<span class="fr"><a href="WY_ShopCartOneServlet">修改</a></span>商品列表
+            	<span class="fr"><a href="buycar1">修改</a></span>商品列表
             </div>
             <table border="0" class="car_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
               <tr>
@@ -223,7 +227,7 @@ pageEncoding="UTF-8"%>
             <td class="car_th" width="25%">小计</td>
               </tr>
               
-              <c:forEach items="${list }" var ="shop">
+              <c:forEach items="${Cartlist }" var ="shop">
          
          <tr class="car_tr">
             <td>
@@ -236,45 +240,43 @@ pageEncoding="UTF-8"%>
             <td align="center" border="0px">
                 	${shop.trade_num}
             </td>
-            <td align="center" id = "AllPrice" style="color:#ff4e00;">${shop.allprice}</td>
+            <td align="center" id = "AllPrice" style="color:#ff4e00;">${shop.sum_price}</td>
           </tr>
          
          </c:forEach>
               
               <tr>
                 <td colspan="5" align="right" style="font-family:'Microsoft YaHei';">
-                    商品总价：<span style="font-size:22px; color:#ff4e00;">¥${allprice }</span>
+                    商品总价：<span style="font-size:22px; color:#ff4e00;">¥${AllPrice}</span>
                 </td>
               </tr>
             </table>
             
             <div class="two_t">
-            	<span class="fr"><a href="#">修改</a></span>收货人信息
+            	<span class="fr"><a href="toupdateMessage">修改</a></span>收货人信息
             </div>
             <table border="0" class="peo_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
               <tr>
                 <td class="p_td" width="160">收货人名字</td>
-                <td width="395">${ft.shopName}</td>
-                <td class="p_td" width="160">电子邮件</td>
-                <td width="395">${ft.shopEmail}</td>
+                <td width="395">${user.user_name}</td>
+                <td class="p_td" width="160">性别</td>
+                <td width="395">${user.user_sex}</td>
               </tr>
               <tr>
                 <td class="p_td">详细信息</td>
-                <td>${ft.provinceName}${ft.cityName}${ft.areaName}</td>
+                <td>${user.provinceName}${user.cityName}${user.areaName}</td>
                 <td class="p_td">邮政编码</td>
-                <td>${ft.shopPostalcode}</td>
+                <td>${user.areaCode}</td>
               </tr>
               <tr>
-                <td class="p_td">电话</td>
-                <td>${ft.shopIPhoen}</td>
                 <td class="p_td">手机</td>
-                <td>${requestScope.ft.shopPhone}</td>
+                <td>${user.user_tel}</td>
               </tr>
               <tr>
                 <td class="p_td">标志建筑</td>
-                <td>${ft.shopBuild}</td>
+                <td>${user.user_address}</td>
                 <td class="p_td">最佳送货时间</td>
-                <td>${ft.shopZjtime}</td>
+                <td>9:00——18:00</td>
               </tr>
             </table>
 
@@ -434,11 +436,11 @@ pageEncoding="UTF-8"%>
               </tr>
               <tr height="70">
                 <td align="right">
-                	<b style="font-size:14px;">应付款金额：<span style="font-size:22px; color:#ff4e00;">¥${allprice}</span></b>
+                	<b style="font-size:14px;">应付款金额：<span style="font-size:22px; color:#ff4e00;">¥${AllPrice}</span></b>
                 </td>
               </tr>
               <tr height="70">
-                <td align="right"><a href="ShopCartPay"><img src="images/btn_sure.gif" /></a></td>
+                <td align="right"><a href="buycar3"><img src="images/index/btn_sure.gif" /></a></td>
               </tr>
             </table>
 
@@ -454,25 +456,25 @@ pageEncoding="UTF-8"%>
         <div class="b_btm">
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b1.png" width="62" height="62" /></td>
+                <td width="72"><img src="images/index/b1.png" width="62" height="62" /></td>
                 <td><h2>正品保障</h2>正品行货  放心购买</td>
               </tr>
             </table>
 			<table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b2.png" width="62" height="62" /></td>
+                <td width="72"><img src="images/index/b2.png" width="62" height="62" /></td>
                 <td><h2>满38包邮</h2>满38包邮 免运费</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b3.png" width="62" height="62" /></td>
+                <td width="72"><img src="images/index/b3.png" width="62" height="62" /></td>
                 <td><h2>天天低价</h2>天天低价 畅选无忧</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b4.png" width="62" height="62" /></td>
+                <td width="72"><img src="images/index/b4.png" width="62" height="62" /></td>
                 <td><h2>准时送达</h2>收货时间由你做主</td>
               </tr>
             </table>
@@ -520,14 +522,14 @@ pageEncoding="UTF-8"%>
             </p>
         </div>
         <div class="b_er">
-            <div class="b_er_c"><img src="images/er.gif" width="118" height="118" /></div>
-            <img src="images/ss.png" />
+            <div class="b_er_c"><img src="images/index/er.gif" width="118" height="118" /></div>
+            <img src="images/index/ss.png" />
         </div>
     </div>    
     <div class="btmbg">
 		<div class="btm">
         	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
-            <img src="images/b_1.gif" width="98" height="33" /><img src="images/b_2.gif" width="98" height="33" /><img src="images/b_3.gif" width="98" height="33" /><img src="images/b_4.gif" width="98" height="33" /><img src="images/b_5.gif" width="98" height="33" /><img src="images/b_6.gif" width="98" height="33" />
+            <img src="images/index/b_1.gif" width="98" height="33" /><img src="images/index/b_2.gif" width="98" height="33" /><img src="images/index/b_3.gif" width="98" height="33" /><img src="images/index/b_4.gif" width="98" height="33" /><img src="images/index/b_5.gif" width="98" height="33" /><img src="images/index/b_6.gif" width="98" height="33" />
         </div>    	
     </div>
     <!--End Footer End -->    
