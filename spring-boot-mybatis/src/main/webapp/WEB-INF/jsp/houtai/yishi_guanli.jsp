@@ -105,10 +105,11 @@
 							</table>
 							<!--pages S-->
 							<div class="pageSelect">
-								<span>共 <b>${allDoctorNum }</b> 条 每页 <b>5 </b>条   <b>${selectAllDoctor.pageNum }</b>/<b>${selectAllDoctor.pages }</b></span>
+								<span>共 <b>${allDoctorNum }</b> 条 每页 <b>5 </b>条   </span>
 							<div class="pageWrap">
 								<a href="yishi_guanli?pageNum=1" class="pagenumb">首页</a>
 								<a href="yishi_guanli?pageNum=${selectAllDoctor.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
+								<b>${selectAllDoctor.pageNum }</b>/<b>${selectAllDoctor.pages }</b>
 								<a href="yishi_guanli?pageNum=${selectAllDoctor.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
 								<a href="yishi_guanli?pageNum=${selectAllDoctor.pages}" class="pagenumb">尾页</a>
 							</div>
