@@ -27,7 +27,7 @@
 		<div class="super-content">
 			<div class="superCtab">
 				<div class="ctab-title clearfix">
-					<h3>门店管理</h3>
+					<h2>门店管理</h2>
 				</div>
 
 				<div class="ctab-Main">

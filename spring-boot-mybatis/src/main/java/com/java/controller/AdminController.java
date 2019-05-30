@@ -1,17 +1,27 @@
 package com.java.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.java.pojo.Users;
+import com.java.pojo.ZhongjianCalssYiShi;
+import com.java.service.AdminService;
 import com.java.service.Doctorservice;
 
 @Controller
 public class AdminController {
 
 	@Autowired
-	private Doctorservice doctorservice;
+	private AdminService adminService;
 
 	// iframe显示jsp代码
 	// 总页面
@@ -23,7 +33,11 @@ public class AdminController {
 	// iframe显示jsp代码
 	// 用户界面
 	@RequestMapping("super_cg")
-	public String super_cg() {
+	public String super_cg(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		PageHelper.startPage(pageNum, 1);
+		List<Users> selectAllUsers = adminService.selectAllUsers();
+		PageInfo<Users> pageInfo = new PageInfo<Users>(selectAllUsers);
+		model.addAttribute("selectAllUsers",pageInfo);
 		return "houtai/super_cg";
 
 	}

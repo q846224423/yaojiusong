@@ -26,7 +26,7 @@
 		<div class="super-content RightMain" id="RightMain">
 
 			<div class="super-header clearfix">
-				<h2>超级系统后台</h2>
+				<h2>订单管理</h2>
 				<div class="head-right">
 					<i class="ico-user"></i>当前用户：
 					<div class="userslideDown">

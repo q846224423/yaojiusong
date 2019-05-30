@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d">
 
@@ -70,40 +71,37 @@
 						</div>
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 							<tbody>
+								<c:forEach items="${selectAllUsers.list}" var="list">
 								<tr>
-									<td class="td_6">张三</td>
+									<td class="td_6">${list.user_name}</td>
 									<td class="td_7">
-										<a href="#">男</a>
+										<a href="#">${list.user_sex}</a>
 									</td>
-									<td class="td_12">13</td>
+									<td class="td_12">${list.user_age}</td>
 									<td class="td_8">
-										<a href="#" class="txdoc">12345678901</a>
+										<a href="#" class="txdoc">${list.user_tel}</a>
 									</td>
 									<td class="td_11">
-										<a href="#" class="txdoc">翻斗小区一栋一单元</a>
+										<a href="#" class="txdoc">${list.user_address}</a>
 									</td>
-									<td class="td_12">21314131313131</td>
+									<td class="td_12">${list.user_card}</td>
 									<td class="td_10">
-										<div class="btn">
-											<a href="javascript:;" class="modify cg-xiugai-a">修改</a>
-										</div><br>
 										<div class="btn">
 											<a href="#" style="background: #ff980b; color: #fff;">删除</a>
 										</div>
 									</td>
 								</tr>
-
+								</c:forEach>
 							</tbody>
 						</table>
 						<!--pages S-->
 						<div class="pageSelect">
 							<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
 							<div class="pageWrap">
-								<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-								<a href="#" class="pagenumb cur">1</a>
-								<a href="#" class="pagenumb">2</a>
-								<a href="#" class="pagenumb">3</a>
-								<a href="#" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="super_cg?pageNum=1" class="pagenumb">首页</a>
+								<a href="super_cg?pageNum=${selectAllUsers.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
+								<a href="super_cg?pageNum=${selectAllUsers.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="super_cg?pageNum=${selectAllUsers.pages}" class="pagenumb">尾页</a>
 							</div>
 						</div>
 						<!--pages E-->
