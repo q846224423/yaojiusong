@@ -55,5 +55,7 @@ public interface AdminService {
     public int deleteOneUsers(int id);
     //查询用户总数
     public int selectAllUsersNum();
+    //注销一个用户
+  	public int deleteP(int id);
 	
 }

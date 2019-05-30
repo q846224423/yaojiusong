@@ -1,5 +1,6 @@
 package com.java.mapper;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -33,5 +34,7 @@ public interface CommonMapper {
 	
 	//多级连动视图查询方法根据id
 
-	
+	//删除账号
+	@Delete("delete from people where id =#{id}")
+	public int deleteP(int id);
 }

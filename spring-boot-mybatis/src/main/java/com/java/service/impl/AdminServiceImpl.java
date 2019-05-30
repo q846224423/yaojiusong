@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.java.mapper.CommonMapper;
 import com.java.mapper.DoctorMapper;
 import com.java.mapper.DrugstoreMapper;
 import com.java.mapper.UsersMapper;
@@ -23,6 +24,8 @@ public class AdminServiceImpl implements AdminService {
 	private DrugstoreMapper drugstoreMapper;
 	@Autowired
 	private UsersMapper usersMapper;
+	@Autowired
+	private CommonMapper commonMapper;
 	
 	/*
 	 * 所有医生操作
@@ -131,5 +134,13 @@ public class AdminServiceImpl implements AdminService {
 		int allNum = usersMapper.AllNum();
 		return allNum;
 	}
+	
+	//注销一个用户
+	public int deleteP(int id) {
+		int deleteP = commonMapper.deleteP(id);
+		return deleteP;
+	}
+	
+	
 	
 }

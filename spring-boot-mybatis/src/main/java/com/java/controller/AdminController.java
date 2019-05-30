@@ -41,9 +41,22 @@ public class AdminController {
 		int selectAllUsersNum = adminService.selectAllUsersNum();
 		model.addAttribute("NumAll", selectAllUsersNum);
 		return "houtai/super_cg";
-
 	}
-
+	
+	//删除一个用户
+	@RequestMapping("deleteOneUser")
+	public String deleteOneUser(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id,Integer pid) {
+		int deleteOneUsers = adminService.deleteOneUsers(id);
+		int deleteP = adminService.deleteP(pid);
+		PageHelper.startPage(pageNum, 5);
+		List<Users> selectAllUsers = adminService.selectAllUsers();
+		PageInfo<Users> pageInfo = new PageInfo<Users>(selectAllUsers);
+		model.addAttribute("selectAllUsers",pageInfo);
+		int selectAllUsersNum = adminService.selectAllUsersNum();
+		model.addAttribute("NumAll", selectAllUsersNum);
+		return "houtai/super_cg";
+	}
+	
 	// iframe显示jsp代码
 	// 左侧点击栏
 	@RequestMapping("public_left_cg")
