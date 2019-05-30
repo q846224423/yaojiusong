@@ -2,6 +2,7 @@ package com.java.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Select;
 
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
@@ -22,6 +23,9 @@ public interface Doctorservice {
     public int delete(int id);
     //查询所以科室
     List<Ks> selectallKs();
-
+    
+    //查询医生总条数
+  	@Select("select count(0) from doctor")
+  	public int AllDoctorNum();
 
 }
