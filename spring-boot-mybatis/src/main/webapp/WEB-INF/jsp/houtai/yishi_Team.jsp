@@ -33,13 +33,13 @@
 					<div class="ctab-Main-title">
 						<ul class="clearfix">
 							<li >
-								<a href="yishi_guanli.html">医师信息</a>
+								<a href="yishi_guanli">医师信息</a>
 							</li>
 							<li class="cur">
-								<a href="yishi_Team.html">信息审核</a>
+								<a href="yishi_Team">信息审核</a>
 							</li>
 							<li>
-								<a href="xingyi_Team.html">行医资料</a>
+								<a href="xingyi_Team">行医资料</a>
 							</li>
 						</ul>
 					</div>
@@ -72,10 +72,10 @@
 									<tr class="wd">
 										<td class="t_1">2015001</td>
 										<td class="t_2_1">
-											<a href="yishi_dtl.html" class="team-a">张三个人官网</a>
+											<a href="yishi_dtl" class="team-a">张三个人官网</a>
 										</td>
 										<td class="alcenter">
-											<a href="yishi_dtl.html" class="export-a">查看修改信息</a>
+											<a href="yishi_dtl" class="export-a">查看修改信息</a>
 										</td>
 									</tr>
 								</tbody>

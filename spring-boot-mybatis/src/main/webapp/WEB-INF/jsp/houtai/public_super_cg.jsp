@@ -22,13 +22,13 @@
 <div class="superWrap clearfix" style="height: 754px;">
 	<!--side S-->
 	<div class="super-side-menu">
-		<iframe src="public_left_cg.html" width="205" height="100%" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
+		<iframe src="public_left_cg" width="205" height="100%" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
 	</div>
 	<!--side E-->
 	<!--content S-->
 	<div class="superContent">
 		<div class="superCtab superCtabBot" style="height: 754px;">
-			<iframe src="super_cg.html" id="Mainindex" name="Mainindex" width="100%" height="100%" marginheight="0" marginwidth="0" frameborder="0"></iframe>
+			<iframe src="super_cg" id="Mainindex" name="Mainindex" width="100%" height="100%" marginheight="0" marginwidth="0" frameborder="0"></iframe>
 		</div>
 		<!--main-->
 		

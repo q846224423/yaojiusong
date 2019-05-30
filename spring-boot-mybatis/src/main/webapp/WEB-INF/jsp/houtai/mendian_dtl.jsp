@@ -28,7 +28,7 @@
 			<div class="superCtab">
 				<div class="ctab-title zxtop-title clearfix">
 					<h3>门店审核</h3>
-					<a href="mendian_Team.html" class="backlistBtn"><i class="ico-back"></i>返回列表</a>
+					<a href="mendian_Team" class="backlistBtn"><i class="ico-back"></i>返回列表</a>
 				</div>
 			</div>
 			<!--main-->
