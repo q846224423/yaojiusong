@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class=" js csstransforms3d">
 
@@ -25,7 +27,7 @@
 		<div class="super-content">
 			<div class="superCtab">
 				<div class="ctab-title clearfix">
-					<h3>医师审核</h3>
+					<h3>门店资格</h3>
 				</div>
 				<div class="ctab-Main">
 					<div class="ctab-Main-title">
@@ -33,10 +35,10 @@
 							<li >
 								<a href="mendian_guanli.html">门店信息</a>
 							</li>
-							<li class="cur">
+							<li >
 								<a href="mendian_Team.html">门店审核</a>
 							</li>
-							<li>
+							<li class="cur">
 								<a href="mendianzl_Team.html">门店资格</a>
 							</li>
 						</ul>
@@ -59,7 +61,7 @@
 									<tbody>
 										<tr>
 											<th class="t_1">门店编号</th>
-											<th class="t_2_1">修改信息</th>
+											<th class="t_2_1">门店资料</th>
 											<th>操作</th>
 										</tr>
 									</tbody>
@@ -70,10 +72,10 @@
 									<tr class="wd">
 										<td class="t_1">2015001</td>
 										<td class="t_2_1">
-											<a href="mendian_dtl.html" class="team-a">同济药房</a>
+											<a href="mendianzl_dtl.html" class="team-a">同济大药房</a>
 										</td>
 										<td class="alcenter">
-											<a href="mendian_dtl.html" class="export-a">查看修改信息</a>
+											<a href="mendianzl_dtl.html" class="export-a">查询门店资格</a>
 										</td>
 									</tr>
 								</tbody>

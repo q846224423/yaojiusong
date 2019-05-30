@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class=" js csstransforms3d">
 
@@ -9,8 +11,8 @@
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/page.css">
 		<!--[if lte IE 8]>
-	<link href="css/ie8.css" rel="stylesheet" type="text/css"/>
-	<![endif]-->
+		<link href="css/ie8.css" rel="stylesheet" type="text/css"/>
+		<![endif]-->
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 		<script type="text/javascript" src="js/modernizr.js"></script>
@@ -22,7 +24,6 @@
 	<body style="background: #f6f5fa;">
 		<!--content S-->
 		<div class="super-content RightMain" id="RightMain">
-
 			<div class="super-header clearfix">
 				<h2>超级系统后台</h2>
 				<div class="head-right">
@@ -42,10 +43,9 @@
 					</div>
 				</div>
 			</div>
-			<!--header-->
 			<div class="superCtab">
 				<div class="cg-title clearfix">
-					<a href="javascript:;" class="default-add-btn newPdBtn"><i class="ico-add"></i>新建订单</a>
+					<a href="javascript:;" class="default-add-btn newPdBtn"><i class="ico-add"></i>添加用户</a>
 					<div class="searchBar">
 						<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
 						<input type="button" class="srhBtn" value="">
@@ -57,13 +57,12 @@
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
 								<tbody>
 									<tr>
-										<th class="td_6">订单号</th>
-										<th class="td_7">用户id</th>
-										<th class="td_12">医生id</th>
-										<th class="td_8">处方筏</th>
-										<th class="td_11">问诊时间</th>
-										<th class="td_12">状态</th>
-										<th class="td_13">是否拿药</th>
+										<th class="td_6">用户姓名</th>
+										<th class="td_7">性别</th>
+										<th class="td_12">年龄</th>
+										<th class="td_8">联系电话</th>
+										<th class="td_11">收货地址</th>
+										<th class="td_12">身份证号码</th>
 										<th class="td_10">操作</th>
 									</tr>
 								</tbody>
@@ -72,19 +71,18 @@
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 							<tbody>
 								<tr>
-									<td class="td_6">123</td>
+									<td class="td_6">张三</td>
 									<td class="td_7">
-										<a href="#">123</a>
+										<a href="#">男</a>
 									</td>
-									<td class="td_12">123</td>
+									<td class="td_12">13</td>
 									<td class="td_8">
-										<a href="#" class="txdoc">开</a>
+										<a href="#" class="txdoc">12345678901</a>
 									</td>
 									<td class="td_11">
-										<a href="#" class="txdoc">2019-1-1</a>
+										<a href="#" class="txdoc">翻斗小区一栋一单元</a>
 									</td>
-									<td class="td_12">已问诊</td>
-									<td class="td_13">已取药</td>
+									<td class="td_12">21314131313131</td>
 									<td class="td_10">
 										<div class="btn">
 											<a href="javascript:;" class="modify cg-xiugai-a">修改</a>
@@ -118,55 +116,47 @@
 		</div>
 		<!--content E-->
 
-		<div class="layuiBg"></div>
+		
 		<!--公共遮罩-->
+		<div class="layuiBg"></div>
 		<!--点击新建频道弹出-->
 		<div class="addFeileibox layuiBox newPindaoBox">
 			<div class="layer-title clearfix">
 				<h2>新建用户</h2><span class="layerClose"></span></div>
 			<div class="layer-content">
 				<dl class="PD-list clearfix">
-					<dt>订单号：</dt>
+					<dt>用户姓名：</dt>
 					<dd><input type="text" class="txt">
 					</dd>
 				</dl>
 				<dl class="PD-list clearfix">
-					<dt>用户id：</dt>
+					<dt>性别：</dt>
+					<dd>
+						<select id="sex" class="txt">
+							<option>男</option>
+							<option>女</option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="PD-list clearfix">
+					<dt>年龄：</dt>
 					<dd><input type="text" class="txt">
 					</dd>
 				</dl>
 				<dl class="PD-list clearfix">
-					<dt>医生id：</dt>
-					<dd><input type="text" class="txt">
-					</dd>
-				</dl>
-				<dl class="PD-list clearfix">
-					<dt>处方筏：</dt>
+					<dt>联系电话：</dt>
 					<dd><input type="text" class="txt">
 					</dd>
 				</dl>
 
 				<dl class="PD-list clearfix">
-					<dt>问诊时间：</dt>
-					<dd><input type="date" class="txt">
+					<dt>收货地址：</dt>
+					<dd><input type="text" class="txt">
 					</dd>
 				</dl>
 				<dl class="PD-list clearfix">
-					<dt>状态：</dt>
-					<dd>
-						<select id="zhuangtai" class="txt">
-							<option>已问诊</option>
-							<option>未问诊</option>
-						</select>
-					</dd>
-				</dl>
-				<dl class="PD-list clearfix">
-					<dt>是否拿药：</dt>
-					<dd>
-						<select id="nayao" class="txt">
-							<option>是</option>
-							<option>否</option>
-						</select>
+					<dt>身份证号：</dt>
+					<dd><input type="text" class="txt">
 					</dd>
 				</dl>
 				<dl class="PD-list clearfix">
@@ -180,21 +170,37 @@
 				<h2>修改</h2><span class="layerClose"></span></div>
 			<div class="layer-content">
 				<dl class="PD-list clearfix">
-					<dt>状态：</dt>
+					<dt>姓名：</dt>
+					<dd><input type="text" class="txt">
+					</dd>
+				</dl>
+				<dl class="PD-list clearfix">
+					<dt>性别：</dt>
 					<dd>
-						<select id="zhuangtai" class="txt">
-							<option>已问诊</option>
-							<option>未问诊</option>
+						<select id="sex" class="txt">
+							<option>男</option>
+							<option>女</option>
 						</select>
 					</dd>
 				</dl>
 				<dl class="PD-list clearfix">
-					<dt>是否拿药：</dt>
-					<dd>
-						<select id="nayao" class="txt">
-							<option>是</option>
-							<option>否</option>
-						</select>
+					<dt>年龄：</dt>
+					<dd><input type="text" class="txt">
+					</dd>
+				</dl>
+				<dl class="PD-list clearfix">
+					<dt>联系电话：</dt>
+					<dd><input type="text" class="txt">
+					</dd>
+				</dl>
+				<dl class="PD-list clearfix">
+					<dt>收货地址：</dt>
+					<dd><input type="text" class="txt">
+					</dd>
+				</dl>
+				<dl class="PD-list clearfix">
+					<dt>身份号：</dt>
+					<dd><input type="text" class="txt">
 					</dd>
 				</dl>
 				<dl class="PD-list clearfix">

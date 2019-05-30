@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html class=" js csstransforms3d">
 
 	<head>
@@ -25,8 +27,8 @@
 		<div class="super-content">
 			<div class="superCtab">
 				<div class="ctab-title zxtop-title clearfix">
-					<h3>行医资料审核</h3>
-					<a href="yishi_Team.html" class="backlistBtn"><i class="ico-back"></i>返回列表</a>
+					<h3>门店审核</h3>
+					<a href="mendian_Team.html" class="backlistBtn"><i class="ico-back"></i>返回列表</a>
 				</div>
 			</div>
 			<!--main-->
@@ -34,36 +36,24 @@
 		<!--content E-->
 		<div class="zx-dtlMain">
 			<dl>
-				<span>医师头像：</span>
-				<img src="images/吴彦祖.png" style="vertical-align: middle;" />
+				<span>门店名称：</span>
+				<dd>同济大药房</dd>
 			</dl>
 			<dl>
-				<span>姓名：</span>
-				<dd>吴彦祖</dd>
+				<span>门店所在县：</span>
+				<dd>浠水县</dd>
 			</dl>
 			<dl>
-				<span>医师性别：</span>
-				<dd>男</dd>
+				<span>评论：</span>
+				<dd>很好</dd>
 			</dl>
 			<dl>
-				<span>医师电话：</span>
-				<dd>123131312312</dd>
+				<span>药店登记信息：</span>
+				<dd>2019-10-13在武汉建立</dd>
 			</dl>
 			<dl>
-				<span>科别id：</span>
-				<dd>2</dd>
-			</dl>
-			<dl>
-				<span>修改后医师问诊金额：</span>
-				<dd>123</dd>
-			</dl>
-			<dl>
-				<span>修改后医师职称：</span>
-				<dd>副主任医师</dd>
-			</dl>
-			<dl>
-				<span>修改后医师的介绍：</span>
-				<dd>四十年老医生，非常棒!!!</dd>
+				<span>认证状态：</span>
+				<dd>已认证</dd>
 			</dl>
 			<dl class="PD-list clearfix">
 				<input type="submit" value="通过" class="saveBtn">

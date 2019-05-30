@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html class=" js csstransforms3d">
 
 	<head>
@@ -25,7 +27,7 @@
 		<div class="super-content">
 			<div class="superCtab">
 				<div class="ctab-title zxtop-title clearfix">
-					<h3>医师信息审核</h3>
+					<h3>行医资料审核</h3>
 					<a href="yishi_Team.html" class="backlistBtn"><i class="ico-back"></i>返回列表</a>
 				</div>
 			</div>
@@ -34,23 +36,23 @@
 		<!--content E-->
 		<div class="zx-dtlMain">
 			<dl>
-				<span>修改后医师头像：</span>
+				<span>医师头像：</span>
 				<img src="images/吴彦祖.png" style="vertical-align: middle;" />
 			</dl>
 			<dl>
-				<span>医师姓名：</span>
+				<span>姓名：</span>
 				<dd>吴彦祖</dd>
 			</dl>
 			<dl>
-				<span>修改后医师性别：</span>
+				<span>医师性别：</span>
 				<dd>男</dd>
 			</dl>
 			<dl>
-				<span>修改后医师电话：</span>
+				<span>医师电话：</span>
 				<dd>123131312312</dd>
 			</dl>
 			<dl>
-				<span>修改后科别id：</span>
+				<span>科别id：</span>
 				<dd>2</dd>
 			</dl>
 			<dl>
