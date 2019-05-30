@@ -22,15 +22,15 @@
 <body>
 	<!--side S-->
 	<div class="super-side-menu">
-		<div class="logo"><a href="public_super_cg.html" target="_parent"><img src="images/logo.png"></a></div>
+		<div class="logo"><a href="public_super_cg" target="_parent"><img src="images/logo.png"></a></div>
 		<div class="side-menu">
 			<ul>
-				<li class="on"><a href="super_cg.html" target="Mainindex"><i class="ico-8"></i>用户管理</a></li>
-				<li><a href="yishi_guanli.html" target="Mainindex"><i class="ico-2"></i>医师管理</a></li>
-				<li><a href="mendian_guanli.html" target="Mainindex"><i class="ico-1"></i>门店管理</a></li>
-				<li><a href="super_cg3.html" target="Mainindex"><i class="ico-2"></i>订单管理</a></li>
-				<li><a href="super_cg4.html" target="Mainindex"><i class="ico-3"></i>分类管理</a></li>
-				<li><a href="super_cg5.html" target="Mainindex"><i class="ico-4"></i>处方管理</a></li>
+				<li class="on"><a href="super_cg" target="Mainindex"><i class="ico-8"></i>用户管理</a></li>
+				<li><a href="yishi_guanli" target="Mainindex"><i class="ico-2"></i>医师管理</a></li>
+				<li><a href="mendian_guanli" target="Mainindex"><i class="ico-1"></i>门店管理</a></li>
+				<li><a href="super_cg3" target="Mainindex"><i class="ico-2"></i>订单管理</a></li>
+				<li><a href="super_cg4" target="Mainindex"><i class="ico-3"></i>分类管理</a></li>
+				<li><a href="super_cg5" target="Mainindex"><i class="ico-4"></i>处方管理</a></li>
 			</ul>
 		</div>
 	</div>
