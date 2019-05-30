@@ -33,7 +33,7 @@
 .side-menu ul li.on a i.ico-9 ,.side-menu ul li a:hover i.ico-9 { background-position: 0 -411px;}
 /*content*/
 .super-header { height: 86px; border-bottom: 1px solid #e5e4ee;}
-.super-header h2 {display: block; float: left; font-weight: normal; font-size: 28px; color: #454545; margin-left: 2%; line-height: 86px;}
+.super-header h2 {display: block; float: left; font-weight: normal; font-size: 25px; color: #454545; margin-left: 2%; line-height: 86px;}
 .super-header .head-right { float: right; margin: 33px 19px 0 0;}
 .head-right i.ico-user { display: inline-block; width: 14px; height: 15px; background: url(../images/ico_fabu_other.png) no-repeat 0 -24px; font-size: 16px; margin-right: 9px; position: relative; top: 3px;}
 .userslideDown { display: inline-block; position: relative; height: 50px;}
@@ -96,7 +96,7 @@
 .slidedownBox ul li a:hover { color: #f23e47;}
 
 .ctab-title { height: 73px;background: #fff;}
-.ctab-title h3 { float: left; display: block; line-height: 73px; font-weight: normal; font-size: 22px; color: #454545; margin-left: 2%;}
+.ctab-title h3 { float: left; display: block; line-height: 73px; font-weight: normal; font-size: 25px; color: #454545; margin-left: 2%;}
 .ctab-title a { display: block; float: right; width: 108px; height: 32px; background: #f9f9f9; border: 1px solid #d8d8d8; color: #454545; line-height: 32px; margin: 19px 18px 0 0;}
 .ctab-title a i.ico-mng { display: block; float: left; width: 18px; height: 16px; margin: 8px 7px 0 12px; background: url(../images/ico_fabu_other.png) no-repeat 0 -58px;}
 

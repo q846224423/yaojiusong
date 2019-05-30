@@ -126,6 +126,8 @@ public class AdminController {
 	public String xingyi_Team() {
 		return "houtai/xingyi_Team";
 	}
+	
+	
 
 	// iframe显示jsp代码 不要动
 	// 医师信息审核详情页面
@@ -140,6 +142,7 @@ public class AdminController {
 	public String yishi_guanli() {
 		return "houtai/yishi_guanli";
 	}
+	
 
 	// iframe显示jsp代码 不要动
 	// 医师信息审核
@@ -147,5 +150,5 @@ public class AdminController {
 	public String yishi_Team() {
 		return "houtai/yishi_Team";
 	}
-
+	
 }
