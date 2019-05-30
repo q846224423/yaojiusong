@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d">
 
@@ -59,6 +60,7 @@
 							<div class="defaultTab-T">
 								<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
 									<tbody>
+									
 										<tr>
 											<th class="td_6">医师姓名</th>
 											<th class="td_7">性别</th>
@@ -70,44 +72,47 @@
 											<th class="td_14">医生状态</th>
 											<th class="td_10">操作</th>
 										</tr>
+										
 									</tbody>
 								</table>
 							</div>
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 								<tbody>
+								<c:forEach items="${selectAllDoctor.list}" var="list">
 									<tr>
-										<td class="td_6">张医生</td>
+										<td class="td_6">${list.d_name }</td>
 										<td class="td_7">
-											<a href="#">男</a>
+											<a href="#">${list.d_sex }</a>
 										</td>
-										<td class="td_12">13</td>
+										<td class="td_12">${list.d_age }</td>
 										<td class="td_8">
-											<a href="#" class="txdoc">12345678901</a>
+											<a href="#" class="txdoc">${list.d_tel }</a>
 										</td>
 										<td class="td_11">
-											<a href="super_cg_PinDao" class="txdoc">老中医非常棒</a>
+											<a href="#" class="txdoc">${list.d_introduce }</a>
 										</td>
-										<td class="td_12">主任医师</td>
-										<td class="td_13">妇产科</td>
-										<td class="td_14">在线</td>
+										<td class="td_12">${list.d_zc }</td>
+										<td class="td_13">${list.kb_id }</td>
+										<td class="td_14">${list.d_state }</td>
 										<td class="td_10">
 											<div class="btn">
 												<a href="#" style="background: #ff980b; color: #fff;">删除</a>
 											</div>
 										</td>
 									</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 							<!--pages S-->
 							<div class="pageSelect">
-								<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
-								<div class="pageWrap">
-									<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-									<a href="#" class="pagenumb cur">1</a>
-									<a href="#" class="pagenumb">2</a>
-									<a href="#" class="pagenumb">3</a>
-									<a href="#" class="pagenext"><i class="ico-next">&nbsp;</i></a>
-								</div>
+								<span>共 <b>${allDoctorNum }</b> 条 每页 <b>5 </b>条   </span>
+							<div class="pageWrap">
+								<a href="yishi_guanli?pageNum=1" class="pagenumb">首页</a>
+								<a href="yishi_guanli?pageNum=${selectAllDoctor.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
+								<b>${selectAllDoctor.pageNum }</b>/<b>${selectAllDoctor.pages }</b>
+								<a href="yishi_guanli?pageNum=${selectAllDoctor.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="yishi_guanli?pageNum=${selectAllDoctor.pages}" class="pagenumb">尾页</a>
+							</div>
 							</div>
 							<!--pages E-->
 						</div>

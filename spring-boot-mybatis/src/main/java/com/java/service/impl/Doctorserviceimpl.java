@@ -56,5 +56,10 @@ private KsMapper ksMapper;
 		return ksMapper.selectAllKs();
 	}
 
+	//查询医生总条数
+	public int AllDoctorNum() {
+		return doctorMapper.AllDoctorNum();
+	}
+
 
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.java.pojo.Doctor;
 import com.java.pojo.Users;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.AdminService;
@@ -22,6 +23,9 @@ public class AdminController {
 
 	@Autowired
 	private AdminService adminService;
+	
+	@Autowired
+	private Doctorservice doctorservice;
 
 	// iframe显示jsp代码
 	// 总页面
@@ -142,7 +146,6 @@ public class AdminController {
 		return "houtai/xingyi_Team";
 	}
 	
-	
 
 	// iframe显示jsp代码 不要动
 	// 医师信息审核详情页面
@@ -154,7 +157,13 @@ public class AdminController {
 	// iframe显示jsp代码 不要动
 	// 医师信息主界面
 	@RequestMapping("yishi_guanli")
-	public String yishi_guanli() {
+	public String yishi_guanli(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		PageHelper.startPage(pageNum,5);
+		List<Doctor> selectAllDoctor = adminService.selectAllDoctor();
+		PageInfo<Doctor> pageInfo = new PageInfo<Doctor>(selectAllDoctor);
+		model.addAttribute("selectAllDoctor",pageInfo);
+		int allDoctorNum = doctorservice.AllDoctorNum();
+		model.addAttribute("allDoctorNum",allDoctorNum);
 		return "houtai/yishi_guanli";
 	}
 	

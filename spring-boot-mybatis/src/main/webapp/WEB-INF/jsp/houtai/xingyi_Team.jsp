@@ -27,7 +27,7 @@
 		<div class="super-content">
 			<div class="superCtab">
 				<div class="ctab-title clearfix">
-					<h2>行医资格</h2>
+					<h3>行医资格</h3>
 				</div>
 				<div class="ctab-Main">
 					<div class="ctab-Main-title">

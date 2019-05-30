@@ -47,4 +47,7 @@ public interface DoctorMapper {
     @Update("update doctorchange set dc_name=#{dc_name},dc_age=#{dc_age},dc_sex=#{dc_sex},dc_tel=#{dc_tel},dc_kb_id=#{dc_kb_id},dc_money=#{dc_money},dc_zc=#{dc_zc},dc_introduce=#{dc_introduce},dc_head=#{dc_head},dc_id=#{dc_id}")
     public int updateDc(DoctorChange doctorChange);
     
+	//查询医生总条数
+	@Select("select count(0) from doctor")
+	public int AllDoctorNum();
 }
