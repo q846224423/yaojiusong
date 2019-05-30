@@ -25,7 +25,6 @@ public class AdminController {
 	private AdminService adminService;
 	
 	@Autowired
-	private Doctorservice doctorservice;
 
 	// iframe显示jsp代码
 	// 总页面
@@ -159,10 +158,10 @@ public class AdminController {
 	@RequestMapping("yishi_guanli")
 	public String yishi_guanli(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		PageHelper.startPage(pageNum,5);
-		List<Doctor> selectAllDoctor = adminService.selectAllDoctor();
+		List<Doctor> selectAllDoctor = adminService.selectAll01();
 		PageInfo<Doctor> pageInfo = new PageInfo<Doctor>(selectAllDoctor);
 		model.addAttribute("selectAllDoctor",pageInfo);
-		int allDoctorNum = doctorservice.AllDoctorNum();
+		int allDoctorNum = adminService.AllDoctorNum();
 		model.addAttribute("allDoctorNum",allDoctorNum);
 		return "houtai/yishi_guanli";
 	}

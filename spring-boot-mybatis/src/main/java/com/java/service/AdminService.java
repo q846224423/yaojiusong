@@ -23,6 +23,10 @@ public interface AdminService {
     public int insertDoctor(Doctor doctor);
     //删除一个医生
     public int deleteDoctor(int id);
+    //查询医生总条数
+  	public int AllDoctorNum();
+  	//根据科室id查科室名
+  	public List<Doctor> selectAll01();
     
     
     /*
@@ -39,6 +43,7 @@ public interface AdminService {
     public int insertDrugStore(DrugStore drugStore);
     //删除一个药店
     public int deleteOneDrugStore(int id);
+    
     
     /*
      * 所有用户管理方法接口

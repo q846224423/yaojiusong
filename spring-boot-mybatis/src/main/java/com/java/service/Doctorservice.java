@@ -23,9 +23,5 @@ public interface Doctorservice {
     public int delete(int id);
     //查询所以科室
     List<Ks> selectallKs();
-    
-    //查询医生总条数
-  	@Select("select count(0) from doctor")
-  	public int AllDoctorNum();
 
 }

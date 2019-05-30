@@ -60,6 +60,14 @@ public class AdminServiceImpl implements AdminService {
 		int delete = doctorMapper.delete(id);
 		return delete;
 	}
+	//医生总条数
+	public int AllDoctorNum() {
+		return doctorMapper.AllDoctorNum();
+	}
+	//根据科室id查科室
+	public List<Doctor> selectAll01() {
+		return doctorMapper.selectAll01();
+	}
 	
 	/*
 	 * 所有药店操作
@@ -140,7 +148,8 @@ public class AdminServiceImpl implements AdminService {
 		int deleteP = commonMapper.deleteP(id);
 		return deleteP;
 	}
+
 	
-	
+		
 	
 }
