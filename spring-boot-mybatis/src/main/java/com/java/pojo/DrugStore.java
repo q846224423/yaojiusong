@@ -4,7 +4,6 @@ public class DrugStore {
 	Integer yd_id;
 	String yd_name;//药店名 
 	Integer county_id;     //县
-	String  comment;    //评论
 	String regist_info; //提交的认证信息
 	String yd_statu; //认证状态
 	Integer people_id;  //对应people中的某个人，有着相应角色
@@ -26,12 +25,7 @@ public class DrugStore {
 	public void setCounty_id(Integer county_id) {
 		this.county_id = county_id;
 	}
-	public String getComment() {
-		return comment;
-	}
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
+	
 	public String getRegist_info() {
 		return regist_info;
 	}
@@ -53,7 +47,7 @@ public class DrugStore {
 	@Override
 	public String toString() {
 		return "DrugStore [yd_id=" + yd_id + ", yd_name=" + yd_name + ", county_id=" + county_id + ", comment="
-				+ comment + ", regist_info=" + regist_info + ", yd_statu=" + yd_statu + ", people_id=" + people_id
+				+ ", regist_info=" + regist_info + ", yd_statu=" + yd_statu + ", people_id=" + people_id
 				+ "]";
 	}
 	
