@@ -34,13 +34,13 @@
 					<div class="ctab-Main-title">
 						<ul class="clearfix">
 							<li class="cur">
-								<a href="mendian_guanli.html">门店信息</a>
+								<a href="mendian_guanli">门店信息</a>
 							</li>
 							<li>
-								<a href="mendian_Team.html">门店审核</a>
+								<a href="mendian_Team">门店审核</a>
 							</li>
 							<li>
-								<a href="mendianzl_Team.html">门店资格</a>
+								<a href="mendianzl_Team">门店资格</a>
 							</li>
 						</ul>
 					</div>

@@ -32,13 +32,13 @@
 					<div class="ctab-Main-title">
 						<ul class="clearfix">
 							<li >
-								<a href="mendian_guanli.html">门店信息</a>
+								<a href="mendian_guanli">门店信息</a>
 							</li>
 							<li class="cur">
-								<a href="mendian_Team.html">门店审核</a>
+								<a href="mendian_Team">门店审核</a>
 							</li>
 							<li>
-								<a href="mendianzl_Team.html">门店资格</a>
+								<a href="mendianzl_Team">门店资格</a>
 							</li>
 						</ul>
 					</div>
@@ -71,10 +71,10 @@
 									<tr class="wd">
 										<td class="t_1">2015001</td>
 										<td class="t_2_1">
-											<a href="mendian_dtl.html" class="team-a">同济药房</a>
+											<a href="mendian_dtl" class="team-a">同济药房</a>
 										</td>
 										<td class="alcenter">
-											<a href="mendian_dtl.html" class="export-a">查看修改信息</a>
+											<a href="mendian_dtl" class="export-a">查看修改信息</a>
 										</td>
 									</tr>
 								</tbody>

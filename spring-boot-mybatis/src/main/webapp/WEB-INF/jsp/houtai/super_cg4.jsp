@@ -59,7 +59,7 @@
 						<tbody>
 							<tr>
 								<td style="width: 40%; text-align: center;">1</td>
-								<td style="width: 40%; text-align: center;"><a href="super_cg6.html">皮肤科</a></td>
+								<td style="width: 40%; text-align: center;"><a href="super_cg6">皮肤科</a></td>
 								<td class="td_10"><div class="btn"><a href="javascript:;" class="modify cg-xiugai-a">添加科别</a></div></td>
 							</tr>
 						</tbody>

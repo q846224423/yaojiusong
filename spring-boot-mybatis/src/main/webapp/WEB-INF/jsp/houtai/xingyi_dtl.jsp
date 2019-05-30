@@ -28,7 +28,7 @@
 			<div class="superCtab">
 				<div class="ctab-title zxtop-title clearfix">
 					<h3>行医资料审核</h3>
-					<a href="yishi_Team.html" class="backlistBtn"><i class="ico-back"></i>返回列表</a>
+					<a href="yishi_Team" class="backlistBtn"><i class="ico-back"></i>返回列表</a>
 				</div>
 			</div>
 			<!--main-->
