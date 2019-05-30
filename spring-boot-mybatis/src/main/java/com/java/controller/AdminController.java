@@ -29,7 +29,7 @@ public class AdminController {
 	}
 
 	// iframe显示jsp代码
-	//左侧界面
+	//左侧点击栏
 	@RequestMapping("public_left_cg")
 	public String AdminLeft() {
 		return "houtai/public_left_cg";
