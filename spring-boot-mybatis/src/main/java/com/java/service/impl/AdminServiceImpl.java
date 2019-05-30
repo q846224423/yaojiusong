@@ -125,5 +125,11 @@ public class AdminServiceImpl implements AdminService {
 		int deleteOneUsers = usersMapper.deleteOneUsers(id);
 		return deleteOneUsers;
 	}
+
+	//查询用户总数
+	public int selectAllUsersNum() {
+		int allNum = usersMapper.AllNum();
+		return allNum;
+	}
 	
 }

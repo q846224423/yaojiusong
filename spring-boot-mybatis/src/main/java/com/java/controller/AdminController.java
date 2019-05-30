@@ -34,10 +34,12 @@ public class AdminController {
 	// 用户界面
 	@RequestMapping("super_cg")
 	public String super_cg(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
-		PageHelper.startPage(pageNum, 1);
+		PageHelper.startPage(pageNum, 5);
 		List<Users> selectAllUsers = adminService.selectAllUsers();
 		PageInfo<Users> pageInfo = new PageInfo<Users>(selectAllUsers);
 		model.addAttribute("selectAllUsers",pageInfo);
+		int selectAllUsersNum = adminService.selectAllUsersNum();
+		model.addAttribute("NumAll", selectAllUsersNum);
 		return "houtai/super_cg";
 
 	}

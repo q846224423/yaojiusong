@@ -96,7 +96,7 @@
 						</table>
 						<!--pages S-->
 						<div class="pageSelect">
-							<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
+							<span>共 <b>${NumAll}</b> 条 每页 <b>5 </b>条    <b>${selectAllUsers.pageNum}</b>/<b>${selectAllUsers.pages}</b></span>
 							<div class="pageWrap">
 								<a href="super_cg?pageNum=1" class="pagenumb">首页</a>
 								<a href="super_cg?pageNum=${selectAllUsers.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>

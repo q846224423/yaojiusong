@@ -48,4 +48,8 @@ public interface UsersMapper {
 	//用户提交审核后改变其认证状态
 	@Update("update users set user_control=1 where user_id =#{id}")
 	public void change_control(int id);
+	
+	//查询用户总条数
+	@Select("select count(0) from users")
+	public int AllNum();
 }

@@ -53,6 +53,7 @@ public interface AdminService {
     public int insertUsers(Users users);
     //删除一个用户
     public int deleteOneUsers(int id);
-    
+    //查询用户总数
+    public int selectAllUsersNum();
 	
 }
