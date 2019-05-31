@@ -27,4 +27,7 @@ public interface KsMapper {
 	//修改科室
 	@Update("update ks set ks_name = #{ks_name}")
 	public int updateOneKs(Ks ks);
+	//查科室总条数
+	@Select("select count(0) from ks")
+	public int ksAll();
 }

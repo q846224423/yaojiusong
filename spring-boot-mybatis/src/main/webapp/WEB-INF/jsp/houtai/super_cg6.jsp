@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d"><head>
 	<meta charset="utf-8">
@@ -57,10 +58,12 @@
 					</div>
 					<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 						<tbody>
+						 <c:forEach items="${selectAllkb.list }" var="list">
 							<tr>
-								<td style="width: 40%; text-align: center;">1</td>
-								<td style="width: 40%; text-align: center;">中医皮肤科</td>
+								<td style="width: 40%; text-align: center;">${list.kb_id }</td>
+								<td style="width: 40%; text-align: center;">${list.kb_name }</td>
 							</tr>
+						 </c:forEach>
 						</tbody>
 					</table>
 					<!--pages S-->

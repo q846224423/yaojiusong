@@ -8,10 +8,14 @@ import org.springframework.stereotype.Service;
 import com.java.mapper.CommonMapper;
 import com.java.mapper.DoctorMapper;
 import com.java.mapper.DrugstoreMapper;
+import com.java.mapper.KsMapper;
+import com.java.mapper.KskbMapper;
 import com.java.mapper.UsersMapper;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
+import com.java.pojo.KbKsZhongjianlei;
+import com.java.pojo.Ks;
 import com.java.pojo.Users;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.AdminService;
@@ -27,6 +31,10 @@ public class AdminServiceImpl implements AdminService {
 	private UsersMapper usersMapper;
 	@Autowired
 	private CommonMapper commonMapper;
+	@Autowired
+	private KsMapper ksMapper;
+	@Autowired
+	private KskbMapper kskbMapper;
 	
 	/*
 	 * 所有医生操作
@@ -151,9 +159,39 @@ public class AdminServiceImpl implements AdminService {
 		return deleteP;
 	}
 
+	//查所有科室
+	public List<Ks> selectAllKs() {
+		return ksMapper.selectAllKs();
+	}
 
+	//查科室总条数
+	public int ksAll() {
+		return ksMapper.ksAll();
+	}
 
-	
-		
-	
+	//根据科室id查科别
+	public List<KbKsZhongjianlei> selectAllkb(int id) {
+		return kskbMapper.selectAllkb(id);
+	}
+
+	//科别总条数
+	public int Allkbnum() {
+		return kskbMapper.Allkbnum();
+	}
+
+	//添加一个科室
+	public int insertOneKs(Ks ks) {
+		return ksMapper.insertOneKs(ks);
+	}
+
+	//删除一个科室
+	public int deleteOneKs(int id) {
+		return ksMapper.deleteOneKs(id);
+	}
+
+	//修改一个科室
+	public int updateOneKs(Ks ks) {
+		return ksMapper.updateOneKs(ks);
+	}
+
 }

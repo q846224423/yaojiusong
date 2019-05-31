@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.java.pojo.Doctor;
+import com.java.pojo.KbKsZhongjianlei;
+import com.java.pojo.Ks;
 import com.java.pojo.Users;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.AdminService;
@@ -77,7 +79,12 @@ public class AdminController {
 	// iframe显示jsp代码 不要动
 	// 科别科室管理
 	@RequestMapping("super_cg4")
-	public String super_cg4() {
+	public String super_cg4(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		PageHelper.startPage(pageNum,5);
+		List<Ks> ks = adminService.selectAllKs();
+		PageInfo<Ks> info = new PageInfo<Ks>(ks);
+		model.addAttribute("ks",info);
+		model.addAttribute("NumAll",adminService.ksAll());
 		return "houtai/super_cg4";
 	}
 
@@ -91,7 +98,12 @@ public class AdminController {
 	// iframe显示jsp代码 不要动
 	// 科别详情页面
 	@RequestMapping("super_cg6")
-	public String super_cg6() {
+	public String super_cg6(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
+		PageHelper.startPage(pageNum, 5);
+		List<KbKsZhongjianlei> selectAllkb = adminService.selectAllkb(id);
+		PageInfo<KbKsZhongjianlei> pageInfo = new PageInfo<KbKsZhongjianlei>(selectAllkb);
+		model.addAttribute("selectAllkb",pageInfo);
+		model.addAttribute("num",adminService.Allkbnum());
 		return "houtai/super_cg6";
 	}
 
