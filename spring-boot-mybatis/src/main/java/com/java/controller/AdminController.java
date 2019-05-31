@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.java.pojo.Doctor;
+import com.java.pojo.Pcad;
 import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
 import com.java.pojo.Users;
@@ -138,7 +139,13 @@ public class AdminController {
 	// iframe显示jsp代码 不要动
 	// 门店信息界面
 	@RequestMapping("mendian_guanli")
-	public String mendian_guanli() {
+	public String mendian_guanli(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		PageHelper.startPage(pageNum, 5);
+		List<Pcad> selectAllDs = adminService.selectAllDs();
+		PageInfo<Pcad> pageInfo = new PageInfo<Pcad>(selectAllDs);
+		model.addAttribute("selectAllDS",pageInfo);
+		int selectAllStoreNum = adminService.SelectAllStoreNum();
+		model.addAttribute("NumAll", selectAllStoreNum);
 		return "houtai/mendian_guanli";
 	}
 

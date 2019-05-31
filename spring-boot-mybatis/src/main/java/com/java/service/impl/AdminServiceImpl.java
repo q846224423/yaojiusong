@@ -14,6 +14,7 @@ import com.java.mapper.UsersMapper;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
+import com.java.pojo.Pcad;
 import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
 import com.java.pojo.Users;
@@ -88,7 +89,19 @@ public class AdminServiceImpl implements AdminService {
 		List<DrugStore> dsselectall = drugstoreMapper.dsselectall();
 		return dsselectall;
 	}
-
+	
+	//查询所有门店信息
+	public List<Pcad> selectAllDs(){
+		List<Pcad> selectAllDs = drugstoreMapper.selectAllDs();
+		return selectAllDs;
+	}
+	
+	//查询认证门店总数
+    public int SelectAllStoreNum() {
+    	int allNum = drugstoreMapper.AllNum();
+    	return allNum;
+    }
+	
 	//查询单个药店
 	public DrugStore selectOneDrugStore(int id) {
 		DrugStore dsselectone = drugstoreMapper.dsselectone(id);
