@@ -53,7 +53,7 @@
 					<div class="Mian-cont-wrap">
 						<div class="defaultTab-T">
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
-								<tbody><tr><th class="t_1">活动ID</th><th class="t_2_1">活动标题</th><th class="t_3">发布时间</th><th class="t_5">活动来源</th><th class="t_4">操作</th></tr>
+								<tbody><tr><th class="t_1">ID</th><th class="t_2_1">详情</th><th class="t_3">问诊人</th><th class="t_5">活动来源</th><th class="t_4">操作</th></tr>
 							</tbody></table>
 						</div>
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">

@@ -2,6 +2,7 @@ package com.java.service.impl;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.Kb;
 import com.java.pojo.Ks;
+import com.java.pojo.Users_biger;
 import com.java.service.Doctorservice;
 @Service
 public class Doctorserviceimpl implements Doctorservice {
@@ -59,6 +61,17 @@ private KsMapper ksMapper;
 	//查询医生总条数
 	public int AllDoctorNum() {
 		return doctorMapper.AllDoctorNum();
+	}
+	@Override
+	public void d_change(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Users_biger> userall(int id ,@Param("id1")int id1) {
+		// TODO Auto-generated method stub
+		return doctorMapper.userall(id,id1);
 	}
 
 

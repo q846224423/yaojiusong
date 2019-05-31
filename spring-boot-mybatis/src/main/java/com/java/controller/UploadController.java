@@ -22,5 +22,4 @@ public class UploadController {
 		map.put("msg","上传成功");
 		return map;
 	}
-
 }

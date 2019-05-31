@@ -23,7 +23,7 @@
 <!-- 	分类一变化与分类二中下拉框的联动  -->
 	<script type="text/javascript">
 	$(function(){
-		$("#menu1").change(function(){
+		$("#ks").change(function(){
 		var id = $(this).val();
 
 		$.ajax({
@@ -32,10 +32,10 @@
 			data:{"id":id},
 			dataType:"json", 
 			success:function(data){			  
-				$("#menu2").text("");
+				$("#kb").text("");
 				
 				for(var i in data){ 
-					$("#menu2").append('<option value="'+data[i].kb_id+'" >'+data[i].kb_name+'</option>');			
+					$("#kb").append('<option value="'+data[i].kb_id+'" >'+data[i].kb_name+'</option>');			
 						}
 					},
 					error:function(){
@@ -56,24 +56,24 @@
 
 	<!--content E-->
 
-	<form action="fileUploadController" method="post" enctype="multipart/form-data" >
+	<form action="examine" method="post" enctype="multipart/form-data" >
 	<div class="zx-dtlMain">
 	<br />
 		<dl>
-			<dt>&nbsp;&nbsp;姓名 &nbsp; &nbsp;： &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_name}" required="required"></dd>&nbsp;&nbsp;&nbsp;
+			<dt>&nbsp;&nbsp;姓名 &nbsp; &nbsp;： &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="d_name" value="${doctor.d_name}" required="required"></dd>&nbsp;&nbsp;&nbsp;
 		</dl>
 		<dl>
-			 <dt>年龄 &nbsp; &nbsp;   : &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_age}" required="required" ></dd>
+			 <dt>年龄 &nbsp; &nbsp;   : &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="d_age" value="${doctor.d_age}" required="required" ></dd>
 		</dl>
 		<dl>
-			<dt>性别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_sex}" required="required"></dd>
+			<dt>性别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="d_sex" value="${doctor.d_sex}" required="required"></dd>
 		</dl>
 		<dl>
-			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_tel}" required="required"></dd>
+			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="d_tel" value="${doctor.d_tel}" required="required"></dd>
 		</dl>
 		<dl>
 			<dt>科室 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>
-			<select id="menu1" name="menu1"   style="border:solid skyblue; 1px">
+			<select id="ks" name="ks"   style="border:solid skyblue; 1px">
 			<option>-请选择-</option>
              <c:forEach items="${Ks}" var="ks1">
               <option value="${ks1.ks_id }" >${ks1.ks_name}</option>
@@ -86,27 +86,27 @@
 		<dl>
 			<dt>科别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>
 			
-			<select id="menu2" name="menu2"><option>-请选择-</option></select>
+			<select id="kb" name="kb"><option>-请选择-</option></select>
 			
 			
 			
 			</dd>
 		</dl>
 		<dl>
-			<dt>价格 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_money}" required="required"></dd>
+			<dt>价格 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="d_money" value="${doctor.d_money}" required="required"></dd>
 		</dl>
 		<dl>
-			<dt>职位 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="id" value="${doctor.d_zc}" required="required"></dd>
+			<dt>职位 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border:solid skyblue; 1px" type="text" name="d_zc" value="${doctor.d_zc}" required="required"></dd>
 		</dl>
 		<dl>
-			<dt>介绍&nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><textarea  style=" border:solid skyblue; 1px " required="required">${doctor.d_introduce} </textarea></dd>
+			<dt>介绍&nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><textarea  name="d_introduce" style=" border:solid skyblue; 1px " required="required">${doctor.d_introduce} </textarea></dd>
 		</dl>
 		<dl>
-			<dt>头像 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border: 1px" type="file" name="filename" value="" required="required"></dd>
+			<dt>头像 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd><input style="border: 1px" type="file" name="filename"  required="required"></dd>
 		</dl>
 		<center><input type="submit" value="提交"   style="width: 80px; height: 30px; background-color: #00B7EE;" /></center>
 	</div>
-		<form></form>
+		</form>
 
 
 </body></html>

@@ -10,7 +10,7 @@
 	<body>
 		<center>
 		 <div style="width:500px ; height: 500px; position: relative; top: 20px; left: 20px; border: 	;">
-		<form action="fileUploadController" method="post" enctype="multipart/form-data" >
+		<form action="examine" method="post" enctype="multipart/form-data" >
   <center> 
   	<br />
   	<br />

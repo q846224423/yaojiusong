@@ -5,7 +5,7 @@ public class Record {
 	private Integer d_id;//医生id
 	private String isOpenDrug;//是否开处方笺 0：开；1：不开
 	private String isGetMedicine;//是否拿药 0：开；1：不开
-	private Integer u_id;//用户id
+	private Integer user_id;//用户id
 	private String r_status;//默认0  问诊中1  问诊过2
 	
 	public String getR_status() {
@@ -42,10 +42,10 @@ public class Record {
 		this.isGetMedicine = isGetMedicine;
 	}
 	public Integer getU_id() {
-		return u_id;
+		return user_id;
 	}
-	public void setU_id(Integer u_id) {
-		this.u_id = u_id;
+	public void setU_id(Integer user_id) {
+		this.user_id = user_id;
 	}
 
 	@Override
@@ -60,7 +60,7 @@ public class Record {
 		builder.append(", isGetMedicine=");
 		builder.append(isGetMedicine);
 		builder.append(", u_id=");
-		builder.append(u_id);
+		builder.append(user_id);
 		builder.append(", r_status=");
 		builder.append(r_status);
 		builder.append("]");

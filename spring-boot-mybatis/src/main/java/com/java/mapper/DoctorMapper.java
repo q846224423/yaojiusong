@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
@@ -12,6 +13,7 @@ import com.java.pojo.Doctor;
 import com.java.pojo.DoctorChange;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.Ks;
+import com.java.pojo.Users_biger;
 import com.java.pojo.ZhongjianCalssYiShi;
 @Repository
 public interface DoctorMapper {
@@ -31,6 +33,18 @@ public interface DoctorMapper {
     //医生删除数据
     @Delete("delete from doctor where d_id = #{id}")
     int delete(int id);
+	//用户提交审核后改变其认证状态
+	@Update("update doctor set d_change=1 where d_id =#{id}")
+	public void d_change(int id);
+	
+    
+	//通过医生id查用户信息
+	@Select("select * from wzjlu where d_id =#{id}")
+	public List<Users_biger> userall(int id,@Param("id1")int id1);
+	
+    
+    
+    
    
     //查询所有医生提交的修改
     @Select("select * from doctorchange")

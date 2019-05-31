@@ -21,14 +21,45 @@
 	<!--[if IE]>
 	<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
 	<![endif]-->
+	
+	<style type="text/css">
+	.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+    top: 128px;
+    left: 1495px;
+}
+	
+	
+	</style>
 </head>
 
 <body style="background: #f6f5fa;">
 
 	<!--content S-->
-	<div class="super-content">
-		<div class="superCtab">
-		<a class="backlistBtn" href="doctorupdate" ><i class="ico-back"></i>信息修改</a>	
+	<div class="">
+		<div class="" ">
+		
+      <a class="button" href="doctorupdate">
+       <c:choose>
+        <c:when test="${doctor.d_change == 0}">信息修改</span></c:when>
+  
+        <c:otherwise>
+           <c:if test="${doctor.d_change == 1}">
+             <a>审核中</a>
+     </c:if>
+      </c:otherwise>
+       </c:choose> 
+</a>
+
+       
 		</div>
 		<!--main-->
 	</div>
@@ -36,7 +67,7 @@
 	
 	<div class="zx-dtlMain">
 		<div style="position: relative; width: 200px; height: 200px; border: solid seagreen 1px; left: 70px; top: 6px;">
-		<img src="images/${doctor.d_head}" /> </div>
+		<img src="${doctor.d_head}" /> </div>
 		
 		
 		<dl>
@@ -49,7 +80,7 @@
 			<dt>性别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_sex}</dd>
 		</dl>
 		<dl>
-			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>
+			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt>${doctor.d_change}<dd>
 
 		  <%-- <%=CommonControl.phone(${doctor.d_tel})%> --%>
 			
@@ -101,9 +132,7 @@
 			</dd>
 		</dl>
 		
-		
-		
-		
+
 		<dl>
 			<dt>介绍 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_introduce}</dd>
 		</dl>

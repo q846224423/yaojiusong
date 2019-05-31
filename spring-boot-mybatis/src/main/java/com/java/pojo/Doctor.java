@@ -15,7 +15,7 @@ public class Doctor {
 	private double d_money;//看病金额
 	private String d_tel; //医生电话
 	private Integer people_id; //对应people——id
-	private String  d_change;//默认0 修改后的数据通过是1
+	private Integer  d_change;//默认0 修改后的数据通过是1
 	public Integer getD_id() {
 		return d_id;
 	}
@@ -102,10 +102,10 @@ public class Doctor {
 		
 		
 	}
-	public String getD_change() {
+	public Integer getD_change() {
 		return d_change;
 	}
-	public void setD_change(String d_change) {
+	public void setD_change(Integer d_change) {
 		this.d_change = d_change;
 	}
 	@Override

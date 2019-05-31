@@ -19,6 +19,7 @@ public class Doctor_big {
 	private String kb_name;//科别名称
 	private Integer ks_id;//科室id
 	private String ks_name;//科室名称
+	private Integer d_change;//医生修改信息 状态
 	public Integer getD_id() {
 		return d_id;
 	}
@@ -121,48 +122,27 @@ public class Doctor_big {
 	public void setKs_name(String ks_name) {
 		this.ks_name = ks_name;
 	}
-	
-	
-	
+	public Integer getD_change() {
+		return d_change;
+	}
+	public void setD_change(Integer d_change) {
+		this.d_change = d_change;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Doctor_big [d_id=");
-		builder.append(d_id);
-		builder.append(", d_name=");
-		builder.append(d_name);
-		builder.append(", d_age=");
-		builder.append(d_age);
-		builder.append(", d_sex=");
-		builder.append(d_sex);
-		builder.append(", d_control=");
-		builder.append(d_control);
-		builder.append(", d_url=");
-		builder.append(d_url);
-		builder.append(", d_head=");
-		builder.append(d_head);
-		builder.append(", d_introduce=");
-		builder.append(d_introduce);
-		builder.append(", d_state=");
-		builder.append(d_state);
-		builder.append(", kb_id=");
-		builder.append(kb_id);
-		builder.append(", d_zc=");
-		builder.append(d_zc);
-		builder.append(", d_money=");
-		builder.append(d_money);
-		builder.append(", d_tel=");
-		builder.append(d_tel);
-		builder.append(", people_id=");
-		builder.append(people_id);
-		builder.append(", kb_name=");
-		builder.append(kb_name);
-		builder.append(", ks_id=");
-		builder.append(ks_id);
-		builder.append(", ks_name=");
-		builder.append(ks_name);
-		builder.append("]");
+		builder.append("Doctor_big [d_id=").append(d_id).append(", d_name=").append(d_name).append(", d_age=")
+				.append(d_age).append(", d_sex=").append(d_sex).append(", d_control=").append(d_control)
+				.append(", d_url=").append(d_url).append(", d_head=").append(d_head).append(", d_introduce=")
+				.append(d_introduce).append(", d_state=").append(d_state).append(", kb_id=").append(kb_id)
+				.append(", d_zc=").append(d_zc).append(", d_money=").append(d_money).append(", d_tel=").append(d_tel)
+				.append(", people_id=").append(people_id).append(", kb_name=").append(kb_name).append(", ks_id=")
+				.append(ks_id).append(", ks_name=").append(ks_name).append(", d_change=").append(d_change).append("]");
 		return builder.toString();
 	}
+	
+
+	
+
 	
 }

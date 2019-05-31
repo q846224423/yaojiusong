@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -52,59 +53,25 @@
 					<div class="Mian-cont-wrap">
 						<div class="defaultTab-T">
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
-								<tbody><tr><th class="t_1">活动ID</th><th class="t_2_1">活动标题</th><th class="t_3">发布时间</th><th class="t_5">活动来源</th><th class="t_4">操作</th></tr>
+								<tbody><tr><th class="t_1">问诊医生</th><th class="t_2_1">问诊人</th><th class="t_3">问诊人电话</th><th class="t_5">是否开处方</th><th class="t_4">操作</th></tr>
 							</tbody></table>
 						</div>
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
-							<tbody><tr>
-								<td class="t_1">20150084</td>
-								<td class="t_2_1"><a href="huodong_content.html">平安好医生与平安银行开启全面战略合作</a></td>
-								<td class="t_3">2015-12-01</td>
-								<td class="t_5">本站原创</td>
-								<td class="t_4"><div class="btn"><a class="Top">置顶</a><a href="#" class="modify">修改</a><a href="#" class="delete">删除</a></div></td>
-							</tr>
+							<tbody>
+
+        <c:forEach items="${pageInfo.list}" var="list">
 							<tr>
-								<td class="t_1">20150084</td>
-								<td class="t_2_1"><a href="huodong_content.html">平安好医生与平安银行开启全面战略合作</a></td>
-								<td class="t_3">2015-12-01</td>
-								<td class="t_5">同步－超级系统</td>
-								<td class="t_4"><div class="btn"><a class="Top">置顶</a><a href="#" class="modify">修改</a><a href="#" class="delete">删除</a></div></td>
+								<td class="t_1">${list.d_name}</td>
+								<td class="t_2_1">${list.user_name}</td>
+								<td class="t_3">${list.user_tel}</td>
+								<td class="t_5">${list.isOpenDrug}</td>
+								<td class="t_4"><div class="btn"><a class="Top">开处方</a><a href="#" class="modify">查看详情</a></div></td>
 							</tr>
-							<tr>
-								<td class="t_1">20150084</td>
-								<td class="t_2_1"><a href="huodong_content.html">平安好医生与平安银行开启全面战略合作</a></td>
-								<td class="t_3">2015-12-01</td>
-								<td class="t_5">本站原创</td>
-								<td class="t_4"><div class="btn"><a class="Top">置顶</a><a href="#" class="modify">修改</a><a href="#" class="delete">删除</a></div></td>
-							</tr>
-							<tr>
-								<td class="t_1">20150084</td>
-								<td class="t_2_1"><a href="#">平安好医生与平安银行开启全面战略合作</a></td>
-								<td class="t_3">2015-12-01</td>
-								<td class="t_5">本站原创</td>
-								<td class="t_4"><div class="btn"><a class="Top">置顶</a><a href="#" class="modify">修改</a><a href="#" class="delete">删除</a></div></td>
-							</tr>
-							<tr>
-								<td class="t_1">20150084</td>
-								<td class="t_2_1"><a href="huodong_content.html">平安好医生与平安银行开启全面战略合作</a></td>
-								<td class="t_3">2015-12-01</td>
-								<td class="t_5">本站原创</td>
-								<td class="t_4"><div class="btn"><a class="Top">置顶</a><a href="#" class="modify">修改</a><a href="#" class="delete">删除</a></div></td>
-							</tr>
-							<tr>
-								<td class="t_1">20150084</td>
-								<td class="t_2_1"><a href="huodong_content.html">平安好医生与平安银行开启全面战略合作</a></td>
-								<td class="t_3">2015-12-01</td>
-								<td class="t_5">本站原创</td>
-								<td class="t_4"><div class="btn"><a class="Top">置顶</a><a href="#" class="modify">修改</a><a href="#" class="delete">删除</a></div></td>
-							</tr>
-							<tr>
-								<td class="t_1">20150084</td>
-								<td class="t_2_1"><a href="huodong_content.html">平安好医生与平安银行开启全面战略合作</a></td>
-								<td class="t_3">2015-12-01</td>
-								<td class="t_5">本站原创</td>
-								<td class="t_4"><div class="btn"><a class="Top">置顶</a><a href="#" class="modify">修改</a><a href="#" class="delete">删除</a></div></td>
-							</tr>
+							
+							</c:forEach>
+							
+							
+							
 						</tbody></table>
 						<!--pages S-->
 						<div class="pageSelect">
