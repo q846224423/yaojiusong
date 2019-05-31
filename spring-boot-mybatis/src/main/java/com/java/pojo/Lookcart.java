@@ -14,7 +14,14 @@ public class Lookcart {
 	private Integer trade_num;
 	private int car_id;
 	private double sum_price;
+	private Integer z_id;
 	
+	public Integer getZ_id() {
+		return z_id;
+	}
+	public void setZ_id(Integer z_id) {
+		this.z_id = z_id;
+	}
 	public int getCar_id() {
 		return car_id;
 	}

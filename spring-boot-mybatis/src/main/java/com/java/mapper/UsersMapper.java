@@ -9,6 +9,8 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.java.pojo.Lookcart;
+import com.java.pojo.Shop_orderx;
+import com.java.pojo.Shop_orderz;
 import com.java.pojo.Shopcart;
 import com.java.pojo.User_big;
 import com.java.pojo.Users;
@@ -41,6 +43,8 @@ public interface UsersMapper {
 	@Update("update users set user_name=#{user_name},user_age=#{user_age},user_sex=#{user_sex},user_tel=#{user_tel},user_address=#{user_address},user_countyid=#{user_countyid} where user_id = #{user_id}")
 	public void updateUser(Users users);
 
+	
+	//Begin
 	// 查询单个用户
 	@Select("select * from view2 where id = #{id}")
 	public User_big getUser(int id);
@@ -72,4 +76,32 @@ public interface UsersMapper {
 	// 改变购物车商品数量/buycar1页面
 	@Update("update shopcart set trade_num = #{0} where car_id = #{1}")
 	public void updateCar(int num, int car_id);
+
+	// 添加订单主表
+	@Insert("insert into order_z(z_total,user_id) values (#{0},#{1})")
+	public void addshopZ(double total, int userid);
+
+	// 查询主表最大id值,为后面的祥表对应字段
+	@Select("select max(z_id) from order_z")
+	public int getMaxzid();
+
+	// 添加祥表，遍历shopcart中的商品信息
+	@Insert("insert into order_x(z_id,menu3_id,menu3_name,menu3_price,trade_num,sum_price)values (#{z_id},#{menu3_id},#{menu3_name},#{ep_price},#{trade_num},#{sum_price}) ")
+	public void addshopX(Lookcart cart);
+
+	// 清空该用户的购物车
+	@Delete("delete from shopcart where user_id=#{user_id}")
+	public void DelShopcart(int user_id);
+
+	// 查询用户的主订单
+	@Select("select * from order_z where user_id = #{id}")
+	public List<Shop_orderz> userOrderz(int id);
+
+	// 通过主订单的z_id查找出详单信息
+	@Select("select * from order_x where z_id= #{id}")
+	public List<Shop_orderx> userOrderx(int id);
+
+	//结算时，遍历shopcart的同时，改变库存
+	@Update("update menuthree set ep_stock=ep_stock-#{trade_num} where menu3_id =#{menu3_id} ")
+	public void changeStock(Lookcart look);
 }

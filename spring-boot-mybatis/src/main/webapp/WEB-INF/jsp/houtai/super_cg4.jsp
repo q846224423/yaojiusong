@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html> 
 <html class=" js csstransforms3d"><head>
 	<meta charset="utf-8">
 	<meta name="renderer" content="webkit">
@@ -57,24 +58,28 @@
 					</div>
 					<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 						<tbody>
-							
+						<c:forEach items="${ks.list }" var="list">
 							<tr>
-								<td style="width: 40%; text-align: center;">1</td>
-								<td style="width: 40%; text-align: center;"><a href="super_cg6" style="color: red;">皮肤科</a></td>
-								<td class="td_10"><div class="btn"><a href="javascript:;" class="modify cg-xiugai-a">添加科别</a></div></td>
+								<td style="width: 40%; text-align: center;">${list.ks_id }</td>
+								<td style="width: 40%; text-align: center;"><a href="super_cg6?id=${list.ks_id }" style="color: red;">${list.ks_name }</a></td>
+								<td class="td_10"><div class="btn">
+												<a href="javascript:;" class="modify cg-xiugai-a">添加科科室</a>
+												<a href="#" style="background: #ff980b; color: #fff;">删除科室</a>
+												</div>
+								</td>
 							</tr>
-							
+							</c:forEach>
 						</tbody>
 					</table>
 					<!--pages S-->
 					<div class="pageSelect">
-						<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
+						<span>共 <b>${NumAll }</b> 条 每页 <b>5 </b>条   </span>
 						<div class="pageWrap">
-							<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-							<a href="#" class="pagenumb cur">1</a>
-							<a href="#" class="pagenumb">2</a>
-							<a href="#" class="pagenumb">3</a>
-							<a href="#" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+							<a href="super_cg4?pageNum=1" class="pagenumb">首页</a>
+								<a href="super_cg4?pageNum=${ks.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
+								<b>${ks.pageNum}</b>/<b>${ks.pages}</b>
+								<a href="super_cg4?pageNum=${ks.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="super_cg4?pageNum=${ks.pages}" class="pagenumb">尾页</a>
 						</div>
 					</div>
 					<!--pages E-->
@@ -94,7 +99,7 @@
 		<div class="layer-content">
 			<dl class="PD-list clearfix">
 					<dt>科室：</dt>
-					<dd><input type="text" class="keshi">
+					<dd><input type="text" class="txt">
 					</dd>
 				</dl>
 			<dl class="PD-list clearfix">

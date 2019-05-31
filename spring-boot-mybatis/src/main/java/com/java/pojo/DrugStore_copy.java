@@ -4,7 +4,7 @@ public class DrugStore_copy {
 	Integer dc_id;
 	String yd_name;//药店名 
 	String regist_info; //提交的认证信息
-	String yd_url;
+	String yd_url; 
 	Integer yd_id;  //药店id
 	public Integer getDc_id() {
 		return dc_id;

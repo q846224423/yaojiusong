@@ -15,6 +15,8 @@ import com.java.pojo.Menu1;
 import com.java.pojo.Menu2;
 import com.java.pojo.Menu3;
 import com.java.pojo.People;
+import com.java.pojo.Shop_orderx;
+import com.java.pojo.Shop_orderz;
 import com.java.pojo.Shopcart;
 import com.java.pojo.User_big;
 import com.java.pojo.Users;
@@ -139,7 +141,7 @@ public class StoreServiceImpl implements StoreService {
 		for (Lookcart lookcart : list) {
 			allprice=allprice+lookcart.getSum_price();
 		}
-		System.out.println(allprice);
+		//System.out.println(allprice);
 		return allprice;
 	}
 
@@ -153,6 +155,43 @@ public class StoreServiceImpl implements StoreService {
 	public void updateCar(int num, int car_id) {
 		um.updateCar(num, car_id);
 		
+	}
+
+	@Override
+	public void addshopZ(double total, int userid) {
+		um.addshopZ(total, userid);
+		
+	}
+
+	@Override
+	public int getMaxzid() {
+		return um.getMaxzid();
+	}
+
+	@Override
+	public void addshopX(Lookcart cart) {
+		um.addshopX(cart);
+		
+	}
+
+	@Override
+	public void DelShopcart(int user_id) {
+		um.DelShopcart(user_id);
+	}
+
+	@Override
+	public List<Shop_orderz> userOrderz(int id) {
+		return um.userOrderz(id);
+	}
+
+	@Override
+	public List<Shop_orderx> userOrderx(int id) {
+		return um.userOrderx(id);
+	}
+
+	@Override
+	public void changeStock(Lookcart look) {
+		um.changeStock(look);
 	}
 
 	

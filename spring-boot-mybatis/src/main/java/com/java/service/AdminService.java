@@ -2,15 +2,22 @@ package com.java.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
 import com.java.pojo.Pcad;
+import com.java.pojo.KbKsZhongjianlei;
+import com.java.pojo.Ks;
 import com.java.pojo.Users;
 import com.java.pojo.ZhongjianCalssYiShi;
 
 public interface AdminService {
-	
+
 	/*
 	 * 所有医生管理方法接口
 	 */
@@ -68,5 +75,29 @@ public interface AdminService {
     public int selectAllUsersNum();
     //注销一个用户
   	public int deleteP(int id);
-	
+
+	/*
+	 * 所有科别科室的方法
+	 * 
+	 */
+	// 查询所有科室
+	public List<Ks> selectAllKs();
+
+	// 查科室总条数
+	public int ksAll();
+
+	// 根据科室id查科别
+	public List<KbKsZhongjianlei> selectAllkb(int id);
+
+	// 科别总条数
+	public int Allkbnum();
+
+	// 增加科室
+	public int insertOneKs(Ks ks);
+
+	// 删除科室
+	public int deleteOneKs(int id);
+
+	// 修改科室
+	public int updateOneKs(Ks ks);
 }
