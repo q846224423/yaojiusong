@@ -3,6 +3,7 @@ package com.java.controller;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,6 +28,8 @@ import com.java.pojo.Lookcart;
 import com.java.pojo.Menu1;
 import com.java.pojo.Menu3;
 import com.java.pojo.People;
+import com.java.pojo.Shop_orderx;
+import com.java.pojo.Shop_orderz;
 import com.java.pojo.Shopcart;
 import com.java.pojo.User_big;
 import com.java.pojo.Users;
@@ -223,7 +228,7 @@ public class StoreController {
 			 * //保留两位小数处理 BigDecimal b = new BigDecimal(xj); double doubleValue =
 			 * b.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
 			 */
-			System.out.println("小计" + valueOf);
+			//System.out.println("小计" + valueOf);
 			map.put("trade_num", trade_num);
 			map.put("tip", "有货");
 			map.put("doubleValue", valueOf);
@@ -254,12 +259,47 @@ public class StoreController {
 	// 跳转buycar3页面,
 	//此时生成了订单并删除了购物车数据
 	@RequestMapping("buycar3")
-	public String buycar3() {
+	@Transactional(rollbackFor = { Exception.class }) //事务回滚
+	public String buycar3(HttpSession session,HttpServletRequest request) {
+	try { 
+		//添加主单
+		User_big users = (User_big) (session.getAttribute("user"));
+		int userid = users.getUser_id();
+		Object obj = session.getAttribute("AllPrice");
+		double parseDouble = Double.parseDouble(obj.toString());
+		System.out.println("sumprice"+parseDouble+","+"userid"+userid);
+		ssi.addshopZ(parseDouble, userid);
+		//添加详单
+		int zid = ssi.getMaxzid();//祥表对应的主表id
+		List<Lookcart> lookCart = ssi.lookCart(users.getUser_id());
+		//遍历购物车某一条，然后赋予zid，生成详单
+		for (Lookcart cart : lookCart) {
+			//改变药品库存,若购买数量大于库存回滚
+			Menu3 m = ssi.select3By3id(cart.getMenu3_id());
+			if(cart.getTrade_num()>m.getEp_stock()) {
+				throw new SQLException("发生异常了..");	
+			}
+			ssi.changeStock(cart);
+			
+			cart.setZ_id(zid);
+			ssi.addshopX(cart);
+		}
+		//删除购物车
+		ssi.DelShopcart(userid);
+		
+		//遇到异常捕捉，跳转到错误页面，并可以回滚
+		 } catch (Exception e) {    
+	          e.printStackTrace();       
+	          TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//就是这一句了，加上之后，如果doDbStuff2()抛了异常,                                                                                     //doDbStuff1()是会回滚的    
+	          request.setAttribute("wrong", "商品库存异常，请重新选择");
+	          return "store/BuyCar";  
+	     }    
+		
 		
 		return "store/BuyCar_Three";
 	}
 
-	// 跳转支付宝支付
+	// 跳转支付宝支付1
 	@RequestMapping("goPay")
 	public String goPay(HttpSession session, Model model) {
 		Object attribute = session.getAttribute("AllPrice");
@@ -268,5 +308,28 @@ public class StoreController {
 		model.addAttribute("money", parseDouble);
 		return "store/indexx";
 	}
+	
+	// 跳转支付宝支付2
+		@RequestMapping("goPay2")
+		public String goPay2() {
+			
+			return "store/alipay.trade.page.pay";
+		}
 
+		//查看我的订单，主
+		@RequestMapping("userOrderz")
+		public String userOrderz(int user_id,Model model) {
+			List<Shop_orderz> zlist = ssi.userOrderz(user_id);
+			model.addAttribute("zlist",zlist);
+			return "store/UserOrder";
+		}
+		
+		//查看我的订单，详
+		@RequestMapping("userOrderx")
+		public String userOrderx(int z_id,Model model) {
+			List<Shop_orderx> xlist = ssi.userOrderx(z_id);
+			model.addAttribute("xlist",xlist);
+			return "store/UserOrderInfo";
+		}
+		
 }

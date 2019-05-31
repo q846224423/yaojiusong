@@ -24,6 +24,15 @@ pageEncoding="UTF-8"%>
     
     <script type="text/javascript" src="js/index/shade.js"></script>
 <script>
+/* 这里显示结算时，抛出的异常提示 */
+jQuery(function(){
+	var a = jQuery("#wrong").text();
+	if(a.length==0){
+	}else{
+		alert(a);
+	}
+})
+
 function updateCar(car_id,num){
 	var trade_num = num.parent().find(".car_ipt").val();
 	jQuery.ajax({
@@ -438,7 +447,7 @@ var total = 0.0;
     </div>
     <!--End Footer End -->    
 </div>
-
+<div id="wrong" style="display:none;">${wrong }</div>
 </body>
 
 

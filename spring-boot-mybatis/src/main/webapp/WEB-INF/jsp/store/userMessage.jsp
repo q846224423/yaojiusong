@@ -299,8 +299,8 @@ function closeDialog(){
 				<div class="left_m">
 					<div class="left_m_t t_bg1">订单中心</div>
 					<ul>
-						<li><a href="WY_order1SelectAllServlet?userid=${userid}">我的订单</a></li>
-						<li><a href="FjtSelectaddressServlet">收货地址</a></li>
+						<li><a href="userOrderz?user_id=${user.user_id}">我的订单</a></li>
+						<li><a href="toupdateMessage">收获地址</a></li>
 					</ul>
 				</div>
 				<div class="left_m">

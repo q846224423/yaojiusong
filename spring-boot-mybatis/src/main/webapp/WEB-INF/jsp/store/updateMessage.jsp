@@ -253,22 +253,17 @@ pageEncoding="UTF-8"%>
             <div class="left_m">
             	<div class="left_m_t t_bg1">订单中心</div>
                 <ul>
-                	<li><a href="WY_order1SelectAllServlet?userid=${userid}" >我的订单</a></li>
-                    <li><a href="FjtSelectaddressServlet">收货地址</a></li>
+                	<li><a href="userOrderz?user_id=${user.user_id}" >我的订单</a></li>
+                    <li><a href=""  class="now">收货地址</a></li>
                 </ul>
             </div>
             <div class="left_m">
             	<div class="left_m_t t_bg2">会员中心</div>
                 <ul>
-                    <li><a href="QTSelectServletCp" class="now">我的信息</a></li>
+                    <li><a href="userMessage">我的信息</a></li>
                 </ul>
             </div>
-            <div class="left_m">
-            	<div class="left_m_t t_bg4">新闻中心</div>
-                <ul>
-                    <li><a href="chen_newsgd">新闻资讯</a></li>
-                </ul>
-            </div>
+            
         </div>
 		<div class="m_right">
         	
