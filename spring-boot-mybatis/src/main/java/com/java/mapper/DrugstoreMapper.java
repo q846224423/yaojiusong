@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import com.java.pojo.DrugStore;
+import com.java.pojo.Pcad;
 
 public interface DrugstoreMapper {
 	
@@ -28,5 +29,13 @@ public interface DrugstoreMapper {
     
     //门店删除数据
     @Delete("delete from drugstore where yd_id = #{id}")
-    int dsdelete(int id);	
+    int dsdelete(int id);
+    
+    //门店信息查询所有
+    @Select("select * from pcad")
+    public List<Pcad> selectAllDs();
+    
+    //查询门店总数
+ 	@Select("select count(0) from pcad")
+ 	public int AllNum();
 }

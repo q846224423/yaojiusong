@@ -5,6 +5,7 @@ import java.util.List;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
+import com.java.pojo.Pcad;
 import com.java.pojo.Users;
 import com.java.pojo.ZhongjianCalssYiShi;
 
@@ -36,6 +37,10 @@ public interface AdminService {
     
     //查询所有药店
     public List<DrugStore> selectAllDrugStore();
+    //查询所有门店信息
+    public List<Pcad> selectAllDs();
+    //查询认证门店总数
+    public int SelectAllStoreNum();
     //查询单个药店
     public DrugStore selectOneDrugStore(int id);
     //修改一个药店

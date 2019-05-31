@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d">
 
@@ -61,8 +62,9 @@
 									<tbody>
 										<tr>
 											<th class="td_6">药店名称</th>
+											<th class="td_7"></th>
 											<th class="td_7">所在地区</th>
-											<th class="td_8">评论</th>
+											<th class="td_7"></th>
 											<th class="td_8">药店登记信息</th>
 											<th class="td_11">认证状态</th>
 											<th class="td_10">操作</th>
@@ -72,35 +74,42 @@
 							</div>
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 								<tbody>
+									<c:forEach items="${selectAllDS.list}" var="list">
 									<tr>
-										<td class="td_6">同仁堂</td>
+										<td class="td_6">${list.yd_name }</td>
 										<td class="td_7">
-											<a href="#">武汉洪山</a>
+											<a href="#">${list.provinceName }</a>
+										</td>
+										<td class="td_7">
+											<a href="#">${list.cityName }</a>
+										</td>
+										<td class="td_7">
+											<a href="#">${list.areaName }</a>
 										</td>
 										<td class="td_8">
-											<a href="#" class="txdoc">老药店非常棒....</a>
+											<a href="#" class="txdoc">${list.regist_info }</a>
 										</td>
-										<td class="td_8">GSP认证</td>
-										<td class="td_11">已认证</td>
+										<td class="td_11">${list.yd_statu }</td>
 										<td class="td_10">
 											<div class="btn">
 												<a href="#" style="background: #ff980b; color: #fff;">删除</a>
 												</div>
 										</td>
 									</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 							<!--pages S-->
 							<div class="pageSelect">
-								<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
-								<div class="pageWrap">
-									<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-									<a href="#" class="pagenumb cur">1</a>
-									<a href="#" class="pagenumb">2</a>
-									<a href="#" class="pagenumb">3</a>
-									<a href="#" class="pagenext"><i class="ico-next">&nbsp;</i></a>
-								</div>
+							<span>共 <b>${NumAll}</b> 条 每页 <b>5 </b>条 </span>
+							<div class="pageWrap">
+								<a href="mendian_guanli?pageNum=1" class="pagenumb">首页</a>
+								<a href="mendian_guanli?pageNum=${selectAllDS.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
+								<b>${selectAllDS.pageNum}</b>/<b>${selectAllDS.pages}</b>
+								<a href="mendian_guanli?pageNum=${selectAllDS.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="mendian_guanli?pageNum=${selectAllDS.pages}" class="pagenumb">尾页</a>
 							</div>
+						</div>
 							<!--pages E-->
 						</div>
 					</div>
