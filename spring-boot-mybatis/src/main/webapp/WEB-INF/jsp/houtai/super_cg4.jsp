@@ -63,7 +63,7 @@
 								<td style="width: 40%; text-align: center;">${list.ks_id }</td>
 								<td style="width: 40%; text-align: center;"><a href="super_cg6?id=${list.ks_id }" style="color: red;">${list.ks_name }</a></td>
 								<td class="td_10"><div class="btn">
-												<a href="javascript:;" class="modify cg-xiugai-a">添加科科室</a>
+												<a href="javascript:" class="modify cg-xiugai-a">添加科科室</a>
 												<a href="#" style="background: #ff980b; color: #fff;">删除科室</a>
 												</div>
 								</td>

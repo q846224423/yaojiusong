@@ -94,19 +94,32 @@ public class AdminController {
 	public String super_cg5() {
 		return "houtai/super_cg5";
 	}
-
+	
+	
 	// iframe显示jsp代码 不要动
 	// 科别详情页面
 	@RequestMapping("super_cg6")
 	public String super_cg6(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
-		PageHelper.startPage(pageNum, 5);
+		PageHelper.startPage(pageNum, 3);
 		List<KbKsZhongjianlei> selectAllkb = adminService.selectAllkb(id);
 		PageInfo<KbKsZhongjianlei> pageInfo = new PageInfo<KbKsZhongjianlei>(selectAllkb);
 		model.addAttribute("selectAllkb",pageInfo);
-		model.addAttribute("num",adminService.Allkbnum());
+		model.addAttribute("NumAll",adminService.Allkbnum());
 		return "houtai/super_cg6";
 	}
 
+	//添加科室
+	@RequestMapping("javascript:")
+	public String insertks(Model model,Ks ks,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		PageHelper.startPage(pageNum,5);
+		adminService.insertOneKs(ks);
+		List<Ks> selectAllKs = adminService.selectAllKs();
+		PageInfo<Ks> pageInfo = new PageInfo<Ks>(selectAllKs);
+		model.addAttribute("pageInfo",pageInfo);
+		return "houtai/super_cg6";
+		
+	}
+	
 	// iframe显示jsp代码 不要动
 	//
 	@RequestMapping("mendian_dtl")
