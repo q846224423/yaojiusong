@@ -40,9 +40,14 @@ public interface DoctorMapper {
     
 	//通过医生id查用户信息
 	@Select("select * from wzjlu where d_id =#{id}")
-	public List<Users_biger> userall(int id,@Param("id1")int id1);
+	public List<Users_biger> userall(@Param("id")int id,@Param("id1")int id1);
+	//通过用户id查单条
+	@Select("select * from wzjlu where user_id =#{id}")
+    public Users_biger userone(int id);
+	//医生改变处方状态
+	@Update("update record set isOpenDrug=0 where user_id =#{id}")
+	public void d_isOpenDrug(int id);
 	
-    
     
     
    
@@ -69,4 +74,8 @@ public interface DoctorMapper {
 	//查询所有医师
 	@Select("select * from shituone")
 	List<ZhongjianCalssYiShi> selectAll01();
+	
+	//修改处方图片
+	@Update ("update  record set  r_tel=#{0} where user_id=#{1}")
+	public void  insertrtul(String r_tel ,int id);
 }

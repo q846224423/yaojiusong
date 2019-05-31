@@ -30,25 +30,14 @@
 			<div class="ctab-Main">
 				<div class="ctab-Main-title">
 					<ul class="clearfix">
-						<li class="cur"><a href="doctorwzjlu">未处理</a></li>
-						<li><a href="doctorwzjlu1">已完成</a></li>
+						<li class="cur"><a href="doctorwzjlu">记录详情</a></li>
+						<!-- <li><a href="doctorwzjlu1">已完成</a></li> -->
 					</ul>
 				</div>
 				
 				<div class="ctab-Mian-cont">
 					<div class="Mian-cont-btn clearfix">
-						<!--<div class="operateBtn">
-							<a href="huodong_fabu" class="greenbtn publish">发布活动</a>
-							<a href="javascript:;" class="greenbtn add sp-add">添加分类</a>
-						</div>
-						<div class="searchBar">
-							<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
-							<input type="button" class="srhBtn" value="">
-						</div>
-					</div>
-					<div class="super-label clearfix">
-						<a href="#">公司活动<em style="display: none;"></em></a><a href="#">团队活动<em style="display: none;"></em></a>
-					</div>-->
+
 					
 					<div class="Mian-cont-wrap">
 						<div class="defaultTab-T">
@@ -64,8 +53,33 @@
 								<td class="t_1">${list.d_name}</td>
 								<td class="t_2_1">${list.user_name}</td>
 								<td class="t_3">${list.user_tel}</td>
-								<td class="t_5">${list.isOpenDrug}</td>
-								<td class="t_4"><div class="btn"><a class="Top">开处方</a><a href="#" class="modify">查看详情</a></div></td>
+								
+				<td class="t_5">				
+			<c:choose>
+         <c:when test="${list.isOpenDrug==0}">
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;               是
+        </c:when>
+           <c:otherwise>
+         
+                 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;    否
+        
+         </c:otherwise>
+          </c:choose>
+							</td>	
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								<td class="t_4"><div class="btn"><a class="Top" href="doctorkcf?id=${list.user_id}" >开处方</a><a href="zixun_wzjlu2?id=${list.user_id}" class="modify">查看详情</a></div></td>
 							</tr>
 							
 							</c:forEach>
@@ -75,13 +89,30 @@
 						</tbody></table>
 						<!--pages S-->
 						<div class="pageSelect">
-							<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
+							
 							<div class="pageWrap">
-								<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-								<a href="#" class="pagenumb cur">1</a>
-								<a href="#" class="pagenumb">2</a>
-								<a href="#" class="pagenumb">3</a>
-								<a href="#" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								
+								<a href="doctorwzjlu?pageNum=1" >首页</a>
+								<a href="doctorwzjlu?pageNum=${pageInfo.pageNum-1}" class="pagenumb"  style="width: 50px">上一页</a>
+								<a href="doctorwzjlu?pageNum=${pageInfo.pageNum+1}" class="pagenumb" style="width: 50px">下一页</a>
+								<a href="doctorwzjlu?pageNum=${pageInfo.pages}" class="pagenumb">尾页</a>
+								
+								
+								
+								
+									
+<%-- 	<a href="show?pageNum=1">首页</a>
+	<a href="yisheng?pageNum=${pageInfo.pageNum-1}">上一页</a>
+	<a href="yisheng?pageNum=${pageInfo.pageNum+1}">下一页</a>
+	<a href="yisheng?pageNum=${pageInfo.pages}">尾页</a>	
+								 --%>
+								
+								
+								
+								
+								
+								
+								
 							</div>
 						</div>
 						<!--pages E-->

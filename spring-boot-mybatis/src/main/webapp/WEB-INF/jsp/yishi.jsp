@@ -106,7 +106,7 @@
 		</div>
 		</div>
 		</c:forEach>
-		<a href="show?pageNum=1">首页</a>
+	<a href="show?pageNum=1">首页</a>
 	<a href="yisheng?pageNum=${pageInfo.pageNum-1}">上一页</a>
 	<a href="yisheng?pageNum=${pageInfo.pageNum+1}">下一页</a>
 	<a href="yisheng?pageNum=${pageInfo.pages}">尾页</a>

@@ -69,9 +69,26 @@ private KsMapper ksMapper;
 	}
 
 	@Override
-	public List<Users_biger> userall(int id ,@Param("id1")int id1) {
+	public List<Users_biger> userall(@Param("id")int id ,@Param("id1")int id1) {
 		// TODO Auto-generated method stub
 		return doctorMapper.userall(id,id1);
+	}
+
+	@Override
+	public Users_biger userone(int id) {
+		// TODO Auto-generated method stub
+		return doctorMapper.userone(id);
+	}
+
+	@Override
+	public void insertrtul(String r_tel ,int id) {
+	doctorMapper.insertrtul(r_tel, id);
+	}
+
+	@Override
+	public void d_isOpenDrug(int id) {
+		doctorMapper.d_isOpenDrug(id);
+		
 	}
 
 

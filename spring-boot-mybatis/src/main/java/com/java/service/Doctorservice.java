@@ -27,7 +27,13 @@ public interface Doctorservice {
     
     public void d_change(int id);
     
-    public List<Users_biger> userall(int id,@Param("id1")int id1);
+    public List<Users_biger> userall(@Param("id")int id,@Param("id1")int id1);
+    
+    public Users_biger userone(int id);
+    
+    public void  insertrtul(String r_tel ,int id);
+    
+    public void d_isOpenDrug(int id);
 
 
 }
