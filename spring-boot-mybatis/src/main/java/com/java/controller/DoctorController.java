@@ -70,11 +70,12 @@ public class DoctorController {
 
 		}
 
-		// iframe显示jsp代码 不要动
+		//医生去认证
 		@RequestMapping("doctorrz")
-		public String doctorrz() {
+		public String doctorrz(int id ,Model model) {
+			model.addAttribute("id",id);
+			
 			return "chen/doctorrz";
-
 		}
 
 		// iframe显示jsp代码 不要动
@@ -268,6 +269,16 @@ public class DoctorController {
 			System.out.println(r_tel);
 		return "chen/doctorwzjlu";
 		}
-		
+		//医生认证完成
+		@RequestMapping("doctortokcf")
+		public String doctorrzwc(int id,MultipartFile filename,MultipartFile filename1,HttpServletRequest request) {
+			System.out.println(id);
+			String path="D:/Git/ck/yaojiusong/spring-boot-mybatis/src/main/resources/static/upload/chen/";
+			
+			String fileName = filename.getOriginalFilename();
+			String fileName1 = filename.getOriginalFilename();
+			
+			return "chen/zixun_dtl";
+		}
 		
 }

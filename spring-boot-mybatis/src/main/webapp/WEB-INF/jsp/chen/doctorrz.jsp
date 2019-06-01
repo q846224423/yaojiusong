@@ -18,9 +18,10 @@
   			<br />
   				<br />
   					<br />
+  				<input name="id" value="${id} " type="hidden">
      行医资格：<input style="border: 1px" type="file" name="filename" value="" required="required"><br/>
      <br />
-       身份证 ：<input style="border: 1px" type="file" name="filename" value="" required="required"><br/>
+       身份证 ：<input style="border: 1px" type="file" name="filename1" value="" required="required"><br/>
             <br />
 
        
