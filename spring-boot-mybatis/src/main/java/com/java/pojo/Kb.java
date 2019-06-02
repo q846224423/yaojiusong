@@ -4,10 +4,10 @@ public class Kb {
 	private Integer kb_id;//科别id
 	private String kb_name;//科别名称
 	private Integer ks_id;//科室id
-	public int getKb_id() {
+	public Integer getKb_id() {
 		return kb_id;
 	}
-	public void setKb_id(int kb_id) {
+	public void setKb_id(Integer kb_id) {
 		this.kb_id = kb_id;
 	}
 	public String getKb_name() {
@@ -16,10 +16,10 @@ public class Kb {
 	public void setKb_name(String kb_name) {
 		this.kb_name = kb_name;
 	}
-	public int getKs_id() {
+	public Integer getKs_id() {
 		return ks_id;
 	}
-	public void setKs_id(int ks_id) {
+	public void setKs_id(Integer ks_id) {
 		this.ks_id = ks_id;
 	}
 	

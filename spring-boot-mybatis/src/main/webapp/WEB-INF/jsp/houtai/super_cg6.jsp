@@ -42,6 +42,8 @@
 		<!--header-->
 		<div class="superCtab">
 			<div class="cg-title clearfix">
+				<a href="javascript:;" class="default-add-btn newPdBtn"><i
+					class="ico-add"></i>添加科别</a>
 				<div class="searchBar">
 					<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
 					<input type="button" class="srhBtn" value="">
@@ -52,7 +54,8 @@
 					<div class="defaultTab-T">
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
 							<tbody>
-								<tr><th style="width: 40%; text-align: center;">科别号</th><th style="width: 40%; text-align: center;">科别名</th></tr>
+								<tr><th style="width: 40%; text-align: center;">科别号</th><th style="width: 40%; text-align: center;">科别名</th>
+								</tr>
 							</tbody>
 						</table>
 					</div>
@@ -68,13 +71,15 @@
 					</table>
 					<!--pages S-->
 					<div class="pageSelect">
-						<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
+						<span>共 <b>${NumAll }</b> 条 每页 <b>3 </b>条
+						</span>
 						<div class="pageWrap">
-							<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-							<a href="#" class="pagenumb cur">1</a>
-							<a href="#" class="pagenumb">2</a>
-							<a href="#" class="pagenumb">3</a>
-							<a href="#" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+							<a href="super_cg6?pageNum=1" class="pagenumb">首页</a> 
+							<a href="super_cg6?pageNum=${selectAllkb.pageNum-1}" class="pagePre">
+							<i class="ico-pre">&nbsp;</i></a> <b>${selectAllkb.pageNum}</b>/<b>${selectAllkb.pages}</b>
+							<a href="super_cg6?pageNum=${selectAllkb.pageNum+1}" class="pagenext"><i
+								class="ico-next">&nbsp;</i></a> <a
+								href="super_cg6?pageNum=${selectAllkb.pages}" class="pagenumb">尾页</a>
 						</div>
 					</div>
 					<!--pages E-->
@@ -89,24 +94,23 @@
 	
 	<div class="layuiBg"></div><!--公共遮罩-->
 	<!--点击新建频道弹出-->
+	<form action="tianjiakebie" method="post">
 	<div class="addFeileibox layuiBox newPindaoBox">
-		<div class="layer-title clearfix"><h2>新建科室</h2><span class="layerClose"></span></div>
+		<div class="layer-title clearfix"><h2>新建科别</h2><span class="layerClose"></span></div>
 		<div class="layer-content">
 			<dl class="PD-list clearfix">
-				<dt>科室号：</dt>
-				<dd><input type="text" class="txt">
+				<dt>科别名称：</dt>
+				<dd><input type="text" class="txt" name="kb_name">
+				<input type="hidden"  name="ks_id" value="${id }">
 				</dd>
 			</dl>
-			<dl class="PD-list clearfix">
-				<dt>科室名称：</dt>
-				<dd><input type="text" class="txt">
-				</dd>
-			</dl>
+			
 			<dl class="PD-list clearfix">
 				<input type="submit" value="保存" class="saveBtn">
 			</dl>
 		</div>
 	</div>
+	</form>
 	<!--点击修改弹出-->
 	<div class="xcXgBox layuiBox newPindaoBox newPindaoBox-xg">
 		<div class="layer-title clearfix"><h2>修改</h2><span class="layerClose"></span></div>

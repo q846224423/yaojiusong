@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Update;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
+import com.java.pojo.Kb;
 import com.java.pojo.Pcad;
 import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
@@ -90,7 +91,7 @@ public interface AdminService {
 	public List<KbKsZhongjianlei> selectAllkb(int id);
 
 	// 科别总条数
-	public int Allkbnum();
+	public int Allkbnum(int id);
 
 	// 增加科室
 	public int insertOneKs(Ks ks);
@@ -100,4 +101,7 @@ public interface AdminService {
 
 	// 修改科室
 	public int updateOneKs(Ks ks);
+	
+	//添加科别
+	public int insertOneKb(Kb kb);
 }

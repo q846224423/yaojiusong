@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.java.pojo.Doctor;
+import com.java.pojo.Kb;
 import com.java.pojo.Pcad;
 import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
@@ -105,18 +106,32 @@ public class AdminController {
 		List<KbKsZhongjianlei> selectAllkb = adminService.selectAllkb(id);
 		PageInfo<KbKsZhongjianlei> pageInfo = new PageInfo<KbKsZhongjianlei>(selectAllkb);
 		model.addAttribute("selectAllkb",pageInfo);
-		model.addAttribute("NumAll",adminService.Allkbnum());
+		model.addAttribute("NumAll",adminService.Allkbnum(id));
+		model.addAttribute("id",id);
 		return "houtai/super_cg6";
 	}
 
 	//添加科室
-	@RequestMapping("javascript:")
+	@RequestMapping("tianjiakeshi")
 	public String insertks(Model model,Ks ks,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
-		PageHelper.startPage(pageNum,5);
+		PageHelper.startPage(pageNum,3);
 		adminService.insertOneKs(ks);
-		List<Ks> selectAllKs = adminService.selectAllKs();
-		PageInfo<Ks> pageInfo = new PageInfo<Ks>(selectAllKs);
-		model.addAttribute("pageInfo",pageInfo);
+		List<Ks> kss = adminService.selectAllKs();
+		PageInfo<Ks> info = new PageInfo<Ks>(kss);
+		model.addAttribute("ks",info);
+		model.addAttribute("NumAll",adminService.ksAll());
+		return "houtai/super_cg4";
+		
+	}
+	//添加科别
+		@RequestMapping("tianjiakebie")
+		public String insertOneKb(Model model,Kb kb,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		adminService.insertOneKb(kb);
+		PageHelper.startPage(pageNum,3);
+		List<KbKsZhongjianlei> selectAllkb = adminService.selectAllkb(kb.getKs_id());
+		PageInfo<KbKsZhongjianlei> pageInfo = new PageInfo<KbKsZhongjianlei>(selectAllkb);
+		model.addAttribute("selectAllkb",pageInfo);
+		model.addAttribute("NumAll",adminService.Allkbnum(kb.getKs_id()));
 		return "houtai/super_cg6";
 		
 	}

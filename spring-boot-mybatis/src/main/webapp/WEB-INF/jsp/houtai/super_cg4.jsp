@@ -23,7 +23,6 @@
 <body style="background: #f6f5fa;">
 	<!--content S-->
 	<div class="super-content RightMain" id="RightMain">
-		
 		<div class="super-header clearfix">
 			<h2>科室科别管理</h2>
 			<div class="head-right">
@@ -42,6 +41,7 @@
 		<!--header-->
 		<div class="superCtab">
 			<div class="cg-title clearfix">
+				<a href="javascript:;" class="default-add-btn newPdBtn"><i class="ico-add"></i>添加科室</a>
 				<div class="searchBar">
 					<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
 					<input type="button" class="srhBtn" value="">
@@ -63,7 +63,6 @@
 								<td style="width: 40%; text-align: center;">${list.ks_id }</td>
 								<td style="width: 40%; text-align: center;"><a href="super_cg6?id=${list.ks_id }" style="color: red;">${list.ks_name }</a></td>
 								<td class="td_10"><div class="btn">
-												<a href="javascript:" class="modify cg-xiugai-a">添加科科室</a>
 												<a href="#" style="background: #ff980b; color: #fff;">删除科室</a>
 												</div>
 								</td>
@@ -93,13 +92,29 @@
 	<!--content E-->
 	
 	<div class="layuiBg"></div><!--公共遮罩-->
+	<!--点击新建频道弹出-->
+	<form action="tianjiakeshi" method="post">
+	<div class="addFeileibox layuiBox newPindaoBox">
+		<div class="layer-title clearfix"><h2>新建用户</h2><span class="layerClose"></span></div>
+		<div class="layer-content">
+			<dl class="PD-list clearfix">
+					<dt>科室：</dt>
+					<dd><input type="text" class="txt" name="ks_name">
+					</dd>
+				</dl>
+			<dl class="PD-list clearfix">
+				<input type="submit" value="保存" class="saveBtn">
+			</dl>
+		</div>
+	</div>
+	</form>
 	<!--点击修改弹出-->
 	<div class="xcXgBox layuiBox newPindaoBox newPindaoBox-xg">
 		<div class="layer-title clearfix"><h2>修改</h2><span class="layerClose"></span></div>
 		<div class="layer-content">
 			<dl class="PD-list clearfix">
 					<dt>科室：</dt>
-					<dd><input type="text" class="txt">
+					<dd><input type="text" class="txt" name="ks_name">
 					</dd>
 				</dl>
 			<dl class="PD-list clearfix">

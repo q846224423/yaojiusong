@@ -19,7 +19,7 @@ public interface KsMapper {
 	@Select("select * from ks where ks_id=#{id}")
 	public Ks selectOneKs(int id);
 	//增加科室
-	@Insert("insert into ks ks_name values #{ks_name}")
+	@Insert("insert into ks(ks_name) values (#{ks_name})")
 	public int insertOneKs(Ks ks);
 	//删除科室
 	@Delete("delete from ks where ks_id = #{id}")

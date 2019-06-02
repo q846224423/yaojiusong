@@ -8,12 +8,14 @@ import org.springframework.stereotype.Service;
 import com.java.mapper.CommonMapper;
 import com.java.mapper.DoctorMapper;
 import com.java.mapper.DrugstoreMapper;
+import com.java.mapper.KbMapper;
 import com.java.mapper.KsMapper;
 import com.java.mapper.KskbMapper;
 import com.java.mapper.UsersMapper;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
+import com.java.pojo.Kb;
 import com.java.pojo.Pcad;
 import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
@@ -36,6 +38,8 @@ public class AdminServiceImpl implements AdminService {
 	private KsMapper ksMapper;
 	@Autowired
 	private KskbMapper kskbMapper;
+	@Autowired
+	private KbMapper kbmapper;
 	
 	/*
 	 * 所有医生操作
@@ -188,8 +192,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	//科别总条数
-	public int Allkbnum() {
-		return kskbMapper.Allkbnum();
+	public int Allkbnum(int id) {
+		return kskbMapper.Allkbnum(id);
 	}
 
 	//添加一个科室
@@ -205,6 +209,11 @@ public class AdminServiceImpl implements AdminService {
 	//修改一个科室
 	public int updateOneKs(Ks ks) {
 		return ksMapper.updateOneKs(ks);
+	}
+
+	//添加科别
+	public int insertOneKb(Kb kb) {
+		return kbmapper.insertOneKb(kb);
 	}
 
 }

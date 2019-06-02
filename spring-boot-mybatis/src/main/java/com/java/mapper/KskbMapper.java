@@ -2,6 +2,7 @@ package com.java.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 import com.java.pojo.KbKsZhongjianlei;
@@ -12,5 +13,6 @@ public interface KskbMapper {
 	List<KbKsZhongjianlei> selectAllkb(int id);
 	//科别总条数
 	@Select("select count(0) from kbks where ks_id=#{id} ")
-	int Allkbnum();
+	int Allkbnum(int id);
+	
 }
