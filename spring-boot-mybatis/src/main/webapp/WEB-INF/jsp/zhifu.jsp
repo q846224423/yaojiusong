@@ -173,7 +173,7 @@ p{
 		</div>
 		<div class="hou2">
 			<div class="img">
-		<a><img src="img/yishengxiang1.jpg" /></a></div>	
+		<a href="zhifubao"><img src="img/yishengxiang1.jpg" /></a></div>	
 			<div class="zhifu2"></div>
 		</div>
 		

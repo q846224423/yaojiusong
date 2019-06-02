@@ -23,18 +23,22 @@
 				margin-left: 1050px;
 				margin-top: -55px;
 			}
-			
+			a{
+			 text-decoration: none;	
+			 color: rgb(51,51,51);
+			}
 			.table tr td{
 				width: 337px;
 				height: 130px;
 				 text-align: center;vertical-align:middle;
 				border:solid 1px white;
 				font-size: 20px;
+				
 			background-image: linear-gradient(to top, rgb(235,241,241), rgb(241,247,247));
 			}
 			.ta{
 				padding-top: 80px;
-				width="1348px"
+				width="1348px";
 			}
 			.ta tr td{
 				width:670px;
@@ -50,20 +54,20 @@
 			<div class="input"><input type="text" style="height: 34px; width: 1000px; "placeholder="输入科室名查找" /></div>
 			<div class="img"><img src="img/1558498361(1).jpg"></div>
 		</div>
-		<img src="img/123.jpg" width="1335px"/>
+		<img src="img/123.jpg" width="1235px"/>
 		<div class="table">
 			<table  border="1" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
 			<tr>
-					<td>${keshi[0].ks_name}</td>
-					<td>${keshi[1].ks_name}</td>
-					<td>${keshi[2].ks_name}</td>
-					<td>${keshi[3].ks_name}</td>
+					<td><a href="yisheng?id=${keshi[0].ks_id}">${keshi[0].ks_name}</a></td>
+					<td><a href="yisheng?id=${keshi[1].ks_id}">${keshi[1].ks_name}</a></td>
+					<td><a href="yisheng?id=${keshi[2].ks_id}">${keshi[2].ks_name}</a></td>
+					<td><a href="yisheng?id=${keshi[3].ks_id}">${keshi[3].ks_name}</a></td>
 				</tr> 
 				<tr>
-					<td>${keshi[4].ks_name}</td>
-					<td>${keshi[5].ks_name}</td>
-					<td>${keshi[6].ks_name}</td>
-					<td>${keshi[7].ks_name}</td>
+					<td><a href="yisheng?id=${keshi[4].ks_id}">${keshi[4].ks_name}</a></td>
+					<td><a href="yisheng?id=${keshi[5].ks_id}">${keshi[5].ks_name}</a></td>
+					<td><a href="yisheng?id=${keshi[6].ks_id}">${keshi[6].ks_name}</a></td>
+					<td><a href="yisheng?id=10">其他</a></td>
 				</tr> 
 				
 			</table>

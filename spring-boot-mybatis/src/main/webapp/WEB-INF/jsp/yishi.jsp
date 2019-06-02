@@ -71,7 +71,7 @@
 			}
 			.sss:hover{
 				background-color: rgb(4,176,188)
-				};
+				}
 
 </style>
 </head>
@@ -93,11 +93,11 @@
 			<tr>
 				<td>${list.kb_name}</td>
 			</tr>
-			<tr>
+			 <tr>
 				<td>${list.d_zc}</td>
-			</tr>
+			</tr> 
 			<tr>
-				<td>${list.d_money}</td>
+				<td>￥${list.d_money}</td>
 			</tr>
 		</table>
 		<div class="sss">
@@ -106,9 +106,9 @@
 		</div>
 		</div>
 		</c:forEach>
-	<a href="show?pageNum=1">首页</a>
-	<a href="yisheng?pageNum=${pageInfo.pageNum-1}">上一页</a>
-	<a href="yisheng?pageNum=${pageInfo.pageNum+1}">下一页</a>
-	<a href="yisheng?pageNum=${pageInfo.pages}">尾页</a>
+		<a href="yisheng?pageNum=1&id=${id}">首页</a>
+	<a href="yisheng?pageNum=${pageInfo.pageNum-1}&id=${id}">上一页</a>
+	<a href="yisheng?pageNum=${pageInfo.pageNum+1}&id=${id}">下一页</a>
+	<a href="yisheng?pageNum=${pageInfo.pages}&id=${id}">尾页</a>
 </body>
 </html>
