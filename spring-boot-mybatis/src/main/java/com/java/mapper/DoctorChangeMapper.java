@@ -28,7 +28,7 @@ public interface DoctorChangeMapper {
    
     
     //医生添加数据
-     @Insert("insert into `shop1`.`doctorchange` ( `d_name`, `d_age`  ,`d_sex`,`d_tel`, `kb_id`, `d_money`, `d_zc`, `d_introduce`, `d_head`, `d_id`, `d_change`,`d_control`, `d_state`, `people_id`)values  (#{d_age},#{d_sex},#{d_tel},#{kb_id},#{d_money},#{d_zc},#{d_introduce},#{d_head}, #{d_id},#{d_change},#{d_control},#{d_state},#{people_id})")
+     @Insert("insert into doctorchange(d_name,d_age,d_sex,d_tel,kb_id,d_money,d_zc,d_introduce,d_head,d_id,d_change,d_control,d_state,people_id) values (#{d_name},#{d_age},#{d_sex},#{d_tel},#{kb_id},#{d_money},#{d_zc},#{d_introduce},#{d_head},#{d_id},#{d_change},#{d_control},#{d_state},#{people_id})")
     int insert(Doctor doctor);
      
      
@@ -40,5 +40,11 @@ public interface DoctorChangeMapper {
     
     @Delete("delete from doctor where d_id = #{id}")
     int delete(int id);
+    
+    
+    
+    //@修改医生修改状态
+    @Update("update `shop1`.`doctor` set`d_change`=1 where  d_id= #{id}")
+    void updated_change(int id);
 
 }

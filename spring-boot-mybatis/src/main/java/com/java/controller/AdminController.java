@@ -165,7 +165,7 @@ public class AdminController {
 	//添加科室
 	@RequestMapping("tianjiakeshi")
 	public String insertks(Model model,Ks ks,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
-		PageHelper.startPage(pageNum,3);
+		PageHelper.startPage(pageNum,5);
 		adminService.insertOneKs(ks);
 		List<Ks> kss = adminService.selectAllKs();
 		PageInfo<Ks> info = new PageInfo<Ks>(kss);
@@ -187,6 +187,22 @@ public class AdminController {
 		
 	}
 	
+	//删除科室
+	@RequestMapping("deleteks")
+	public String deleteks(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
+		List<KbKsZhongjianlei> selectAllkb = adminService.selectAllkb(id);
+		if(selectAllkb.size()==0) {
+			adminService.deleteOneKs(id);
+			PageHelper.startPage(pageNum, 5);
+			List<Ks> ks = adminService.selectAllKs();
+			PageInfo<Ks> info = new PageInfo<Ks>(ks);
+			model.addAttribute("ks",info);
+			model.addAttribute("NumAll",adminService.ksAll());
+			return "houtai/super_cg4";
+		}else {
+			return "houtai/cuowu";
+		}
+	}
 	// iframe显示jsp代码 不要动
 	@RequestMapping("mendian_dtl")
 	// 门店审核详情界面

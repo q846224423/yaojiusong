@@ -30,7 +30,7 @@
 		<div class="side-menu">
 			<ul>
 				<li class="on"><a href="zixun_dtl" target="Mainindex"><i class="ico-3"></i>个人信息</a></li>
-				<li class=""><a href="wenzhang_xinwen" target="Mainindex"><i class="ico-8"></i>在线问诊</a></li>
+				<li class=""><a href="yishiliaotian" target="Mainindex"><i class="ico-8"></i>在线问诊</a></li>
 				<li><a href="doctorwzjlu" target="Mainindex"><i class="ico-1"></i>问诊记录</a></li>
 				
 				
