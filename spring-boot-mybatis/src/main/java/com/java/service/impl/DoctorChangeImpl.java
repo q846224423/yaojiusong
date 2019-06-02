@@ -19,4 +19,11 @@ private DoctorChangeMapper doctorChangeMapperge;
 		return doctorChangeMapperge.insert(doctor);
 	}
 
+
+
+	@Override
+	public void updated_change(int id) {
+		doctorChangeMapperge.updated_change(id);		
+	}
+
 }

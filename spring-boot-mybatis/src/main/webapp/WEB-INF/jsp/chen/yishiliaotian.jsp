@@ -100,7 +100,7 @@ function CreadMsg(user, content)
     <div class="abs cover contaniner">
         <div class="abs cover pnl">
             <div class="top pnl-head">
-            	<div id="yishi">用户</div>
+            	<div id="yishi">医生</div>
             <div id="guanbi">
             	<table>
             		<tr>
@@ -114,7 +114,7 @@ function CreadMsg(user, content)
             </div>
             <div class="abs cover pnl-body" id="pnlBody">
                 <div class="abs cover pnl-left">
-                    <div class="abs cover pnl-msgs scroll" id="show">
+                    <div class="abs cover pnl-msgs scroll" id="show" >
                         <div class="msg min time" id="histStart">加载历史消息</div>
                         <div class="pnl-list" id="hists">
                             <!-- 历史消息 -->
@@ -162,7 +162,7 @@ function CreadMsg(user, content)
         </div>
     </div>
   						<!--发送信息的DIV-->
-                        <div class="ab"><input id="fasong" name="" autofocus="autofocus"  /></div>
+                        <div class="ab" style="position: relative; top: 270px;left: -206px;"><input id="fasong" name="" autofocus="autofocus"  /></div>
     	<script >
 			/*创建websocket 参数webSocket地址*/
 			var websocket = new WebSocket("ws://localhost:3000");

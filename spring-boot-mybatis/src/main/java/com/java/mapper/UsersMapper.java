@@ -42,7 +42,30 @@ public interface UsersMapper {
 	// 修改用户部分信息
 	@Update("update users set user_name=#{user_name},user_age=#{user_age},user_sex=#{user_sex},user_tel=#{user_tel},user_address=#{user_address},user_countyid=#{user_countyid} where user_id = #{user_id}")
 	public void updateUser(Users users);
-
+	
+	//查询所有审核用户
+	@Select("select * from users_copy")
+	public List<Users_copy> selectUC();
+	
+	//查询单个审核用户
+	@Select("select * from users_copy where user_id =#{id}")
+	public Users_copy selectOneUC(int id);
+	
+	//通过用户实名
+	@Update("update users set user_control = 2 where user_id=#{user_id}")
+	public int updateTYSM(int id);
+	
+	//拒绝用户实名
+	@Update("update users set user_control = 0 where user_id=#{user_id} ")
+	public int updateJJSM(int id);
+	
+	//删除修改用户信息
+	@Delete("delete from users_copy where user_id=#{id}")
+	public int deleteUC(int id);
+	
+	//查询修改用户个数
+	@Select("select count(0) from users_copy")
+	public int selectAllUCNum();
 	
 	//Begin
 	// 查询单个用户

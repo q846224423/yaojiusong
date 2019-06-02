@@ -27,17 +27,17 @@
 		<div class="super-content">
 			<div class="superCtab">
 				<div class="ctab-title clearfix">
-					<h3>门店审核</h3>
+					<h3>信息审核</h3>
 				</div>
 				
 				<div class="ctab-Main">
 					<div class="ctab-Main-title">
 						<ul class="clearfix">
 							<li >
-								<a href="mendian_guanli">门店信息</a>
+								<a href="super_cg">用户信息</a>
 							</li>
 							<li class="cur">
-								<a href="mendian_Team">门店审核</a>
+								<a href="userAll">信息审核</a>
 							</li>
 						</ul>
 					</div>
@@ -58,19 +58,19 @@
 								<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
 									<tbody>
 										<tr>
-											<th class="t_1">门店编号</th>
-											<th class="t_2_1">申请药店</th>
+											<th class="t_1">用户id</th>
+											<th class="t_2_1">用户姓名</th>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 								<tbody>
-								<c:forEach items="${selectAllDS.list}" var="list">
+								<c:forEach items="${selectAllUC.list}" var="list">
 									<tr class="wd">
-										<td class="t_1">${list.yd_id}</td>
+										<td class="t_1">${list.user_id}</td>
 										<td class="t_2_1">
-											<a href="mendian_dtl?id=${list.dc_id}" class="team-a">${list.yd_name}</a>
+											<a href="usersh?id=${list.user_id}" class="team-a">${list.user_name}</a>
 										</td>
 									</tr>
 								</c:forEach>
@@ -80,11 +80,11 @@
 							<div class="pageSelect">
 							<span>共 <b>${NumAll}</b> 条 每页 <b>5 </b>条 </span>
 							<div class="pageWrap">
-								<a href="mendian_Team?pageNum=1" class="pagenumb">首页</a>
-								<a href="mendian_Team?pageNum=${selectAllDS.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-								<b>${selectAllDS.pageNum}</b>/<b>${selectAllDS.pages}</b>
-								<a href="mendian_Team?pageNum=${selectAllDS.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
-								<a href="mendian_Team?pageNum=${selectAllDS.pages}" class="pagenumb">尾页</a>
+								<a href="userAll?pageNum=1" class="pagenumb">首页</a>
+								<a href="userAll?pageNum=${selectAllUC.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
+								<b>${selectAllUC.pageNum}</b>/<b>${selectAllUC.pages}</b>
+								<a href="userAll?pageNum=${selectAllUC.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="userAll?pageNum=${selectAllUC.pages}" class="pagenumb">尾页</a>
 							</div>
 						</div>
 							<!--pages E-->

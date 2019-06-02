@@ -21,6 +21,7 @@ import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
 import com.java.pojo.Pca;
 import com.java.pojo.Users;
+import com.java.pojo.Users_copy;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.AdminService;
 import com.java.service.Doctorservice;import net.sf.jsqlparser.util.AddAliasesVisitor;
@@ -52,6 +53,54 @@ public class AdminController {
 		model.addAttribute("NumAll", selectAllUsersNum);
 		return "houtai/super_cg";
 	}
+	
+	//用户信息审核详情页面
+	@RequestMapping("usersh")
+	public String usersh(Model model,int id) {
+		Users_copy selectOneUC = adminService.selectOneUC(id);
+		model.addAttribute("selectOneUC",selectOneUC);
+		return "houtai/usersh";
+	}
+	
+	//通过实名
+	@RequestMapping("tgsm")
+	public String tgsm(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,int id) {
+		adminService.updateTYSM(id);
+		adminService.deleteUC(id);
+		PageHelper.startPage(pageNum, 5);
+		List<Users_copy> selectUC = adminService.selectUC();
+		PageInfo<Users_copy> pageInfo = new PageInfo<Users_copy>(selectUC);
+		model.addAttribute("selectAllUC",pageInfo);
+		int selectAllUCNum = adminService.selectAllUCNum();
+		model.addAttribute("NumAll", selectAllUCNum);
+		return "houtai/userAll";
+	}
+	
+	//未通过实名
+	@RequestMapping("jjsm")
+	public String jjsm(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,int id) {
+		adminService.updateJJSM(id);
+		adminService.deleteUC(id);
+		PageHelper.startPage(pageNum, 5);
+		List<Users_copy> selectUC = adminService.selectUC();
+		PageInfo<Users_copy> pageInfo = new PageInfo<Users_copy>(selectUC);
+		model.addAttribute("selectAllUC",pageInfo);
+		int selectAllUCNum = adminService.selectAllUCNum();
+		model.addAttribute("NumAll", selectAllUCNum);
+		return "houtai/userAll";
+	}
+	
+	//用户信息审核主页面
+		@RequestMapping("userAll")
+		public String userAll(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+			PageHelper.startPage(pageNum, 5);
+			List<Users_copy> selectUC = adminService.selectUC();
+			PageInfo<Users_copy> pageInfo = new PageInfo<Users_copy>(selectUC);
+			model.addAttribute("selectAllUC",pageInfo);
+			int selectAllUCNum = adminService.selectAllUCNum();
+			model.addAttribute("NumAll", selectAllUCNum);
+			return "houtai/userAll";
+		}
 	
 	//删除一个用户
 	@RequestMapping("deleteOneUser")
@@ -161,7 +210,6 @@ public class AdminController {
 	public String mendian_dtl(Model model,int id) {
 		DrugStore_copy selectOneDC = adminService.selectOneDC(id);
 		Integer county_id = selectOneDC.getCounty_id();
-		System.out.println(county_id);
 		Pca selectPCA = adminService.selectPCA(county_id);
 		model.addAttribute("selectOneDS",selectOneDC);
 		model.addAttribute("PCA",selectPCA);

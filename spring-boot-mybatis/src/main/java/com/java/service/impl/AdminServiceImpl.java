@@ -24,6 +24,7 @@ import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
 import com.java.pojo.Pca;
 import com.java.pojo.Users;
+import com.java.pojo.Users_copy;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.AdminService;
 
@@ -221,7 +222,38 @@ public class AdminServiceImpl implements AdminService {
 		int deleteP = commonMapper.deleteP(id);
 		return deleteP;
 	}
-
+	
+	//查询所有审核用户
+  	public List<Users_copy> selectUC(){
+  		List<Users_copy> selectUC = usersMapper.selectUC();
+  		return selectUC;
+  	}
+  	//查询单个审核用户
+  	public Users_copy selectOneUC(int id){
+  		Users_copy selectOneUC = usersMapper.selectOneUC(id);
+  		return selectOneUC;
+  	}
+  	//通过用户实名
+  	public int updateTYSM(int id) {
+  		int updateTYSM = usersMapper.updateTYSM(id);
+  		return updateTYSM;
+  	}
+  	//拒绝用户实名
+  	public int updateJJSM(int id) {
+  		int updateJJSM = usersMapper.updateJJSM(id);
+  		return updateJJSM;
+  	}
+  	//查询修改用户个数
+  	public int selectAllUCNum() {
+  		int selectAllUCNum = usersMapper.selectAllUCNum();
+  		return selectAllUCNum;
+  	}
+  	//删除修改用户信息
+  	public int deleteUC(int id) {
+  		int deleteUC = usersMapper.deleteUC(id);
+  		return deleteUC;
+  	}
+	
 	// 查所有科室
 	public List<Ks> selectAllKs() {
 		return ksMapper.selectAllKs();

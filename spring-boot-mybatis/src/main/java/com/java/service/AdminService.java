@@ -18,6 +18,7 @@ import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
 import com.java.pojo.Pca;
 import com.java.pojo.Users;
+import com.java.pojo.Users_copy;
 import com.java.pojo.ZhongjianCalssYiShi;
 
 public interface AdminService {
@@ -103,28 +104,34 @@ public interface AdminService {
 	public int updateOneStore(DrugStore_copy drugStore_copy);
 
 	/*
-	 * 所有用户管理方法接口
-	 */
-	// 查询所有用户
-	public List<Users> selectAllUsers();
-
-	// 查询单个用户
-	public Users selectOneUsers(int id);
-
-	// 修改一个用户
-	public int updateUsers(Users users);
-
-	// 添加一个用户
-	public int insertUsers(Users users);
-
-	// 删除一个用户
-	public int deleteOneUsers(int id);
-
-	// 查询用户总数
-	public int selectAllUsersNum();
-
-	// 注销一个用户
-	public int deleteP(int id);
+     * 所有用户管理方法接口
+     */
+    //查询所有用户
+    public List<Users> selectAllUsers();
+    //查询单个用户
+    public Users selectOneUsers(int id);
+    //修改一个用户
+    public int updateUsers(Users users);
+    //添加一个用户
+    public int insertUsers(Users users);
+    //删除一个用户
+    public int deleteOneUsers(int id);
+    //查询用户总数
+    public int selectAllUsersNum();
+    //注销一个用户
+  	public int deleteP(int id);
+  	//查询所有审核用户
+  	public List<Users_copy> selectUC();
+  	//查询单个审核用户
+  	public Users_copy selectOneUC(int id);
+  	//通过用户实名
+  	public int updateTYSM(int id);
+  	//拒绝用户实名
+  	public int updateJJSM(int id);
+  	//查询修改用户个数
+  	public int selectAllUCNum();
+  	//删除修改用户信息
+  	public int deleteUC(int id);
 
 	/*
 	 * 所有科别科室的方法

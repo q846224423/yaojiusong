@@ -80,7 +80,7 @@
 			<dt>性别 &nbsp; &nbsp;: &nbsp; &nbsp;</dt><dd>${doctor.d_sex}</dd>
 		</dl>
 		<dl>
-			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt>${doctor.d_change}<dd>
+			<dt>电话 &nbsp; &nbsp;: &nbsp; &nbsp;</dt>${doctor.d_tel}<dd>
 
 		  <%-- <%=CommonControl.phone(${doctor.d_tel})%> --%>
 			
@@ -116,7 +116,7 @@
 			
 			<c:choose>
          <c:when test="${doctor.d_control == 0 }">
-       <span><a href="doctorrz" style=" color: red">点我认证</a></span>
+       <span><a href="doctorrz?id=${doctor.d_id}" style=" color: red">点我认证</a></span>
         </c:when>
         <c:otherwise>
            <c:if test="${doctor.d_control == 1 }">
