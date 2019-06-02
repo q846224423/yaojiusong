@@ -163,4 +163,7 @@ public interface AdminService {
 
 	// 根据县id查找省市县
 	public Pca selectPCA(int id);
+	
+	//根据id审核
+	public int shenheyishi(Doctor doctor);
 }
