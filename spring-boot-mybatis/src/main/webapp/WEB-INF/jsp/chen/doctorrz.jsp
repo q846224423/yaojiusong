@@ -10,7 +10,7 @@
 	<body>
 		<center>
 		 <div style="width:500px ; height: 500px; position: relative; top: 20px; left: 20px; border: 	;">
-		<form action="examine" method="post" enctype="multipart/form-data" >
+		<form action="doctorrzwc" method="post" enctype="multipart/form-data" >
   <center> 
   	<br />
   	<br />
@@ -21,8 +21,6 @@
   				<input name="id" value="${id} " type="hidden">
      行医资格：<input style="border: 1px" type="file" name="filename" value="" required="required"><br/>
      <br />
-       身份证 ：<input style="border: 1px" type="file" name="filename1" value="" required="required"><br/>
-            <br />
 
        
    <input type="submit" value="提交"   style="width: 80px; height: 30px; "/>

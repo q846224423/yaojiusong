@@ -3,6 +3,7 @@ package com.java.service;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
@@ -34,6 +35,11 @@ public interface Doctorservice {
     public void  insertrtul(String r_tel ,int id);
     
     public void d_isOpenDrug(int id);
+    
+    
+	public void  updatexyzg(String d_tel ,int id);
+
+	public void  changerzzt(int id);
 
 
 }

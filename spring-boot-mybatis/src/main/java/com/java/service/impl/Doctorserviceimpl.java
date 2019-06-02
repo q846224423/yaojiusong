@@ -91,5 +91,15 @@ private KsMapper ksMapper;
 		
 	}
 
+	@Override
+	public void updatexyzg(String d_tel, int id) {
+		doctorMapper.updatexyzg(d_tel, id);		
+	}
+
+	@Override
+	public void changerzzt(int id) {
+		doctorMapper.changerzzt(id);		
+	}
+
 
 }

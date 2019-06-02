@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,6 +23,7 @@ import com.github.pagehelper.PageInfo;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.Kb;
+import com.java.pojo.Ks;
 import com.java.pojo.Users_biger;
 import com.java.service.DoctorChangeservice;
 import com.java.service.Doctorservice;
@@ -39,6 +41,8 @@ public class DoctorController {
 	   
 	   @Autowired
 	   private DoctorChangeservice dc;
+
+	private HttpSession session;
 	
 
 	
@@ -266,18 +270,36 @@ public class DoctorController {
 			String r_tel = "upload/chen/"+fileName;
 			filename.transferTo(new File(path + fileName));
 			d1.insertrtul(r_tel, id);
+
+			Doctor_big s =(Doctor_big) request.getSession().getAttribute("doctor");
+				
+			Doctor_big doctor = big.selectone(s.getPeople_id());
+			session = request.getSession();
+			session.setAttribute("doctor",doctor);
+			
+			
+			
 			System.out.println(r_tel);
 		return "chen/doctorwzjlu";
 		}
 		//医生认证完成
-		@RequestMapping("doctortokcf")
-		public String doctorrzwc(int id,MultipartFile filename,MultipartFile filename1,HttpServletRequest request) {
+		@RequestMapping("doctorrzwc")
+		public String doctorrzwc(int id,MultipartFile filename,HttpServletRequest request) throws IllegalStateException, IOException {
 			System.out.println(id);
-			String path="D:/Git/ck/yaojiusong/spring-boot-mybatis/src/main/resources/static/upload/chen/";
 			
+			d1.changerzzt(id);
+			String path="D:/Git/ck/yaojiusong/spring-boot-mybatis/src/main/resources/static/upload/chen/";			
 			String fileName = filename.getOriginalFilename();
-			String fileName1 = filename.getOriginalFilename();
+			String d_tel = "upload/chen/"+fileName;		
+			System.out.println(d_tel);
+			filename.transferTo(new File(path + fileName));
+			d1.updatexyzg(d_tel, id);
 			
+			Doctor_big s =(Doctor_big) request.getSession().getAttribute("doctor");
+				
+			Doctor_big doctor = big.selectone(s.getPeople_id());
+			session = request.getSession();
+			session.setAttribute("doctor",doctor);
 			return "chen/zixun_dtl";
 		}
 		

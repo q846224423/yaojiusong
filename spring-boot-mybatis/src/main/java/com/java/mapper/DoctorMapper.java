@@ -78,4 +78,14 @@ public interface DoctorMapper {
 	//修改处方图片
 	@Update ("update  record set  r_tel=#{0} where user_id=#{1}")
 	public void  insertrtul(String r_tel ,int id);
+	
+	//医生行医资格认证
+	@Update("update doctor set d_tel=#{0} where doctor_id=#{1}")
+	public void  updatexyzg(String d_tel ,int id);
+	
+	//医生的认证状态改变
+	@Update("update doctor set d_control=1 where doctor_id=#{id}")
+	public void  changerzzt(int id);
+	
+
 }
