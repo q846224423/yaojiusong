@@ -40,17 +40,11 @@
 							<li>
 								<a href="mendian_Team">门店审核</a>
 							</li>
-							<li>
-								<a href="mendianzl_Team">门店资格</a>
-							</li>
 						</ul>
 					</div>
 
 					<div class="ctab-Mian-cont">
 						<div class="Mian-cont-btn clearfix">
-							<div class="operateBtn">
-								<a href="javascript:;" class="greenbtn add sp-add">添加门店</a>
-							</div>
 							<div class="searchBar">
 								<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
 								<input type="button" class="srhBtn" value="">
@@ -120,49 +114,6 @@
 		</div>
 		
 		<!--栏目管理-->
-		<div class="layuiBg"></div>
-		<div class="addFeileibox layuiBox newPindaoBox">
-			<div class="layer-title clearfix">
-				<h2>新建用户</h2><span class="layerClose"></span></div>
-			<div class="layer-content">
-				<dl class="PD-list clearfix">
-					<dt>药店名：</dt>
-					<dd><input type="text" class="txt">
-					</dd>
-				</dl>
-				<dl class="PD-list clearfix">
-					<dt>药店所在区域：</dt>
-					<dd>
-						<select name="city">
-							<option value="wuhan">武汉</option>
-							<option value="huangshi">黄石</option>
-							<option value="huanggang">黄冈</option>
-							<option value="xianning">咸宁</option>
-						</select>
-						<select name="area">
-							<option value="hongshan">洪山区</option>
-							<option value="jiangxia">江夏区</option>
-							<option value="jiangan">江岸区</option>
-							<option value="xinzhou">新洲区</option>
-						</select>
-						<dd>
-				</dl>
-				<dl class="PD-list clearfix">
-					<dt>药店登记信息：</dt>
-					<dd><input type="text" class="txt">
-					</dd>
-				</dl>
-
-				<dl class="PD-list clearfix">
-					<dt>认证状态：</dt>
-					<dd><input type="text" class="txt">
-					</dd>
-				</dl>
-				<dl class="PD-list clearfix">
-					<input type="submit" value="保存" class="saveBtn">
-				</dl>
-			</div>
-		</div>
 	</body>
 
 </html>

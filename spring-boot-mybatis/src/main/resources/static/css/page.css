@@ -136,7 +136,7 @@
 .defaultTable th { height: 48px; background: #fdfdfd; font-weight: normal; font-size: 16px; color: #363636; }
 .defaultTable2 { width: 98%; margin: 5px auto;}
 .defaultTable td { color: #545454; padding: 15px 0; border-bottom: 1px solid #f6f5fa;}
-.defaultTable .t_1 { width: 10%; text-align: left; padding-left: 1%; position: relative;}
+.defaultTable .t_1 { width: 50%; text-align: left; padding-left: 1%; position: relative;text-align: center;}
 .defaultTable .t_2 { width: 55%; text-align: left;}
 .defaultTable .t_3 { width: 15%; text-align: center;}
 .defaultTable .t_4 { width: 30%; text-align: center;}
@@ -285,7 +285,7 @@ a.colu-xg:hover { background: #fe990b;}
 .hd-start-end ul li .pub-txt-bar .shuruTxt { width: 80%; text-align: center;}
 /*活动管理*/
 a.team-a ,a.sonwb-a { text-decoration: underline;}
-.defaultTable tr.wd td.t_1:after ,.defaultTable tr.wd td.t_6:after { content: ''; width: 8px; height: 8px; border-radius: 100%; background: #FF6000; position: absolute; left: 0; top: 21px;}
+.defaultTable tr.wd td.t_1:after ,.defaultTable tr.wd td.t_6:after { content: ''; width: 8px; height: 8px; border-radius: 100%; background: #FF6000; position: absolute; left: 45%; top: 21px;}
 .wd-msg { height: 34px; line-height: 34px; font-size: 16px; color: #424242;}
 .wd-msg span { display: inline-block; width: 20px; height: 20px; background: #FF6000; color: #fff; text-align: center; line-height: 20px; border-radius: 100%; -moz-border-radius: 100%; -webkit-border-radius: 100%;}
 .alcenter { text-align: center;}

@@ -26,7 +26,7 @@
 		<div class="super-content">
 			<div class="superCtab">
 				<div class="ctab-title clearfix">
-					<h3>医师审核</h3>
+					<h3>门店审核</h3>
 				</div>
 				<div class="ctab-Main">
 					<div class="ctab-Main-title">
@@ -37,16 +37,13 @@
 							<li class="cur">
 								<a href="mendian_Team">门店审核</a>
 							</li>
-							<li>
-								<a href="mendianzl_Team">门店资格</a>
-							</li>
 						</ul>
 					</div>
 				<div class="ctab-Main">
 					<div class="ctab-Mian-cont">
 						<div class="Mian-cont-btn Mian-cont-btn2 clearfix">
 							<div class="operateBtn">
-								<div class="wd-msg">您有 <span>2</span> 条未读咨询信息！</div>
+								<div class="wd-msg">您有 <span>2</span> 条未处理信息！</div>
 							</div>
 							<div class="searchBar">
 								<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入子站关键字搜索">
@@ -61,7 +58,6 @@
 										<tr>
 											<th class="t_1">门店编号</th>
 											<th class="t_2_1">修改信息</th>
-											<th>操作</th>
 										</tr>
 									</tbody>
 								</table>
@@ -72,9 +68,6 @@
 										<td class="t_1">2015001</td>
 										<td class="t_2_1">
 											<a href="mendian_dtl" class="team-a">同济药房</a>
-										</td>
-										<td class="alcenter">
-											<a href="mendian_dtl" class="export-a">查看修改信息</a>
 										</td>
 									</tr>
 								</tbody>
