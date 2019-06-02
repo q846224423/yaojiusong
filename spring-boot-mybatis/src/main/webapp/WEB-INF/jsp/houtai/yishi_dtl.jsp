@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d">
 
@@ -37,35 +38,35 @@
 		<div class="zx-dtlMain">
 			<dl>
 				<span>修改后医师头像：</span>
-				<img src="images/吴彦祖.png" style="vertical-align: middle;" />
+				<img src="upload/chen/Cassiopeia.png" style="vertical-align: middle;" />
 			</dl>
 			<dl>
 				<span>医师姓名：</span>
-				<dd>吴彦祖</dd>
+				<dd>${findonedoctor.d_name }</dd>
 			</dl>
 			<dl>
 				<span>修改后医师性别：</span>
-				<dd>男</dd>
+				<dd>${findonedoctor.d_age }</dd>
 			</dl>
 			<dl>
 				<span>修改后医师电话：</span>
-				<dd>123131312312</dd>
+				<dd>${findonedoctor.d_tel }</dd>
 			</dl>
 			<dl>
 				<span>修改后科别id：</span>
-				<dd>2</dd>
+				<dd>${findonedoctor.kb_id }</dd>
 			</dl>
 			<dl>
 				<span>修改后医师问诊金额：</span>
-				<dd>123</dd>
+				<dd>${findonedoctor.d_money }</dd>
 			</dl>
 			<dl>
 				<span>修改后医师职称：</span>
-				<dd>副主任医师</dd>
+				<dd>${findonedoctor.d_zc }</dd>
 			</dl>
 			<dl>
 				<span>修改后医师的介绍：</span>
-				<dd>四十年老医生，非常棒!!!</dd>
+				<dd>${findonedoctor.d_introduce }</dd>
 			</dl>
 			<dl class="PD-list clearfix">
 				<input type="submit" value="通过" class="saveBtn">

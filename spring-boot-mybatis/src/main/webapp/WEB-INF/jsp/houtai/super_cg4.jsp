@@ -61,7 +61,7 @@
 						<c:forEach items="${ks.list }" var="list">
 							<tr>
 								<td style="width: 40%; text-align: center;">${list.ks_id }</td>
-								<td style="width: 40%; text-align: center;"><a href="super_cg6?id=${list.ks_id }" style="color: red;">${list.ks_name }</a></td>
+								<td style="width: 40%; text-align: center;"><a href="super_cg6?id=${list.ks_id }" style="color: ; text-decoration: underline;">${list.ks_name }</a></td>
 								<td class="td_10"><div class="btn">
 												<a href="deleteks?id=${list.ks_id }" style="background: #ff980b; color: #fff;">删除科室</a>
 												</div>

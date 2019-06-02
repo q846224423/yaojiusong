@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.java.pojo.Doctor;
+import com.java.pojo.DoctorChange;
 import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Kb;
 import com.java.pojo.Pcad;
@@ -22,7 +23,7 @@ import com.java.pojo.Pca;
 import com.java.pojo.Users;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.AdminService;
-import com.java.service.Doctorservice;
+import com.java.service.Doctorservice;import net.sf.jsqlparser.util.AddAliasesVisitor;
 
 @Controller
 public class AdminController {
@@ -270,7 +271,8 @@ public class AdminController {
 	// iframe显示jsp代码 不要动
 	// 医师信息审核详情页面
 	@RequestMapping("yishi_dtl")
-	public String yishi_dtl() {
+	public String yishi_dtl(Model model,Integer id) {
+		model.addAttribute("findonedoctor",adminService.findonedoctor(id));
 		return "houtai/yishi_dtl";
 	}
 
@@ -287,11 +289,15 @@ public class AdminController {
 		return "houtai/yishi_guanli";
 	}
 	
-
 	// iframe显示jsp代码 不要动
-	// 医师信息审核
+	// 医师信息审核界面
 	@RequestMapping("yishi_Team")
-	public String yishi_Team() {
+	public String yishi_Team(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		PageHelper.startPage(pageNum, 5);
+		List<DoctorChange> selectwrz = adminService.selectwrz();
+		PageInfo<DoctorChange> pageInfo = new PageInfo<DoctorChange>(selectwrz);
+		model.addAttribute("pageInfo",pageInfo);
+		model.addAttribute("num",adminService.wrzNum());
 		return "houtai/yishi_Team";
 	}
 	

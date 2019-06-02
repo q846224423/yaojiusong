@@ -70,18 +70,6 @@
 						</tbody>
 					</table>
 					<!--pages S-->
-					<div class="pageSelect">
-						<span>共 <b>${NumAll }</b> 条 每页 <b>3 </b>条
-						</span>
-						<div class="pageWrap">
-							<a href="super_cg6?pageNum=1" class="pagenumb">首页</a> 
-							<a href="super_cg6?pageNum=${selectAllkb.pageNum-1}" class="pagePre">
-							<i class="ico-pre">&nbsp;</i></a> <b>${selectAllkb.pageNum}</b>/<b>${selectAllkb.pages}</b>
-							<a href="super_cg6?pageNum=${selectAllkb.pageNum+1}" class="pagenext"><i
-								class="ico-next">&nbsp;</i></a> <a
-								href="super_cg6?pageNum=${selectAllkb.pages}" class="pagenumb">尾页</a>
-						</div>
-					</div>
 					<!--pages E-->
 				</div>
 				

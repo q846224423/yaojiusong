@@ -36,9 +36,18 @@ public interface DoctorChangeMapper {
      
      
     //医生删除数据
-    
-    
     @Delete("delete from doctor where d_id = #{id}")
     int delete(int id);
 
+	//查询所有未认证的医师
+	@Select("select * from doctorchange")
+	public List<DoctorChange> selectwrz();
+	
+	//查询所有未认证的医师总数
+	@Select("select count(0) from doctorchange")
+	public int wrzNum();
+	
+	//根据id查对应医师
+	@Select("select * from doctorchange where d_id=#{id}")
+	public DoctorChange findonedoctor(int id);
 }

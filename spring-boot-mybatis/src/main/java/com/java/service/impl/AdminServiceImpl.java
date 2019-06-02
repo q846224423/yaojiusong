@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.mapper.CommonMapper;
+import com.java.mapper.DoctorChangeMapper;
 import com.java.mapper.DoctorMapper;
 import com.java.mapper.DrugstoreMapper;
 import com.java.mapper.KbMapper;
@@ -13,6 +14,7 @@ import com.java.mapper.KsMapper;
 import com.java.mapper.KskbMapper;
 import com.java.mapper.UsersMapper;
 import com.java.pojo.Doctor;
+import com.java.pojo.DoctorChange;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
 import com.java.pojo.DrugStore_copy;
@@ -42,6 +44,8 @@ public class AdminServiceImpl implements AdminService {
 	private KskbMapper kskbMapper;
 	@Autowired
 	private KbMapper kbmapper;
+	@Autowired 
+	private DoctorChangeMapper doctorChangeMapper ;
 
 	/*
 	 * 所有医生操作
@@ -253,7 +257,7 @@ public class AdminServiceImpl implements AdminService {
 		return ksMapper.updateOneKs(ks);
 	}
 
-	// 添加科别
+	// 添加科
 	public int insertOneKb(Kb kb) {
 		return kbmapper.insertOneKb(kb);
 	}
@@ -262,5 +266,20 @@ public class AdminServiceImpl implements AdminService {
 	public Pca selectPCA(int id) {
 		Pca selectPCA = commonMapper.selectPCA(id);
 		return selectPCA;
+	}
+
+	// 查询所有未认证的医师
+	public List<DoctorChange> selectwrz() {
+		return doctorChangeMapper.selectwrz();
+	}
+
+	// 查询所有未认证医师的总数
+	public int wrzNum() {
+		return doctorChangeMapper.wrzNum();
+	}
+
+	//根据id查单个医师
+	public DoctorChange findonedoctor(int id) {
+		return doctorChangeMapper.findonedoctor(id);
 	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d">
 
@@ -47,7 +48,7 @@
 					<div class="ctab-Mian-cont">
 						<div class="Mian-cont-btn Mian-cont-btn2 clearfix">
 							<div class="operateBtn">
-								<div class="wd-msg">您有 <span>2</span> 条未读咨询信息！</div>
+								<div class="wd-msg">您有 <span>${num }</span> 条未读咨询信息！</div>
 							</div>
 							<div class="searchBar">
 								<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入子站关键字搜索">
@@ -60,8 +61,8 @@
 								<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
 									<tbody>
 										<tr>
-											<th class="t_1">医师编号</th>
-											<th class="t_2_1">修改信息</th>
+											<th style="width: 30%; text-align: center;">医师编号</th>
+											<th style="width: 40%; text-align: center;">审核人</th>
 											<th>操作</th>
 										</tr>
 									</tbody>
@@ -69,28 +70,30 @@
 							</div>
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 								<tbody>
+									<c:forEach items="${pageInfo.list }" var="list">
 									<tr class="wd">
-										<td class="t_1">2015001</td>
-										<td class="t_2_1">
-											<a href="yishi_dtl" class="team-a">张三个人官网</a>
+										<td  style="width: 30%; text-align: center;">${list.d_id }</td>
+										<td  style="width: 40%; text-align: center;">
+											<a href="yishi_dtl?id=${list.d_id }" class="team-a">${list.d_name }医生详细修改界面</a>
 										</td>
 										<td class="alcenter">
-											<a href="yishi_dtl" class="export-a">查看修改信息</a>
+											<a href="yishi_dtl?id=${list.d_id }" class="export-a">查看修改信息</a>
 										</td>
 									</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 							<!--pages S-->
 							<div class="pageSelect">
-								<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
-								<div class="pageWrap">
-									<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-									<a href="#" class="pagenumb cur">1</a>
-									<a href="#" class="pagenumb">2</a>
-									<a href="#" class="pagenumb">3</a>
-									<a href="#" class="pagenext"><i class="ico-next">&nbsp;</i></a>
-								</div>
-							</div>
+								<span>共 <b>${num }</b> 条 每页 <b>5 </b>条   </span>
+							<div class="pageWrap">
+							<a href="yishi_Team?pageNum=1" class="pagenumb">首页</a>
+								<a href="yishi_Team?pageNum=${pageInfo.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
+								<b>${pageInfo.pageNum}</b>/<b>${pageInfo.pages}</b>
+								<a href="yishi_Team?pageNum=${pageInfo.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="yishi_Team?pageNum=${pageInfo.pages}" class="pagenumb">尾页</a>
+						</div>
+					</div>
 							<!--pages E-->
 						</div>
 					</div>
