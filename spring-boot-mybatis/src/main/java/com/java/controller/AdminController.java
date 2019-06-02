@@ -139,7 +139,6 @@ public class AdminController {
 	}
 	
 	// iframe显示jsp代码 不要动
-	//
 	@RequestMapping("mendian_dtl")
 	// 门店审核详情界面
 	public String mendian_dtl(Model model,int id) {
@@ -150,6 +149,51 @@ public class AdminController {
 		model.addAttribute("selectOneDS",selectOneDC);
 		model.addAttribute("PCA",selectPCA);
 		return "houtai/mendian_dtl";
+	}
+	
+	//通过审核门店申请
+	@RequestMapping("mendian_shenhe1")
+	public String mendian_shenhe(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,int id) {
+		DrugStore_copy selectOneDC = adminService.selectOneDC(id);
+		String yd_statu = selectOneDC.getYd_statu();
+		Integer yd_id = selectOneDC.getYd_id();
+		if (yd_statu.equals("认证中")) {
+			adminService.updateTYRZ(yd_id);
+			adminService.deleteOneSQ(yd_id);
+		}
+		else {
+			int updateOneStore = adminService.updateOneStore(selectOneDC);
+			adminService.deleteOneSQ(yd_id);
+		}
+		PageHelper.startPage(pageNum, 5);
+		List<DrugStore_copy> selectAllDs2 = adminService.selectAllDs2();
+		PageInfo<DrugStore_copy> pageInfo = new PageInfo<DrugStore_copy>(selectAllDs2);
+		model.addAttribute("selectAllDS",pageInfo);
+		int selectAllStoreNum = adminService.SelectAllStoreNum2();
+		model.addAttribute("NumAll", selectAllStoreNum);
+		return "houtai/mendian_Team";
+	}
+	
+	//未通过审核门店申请
+	@RequestMapping("mendian_shenhe2")
+	public String mendian_shenhe2(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,int id) {
+		DrugStore_copy selectOneDC = adminService.selectOneDC(id);
+		String yd_statu = selectOneDC.getYd_statu();
+		Integer yd_id = selectOneDC.getYd_id();
+		if (yd_statu.equals("认证中")) {
+			adminService.updateJJRZ(yd_id);
+			adminService.deleteOneSQ(yd_id);
+		}
+		else {
+			adminService.deleteOneSQ(yd_id);
+		}
+		PageHelper.startPage(pageNum, 5);
+		List<DrugStore_copy> selectAllDs2 = adminService.selectAllDs2();
+		PageInfo<DrugStore_copy> pageInfo = new PageInfo<DrugStore_copy>(selectAllDs2);
+		model.addAttribute("selectAllDS",pageInfo);
+		int selectAllStoreNum = adminService.SelectAllStoreNum2();
+		model.addAttribute("NumAll", selectAllStoreNum);
+		return "houtai/mendian_Team";
 	}
 
 	// iframe显示jsp代码 不要动
@@ -177,6 +221,20 @@ public class AdminController {
 		model.addAttribute("NumAll", selectAllStoreNum);
 		return "houtai/mendian_guanli";
 	}
+	
+	//删除一个门店
+		@RequestMapping("deleteOneDs")
+		public String deleteOneDs(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id,Integer pid) {
+			int deleteOneDrugStore = adminService.deleteOneDrugStore(id);
+			int deleteP = adminService.deleteP(pid);
+			PageHelper.startPage(pageNum, 5);
+			List<Pcad> selectAllDs = adminService.selectAllDs();
+			PageInfo<Pcad> pageInfo = new PageInfo<Pcad>(selectAllDs);
+			model.addAttribute("selectAllDS",pageInfo);
+			int selectAllStoreNum = adminService.SelectAllStoreNum();
+			model.addAttribute("NumAll", selectAllStoreNum);
+			return "houtai/mendian_guanli";
+		}
 
 	// iframe显示jsp代码 不要动
 	// 医师行医资格详情页面

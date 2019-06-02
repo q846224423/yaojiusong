@@ -40,7 +40,7 @@ public interface DrugstoreMapper {
     public List<Pcad> selectAllDs();
     
     //查询门店已认证总数
- 	@Select("select count(0) from pcad")
+ 	@Select("select count(0) from pcad where yd_statu  ='已认证'")
  	public int AllNum();
  	
  	//门店信息查询所有未认证
@@ -55,12 +55,21 @@ public interface DrugstoreMapper {
  	@Select("select * from DrugStore_copy where dc_id=#{0}")
     public DrugStore_copy selectOneDC(int id);
  	
+ 	//同意认证
+ 	@Update("update drugstore set yd_statu = '已认证' where yd_id =#{yd_id}")
+ 	public int updateTYRZ(int id);
  	
+ 	//拒绝认证
+ 	@Update("update drugstore set yd_statu = '未认证' where yd_id =#{yd_id}")
+ 	public int updateJJRZ(int id);
  	
+ 	//删除门店申请
+ 	@Delete("delete from drugstore_copy where yd_id=#{id}")
+ 	public int deleteOneSQ(int id);
  	
- 	
- 	
- 	
+ 	//门店信息修改
+ 	@Update("update drugstore set yd_name = #{yd_name},county_id=#{county_id},regist_info=#{regist_info},yd_url=#{yd_url} where yd_id=#{yd_id}")
+ 	public int updateStore(DrugStore_copy drugStore_copy);
  	
  	
  	

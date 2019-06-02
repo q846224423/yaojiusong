@@ -65,7 +65,14 @@ public interface AdminService {
     public int insertDrugStore(DrugStore drugStore);
     //删除一个药店
     public int deleteOneDrugStore(int id);
-    
+    //同意认证
+   	public int updateTYRZ(int id);
+   	//拒绝认证
+   	public int updateJJRZ(int id);
+   	//删除门店申请
+   	public int deleteOneSQ(int id);
+   	//修改门店信息
+   	public int updateOneStore(DrugStore_copy drugStore_copy);
     
     /*
      * 所有用户管理方法接口

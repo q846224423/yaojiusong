@@ -150,6 +150,27 @@ public class AdminServiceImpl implements AdminService {
 		int dsdelete = drugstoreMapper.dsdelete(id);
 		return dsdelete;
 	}
+	//同意认证
+   	public int updateTYRZ(int id) {
+   		int updateTYRZ = drugstoreMapper.updateTYRZ(id);
+   		return updateTYRZ;
+   	}
+   	//拒绝认证
+   	public int updateJJRZ(int id) {
+   		int updateJJRZ = drugstoreMapper.updateJJRZ(id);
+   		return updateJJRZ;
+   	}
+   	//删除门店申请
+   	public int deleteOneSQ(int id) {
+   		int deleteOneSQ = drugstoreMapper.deleteOneSQ(id);
+   		return deleteOneSQ;
+   	}
+   	
+  //修改门店信息
+   	public int updateOneStore(DrugStore_copy drugStore_copy) {
+   		int updateStore = drugstoreMapper.updateStore(drugStore_copy);
+   		return updateStore;
+   	}
 
 	/*
 	 * 所有用户操作

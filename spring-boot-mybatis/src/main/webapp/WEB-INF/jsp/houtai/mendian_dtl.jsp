@@ -37,6 +37,10 @@
 		<!--content E-->
 		<div class="zx-dtlMain">
 			<dl>
+				<span>门店执照：</span>
+				<img alt="" src="${selectOneDS.yd_url}">
+			</dl>
+			<dl>
 				<span>门店名称：</span>
 				<dd>${selectOneDS.yd_name }</dd>
 			</dl>
@@ -61,8 +65,8 @@
 				<dd>${selectOneDS.yd_statu }</dd>
 			</dl>
 			<dl class="PD-list clearfix">
-				<a href="super_cg"><input type="submit" value="通过" class="saveBtn"></a>
-				<a href="super_cg"><input type="submit" value="拒绝" class="saveBtn"></a>
+				<a href="mendian_shenhe1?id=${selectOneDS.dc_id}"><input type="submit" value="通过" class="saveBtn"></a>
+				<a href="mendian_shenhe2?id=${selectOneDS.dc_id}"><input type="submit" value="拒绝" class="saveBtn"></a>
 			</dl>
 		</div>
 

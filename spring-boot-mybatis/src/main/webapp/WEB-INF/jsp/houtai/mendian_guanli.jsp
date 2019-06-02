@@ -86,7 +86,7 @@
 										<td class="td_11">${list.yd_statu }</td>
 										<td class="td_10">
 											<div class="btn">
-												<a href="#" style="background: #ff980b; color: #fff;">删除</a>
+												<a href="deleteOneDs?id=${list.yd_id}&pid=${list.people_id}" style="background: #ff980b; color: #fff;">删除</a>
 												</div>
 										</td>
 									</tr>
