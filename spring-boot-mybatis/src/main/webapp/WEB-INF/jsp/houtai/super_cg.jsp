@@ -8,12 +8,12 @@
 		<meta charset="utf-8">
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>超管－超管</title>
+		<title>活动管理</title>
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/page.css">
 		<!--[if lte IE 8]>
-		<link href="css/ie8.css" rel="stylesheet" type="text/css"/>
-		<![endif]-->
+	<link href="css/ie8.css" rel="stylesheet" type="text/css"/>
+	<![endif]-->
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 		<script type="text/javascript" src="js/modernizr.js"></script>
@@ -23,9 +23,11 @@
 	</head>
 
 	<body style="background: #f6f5fa;">
+
 		<!--content S-->
-		<div class="super-content RightMain" id="RightMain">
-			<div class="super-header clearfix">
+		<div class="super-content">
+			<div class="superCtab">
+				<div class="super-header clearfix">
 					<h2>用户管理</h2>
 				<div class="head-right">
 					<i class="ico-user"></i>当前用户：
@@ -44,16 +46,27 @@
 					</div>
 				</div>
 			</div>
-			<div class="superCtab">
-				<div class="cg-title clearfix">
-					<div class="searchBar">
-						<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
-						<input type="button" class="srhBtn" value="">
+				<div class="ctab-Main">
+					<div class="ctab-Main-title">
+						<ul class="clearfix">
+							<li class="cur">
+								<a href="super_cg">用户信息</a>
+							</li>
+							<li>
+								<a href="userAll">信息审核</a>
+							</li>
+						</ul>
 					</div>
-				</div>
-				<div class="cgsuperCtab">
-					<div class="Mian-cont-wrap">
-						<div class="defaultTab-T">
+
+					<div class="ctab-Mian-cont">
+						<div class="Mian-cont-btn clearfix">
+							<div class="searchBar">
+								<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
+								<input type="button" class="srhBtn" value="">
+							</div>
+						</div>
+						<div class="Mian-cont-wrap">
+							<div class="defaultTab-T">
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
 								<tbody>
 									<tr>
@@ -93,8 +106,8 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						<!--pages S-->
-						<div class="pageSelect">
+							<!--pages S-->
+							<div class="pageSelect">
 							<span>共 <b>${NumAll}</b> 条 每页 <b>5 </b>条 </span>
 							<div class="pageWrap">
 								<a href="super_cg?pageNum=1" class="pagenumb">首页</a>
@@ -104,15 +117,16 @@
 								<a href="super_cg?pageNum=${selectAllUsers.pages}" class="pagenumb">尾页</a>
 							</div>
 						</div>
-						<!--pages E-->
+							<!--pages E-->
+						</div>
 					</div>
-
 				</div>
 			</div>
 			<!--main-->
 
 		</div>
-		<!--content E-->
+		
+		<!--栏目管理-->
 	</body>
 
 </html>
