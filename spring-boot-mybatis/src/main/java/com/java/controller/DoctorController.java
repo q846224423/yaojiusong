@@ -220,7 +220,7 @@ public class DoctorController {
 			d.setPeople_id(people_id);
 			d.setD_tel(d_tel);
 		    //改变状态审核中，即control为1
-		    dc.update(d_id);
+		    dc.updated_change(d_id);
 		    
 			dc.insert(d);
 			
@@ -291,6 +291,15 @@ public class DoctorController {
 			session = request.getSession();
 			session.setAttribute("doctor",doctor);
 			return "chen/zixun_dtl";
+		}
+		
+		@RequestMapping("yishiliaotian")
+		public String yishiliaotian() {
+			
+			
+			
+			return "chen/yishiliaotian";
+	
 		}
 		
 }

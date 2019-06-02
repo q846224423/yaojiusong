@@ -8,5 +8,5 @@ public interface DoctorChangeservice {
 	
 	int insert(Doctor doctor);
 	
-	 void update(int id);
+	void updated_change(int id);
 }

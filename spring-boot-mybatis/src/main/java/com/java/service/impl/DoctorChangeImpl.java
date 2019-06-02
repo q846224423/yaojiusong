@@ -22,8 +22,8 @@ private DoctorChangeMapper doctorChangeMapperge;
 
 
 	@Override
-	public void update(int id) {
-		doctorChangeMapperge.update(id);		
+	public void updated_change(int id) {
+		doctorChangeMapperge.updated_change(id);		
 	}
 
 }

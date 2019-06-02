@@ -45,6 +45,6 @@ public interface DoctorChangeMapper {
     
     //@修改医生修改状态
     @Update("update `shop1`.`doctor` set`d_change`=1 where  d_id= #{id}")
-    void update(int id);
+    void updated_change(int id);
 
 }
