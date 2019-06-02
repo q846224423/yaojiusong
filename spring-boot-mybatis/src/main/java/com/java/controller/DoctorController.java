@@ -156,24 +156,24 @@ public class DoctorController {
 			
 			
 			String  d_name =request.getParameter("d_name");
-			System.out.println(d_name);	
+			System.out.println(d_name+"名字");	
 			String  d_sex =request.getParameter("d_sex");
-			System.out.println(d_sex);	
+			System.out.println(d_sex+"性别");	
 			String  d_tel =request.getParameter("d_tel");
-			System.out.println(d_tel);	
+			System.out.println(d_tel+"电话");	
 			String  d_zc =request.getParameter("d_zc");
-			System.out.println(d_zc);	
+			System.out.println(d_zc+"zc");	
 			String  d_introduce =request.getParameter("d_introduce");
-			System.out.println(d_introduce);	
+			System.out.println(d_introduce+"int");	
 			
 			
-			int  kb_id =Integer.parseInt(request.getParameter("kb").toString());
-			System.out.println(kb_id);			
+			int  kb_id =Integer.parseInt(request.getParameter("kb"));
+			System.out.println(kb_id+"kb_id");			
 			double d_money =Double.valueOf(request.getParameter("d_money"));
-			System.out.println(d_money);
+			System.out.println(d_money+"d_money");
 			int  d_age =Integer.parseInt(request.getParameter("d_age"));
-			System.out.println(d_age);
-			
+			System.out.println(d_age+"d_age");
+	
 			
 			
 			
@@ -181,19 +181,19 @@ public class DoctorController {
 /*			int  d_id =Integer.parseInt(request.getParameter("d_id"));*/
 			
 			int d_id=p.getD_id();
-			System.out.println(d_id);
+			System.out.println(d_id+"d_id");
 			
 			int d_change=p.getD_change();
-			System.out.println(d_change);
+			System.out.println(d_change+"d_change");
 			
 		   int  d_state=p.getD_state();
-		   System.out.println(d_state);
+		   System.out.println(d_state+"d_state");
 		
 		   int  people_id=p.getPeople_id();
-		    System.out.println(people_id);
+		    System.out.println(people_id+"people_id");
 		
 			int  d_control=p.getD_control();
-			System.out.println(d_control);
+			System.out.println(d_control+"d_control");
 			
 			
 			
@@ -202,32 +202,25 @@ public class DoctorController {
 			
 			String d_head = "upload/chen/"+fileName;
 			filename.transferTo(new File(path + fileName));
-
-			
-			
+       System.out.println(d_head+"d_head");
+				
 			Doctor d = new Doctor();
 			d.setD_age(d_age);
     		d.setD_change(d_change);
-		     d.setD_control(d_control);
+		    d.setD_control(d_control);
 			d.setD_head(d_head);
 			d.setD_id(d_id);
 			d.setD_introduce(d_introduce);
 			d.setD_money(d_money);
 			d.setD_name(d_name);
-			d.setD_sex(d_sex);
-			d.setD_state(d_state);
-			d.setD_tel(d_tel);
+			d.setD_sex(d_sex);	
 			d.setD_zc(d_zc);
 			d.setKb_id(kb_id);
-			
-
-
-		
-			
-
-
+			d.setD_state(d_state);
+			d.setPeople_id(people_id);
+			d.setD_tel(d_tel);
 		    //改变状态审核中，即control为1
-		    d1.d_change(d_change);
+		    dc.update(d_id);
 		    
 			dc.insert(d);
 			
@@ -270,18 +263,16 @@ public class DoctorController {
 			String r_tel = "upload/chen/"+fileName;
 			filename.transferTo(new File(path + fileName));
 			d1.insertrtul(r_tel, id);
+			
 
-			Doctor_big s =(Doctor_big) request.getSession().getAttribute("doctor");
-				
+			Doctor_big s =(Doctor_big) request.getSession().getAttribute("doctor");				
 			Doctor_big doctor = big.selectone(s.getPeople_id());
 			session = request.getSession();
-			session.setAttribute("doctor",doctor);
-			
-			
-			
+			session.setAttribute("doctor",doctor);		
 			System.out.println(r_tel);
 		return "chen/doctorwzjlu";
 		}
+		
 		//医生认证完成
 		@RequestMapping("doctorrzwc")
 		public String doctorrzwc(int id,MultipartFile filename,HttpServletRequest request) throws IllegalStateException, IOException {
@@ -295,8 +286,7 @@ public class DoctorController {
 			filename.transferTo(new File(path + fileName));
 			d1.updatexyzg(d_tel, id);
 			
-			Doctor_big s =(Doctor_big) request.getSession().getAttribute("doctor");
-				
+			Doctor_big s =(Doctor_big) request.getSession().getAttribute("doctor");				
 			Doctor_big doctor = big.selectone(s.getPeople_id());
 			session = request.getSession();
 			session.setAttribute("doctor",doctor);
