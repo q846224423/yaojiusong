@@ -10,10 +10,12 @@ import org.apache.ibatis.annotations.Update;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
+import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Kb;
 import com.java.pojo.Pcad;
 import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
+import com.java.pojo.Pca;
 import com.java.pojo.Users;
 import com.java.pojo.ZhongjianCalssYiShi;
 
@@ -49,8 +51,14 @@ public interface AdminService {
     public List<Pcad> selectAllDs();
     //查询认证门店总数
     public int SelectAllStoreNum();
+    //查询所有未认证门店
+    public List<DrugStore_copy> selectAllDs2();
+    //查询所有未认证门店总数
+    public int SelectAllStoreNum2();
     //查询单个药店
     public DrugStore selectOneDrugStore(int id);
+    //查询单条未认证门店
+    public DrugStore_copy selectOneDC(int id);
     //修改一个药店
     public int updateDrugStore(DrugStore drugStore);
     //添加一个药店
@@ -104,4 +112,7 @@ public interface AdminService {
 	
 	//添加科别
 	public int insertOneKb(Kb kb);
+	
+	//根据县id查找省市县
+	public Pca selectPCA(int id);
 }

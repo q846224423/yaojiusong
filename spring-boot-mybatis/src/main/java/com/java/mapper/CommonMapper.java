@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.java.pojo.Admin;
 import com.java.pojo.Doctor;
 import com.java.pojo.DrugStore;
+import com.java.pojo.Pca;
 import com.java.pojo.People;
 import com.java.pojo.Users;
 @Repository
@@ -37,4 +38,8 @@ public interface CommonMapper {
 	//删除账号
 	@Delete("delete from people where id =#{id}")
 	public int deleteP(int id);
+	
+	//根据县id查找省市县
+	@Select("select * from pca where areaId=#{id}")
+	public Pca selectPCA(int id);
 }

@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.java.pojo.Doctor;
+import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Kb;
 import com.java.pojo.Pcad;
 import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
+import com.java.pojo.Pca;
 import com.java.pojo.Users;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.AdminService;
@@ -140,14 +142,26 @@ public class AdminController {
 	//
 	@RequestMapping("mendian_dtl")
 	// 门店审核详情界面
-	public String mendian_dtl() {
+	public String mendian_dtl(Model model,int id) {
+		DrugStore_copy selectOneDC = adminService.selectOneDC(id);
+		Integer county_id = selectOneDC.getCounty_id();
+		System.out.println(county_id);
+		Pca selectPCA = adminService.selectPCA(county_id);
+		model.addAttribute("selectOneDS",selectOneDC);
+		model.addAttribute("PCA",selectPCA);
 		return "houtai/mendian_dtl";
 	}
 
 	// iframe显示jsp代码 不要动
 	// 门店审核主界面
 	@RequestMapping("mendian_Team")
-	public String mendian_Team() {
+	public String mendian_Team(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		PageHelper.startPage(pageNum, 5);
+		List<DrugStore_copy> selectAllDs2 = adminService.selectAllDs2();
+		PageInfo<DrugStore_copy> pageInfo = new PageInfo<DrugStore_copy>(selectAllDs2);
+		model.addAttribute("selectAllDS",pageInfo);
+		int selectAllStoreNum = adminService.SelectAllStoreNum2();
+		model.addAttribute("NumAll", selectAllStoreNum);
 		return "houtai/mendian_Team";
 	}
 
@@ -162,20 +176,6 @@ public class AdminController {
 		int selectAllStoreNum = adminService.SelectAllStoreNum();
 		model.addAttribute("NumAll", selectAllStoreNum);
 		return "houtai/mendian_guanli";
-	}
-
-	// iframe显示jsp代码 不要动
-	// 门店资格详情页面
-	@RequestMapping("mendianzl_dtl")
-	public String mendianzl_dtl() {
-		return "houtai/mendianzl_dtl";
-	}
-
-	// iframe显示jsp代码 不要动
-	// 门店资格主页面
-	@RequestMapping("mendianzl_Team")
-	public String mendianzl_Team() {
-		return "houtai/mendianzl_Team";
 	}
 
 	// iframe显示jsp代码 不要动

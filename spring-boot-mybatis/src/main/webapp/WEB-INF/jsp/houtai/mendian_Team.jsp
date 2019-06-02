@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d">
 	<head>
@@ -43,7 +44,7 @@
 					<div class="ctab-Mian-cont">
 						<div class="Mian-cont-btn Mian-cont-btn2 clearfix">
 							<div class="operateBtn">
-								<div class="wd-msg">您有 <span>2</span> 条未处理信息！</div>
+								<div class="wd-msg">您有 <span>${NumAll}</span> 条未处理信息！</div>
 							</div>
 							<div class="searchBar">
 								<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入子站关键字搜索">
@@ -57,32 +58,34 @@
 									<tbody>
 										<tr>
 											<th class="t_1">门店编号</th>
-											<th class="t_2_1">修改信息</th>
+											<th class="t_2_1">申请药店</th>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 								<tbody>
+								<c:forEach items="${selectAllDS.list}" var="list">
 									<tr class="wd">
-										<td class="t_1">2015001</td>
+										<td class="t_1">${list.yd_id}</td>
 										<td class="t_2_1">
-											<a href="mendian_dtl" class="team-a">同济药房</a>
+											<a href="mendian_dtl?id=${list.dc_id}" class="team-a">${list.yd_name}</a>
 										</td>
 									</tr>
+								</c:forEach>
 								</tbody>
 							</table>
 							<!--pages S-->
 							<div class="pageSelect">
-								<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
-								<div class="pageWrap">
-									<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-									<a href="#" class="pagenumb cur">1</a>
-									<a href="#" class="pagenumb">2</a>
-									<a href="#" class="pagenumb">3</a>
-									<a href="#" class="pagenext"><i class="ico-next">&nbsp;</i></a>
-								</div>
+							<span>共 <b>${NumAll}</b> 条 每页 <b>5 </b>条 </span>
+							<div class="pageWrap">
+								<a href="mendian_Team?pageNum=1" class="pagenumb">首页</a>
+								<a href="mendian_Team?pageNum=${selectAllDS.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
+								<b>${selectAllDS.pageNum}</b>/<b>${selectAllDS.pages}</b>
+								<a href="mendian_Team?pageNum=${selectAllDS.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="mendian_Team?pageNum=${selectAllDS.pages}" class="pagenumb">尾页</a>
 							</div>
+						</div>
 							<!--pages E-->
 						</div>
 					</div>

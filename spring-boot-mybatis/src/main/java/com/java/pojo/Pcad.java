@@ -1,14 +1,14 @@
 package com.java.pojo;
 
 public class Pcad {
-	private String provinceName;
-	private String cityName;
-	private String areaName;
-	private Integer yd_id;
-	private String yd_name;
-	private String regist_info;
-	private String yd_statu;
-	private Integer people_id;
+	private String provinceName;//省名称
+	private String cityName;//市名称
+	private String areaName;//县名称
+	private Integer yd_id;//药店id
+	private String yd_name;//药店名字
+	private String regist_info;//药店信息
+	private String yd_statu;//药店状态
+	private Integer people_id;//药店角色
 	
 	public String getProvinceName() {
 		return provinceName;

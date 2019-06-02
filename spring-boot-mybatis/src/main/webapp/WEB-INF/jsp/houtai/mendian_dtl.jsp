@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d">
 
@@ -27,7 +28,7 @@
 		<div class="super-content">
 			<div class="superCtab">
 				<div class="ctab-title zxtop-title clearfix">
-					<h3>门店审核</h3>
+					<h3>信息审核</h3>
 					<a href="mendian_Team" class="backlistBtn"><i class="ico-back"></i>返回列表</a>
 				</div>
 			</div>
@@ -37,27 +38,31 @@
 		<div class="zx-dtlMain">
 			<dl>
 				<span>门店名称：</span>
-				<dd>同济大药房</dd>
+				<dd>${selectOneDS.yd_name }</dd>
+			</dl>
+			<dl>
+				<span>门店所在省：</span>
+				<dd>${PCA.provinceName }</dd>
+			</dl>
+			<dl>
+				<span>门店所在市：</span>
+				<dd>${PCA.cityName }</dd>
 			</dl>
 			<dl>
 				<span>门店所在县：</span>
-				<dd>浠水县</dd>
-			</dl>
-			<dl>
-				<span>评论：</span>
-				<dd>很好</dd>
+				<dd>${PCA.areaName }</dd>
 			</dl>
 			<dl>
 				<span>药店登记信息：</span>
-				<dd>2019-10-13在武汉建立</dd>
+				<dd>${selectOneDS.regist_info }</dd>
 			</dl>
 			<dl>
 				<span>认证状态：</span>
-				<dd>已认证</dd>
+				<dd>${selectOneDS.yd_statu }</dd>
 			</dl>
 			<dl class="PD-list clearfix">
-				<input type="submit" value="通过" class="saveBtn">
-				<input type="submit" value="拒绝" class="saveBtn">
+				<a href="super_cg"><input type="submit" value="通过" class="saveBtn"></a>
+				<a href="super_cg"><input type="submit" value="拒绝" class="saveBtn"></a>
 			</dl>
 		</div>
 

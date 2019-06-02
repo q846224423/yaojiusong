@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import com.java.pojo.DrugStore;
+import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Menu3;
 import com.java.pojo.Pcad;
 import com.java.pojo.Shop_orderx;
@@ -34,14 +35,25 @@ public interface DrugstoreMapper {
     @Delete("delete from drugstore where yd_id = #{id}")
     int dsdelete(int id);
     
-    //门店信息查询所有
-    @Select("select * from pcad")
+    //门店信息查询所有已认证
+    @Select("select * from pcad where yd_statu='已认证'")
     public List<Pcad> selectAllDs();
     
-    //查询门店总数
+    //查询门店已认证总数
  	@Select("select count(0) from pcad")
  	public int AllNum();
  	
+ 	//门店信息查询所有未认证
+    @Select("select * from drugstore_copy")
+    public List<DrugStore_copy> selectAllDs2();
+    
+    //查询门店未认证总数
+ 	@Select("select count(0) from drugstore_copy")
+ 	public int AllNum2();
+ 	
+ 	//查询单条未认证门店
+ 	@Select("select * from DrugStore_copy where dc_id=#{0}")
+    public DrugStore_copy selectOneDC(int id);
  	
  	
  	
