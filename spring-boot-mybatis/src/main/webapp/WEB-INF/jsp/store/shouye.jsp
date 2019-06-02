@@ -453,38 +453,18 @@
 					</div>
 				</div>
 				<div class="product">
-					<ul class="cong_ul">
-						<li cong="GWM0102303" tp="1"><a
-							href="/product/GWM0102303_1" target="_blank"> <img
-								src="https://img.yao123.com/gc/GWM0102303/8a2c91bf5595a886015649f7ff523e48.jpg@!m145" alt="同仁堂 安宫牛黄丸 3g*1丸/盒">
-						</a> <a href="/product/GWM0102303_1" class="cong_a text-overflow"
-							target="_blank">同仁堂 安宫牛黄丸 3g*1丸/盒</a> <span class="price_opr"></span>
-							<span class="xjzt"></span></li> 						<li cong="GWQ0117703" tp="1"><a
-							href="/product/GWQ0117703_1" target="_blank"> <img
-								src="https://img.yao123.com/gc/GWQ0117703/8a2c91bf651b857601656b5af4840919.jpg@!m145" alt="安氏语音上臂式电子血压计AS-35Y">
-						</a> <a href="/product/GWQ0117703_1" class="cong_a text-overflow"
-							target="_blank">安氏语音上臂式电子血压计AS-35Y</a> <span class="price_opr"></span>
-							<span class="xjzt"></span></li> 						<li cong="GWM0200059" tp="1"><a
-							href="/product/GWM0200059_1" target="_blank"> <img
-								src="https://img.yao123.com/gc/GWM0200059/8a2c91bf651b857601673e97c6ff40b6.jpg@!m145" alt="维固力(Viartril-S) 硫酸氨基葡萄糖胶囊 0.25g*20粒/盒">
-						</a> <a href="/product/GWM0200059_1" class="cong_a text-overflow"
-							target="_blank">维固力(Viartril-S) 硫酸氨基葡萄糖胶囊 0.25g*20粒/盒</a> <span class="price_opr"></span>
-							<span class="xjzt"></span></li> 						<li cong="GWM0500168" tp="1"><a
-							href="/product/GWM0500168_1" target="_blank"> <img
-								src="https://img.yao123.com/gc/GWM0500168/gcg8086201512071736408ab3e2535167bbe301517bccd7160303.jpg@!m145" alt="万艾可/VIAGRA 枸橼酸西地那非片 0.1g*1片/盒">
-						</a> <a href="/product/GWM0500168_1" class="cong_a text-overflow"
-							target="_blank">万艾可/VIAGRA 枸橼酸西地那非片 0.1g*1片/盒</a> <span class="price_opr"></span>
-							<span class="xjzt"></span></li> 						<li cong="TCGWM0100167" tp="2"><a
-							href="/product/TCGWM0100167_2" target="_blank"> <img
-								src="https://img.yao123.com/gc/TCGWM0100167/8a2c91bf58ba8c1d015caeba60af6843.jpg@!m145" alt="【2盒装】同溢堂 益安宁丸 112丸*3瓶/盒">
-						</a> <a href="/product/TCGWM0100167_2" class="cong_a text-overflow"
-							target="_blank">【2盒装】同溢堂 益安宁丸 112丸*3瓶/盒</a> <span class="price_opr"></span>
-							<span class="xjzt"></span></li> 						<li cong="GWM0215412" tp="1"><a
-							href="/product/GWM0215412_1" target="_blank"> <img
-								src="https://img.yao123.com/gc/GWM0215412/8a2c91bf58ba8c1d015f5bac34bc79ca.jpg@!m145" alt="鸿茅 鸿茅药酒  250ml*6瓶">
-						</a> <a href="/product/GWM0215412_1" class="cong_a text-overflow"
-							target="_blank">鸿茅 鸿茅药酒  250ml*6瓶</a> <span class="price_opr"></span>
-							<span class="xjzt"></span></li> 
+				<ul class="cong_ul">
+				<c:forEach items="ZDlist" var="zd">
+						<li>
+						<a href="Showinfo?id=${zd.menu3_id }"> 
+                        <img src="${zd.ep_url }" alt="${zd.menu3_name } ${zd.ep_size }">
+						</a> 
+                        <a href="Showinfo?id=${zd.menu3_id }" class="cong_a text-overflow"
+							target="_blank">${zd.menu3_name } ${zd.ep_size }</a> <span class="price_opr"></span>
+							<span class="xjzt"></span>
+							</li> 
+				</c:forEach>			
+							
 					</ul>
 					<ul class="cong_ul hide">
 						<li cong="GWM0211468" tp="1"><a

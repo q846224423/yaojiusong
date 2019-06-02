@@ -6,6 +6,15 @@ public class Shop_orderz {
 	private double z_total;
 	private String z_statu;
 	private int user_id;
+	private int yd_id; //药店的id
+
+	public int getYd_id() {
+		return yd_id;
+	}
+
+	public void setYd_id(int yd_id) {
+		this.yd_id = yd_id;
+	}
 
 	public int getZ_id() {
 		return z_id;

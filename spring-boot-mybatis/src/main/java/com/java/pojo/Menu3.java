@@ -11,16 +11,16 @@ Integer ep_stock;//库存
 String ep_url;//图片路径
 Integer ep_stick;//轮播图的标记   0，1
 Integer yd_id;//药店的id   默认0   
-public int getMenu3_id() {
+public Integer getMenu3_id() {
 	return menu3_id;
 }
-public void setMenu3_id(int menu3_id) {
+public void setMenu3_id(Integer menu3_id) {
 	this.menu3_id = menu3_id;
 }
-public int getMenu3_menu2_id() {
+public Integer getMenu3_menu2_id() {
 	return menu3_menu2_id;
 }
-public void menu3_menu2_id(int menu3_menu2_id) {
+public void setMenu3_menu2_id(Integer menu3_menu2_id) {
 	this.menu3_menu2_id = menu3_menu2_id;
 }
 public String getMenu3_name() {
@@ -77,7 +77,6 @@ public String toString() {
 			+ ", ep_price=" + ep_price + ", ep_size=" + ep_size + ", ep_description=" + ep_description + ", ep_stock="
 			+ ep_stock + ", ep_url=" + ep_url + ", ep_stick=" + ep_stick + ", yd_id=" + yd_id + "]";
 }
-
 
 
 }

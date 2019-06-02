@@ -158,8 +158,8 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public void addshopZ(double total, int userid) {
-		um.addshopZ(total, userid);
+	public void addshopZ(double total, int userid,int yd_id) {
+		um.addshopZ(total, userid, yd_id);
 		
 	}
 
@@ -192,6 +192,21 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public void changeStock(Lookcart look) {
 		um.changeStock(look);
+	}
+
+	@Override
+	public void qdsh(int id) {
+		um.qdsh(id);
+	}
+
+	@Override
+	public void wytq(int id) {
+		um.wytq(id);
+	}
+
+	@Override
+	public List<Menu3> selectZD(int id) {
+		return ss.selectZD(id);
 	}
 
 	

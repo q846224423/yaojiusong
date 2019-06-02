@@ -266,8 +266,8 @@ pageEncoding="UTF-8"%>
       
       	<c:choose>
        
-       <c:when test="${count==1}">
-       <c:out value=" "></c:out>
+       <c:when test="${zlist.size()==0}">
+        无订单
        </c:when>
           
           <c:otherwise>    
@@ -278,8 +278,8 @@ pageEncoding="UTF-8"%>
 				<td><c:out value="${od.z_time }"></c:out></td>
 				<td>￥<c:out value="${od.z_total }"></c:out></td>
 				<td><font color="#ff4e00"><c:out value="${od.z_statu }"></c:out></font></td>
-				<td><a href="WY_UserConfirmServlet?status=${od.z_statu }&id=${od.z_id }"><c:out value="确认收货"></c:out></a></td>
-				<td><a href="WY_UserRebateServlet?status=${od.z_statu }&id=${od.z_id}"><c:out value="申请退款"></c:out></a></td>
+				<td><a href="qdsh?&z_id=${od.z_id }&user_id=${od.user_id }"><c:out value="确认收货"></c:out></a></td>
+				<td><a href="wytk??&z_id=${od.z_id }&user_id=${od.user_id }"><c:out value="申请退款"></c:out></a></td>
 			</tr>
 	
 	</c:forEach>

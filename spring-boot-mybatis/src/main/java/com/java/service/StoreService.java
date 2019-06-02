@@ -3,6 +3,7 @@ package com.java.service;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.java.pojo.FjtArea;
 import com.java.pojo.FjtCity;
@@ -92,7 +93,7 @@ public interface StoreService {
 	public void updateCar(int num, int car_id);
 
 	// 添加订单主表
-	public void addshopZ(double total, int userid);
+	public void addshopZ(double total, int userid,int yd_id);
 
 	// 查询主表最大id值,为后面的祥表对应字段
 	public int getMaxzid();
@@ -111,4 +112,13 @@ public interface StoreService {
 	
 	//结算时，改变药品库存
 	public void changeStock(Lookcart look);
+	
+	//用户确定收获
+	public void qdsh(int id);
+	
+	//用户我要退款
+	public void wytq(int id);
+	
+	//查询置顶的商品
+	public List<Menu3> selectZD(int id);
 }

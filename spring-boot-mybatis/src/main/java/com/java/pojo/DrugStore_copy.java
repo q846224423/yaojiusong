@@ -3,9 +3,19 @@ package com.java.pojo;
 public class DrugStore_copy {
 	Integer dc_id;
 	String yd_name;//药店名 
+	Integer county_id;     //县
 	String regist_info; //提交的认证信息
-	String yd_url; 
+	String yd_statu; //认证状态
+	String yd_url; //药店认证证明图片
 	Integer yd_id;  //药店id
+	String yd_head;
+	
+	public String getYd_head() {
+		return yd_head;
+	}
+	public void setYd_head(String yd_head) {
+		this.yd_head = yd_head;
+	}
 	public Integer getDc_id() {
 		return dc_id;
 	}
@@ -18,11 +28,23 @@ public class DrugStore_copy {
 	public void setYd_name(String yd_name) {
 		this.yd_name = yd_name;
 	}
+	public Integer getCounty_id() {
+		return county_id;
+	}
+	public void setCounty_id(Integer county_id) {
+		this.county_id = county_id;
+	}
 	public String getRegist_info() {
 		return regist_info;
 	}
 	public void setRegist_info(String regist_info) {
 		this.regist_info = regist_info;
+	}
+	public String getYd_statu() {
+		return yd_statu;
+	}
+	public void setYd_statu(String yd_statu) {
+		this.yd_statu = yd_statu;
 	}
 	public String getYd_url() {
 		return yd_url;
@@ -38,8 +60,9 @@ public class DrugStore_copy {
 	}
 	@Override
 	public String toString() {
-		return "DrugStore_copy [dc_id=" + dc_id + ", yd_name=" + yd_name + ", regist_info=" + regist_info + ", yd_url="
-				+ yd_url + ", yd_id=" + yd_id + "]";
+		return "DrugStore_copy [dc_id=" + dc_id + ", yd_name=" + yd_name + ", county_id=" + county_id + ", regist_info="
+				+ regist_info + ", yd_statu=" + yd_statu + ", yd_url=" + yd_url + ", yd_id=" + yd_id + "]";
 	}
+	
 	
 }

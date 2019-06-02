@@ -52,9 +52,17 @@ public class StoreController {
 			session.setAttribute("list", list1);
 			return "store/shouye";
 		}
+		//实际是选择药店门店后，session中带的
+		//Object ydid = session.getAttribute("yd_id");
+		//int yd_id = Integer.parseInt(ydid.toString());
+		
+		//这里先自己给一个药店id，测试，为1
+		int yd_id = 1;
+		List<Menu3> selectZD = ssi.selectZD(yd_id);
 		List<Lookcart> lookCart = ssi.lookCart(users.getUser_id());
 		double allPrice = ssi.getAllPrice(lookCart);
 		session.setAttribute("list", list1);
+		session.setAttribute("ZDlist", selectZD);
 		session.setAttribute("Cartlist", lookCart);
 		session.setAttribute("AllPrice", allPrice);
 		return "store/shouye";
@@ -228,7 +236,7 @@ public class StoreController {
 			 * //保留两位小数处理 BigDecimal b = new BigDecimal(xj); double doubleValue =
 			 * b.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
 			 */
-			//System.out.println("小计" + valueOf);
+			// System.out.println("小计" + valueOf);
 			map.put("trade_num", trade_num);
 			map.put("tip", "有货");
 			map.put("doubleValue", valueOf);
@@ -239,7 +247,7 @@ public class StoreController {
 	// ajax动态显示buycar1
 	@ResponseBody
 	@RequestMapping(value = "updateCar", produces = "application/json;charset=UTF-8")
-	public void updateCar(int car_id, int trade_num,HttpSession session) {
+	public void updateCar(int car_id, int trade_num, HttpSession session) {
 		ssi.updateCar(trade_num, car_id);
 		User_big users = (User_big) (session.getAttribute("user"));
 		// 更新
@@ -247,7 +255,7 @@ public class StoreController {
 		double allPrice = ssi.getAllPrice(lookCart);
 		session.setAttribute("Cartlist", lookCart);
 		session.setAttribute("AllPrice", allPrice);
-		
+
 	}
 
 	// 跳转buycar2页面
@@ -257,45 +265,51 @@ public class StoreController {
 	}
 
 	// 跳转buycar3页面,
-	//此时生成了订单并删除了购物车数据
+	// 此时生成了订单并删除了购物车数据
 	@RequestMapping("buycar3")
-	@Transactional(rollbackFor = { Exception.class }) //事务回滚
-	public String buycar3(HttpSession session,HttpServletRequest request) {
-	try { 
-		//添加主单
-		User_big users = (User_big) (session.getAttribute("user"));
-		int userid = users.getUser_id();
-		Object obj = session.getAttribute("AllPrice");
-		double parseDouble = Double.parseDouble(obj.toString());
-		System.out.println("sumprice"+parseDouble+","+"userid"+userid);
-		ssi.addshopZ(parseDouble, userid);
-		//添加详单
-		int zid = ssi.getMaxzid();//祥表对应的主表id
-		List<Lookcart> lookCart = ssi.lookCart(users.getUser_id());
-		//遍历购物车某一条，然后赋予zid，生成详单
-		for (Lookcart cart : lookCart) {
-			//改变药品库存,若购买数量大于库存回滚
-			Menu3 m = ssi.select3By3id(cart.getMenu3_id());
-			if(cart.getTrade_num()>m.getEp_stock()) {
-				throw new SQLException("发生异常了..");	
-			}
-			ssi.changeStock(cart);
+	@Transactional(rollbackFor = { Exception.class }) // 事务回滚
+	public String buycar3(HttpSession session, HttpServletRequest request) {
+		try {
+			// 添加主单
+			User_big users = (User_big) (session.getAttribute("user"));
+			//添加到对应药店
+/*			Object attribute = session.getAttribute("yd_id");
+			Integer yd_id = Integer.valueOf(attribute.toString());*/
+			int userid = users.getUser_id();
 			
-			cart.setZ_id(zid);
-			ssi.addshopX(cart);
+			//默认的yd_id=1,长江大药店,其实是一开始选择时，存入session中的
+			int yd_id = 1;
+			Object obj = session.getAttribute("AllPrice");
+			double parseDouble = Double.parseDouble(obj.toString());
+			System.out.println("sumprice" + parseDouble + "," + "userid" + userid);
+			ssi.addshopZ(parseDouble,userid,yd_id);
+			// 添加详单
+			int zid = ssi.getMaxzid();// 祥表对应的主表id
+			List<Lookcart> lookCart = ssi.lookCart(users.getUser_id());
+			// 遍历购物车某一条，然后赋予zid，生成详单
+			for (Lookcart cart : lookCart) {
+				// 改变药品库存,若购买数量大于库存回滚
+				Menu3 m = ssi.select3By3id(cart.getMenu3_id());
+				if (cart.getTrade_num() > m.getEp_stock()) {
+					throw new SQLException("发生异常了..");
+				}
+				ssi.changeStock(cart);
+
+				cart.setZ_id(zid);
+				ssi.addshopX(cart);
+			}
+			// 删除购物车
+			ssi.DelShopcart(userid);
+
+			// 遇到异常捕捉，跳转到错误页面，并可以回滚
+		} catch (Exception e) {
+			e.printStackTrace();
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();// 就是这一句了，加上之后，如果doDbStuff2()抛了异常,
+																					// //doDbStuff1()是会回滚的
+			request.setAttribute("wrong", "商品库存异常，请重新选择");
+			return "store/BuyCar";
 		}
-		//删除购物车
-		ssi.DelShopcart(userid);
-		
-		//遇到异常捕捉，跳转到错误页面，并可以回滚
-		 } catch (Exception e) {    
-	          e.printStackTrace();       
-	          TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//就是这一句了，加上之后，如果doDbStuff2()抛了异常,                                                                                     //doDbStuff1()是会回滚的    
-	          request.setAttribute("wrong", "商品库存异常，请重新选择");
-	          return "store/BuyCar";  
-	     }    
-		
-		
+
 		return "store/BuyCar_Three";
 	}
 
@@ -308,28 +322,47 @@ public class StoreController {
 		model.addAttribute("money", parseDouble);
 		return "store/indexx";
 	}
-	
-	// 跳转支付宝支付2
-		@RequestMapping("goPay2")
-		public String goPay2() {
-			
-			return "store/alipay.trade.page.pay";
-		}
 
-		//查看我的订单，主
-		@RequestMapping("userOrderz")
-		public String userOrderz(int user_id,Model model) {
-			List<Shop_orderz> zlist = ssi.userOrderz(user_id);
-			model.addAttribute("zlist",zlist);
-			return "store/UserOrder";
-		}
-		
-		//查看我的订单，详
-		@RequestMapping("userOrderx")
-		public String userOrderx(int z_id,Model model) {
-			List<Shop_orderx> xlist = ssi.userOrderx(z_id);
-			model.addAttribute("xlist",xlist);
-			return "store/UserOrderInfo";
-		}
-		
+	// 跳转支付宝支付2
+	@RequestMapping("goPay2")
+	public String goPay2() {
+
+		return "store/alipay.trade.page.pay";
+	}
+
+	// 查看我的订单，主
+	@RequestMapping("userOrderz")
+	public String userOrderz(int user_id, Model model) {
+		List<Shop_orderz> zlist = ssi.userOrderz(user_id);
+		model.addAttribute("zlist", zlist);
+		return "store/UserOrder";
+	}
+
+	// 查看我的订单，详
+	@RequestMapping("userOrderx")
+	public String userOrderx(int z_id, Model model) {
+		List<Shop_orderx> xlist = ssi.userOrderx(z_id);
+		model.addAttribute("xlist", xlist);
+		return "store/UserOrderInfo";
+	}
+
+	// 改变主单中的订单状态之 确定收获
+	@RequestMapping("qdsh")
+	public String qdsh(int user_id, Model model,int z_id) {
+		ssi.qdsh(z_id);
+		List<Shop_orderz> zlist = ssi.userOrderz(user_id);
+		model.addAttribute("zlist", zlist);
+		return "store/UserOrder";
+	}
+
+	// 改变主单中的订单状态之 我要退款
+	@RequestMapping("wytk")
+	public String wytk(int user_id, Model model,int z_id) {
+		ssi.wytq(z_id);
+		List<Shop_orderz> zlist = ssi.userOrderz(user_id);
+		model.addAttribute("zlist", zlist);
+		return "store/UserOrder";
+	}
+	
+	
 }

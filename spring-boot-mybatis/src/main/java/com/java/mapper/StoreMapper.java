@@ -70,6 +70,8 @@ public interface StoreMapper {
 	@Select("SELECT * FROM `bs_area` WHERE cityCode=#{citycode}")
 	public List<FjtArea> getArea(String citycode);
 	
-	
+	//查询置顶的商品
+	@Select("select * from menuthree where yd_id=#{id} and ep_stick=1")
+	public List<Menu3> selectZD(int id);
 
 }

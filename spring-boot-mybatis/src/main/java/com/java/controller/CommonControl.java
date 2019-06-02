@@ -63,7 +63,7 @@ public class CommonControl {
 		} else if (p.getRole() == 4) {
 			DrugStore drugStore = cm.getDrugStore(p.getId());
 			session.setAttribute("drugStore", drugStore);
-			return "drugStore";
+			return "drugstore/drugstore_manager";
 		} else {
 			return "login";
 		}

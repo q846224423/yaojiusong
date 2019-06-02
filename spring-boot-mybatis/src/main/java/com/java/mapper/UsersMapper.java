@@ -78,8 +78,8 @@ public interface UsersMapper {
 	public void updateCar(int num, int car_id);
 
 	// 添加订单主表
-	@Insert("insert into order_z(z_total,user_id) values (#{0},#{1})")
-	public void addshopZ(double total, int userid);
+	@Insert("insert into order_z(z_total,user_id,yd_id) values (#{0},#{1},#{2})")
+	public void addshopZ(double total, int userid,int yd_id);
 
 	// 查询主表最大id值,为后面的祥表对应字段
 	@Select("select max(z_id) from order_z")
@@ -104,4 +104,13 @@ public interface UsersMapper {
 	//结算时，遍历shopcart的同时，改变库存
 	@Update("update menuthree set ep_stock=ep_stock-#{trade_num} where menu3_id =#{menu3_id} ")
 	public void changeStock(Lookcart look);
+	
+	//用户确定收获
+	@Update("update order_z set z_statu='已签收' where z_statu = '已发货' and z_id = #{id}")
+	public void qdsh(int id);
+	
+	//用户我要退款
+	@Update("update order_z set z_statu='退款中' where z_statu = '未发货' and z_id =#{id}")
+	public void wytq(int id);
+	
 }
