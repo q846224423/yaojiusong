@@ -418,5 +418,18 @@ public class AdminController {
 		return "houtai/yishi_guanli";
 	}
 	
+	//删除单个医生
+	@RequestMapping("deleteOne")
+	public String deleteOneYs(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
+		adminService.deleteOneYs(id);
+		PageHelper.startPage(pageNum,5);
+		List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll01();
+		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(selectAll01);
+		model.addAttribute("selectAllDoctor",pageInfo);
+		int allDoctorNum = adminService.AllDoctorNum();
+		model.addAttribute("allDoctorNum",allDoctorNum);
+		return "houtai/yishi_guanli";
+		
+	}
 
 }

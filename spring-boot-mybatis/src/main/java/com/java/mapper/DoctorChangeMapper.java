@@ -58,7 +58,7 @@ public interface DoctorChangeMapper {
 	public DoctorChange findonedoctor(int id);
 	
 	//根据id审核
-	@Update("update doctor  set d_name = #{d_name},d_sex =#{d_sex},`d_age`=#{d_age},`d_introduce`=#{d_introduce},`kb_id`=#{kb_id},`d_zc`=#{d_zc},`d_money`=#{d_money},`d_tel`=#{d_tel},`d_head`=#{d_head},d_change=2 where `d_id` = #{d_id}")
+	@Update("update doctor  set d_name = #{d_name},d_sex =#{d_sex},`d_age`=#{d_age},`d_introduce`=#{d_introduce},`kb_id`=#{kb_id},`d_zc`=#{d_zc},`d_money`=#{d_money},`d_tel`=#{d_tel},`d_head`=#{d_head},d_change=0 where `d_id` = #{d_id}")
 	public int shenheyishi(DoctorChange doctorChange);
 	
 	//通过后删除

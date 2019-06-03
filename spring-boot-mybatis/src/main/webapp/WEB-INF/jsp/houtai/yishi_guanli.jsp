@@ -94,11 +94,8 @@
 										<td class="td_12">${list.d_zc }</td>
 										<td class="td_13">${list.kb_name }</td>
 										<c:choose>
-											<c:when test="${list.d_change ==2}">
-												<td class="td_14">已过审核</td>
-											</c:when>
 											<c:when test="${list.d_change ==0}">
-												<td class="td_14">默认</td>
+												<td class="td_14">已过审核</td>
 											</c:when>
 											<c:when test="${list.d_change ==1}">
 												<td class="td_14">未审核</td>
@@ -106,7 +103,7 @@
 										</c:choose>
 										<td class="td_10">
 											<div class="btn">
-												<a href="#" style="background: #ff980b; color: #fff;">删除</a>
+												<a href="deleteOne?id=${list.d_id }" style="background: #ff980b; color: #fff;">删除</a>
 											</div>
 										</td>
 									</tr>

@@ -199,4 +199,7 @@ public interface AdminService {
 	
 	//通过后删除
 	public int deleteshenhe(int id);
+	
+	//删除单个医生数据
+    int deleteOneYs(int id);
 }

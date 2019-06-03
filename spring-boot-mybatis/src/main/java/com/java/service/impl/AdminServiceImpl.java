@@ -366,6 +366,11 @@ public class AdminServiceImpl implements AdminService {
 			return doctorChangeMapper.deleteshenhe(id);
 		}
 
+		//删除单个医生
+		public int deleteOneYs(int id) {
+			return doctorMapper.delete(id);
+		}
+
 
 	
 }
