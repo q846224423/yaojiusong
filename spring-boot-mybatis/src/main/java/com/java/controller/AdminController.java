@@ -36,8 +36,6 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
-	@Autowired
-
 	// iframe显示jsp代码
 	// 总页面
 	@RequestMapping("public_super_cg")
