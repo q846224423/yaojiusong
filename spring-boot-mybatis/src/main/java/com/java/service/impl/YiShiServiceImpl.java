@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.java.mapper.YishiMapper;
 import com.java.pojo.DrugStore;
-import com.java.pojo.ZhongJianWenZhen2;
-/*import com.java.pojo.ZhongJianWenZhen2;*/
+import com.java.pojo.Users_biger;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.YiShiService;
 
@@ -31,7 +30,7 @@ public class YiShiServiceImpl implements YiShiService {
 		return ym.insertWenzhen(yishi_id, yh_id);
 	}
 	//查看所有问诊记录
-	public List<ZhongJianWenZhen2> wzjl() {
+	public List<Users_biger> wzjl() {
 		return ym.wzjl();
 	}
 	//通过县的ID查询该县所有的药店

@@ -49,11 +49,11 @@
 		
       <a class="button" href="doctorupdate">
        <c:choose>
-        <c:when test="${doctor.d_change == 0}">信息修改</span></c:when>
+        <c:when test="${doctor.d_change == 0}">信息修改</c:when>
   
         <c:otherwise>
            <c:if test="${doctor.d_change == 1}">
-             <a>审核中</a>
+             审核中
      </c:if>
       </c:otherwise>
        </c:choose> 

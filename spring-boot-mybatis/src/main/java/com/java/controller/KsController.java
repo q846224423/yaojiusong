@@ -19,7 +19,7 @@ import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
 import com.java.pojo.Ks;
 import com.java.pojo.User_big;
-import com.java.pojo.ZhongJianWenZhen2;
+import com.java.pojo.Users_biger;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.impl.KsServiceImpl;
 import com.java.service.impl.YiShiServiceImpl;
@@ -38,6 +38,7 @@ public class KsController {
 		model.addAttribute("keshi", ksList);
 		return "zhuanjiakeshi2";
 	}
+	
 
 	// 通过科室ID查询到所有医师返回所有医师界面
 	@RequestMapping("yisheng")
@@ -83,29 +84,24 @@ public class KsController {
 	}
     //添加问诊记录
 	@RequestMapping("wenzhen")
-	public void wenzhen(HttpSession session) {
+	public String wenzhen(HttpSession session) {
 		/*int attribute = (int) session.getAttribute("yishengID");*/
 		/*User_big attribute2 = (User_big)session.getAttribute("doctor");
 		Integer user_id = attribute2.getUser_id();*/
-		System.out.println(ys_id);
-		int i = ysi.insertWenzhen(ys_id, 2);
+		int i = ysi.insertWenzhen(1, 2);
 		System.out.println(i);
+		return "zhifu";
 	}
 	//跳转问诊记录
-	//@RequestMapping("wenzhen2")
+	@RequestMapping("wenzhen2")
 	public String wenzhen2(Model model, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		PageHelper.startPage(pageNum, 5);
-		List<ZhongJianWenZhen2> wzjl = ysi.wzjl();
-		PageInfo<ZhongJianWenZhen2> pageInfo = new PageInfo<ZhongJianWenZhen2>(wzjl);
+		List<Users_biger> wzjl = ysi.wzjl();
+		PageInfo<Users_biger> pageInfo = new PageInfo<Users_biger>(wzjl);
 		model.addAttribute("pageInfo", pageInfo);
-		
 		return "wenzhenjilu";
 	}
-	//测试跳转
-	@RequestMapping("qwe")
-	public String asd() {
-		return "sanjiliandong";
-	}
+	
 	//通过曲得ID获取所有区得药店
 	@ResponseBody
 	@RequestMapping(value="yaodian" ,produces="application/json;charset=UTF-8")
@@ -114,7 +110,7 @@ public class KsController {
 	}
 	
 	
-/*	//测试跳转聊天
+	//测试跳转聊天
 	@RequestMapping("rt")
 	public String tiaozhuan() {
 		return "yishiliaotian";
@@ -123,9 +119,11 @@ public class KsController {
 		@RequestMapping("rt2")
 		public String tiaozhuan2() {
 			return "yonghuliaotian";
-		}*/
-	@RequestMapping("zf2")
-	public String zf() {
-		return "wenzhenjilu";
-	}
+		}
+   //修改处方状态 当处方状态为0开处方时才可以修改处方申请中将状态0改成1
+		public String updateStart() {
+			
+			return "";
+		}
+
 }

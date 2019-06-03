@@ -157,10 +157,10 @@
 			
 			.sss:hover{
 				background-color: rgb(4,176,188)
-				};
+				}
 				
-				.qwe{
-					margin-left: 600px;
+				#gb{
+					margin-left: 610px;
 				}
     </style> 
 
@@ -208,7 +208,7 @@ function closeDialog(){
 <body>
    <div id="cont_b" class="cont">
 		  	
-		  	<div class="qwe"><a href = "javascript:void(0)" onclick = "document.getElementById('cont_b').style.display='none'">关闭</a></div>
+		  	<div id="gb"><a href = "javascript:void(0)"  onclick = "document.getElementById('cont_b').style.display='none'">关闭</a></div>
            <div id="address">选择药店</div>
               <div id="xiala">
          	<div class="sanji">选择相应的省：<select id="province" style="font-size: 14px;" name="province" >
@@ -225,7 +225,7 @@ function closeDialog(){
                     </select>
                     </div></div>
                  <a href=""><div id="sss">
-			申请加号
+			确定
 		</div></a>
         
     </div>
@@ -390,25 +390,38 @@ function closeDialog(){
             <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;">用户姓名</td>
             <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;">医生姓名</td>
             <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;">问诊时间</td>
-            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" >问诊状态</td>
+            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" >处方信息</td>
   <td colspan="2" style="width: 175px; text-align: center;line-height: 30px;height: 30px;">是否开处方</td>              
             </tr>
             <c:forEach items="${pageInfo.list}" var="value">
             <tr>
              <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" name="name2">${value.user_name}</td>
               <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" id="iphone">${value.d_name}</td>
-            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" id="tjr">${value.time}</td>
-            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" id="leixin">${value.statu==1?"问诊结束":"问诊结束"}</td>
-             <td style="width: 40px; text-align: center;line-height: 30px;height: 30px;"><a href = "javascript:void(0)" onclick = "document.getElementById('cont_b').style.display='block'">${value.cf_url==1?"开处方":"开处方"}</a></td>
+            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" id="tjr">${value.r_time}</td>
+            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" id="leixin">查看处方</td>
+             <td style="width: 40px; text-align: center;line-height: 30px;height: 30px;"><a href ="">
+             <!-- "javascript:void(0)" onclick = "document.getElementById('cont_b').style.display='block'" -->
+             <c:choose>
+    <c:when test="${value.isOpenDrug==0}">
+       开处方
+    </c:when>
+    <c:when test="${value.isOpenDrug==1}">
+       申请处方中
+    </c:when>
+    <c:otherwise>
+        已开
+    </c:otherwise>
+</c:choose>
+            <%--  ${value.isOpenDrug==1?"开处方":"申请中"} --%></a></td>
             </tr>
             
             </c:forEach>
             </table>
             <div style="margin-left: 670px;">
-            <p style="border:1px solid darkgray; height: 30px; width: 40px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block; "><a href="YhServletCp?yeshu=1">首页</a></p>
-                  <p style="border:1px solid darkgray; height: 30px; width: 60px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block "><a href="YhServletCp?yeshu=1">上一页</a></p>
-              <p style="border:1px solid darkgray; height: 30px; width: 60px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block "><a href="YhServletCp?yeshu=${number}">下一页</a></p>
-              <p style="border:1px solid darkgray; height: 30px; width: 40px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block"><a href="YhServletCp?yeshu=${number}">尾页</a></p>         
+            <p style="border:1px solid darkgray; height: 30px; width: 40px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block; "><a href="wenzhen2?pageNum=1">首页</a></p>
+                  <p style="border:1px solid darkgray; height: 30px; width: 60px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block "><a href="wenzhen2?pageNum=${pageInfo.pageNum-1}">上一页</a></p>
+              <p style="border:1px solid darkgray; height: 30px; width: 60px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block "><a href="wenzhen2?pageNum=${pageInfo.pageNum+1}">下一页</a></p>
+              <p style="border:1px solid darkgray; height: 30px; width: 40px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block"><a href="wenzhen2?pageNum=${pageInfo.pages}">尾页</a></p>         
 </div>
         </div>
 		</div>

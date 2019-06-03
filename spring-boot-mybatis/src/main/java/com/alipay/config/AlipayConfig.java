@@ -3,6 +3,9 @@
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /* *
  *类名：AlipayConfig
  *功能：基础配置类
@@ -12,9 +15,12 @@ import java.io.IOException;
  *以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
  *该代码仅供学习和研究支付宝接口使用，只是提供一个参考。
  */
-
+@Controller
 public class AlipayConfig {
-	
+	@RequestMapping("qwe")
+	public static  String asd() {
+		return "qwe";
+	}
 //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	// 应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号
@@ -27,10 +33,9 @@ public class AlipayConfig {
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp/QXmkJ3dwXY/iYeJslr28z10/OSBesCuMcDNaa+fgIgUS2Uo+Jk2D+itLYO6LSbwulL785aTpQJRGJEeizr34AA1QmyPbtp8/FQkiArM/TnFeaNyqSHY1yWSP35ORydvhQseUOSZH16W1EfbVDmbBhkRsrGbFsgseouHr5r+MKkAodMXbHQnlDg1bWVSzZQkZRduGKXIPaTIM7qiQCXbcN6dbq4gkZi3NwSI88Hu9XxOPJtQ0vLp6tOaaRgvGeCx12tk6apwUU6QigzJ17nJLJCzBtIEMDezAFk24b2CgikBQakHjX2gUPynpIUpaUgF3aLIyaPZ81N02pyK1YA+QIDAQAB";
 
 	// 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String notify_url = "http://localhost:8080/alipay.trade.page.pay-JAVA-UTF-8/notify_url.jsp";
-
-	// 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String return_url = "zf2";
+    public static String notify_url = "http://localhost:8080/alipay.trade.page.pay-JAVA-UTF-8/notify_url.jsp";
+	// 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问alipay/alipay.trade.page.pay
+	public static String return_url = "http://localhost:8080/yonghuliaotian.html";
 
 	// 签名方式
 	public static String sign_type = "RSA2";
