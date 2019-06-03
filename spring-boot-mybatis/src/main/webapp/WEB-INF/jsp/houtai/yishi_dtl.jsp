@@ -35,8 +35,9 @@
 			<!--main-->
 		</div>
 		<!--content E-->
+		<form action="shenhe" method="post">
 		<div class="zx-dtlMain">
-			
+			<input type="hidden" value="${findonedoctor.d_id}" name="d_id">
 				<span>修改后医师头像：</span>
 				<img src="upload/chen/Cassiopeia.png" style="vertical-align: middle;"  />
 			<br/>

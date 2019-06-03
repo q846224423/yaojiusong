@@ -153,7 +153,84 @@ public class DoctorController {
 			MultipartHttpServletRequest request = (MultipartHttpServletRequest)rq;
 //			filename.transferTo(new File(path+fileName));
 			Doctor_big p = (Doctor_big)request.getSession().getAttribute("doctor");
+			int d_change=p.getD_change();
+			System.out.println(d_change+"d_change");
+			if(d_change==0) {
+
+				String  d_name =request.getParameter("d_name");
+				System.out.println(d_name+"名字");	
+				String  d_sex =request.getParameter("d_sex");
+				System.out.println(d_sex+"性别");	
+				String  d_tel =request.getParameter("d_tel");
+				System.out.println(d_tel+"电话");	
+				String  d_zc =request.getParameter("d_zc");
+				System.out.println(d_zc+"zc");	
+				String  d_introduce =request.getParameter("d_introduce");
+				System.out.println(d_introduce+"int");	
+				
+				
+				int  kb_id =Integer.parseInt(request.getParameter("kb"));
+				System.out.println(kb_id+"kb_id");			
+				double d_money =Double.valueOf(request.getParameter("d_money"));
+				System.out.println(d_money+"d_money");
+				int  d_age =Integer.parseInt(request.getParameter("d_age"));
+				System.out.println(d_age+"d_age");
+		
+				
+				
+				
+				
+	/*			int  d_id =Integer.parseInt(request.getParameter("d_id"));*/
+				
+				int d_id=p.getD_id();
+				System.out.println(d_id+"d_id");
+				
+				
+				
+			   int  d_state=p.getD_state();
+			   System.out.println(d_state+"d_state");
 			
+			   int  people_id=p.getPeople_id();
+			    System.out.println(people_id+"people_id");
+			
+				int  d_control=p.getD_control();
+				System.out.println(d_control+"d_control");
+				
+				
+				
+
+				
+				
+				String d_head = "upload/chen/"+fileName;
+				filename.transferTo(new File(path + fileName));
+	       System.out.println(d_head+"d_head");
+					
+				Doctor d = new Doctor();
+				d.setD_age(d_age);
+	    		d.setD_change(d_change);
+			    d.setD_control(d_control);
+				d.setD_head(d_head);
+				d.setD_id(d_id);
+				d.setD_introduce(d_introduce);
+				d.setD_money(d_money);
+				d.setD_name(d_name);
+				d.setD_sex(d_sex);	
+				d.setD_zc(d_zc);
+				d.setKb_id(kb_id);
+				d.setD_state(d_state);
+				d.setPeople_id(people_id);
+				d.setD_tel(d_tel);
+				
+				d1.updatemrz(d);
+
+				Doctor_big s =(Doctor_big) rq.getSession().getAttribute("doctor");				
+				Doctor_big doctor = big.selectone(s.getPeople_id());
+				session = rq.getSession();
+				session.setAttribute("doctor",doctor);		
+			
+				return "chen/zixun_dtl";
+				
+			}else {
 			
 			String  d_name =request.getParameter("d_name");
 			System.out.println(d_name+"名字");	
@@ -183,8 +260,7 @@ public class DoctorController {
 			int d_id=p.getD_id();
 			System.out.println(d_id+"d_id");
 			
-			int d_change=p.getD_change();
-			System.out.println(d_change+"d_change");
+			
 			
 		   int  d_state=p.getD_state();
 		   System.out.println(d_state+"d_state");
@@ -224,7 +300,7 @@ public class DoctorController {
 		    
 			dc.insert(d);
 			
-			return "chen/zixun_dtl";		
+			return "chen/zixun_dtl";}		
 		}
 		
 		

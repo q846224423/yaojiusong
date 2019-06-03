@@ -17,8 +17,11 @@ import com.java.pojo.DoctorChange;
 import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Kb;
 import com.java.pojo.Pcad;
+import com.java.pojo.Shop_orderx;
+import com.java.pojo.Shop_orderz;
 import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
+import com.java.pojo.Oud;
 import com.java.pojo.Pca;
 import com.java.pojo.Users;
 import com.java.pojo.Users_copy;
@@ -124,12 +127,30 @@ public class AdminController {
 	}
 
 	// iframe显示jsp代码
-	// 订单管理
+	// 订单管理主界面
 	@RequestMapping("super_cg3")
-	public String super_cg3() {
+	public String super_cg3(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		PageHelper.startPage(pageNum,5);
+		List<Oud> aSelectOrderZ = adminService.aSelectOrderZ();
+		PageInfo<Oud> info = new PageInfo<Oud>(aSelectOrderZ);
+		model.addAttribute("aSelectOrderZ", info);
+		int oAllNum = adminService.OAllNum();
+		model.addAttribute("NumAll",oAllNum);
 		return "houtai/super_cg3";
 	}
-
+	
+	//订单详情页面
+	@RequestMapping("super_cg2")
+	public String super_cg2(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,int id) {
+		PageHelper.startPage(pageNum,5);
+		List<Shop_orderx> ydOrderx = adminService.ydOrderx(id);
+		PageInfo<Shop_orderx> info = new PageInfo<Shop_orderx>(ydOrderx);
+		model.addAttribute("aSelectOrderZ", info);
+		int oAllNum = adminService.OAllNum();
+		model.addAttribute("NumAll",oAllNum);
+		return "houtai/super_cg2";
+	}
+	
 	// iframe显示jsp代码 不要动
 	// 科别科室管理
 	@RequestMapping("super_cg4")
@@ -359,5 +380,11 @@ public class AdminController {
 		int allDoctorNum = adminService.AllDoctorNum();
 		model.addAttribute("allDoctorNum",allDoctorNum);
 		return "houtai/yishi_guanli";
+	}
+	
+	//审核医师
+	@RequestMapping("")
+	public String shenhe(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
+		return "";	
 	}
 }

@@ -20,8 +20,11 @@ import com.java.pojo.DrugStore;
 import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Kb;
 import com.java.pojo.Pcad;
+import com.java.pojo.Shop_orderx;
+import com.java.pojo.Shop_orderz;
 import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
+import com.java.pojo.Oud;
 import com.java.pojo.Pca;
 import com.java.pojo.Users;
 import com.java.pojo.Users_copy;
@@ -45,8 +48,8 @@ public class AdminServiceImpl implements AdminService {
 	private KskbMapper kskbMapper;
 	@Autowired
 	private KbMapper kbmapper;
-	@Autowired 
-	private DoctorChangeMapper doctorChangeMapper ;
+	@Autowired
+	private DoctorChangeMapper doctorChangeMapper;
 
 	/*
 	 * 所有医生操作
@@ -155,27 +158,30 @@ public class AdminServiceImpl implements AdminService {
 		int dsdelete = drugstoreMapper.dsdelete(id);
 		return dsdelete;
 	}
-	//同意认证
-   	public int updateTYRZ(int id) {
-   		int updateTYRZ = drugstoreMapper.updateTYRZ(id);
-   		return updateTYRZ;
-   	}
-   	//拒绝认证
-   	public int updateJJRZ(int id) {
-   		int updateJJRZ = drugstoreMapper.updateJJRZ(id);
-   		return updateJJRZ;
-   	}
-   	//删除门店申请
-   	public int deleteOneSQ(int id) {
-   		int deleteOneSQ = drugstoreMapper.deleteOneSQ(id);
-   		return deleteOneSQ;
-   	}
-   	
-  //修改门店信息
-   	public int updateOneStore(DrugStore_copy drugStore_copy) {
-   		int updateStore = drugstoreMapper.updateStore(drugStore_copy);
-   		return updateStore;
-   	}
+
+	// 同意认证
+	public int updateTYRZ(int id) {
+		int updateTYRZ = drugstoreMapper.updateTYRZ(id);
+		return updateTYRZ;
+	}
+
+	// 拒绝认证
+	public int updateJJRZ(int id) {
+		int updateJJRZ = drugstoreMapper.updateJJRZ(id);
+		return updateJJRZ;
+	}
+
+	// 删除门店申请
+	public int deleteOneSQ(int id) {
+		int deleteOneSQ = drugstoreMapper.deleteOneSQ(id);
+		return deleteOneSQ;
+	}
+
+	// 修改门店信息
+	public int updateOneStore(DrugStore_copy drugStore_copy) {
+		int updateStore = drugstoreMapper.updateStore(drugStore_copy);
+		return updateStore;
+	}
 
 	/*
 	 * 所有用户操作
@@ -222,38 +228,43 @@ public class AdminServiceImpl implements AdminService {
 		int deleteP = commonMapper.deleteP(id);
 		return deleteP;
 	}
-	
-	//查询所有审核用户
-  	public List<Users_copy> selectUC(){
-  		List<Users_copy> selectUC = usersMapper.selectUC();
-  		return selectUC;
-  	}
-  	//查询单个审核用户
-  	public Users_copy selectOneUC(int id){
-  		Users_copy selectOneUC = usersMapper.selectOneUC(id);
-  		return selectOneUC;
-  	}
-  	//通过用户实名
-  	public int updateTYSM(int id) {
-  		int updateTYSM = usersMapper.updateTYSM(id);
-  		return updateTYSM;
-  	}
-  	//拒绝用户实名
-  	public int updateJJSM(int id) {
-  		int updateJJSM = usersMapper.updateJJSM(id);
-  		return updateJJSM;
-  	}
-  	//查询修改用户个数
-  	public int selectAllUCNum() {
-  		int selectAllUCNum = usersMapper.selectAllUCNum();
-  		return selectAllUCNum;
-  	}
-  	//删除修改用户信息
-  	public int deleteUC(int id) {
-  		int deleteUC = usersMapper.deleteUC(id);
-  		return deleteUC;
-  	}
-	
+
+	// 查询所有审核用户
+	public List<Users_copy> selectUC() {
+		List<Users_copy> selectUC = usersMapper.selectUC();
+		return selectUC;
+	}
+
+	// 查询单个审核用户
+	public Users_copy selectOneUC(int id) {
+		Users_copy selectOneUC = usersMapper.selectOneUC(id);
+		return selectOneUC;
+	}
+
+	// 通过用户实名
+	public int updateTYSM(int id) {
+		int updateTYSM = usersMapper.updateTYSM(id);
+		return updateTYSM;
+	}
+
+	// 拒绝用户实名
+	public int updateJJSM(int id) {
+		int updateJJSM = usersMapper.updateJJSM(id);
+		return updateJJSM;
+	}
+
+	// 查询修改用户个数
+	public int selectAllUCNum() {
+		int selectAllUCNum = usersMapper.selectAllUCNum();
+		return selectAllUCNum;
+	}
+
+	// 删除修改用户信息
+	public int deleteUC(int id) {
+		int deleteUC = usersMapper.deleteUC(id);
+		return deleteUC;
+	}
+
 	// 查所有科室
 	public List<Ks> selectAllKs() {
 		return ksMapper.selectAllKs();
@@ -310,13 +321,33 @@ public class AdminServiceImpl implements AdminService {
 		return doctorChangeMapper.wrzNum();
 	}
 
-	//根据id查单个医师
+	// 根据id查单个医师
 	public DoctorChange findonedoctor(int id) {
 		return doctorChangeMapper.findonedoctor(id);
+	}
+
+	// 后台查看用户非处方订单主表
+	public List<Oud> aSelectOrderZ() {
+		List<Oud> aSelectOrderZ = drugstoreMapper.aSelectOrderZ();
+		return aSelectOrderZ;
+	}
+
+	// 通过主订单的z_id查找出详单信息
+	public List<Shop_orderx> ydOrderx(int id) {
+		List<Shop_orderx> ydOrderx = drugstoreMapper.ydOrderx(id);
+		return ydOrderx;
+	}
+
+	// 统计订单总数
+	public int OAllNum() {
+			int oAllNum = drugstoreMapper.OAllNum();
+			return oAllNum;
 	}
 
 	//审核医师
 	public int shenheyishi(int id) {
 		return doctorChangeMapper.shenheyishi(id);
 	}
+
+	
 }
