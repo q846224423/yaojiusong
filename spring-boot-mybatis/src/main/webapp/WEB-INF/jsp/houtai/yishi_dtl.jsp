@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d">
 
@@ -23,7 +23,7 @@
 	</head>
 
 	<body style="background: #f6f5fa;">
-
+		
 		<!--content S-->
 		<div class="super-content">
 			<div class="superCtab">
@@ -35,45 +35,66 @@
 			<!--main-->
 		</div>
 		<!--content E-->
+		<form action="shenheyishi" method="post">
 		<div class="zx-dtlMain">
 			<dl>
 				<span>修改后医师头像：</span>
 				<img src="upload/chen/Cassiopeia.png" style="vertical-align: middle;" />
 			</dl>
+			
 			<dl>
 				<span>医师姓名：</span>
-				<dd>${findonedoctor.d_name }</dd>
+				<input name="d_name" value="${findonedoctor.d_name }">
 			</dl>
 			<dl>
 				<span>修改后医师性别：</span>
-				<dd>${findonedoctor.d_age }</dd>
+				<input name="d_sex" value="${findonedoctor.d_sex }">
+			</dl>
+			<dl>
+				<span>修改后医师年龄：</span>
+				<input name="d_age" value="${findonedoctor.d_age }">
 			</dl>
 			<dl>
 				<span>修改后医师电话：</span>
-				<dd>${findonedoctor.d_tel }</dd>
+				<input name="d_tel" value="${findonedoctor.d_tel }">
 			</dl>
 			<dl>
 				<span>修改后科别id：</span>
-				<dd>${findonedoctor.kb_id }</dd>
+				<input name="kb_id" value="${findonedoctor.kb_id }">
 			</dl>
 			<dl>
 				<span>修改后医师问诊金额：</span>
-				<dd>${findonedoctor.d_money }</dd>
+				<input name="d_money" value="${findonedoctor.d_money }">
 			</dl>
 			<dl>
 				<span>修改后医师职称：</span>
-				<dd>${findonedoctor.d_zc }</dd>
+				<input name="d_zc" value="${findonedoctor.d_zc }">
+			</dl>
+			<dl>
+				<span>审核状态：</span>
+				<input name="d_change" value="${findonedoctor.d_change }" type="hidden">
+				<c:choose >
+					<c:when test="${findonedoctor.d_change ==0}">
+					<dd>未认证</dd>
+					</c:when>
+					<c:when test="${findonedoctor.d_change ==1}">
+					<dd>认证中</dd>
+					</c:when>
+					<c:otherwise>
+					<dd>已认证</dd>
+					</c:otherwise>
+				</c:choose>
 			</dl>
 			<dl>
 				<span>修改后医师的介绍：</span>
-				<dd>${findonedoctor.d_introduce }</dd>
+				<input name="d_introduce" value="${findonedoctor.d_introduce }">
 			</dl>
 			<dl class="PD-list clearfix">
 				<input type="submit" value="通过" class="saveBtn">
-				<input type="submit" value="拒绝" class="saveBtn">
+				<a href="yishi_Team" class="saveBtn">拒绝</a>
 			</dl>
 		</div>
-
+		</form>
 	</body>
 
 </html>

@@ -51,15 +51,15 @@ public interface AdminService {
 	// 查所有医师
 	public List<ZhongjianCalssYiShi> selectAll01();
 
-	//查询所有未认证的医师
+	// 查询所有未认证的医师
 	public List<DoctorChange> selectwrz();
-	
-	//查询所有未认证的医师总数
+
+	// 查询所有未认证的医师总数
 	public int wrzNum();
-	
-	//根据id查单个医师
+
+	// 根据id查单个医师
 	public DoctorChange findonedoctor(int id);
-	
+
 	/*
 	 * 所有药店管理方法接口
 	 */
@@ -107,34 +107,46 @@ public interface AdminService {
 	public int updateOneStore(DrugStore_copy drugStore_copy);
 
 	/*
-     * 所有用户管理方法接口
-     */
-    //查询所有用户
-    public List<Users> selectAllUsers();
-    //查询单个用户
-    public Users selectOneUsers(int id);
-    //修改一个用户
-    public int updateUsers(Users users);
-    //添加一个用户
-    public int insertUsers(Users users);
-    //删除一个用户
-    public int deleteOneUsers(int id);
-    //查询用户总数
-    public int selectAllUsersNum();
-    //注销一个用户
-  	public int deleteP(int id);
-  	//查询所有审核用户
-  	public List<Users_copy> selectUC();
-  	//查询单个审核用户
-  	public Users_copy selectOneUC(int id);
-  	//通过用户实名
-  	public int updateTYSM(int id);
-  	//拒绝用户实名
-  	public int updateJJSM(int id);
-  	//查询修改用户个数
-  	public int selectAllUCNum();
-  	//删除修改用户信息
-  	public int deleteUC(int id);
+	 * 所有用户管理方法接口
+	 */
+	// 查询所有用户
+	public List<Users> selectAllUsers();
+
+	// 查询单个用户
+	public Users selectOneUsers(int id);
+
+	// 修改一个用户
+	public int updateUsers(Users users);
+
+	// 添加一个用户
+	public int insertUsers(Users users);
+
+	// 删除一个用户
+	public int deleteOneUsers(int id);
+
+	// 查询用户总数
+	public int selectAllUsersNum();
+
+	// 注销一个用户
+	public int deleteP(int id);
+
+	// 查询所有审核用户
+	public List<Users_copy> selectUC();
+
+	// 查询单个审核用户
+	public Users_copy selectOneUC(int id);
+
+	// 通过用户实名
+	public int updateTYSM(int id);
+
+	// 拒绝用户实名
+	public int updateJJSM(int id);
+
+	// 查询修改用户个数
+	public int selectAllUCNum();
+
+	// 删除修改用户信息
+	public int deleteUC(int id);
 
 	/*
 	 * 所有科别科室的方法
@@ -166,13 +178,16 @@ public interface AdminService {
 
 	// 根据县id查找省市县
 	public Pca selectPCA(int id);
-	
-	//后台查看用户非处方订单主表
+
+	// 后台查看用户非处方订单主表
 	public List<Oud> aSelectOrderZ();
-	
-	//通过主订单的z_id查找出详单信息
+
+	// 通过主订单的z_id查找出详单信息
 	public List<Shop_orderx> ydOrderx(int id);
-	
-	//统计订单总数
+
+	// 统计订单总数
 	public int OAllNum();
+
+	// 根据id审核
+	public int shenheyishi(Doctor doctor);
 }

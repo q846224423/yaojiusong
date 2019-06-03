@@ -205,8 +205,7 @@ public class AdminController {
 		PageInfo<KbKsZhongjianlei> pageInfo = new PageInfo<KbKsZhongjianlei>(selectAllkb);
 		model.addAttribute("selectAllkb",pageInfo);
 		model.addAttribute("NumAll",adminService.Allkbnum(kb.getKs_id()));
-		return "houtai/super_cg6";
-		
+		return "houtai/super_cg6";	
 	}
 	
 	//删除科室
@@ -370,4 +369,17 @@ public class AdminController {
 		return "houtai/yishi_Team";
 	}
 	
+	//审核修改
+	@RequestMapping("shenheyishi")
+	public String shenheyishi(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Doctor doctor) {
+		adminService.shenheyishi(doctor);
+		PageHelper.startPage(pageNum,5);
+		List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll01();
+		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(selectAll01);
+		model.addAttribute("selectAllDoctor",pageInfo);
+		int allDoctorNum = adminService.AllDoctorNum();
+		model.addAttribute("allDoctorNum",allDoctorNum);
+		return "houtai/yishi_guanli";
+		
+	}
 }
