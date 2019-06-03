@@ -200,8 +200,7 @@ function CreadMsg(user, content)
 		    })
 		websocket.addEventListener('close',function(){
 			
-		})
-		
+		})		
 		</script>
      
 </body>

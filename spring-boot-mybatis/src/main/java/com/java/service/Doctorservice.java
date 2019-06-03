@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
 import com.java.pojo.Doctor;
+import com.java.pojo.DoctorChange;
 import com.java.pojo.Doctor_big;
 
 import com.java.pojo.Ks;
@@ -40,6 +41,9 @@ public interface Doctorservice {
 	public void  updatexyzg(String d_tel ,int id);
 
 	public void  changerzzt(int id);
+	
+	 void updatemrz(Doctor doctor);
+
 
 
 }

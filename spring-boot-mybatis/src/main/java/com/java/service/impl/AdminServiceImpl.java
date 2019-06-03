@@ -326,11 +326,6 @@ public class AdminServiceImpl implements AdminService {
 		return doctorChangeMapper.findonedoctor(id);
 	}
 
-	// 审核医师
-	public int shenheyishi(Doctor doctor) {
-		return doctorChangeMapper.shenheyishi(doctor);
-	}
-
 	// 后台查看用户非处方订单主表
 	public List<Oud> aSelectOrderZ() {
 		List<Oud> aSelectOrderZ = drugstoreMapper.aSelectOrderZ();
@@ -349,15 +344,21 @@ public class AdminServiceImpl implements AdminService {
 			return oAllNum;
 	}
 	
+	//审核医师
+	public int shenheyishi(int id) {
+		return doctorChangeMapper.shenheyishi(id);
+	}
+
 	//刪除主单
-	public int deleteOrderZ(int id) {
-		int deleteOrderZ = drugstoreMapper.deleteOrderZ(id);
-		return deleteOrderZ;
-	}
-			
+		public int deleteOrderZ(int id) {
+			int deleteOrderZ = drugstoreMapper.deleteOrderZ(id);
+			return deleteOrderZ;
+		}
+				
 	//刪除详单
-	public int deleteOrderX(int id) {
-		int deleteOrderX = drugstoreMapper.deleteOrderX(id);
-		return deleteOrderX;
-	}
+		public int deleteOrderX(int id) {
+			int deleteOrderX = drugstoreMapper.deleteOrderX(id);
+			return deleteOrderX;
+		}
+	
 }

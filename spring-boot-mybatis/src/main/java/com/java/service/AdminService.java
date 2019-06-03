@@ -188,12 +188,12 @@ public interface AdminService {
 	// 统计订单总数
 	public int OAllNum();
 
-	// 根据id审核
-	public int shenheyishi(Doctor doctor);
+	//根据id审核
+	public int shenheyishi(int id);
 	
 	//刪除主单
 	public int deleteOrderZ(int id);
-		
+			
 	//刪除详单
 	public int deleteOrderX(int id);
 }

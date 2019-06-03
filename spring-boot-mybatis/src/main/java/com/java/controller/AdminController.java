@@ -405,8 +405,8 @@ public class AdminController {
 	
 	//审核修改
 	@RequestMapping("shenheyishi")
-	public String shenheyishi(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Doctor doctor) {
-		adminService.shenheyishi(doctor);
+	public String shenheyishi(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
+		adminService.shenheyishi(id);
 		PageHelper.startPage(pageNum,5);
 		List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll01();
 		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(selectAll01);
@@ -414,6 +414,11 @@ public class AdminController {
 		int allDoctorNum = adminService.AllDoctorNum();
 		model.addAttribute("allDoctorNum",allDoctorNum);
 		return "houtai/yishi_guanli";
-		
+	}
+	
+	//审核医师
+	@RequestMapping("")
+	public String shenhe(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
+		return "";	
 	}
 }
