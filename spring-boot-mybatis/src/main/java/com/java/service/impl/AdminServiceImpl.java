@@ -415,4 +415,9 @@ public class AdminServiceImpl implements AdminService {
 	  		public Doctor selectRzYishi01(int id) {
 	  			return doctorMapper.selectRzYishi01(id);
 	  		}
+
+			//删除科室
+			public int deletekb(int id) {
+				return kbmapper.deletekb(id);
+			}
 }

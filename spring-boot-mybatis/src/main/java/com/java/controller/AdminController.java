@@ -222,12 +222,11 @@ public class AdminController {
 	// 科别详情页面
 	@RequestMapping("super_cg6")
 	public String super_cg6(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
-		PageHelper.startPage(pageNum, 3);
 		List<KbKsZhongjianlei> selectAllkb = adminService.selectAllkb(id);
 		PageInfo<KbKsZhongjianlei> pageInfo = new PageInfo<KbKsZhongjianlei>(selectAllkb);
 		model.addAttribute("selectAllkb",pageInfo);
 		model.addAttribute("NumAll",adminService.Allkbnum(id));
-		model.addAttribute("id",id);
+		model.addAttribute("ksid",id);
 		return "houtai/super_cg6";
 	}
 
@@ -245,10 +244,13 @@ public class AdminController {
 	}
 	//添加科别
 	@RequestMapping("tianjiakebie")
-	public String insertOneKb(Model model,Kb kb,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
-		adminService.insertOneKb(kb);
-		
-		return "houtai/super_cg4";
+	public String insertOneKb(Model model,Kb kb,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer ks_id) {
+		int insertOneKb = adminService.insertOneKb(kb);
+		List<Kb> selectAllkb = adminService.selectkb(ks_id);
+		PageInfo<Kb> pageInfo = new PageInfo<Kb>(selectAllkb);
+		model.addAttribute("selectAllkb",pageInfo);
+		model.addAttribute("id",ks_id);
+		return "houtai/super_cg6";
 }
 	
 	//删除科室
@@ -447,14 +449,14 @@ public class AdminController {
 	
 	//删除科别
 	@RequestMapping("deletekb")
-	public String deletekb(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
-		adminService.deleteOneKs(id);
-		PageHelper.startPage(pageNum,5);
-		List<Ks> ks = adminService.selectAllKs();
-		PageInfo<Ks> info = new PageInfo<Ks>(ks);
-		model.addAttribute("ks",info);
-		model.addAttribute("NumAll",adminService.ksAll());
-		return "houtai/super_cg4";		
+	public String deletekb(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id,Integer ksid) {
+		adminService.deletekb(id);
+		System.out.println(id);
+		System.out.println(ksid);
+		List<Kb> selectAllkb = adminService.selectkb(ksid);
+		PageInfo<Kb> pageInfo = new PageInfo<Kb>(selectAllkb);
+		model.addAttribute("selectAllkb",pageInfo);
+		return "houtai/super_cg6";		
 	}
 	
 	//医师认证

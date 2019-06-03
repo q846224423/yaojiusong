@@ -227,4 +227,7 @@ public interface AdminService {
     
     //查未认证的医师
     Doctor selectRzYishi01(int id);
+    
+    //删除科别
+  	int deletekb(int id);
 }

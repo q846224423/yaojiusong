@@ -2,6 +2,7 @@ package com.java.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -17,5 +18,8 @@ public interface KbMapper {
     //增加科别
   	@Insert("insert into kb(kb_name,ks_id) values (#{kb_name},#{ks_id})")
   	public int insertOneKb(Kb kb);
-  	//根据科别id查出科室id
+  	
+  	//删除科别
+  	@Delete("delete from kb where kb_id = #{id}")
+  	int deletekb(int id);
 }

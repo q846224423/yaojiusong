@@ -54,7 +54,8 @@
 					<div class="defaultTab-T">
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
 							<tbody>
-								<tr><th style="width: 40%; text-align: center;">科别号</th><th style="width: 40%; text-align: center;">科别名</th>
+								<tr><th style="width: 40%; text-align: center;">科别号</th>
+								<th style="width: 40%; text-align: center;">科别名</th>
 									<th style="width: 20%; text-align: center;">操作</th>
 								</tr>
 							</tbody>
@@ -66,7 +67,7 @@
 							<tr>
 								<td style="width: 40%; text-align: center;">${list.kb_id }</td>
 								<td style="width: 40%; text-align: center;">${list.kb_name }</td>
-								<td style="width: 20%; text-align: center;"><a href="deletekb?id=${list.kb_id}">删除</a></td>
+								<td style="width: 20%; text-align: center;"><a href="deletekb?id=${list.kb_id}&ksid=${list.ks_id}">删除</a></td>
 							</tr>
 						 </c:forEach>
 						</tbody>
@@ -91,7 +92,7 @@
 			<dl class="PD-list clearfix">
 				<dt>科别名称：</dt>
 				<dd><input type="text" class="txt" name="kb_name">
-				<input type="hidden"  name="ks_id" value="${id }">
+				<input type="hidden"  name="ks_id" value="${ksid }">
 				</dd>
 			</dl>
 			
