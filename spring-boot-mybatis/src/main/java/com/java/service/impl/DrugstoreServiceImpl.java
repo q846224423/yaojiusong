@@ -11,6 +11,7 @@ import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Menu3;
 import com.java.pojo.Shop_orderx;
 import com.java.pojo.Shop_orderz;
+import com.java.pojo.Users_biger;
 import com.java.service.FjtDrugstoreService;
 
 @Service
@@ -104,6 +105,21 @@ public class DrugstoreServiceImpl implements FjtDrugstoreService {
 	@Override
 	public void storeChangerz(int id) {
 		dm.storeChangerz(id);
+	}
+
+	@Override
+	public List<Users_biger> ydcfOrder(int id) {
+		return dm.ydcfOrder(id);
+	}
+
+	@Override
+	public void ydcfwyfh(int id) {
+		dm.ydcfwyfh(id);
+	}
+
+	@Override
+	public void xiugaisp(Menu3 menu3) {
+		dm.xiugaisp(menu3);
 	}
 	
 	

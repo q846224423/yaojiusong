@@ -199,7 +199,7 @@ pageEncoding="UTF-8"%>
     </div>
 </div>
 <div class="top">
-   <div class="logo"><a href="show"><img src="images/index/logo.png" /></a></div>
+   <div class="logo"><a href="show"><img style="position: absolute;left: 2%;top:8%;"  src="images/index/logo.png" /></a></div>
     <div class="search">
     	<form action="showByname" method="post" >
         	<input type="text" name="name" class="s_ipt" />

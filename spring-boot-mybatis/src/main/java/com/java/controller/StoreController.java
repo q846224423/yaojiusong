@@ -364,6 +364,12 @@ public class StoreController {
 		model.addAttribute("zlist", zlist);
 		return "store/UserOrder";
 	}
-	
+	//wenzhenjilu
+	// 用户订单的 问诊记录
+	@RequestMapping("wenzhenjilu")
+	public String wenzhenjilu(int user_id, Model model) {
+		model.addAttribute("user_id", user_id);
+		return "store/wenzhenjilu";
+	}
 	
 }

@@ -67,6 +67,7 @@ pageEncoding="UTF-8"%>
 </head>
 <body>  
 
+<div class="bigdiv">
 <!--Begin Header Begin-->
 <div class="soubg">
 	<div class="sou">
@@ -146,12 +147,18 @@ pageEncoding="UTF-8"%>
             </span>
         </span>
         <!--End 所在收货地区 End-->
-        <span class="fr">
-       <c:choose>
-        <c:when test="${user==null}"><span class="fl">你好，请<a href="loginb.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a></c:when>
-        <c:otherwise> <span class="fl">${user.user_name},你好&nbsp;<a href="loginb.html">登录</a></c:otherwise>
-        	</c:choose>
-        	&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+			<span class="fr"> <c:choose>
+					<c:when test="${user==null}">
+						<span class="fl">你好，请<a href="loginb.html">登录</a>&nbsp; <a
+							href="Regist.html" style="color: #ff4e00;">免费注册</a>
+					</c:when>
+					<c:otherwise>
+						<span class="fl">${user.user_name},你好&nbsp;<a
+							href="loginb.html">登录</a>
+					</c:otherwise>
+				</c:choose> &nbsp;|&nbsp;<a href="userOrderz?user_id=${user.user_id }">我的订单</a>&nbsp;|
+			</span> 
+        	
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -198,52 +205,51 @@ pageEncoding="UTF-8"%>
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="show"><img src="images/index/logo.png" /></a></div>
+    <div class="logo"><a href="show"><img style="position: absolute;left: 2%;top:8%;" src="images/index/logo.png" /></a></div>
     <div class="search">
-    	 <form action="QueryByName" method="post">
-        	<input type="text" class="s_ipt" name="ybquery" />
+    	<form action="showByname" method="post" >
+        	<input type="text" name="name" class="s_ipt" />
             <input type="submit" value="搜索" class="s_btn" />
         </form>                      
-        <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
+        <span class="fl"><a href="Showinfo?id=1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;葵花 胃康灵</a><a href="Showinfo?id=4">云南白药</a><a href="Showinfo?id=13">阿莫西林颗粒</a><a href="Showinfo?id=33">桂林西瓜霜</a><a href="Showinfo?id=30">健兴 肺力咳合剂</a></span>
     </div>
-    <div class="i_car">
+        <div class="i_car">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;购物车
     <c:choose>
     
-    <c:when test="${user == null }">
+    <c:when test="${user== null }">
     <div class="car_bg">
     <ul class="cars">
     <li>
-    <div class="un_login">还未登录！<a href="Login.jsp" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+    <div class="un_login">还未登录！<a href="Loginb.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
     </li>
     </ul>
     </div>
     </c:when>
     
     <c:otherwise>
-    <div class="car_t">购物车 [ <span>${shoplist.size() }</span> ]</div>
+    <div class="car_t">购物车 [ <span>${Cartlist.size() }</span> ]</div>
         <div class="car_bg">
             <!--Begin 购物车已登录 Begin-->
             <div class="un_login" style="color:#ff4e00">欢迎登录！</div>
             <ul class="cars">
-            <c:forEach items="${shoplist }" var="shop">
+            <c:forEach items="${Cartlist }" var="shop">
             	<li>
                 	<div class="img"><a href="#"><img src="${shop.ep_url }" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">${shop.menu3_name } ${shop.ep_description }</a></div>
+                    <div class="name"><a href="#">${shop.menu3_name } ${shop.ep_size }</a></div>
                     <div class="price"><font color="#ff4e00">￥${shop.ep_price }</font> X${shop.trade_num }</div>
                 </li>
             </c:forEach>
               
             </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>${AllPrice1 }</span></div>
-            <div class="price_a"><a href="WY_ShopCartOneServlet">去购物车结算</a></div>
+            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span id="AllPrice">${AllPrice }</span></div>
+            <div class="price_a"><a style="color:black" href="buycar1">去购物车结算</a></div>
             <!--End 购物车已登录 End-->
         </div>
       	  </c:otherwise>
    		 </c:choose>
         </div> 
- </div>	
- 
+</div>
  
 <div class="i_bg bg_color">
     <!--Begin 用户中心 Begin -->
@@ -254,13 +260,14 @@ pageEncoding="UTF-8"%>
             	<div class="left_m_t t_bg1">订单中心</div>
                 <ul>
                 	<li><a href="userOrderz?user_id=${user.user_id}" >我的订单</a></li>
-                    <li><a href=""  class="now">收货地址</a></li>
+                    <li><a href="toupdateMessage"  class="now">收货地址</a></li>
                 </ul>
             </div>
             <div class="left_m">
             	<div class="left_m_t t_bg2">会员中心</div>
                 <ul>
                     <li><a href="userMessage">我的信息</a></li>
+                     <li><a href="wenzhen2" >问诊记录</a></li>
                 </ul>
             </div>
             

@@ -121,4 +121,6 @@ public interface StoreService {
 	
 	//查询置顶的商品
 	public List<Menu3> selectZD(int id);
+	
+	public Users selectOneUsers(int id);
 }

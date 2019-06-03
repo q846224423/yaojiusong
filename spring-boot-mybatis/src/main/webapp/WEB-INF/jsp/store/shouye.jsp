@@ -43,7 +43,6 @@ height: 120px
 <title>易买网</title>
 </head>
 <body>  
-<div class="bigdiv">
 <!--Begin Header Begin-->
 <div class="soubg">
 	<div class="sou">
@@ -179,7 +178,8 @@ height: 120px
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="show"><img src="images/index/logo.png" /></a></div>
+    <div class="logo"><a href="show">
+    <img style="position:absolute;left: 2%;top:8%;width: 180px;height: 120px;" src="images/index/logo.png" /></a></div>
     <div class="search">
     	<form action="showByname" method="post" >
         	<input type="text" name="name" class="s_ipt" />

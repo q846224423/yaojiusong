@@ -209,5 +209,7 @@ public class StoreServiceImpl implements StoreService {
 		return ss.selectZD(id);
 	}
 
-	
+	public Users selectOneUsers(int id) {
+		return um.selectOneUsers(id);
+	};
 }
