@@ -21,6 +21,7 @@ import com.java.pojo.Ks;
 import com.java.pojo.Oud;
 import com.java.pojo.Pca;
 import com.java.pojo.Users;
+import com.java.pojo.Users_biger;
 import com.java.pojo.Users_copy;
 import com.java.pojo.ZhongjianCalssYiShi;
 
@@ -202,4 +203,16 @@ public interface AdminService {
 	
 	//删除单个医生数据
     int deleteOneYs(int id);
+    
+    //后台查询所有问诊记录
+  	public List<Users_biger> selectWZ();
+  	
+  	//查询所有问诊记录条数
+  	public int selectWZNum();
+  	
+  	//删除问诊记录
+  	public int deleteOneWZ(int id);
+  	
+  	//查询具体问诊记录
+  	public Users_biger selectOneWZ(int id);
 }

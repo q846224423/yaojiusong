@@ -12,6 +12,7 @@ import com.java.mapper.DrugstoreMapper;
 import com.java.mapper.KbMapper;
 import com.java.mapper.KsMapper;
 import com.java.mapper.KskbMapper;
+import com.java.mapper.RecordMapper;
 import com.java.mapper.UsersMapper;
 import com.java.pojo.Doctor;
 import com.java.pojo.DoctorChange;
@@ -27,6 +28,7 @@ import com.java.pojo.Ks;
 import com.java.pojo.Oud;
 import com.java.pojo.Pca;
 import com.java.pojo.Users;
+import com.java.pojo.Users_biger;
 import com.java.pojo.Users_copy;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.AdminService;
@@ -50,6 +52,8 @@ public class AdminServiceImpl implements AdminService {
 	private KbMapper kbmapper;
 	@Autowired
 	private DoctorChangeMapper doctorChangeMapper;
+	@Autowired
+	private RecordMapper recordMapper;
 
 	/*
 	 * 所有医生操作
@@ -370,7 +374,24 @@ public class AdminServiceImpl implements AdminService {
 		public int deleteOneYs(int id) {
 			return doctorMapper.delete(id);
 		}
-
-
 	
+		//后台查询所有问诊记录
+	  	public List<Users_biger> selectWZ(){
+	  		return recordMapper.selectWZ();
+	  	}
+	  	
+	  	//查询所有问诊记录条数
+	  	public int selectWZNum() {
+	  		return recordMapper.selectWZNum();
+	  	}
+	  	
+	  	//删除问诊记录
+	  	public int deleteOneWZ(int id) {
+	  		return recordMapper.deleteOneWZ(id);
+	  	}
+	  	
+	  	//查询具体问诊记录
+	  	public Users_biger selectOneWZ(int id) {
+	  		return recordMapper.selectOneWZ(id);
+	  	}
 }

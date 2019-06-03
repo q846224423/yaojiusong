@@ -24,6 +24,7 @@ import com.java.pojo.Ks;
 import com.java.pojo.Oud;
 import com.java.pojo.Pca;
 import com.java.pojo.Users;
+import com.java.pojo.Users_biger;
 import com.java.pojo.Users_copy;
 import com.java.pojo.ZhongjianCalssYiShi;
 import com.java.service.AdminService;
@@ -198,12 +199,25 @@ public class AdminController {
 	}
 
 	// iframe显示jsp代码 不要动
-	// 处方管理
+	// 处方管理主界面
 	@RequestMapping("super_cg5")
-	public String super_cg5() {
+	public String super_cg5(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		PageHelper.startPage(pageNum, 5);
+		List<Users_biger> selectWZ = adminService.selectWZ();
+		PageInfo<Users_biger> pageInfo = new PageInfo<Users_biger>(selectWZ);
+		int selectWZNum = adminService.selectWZNum();
+		model.addAttribute("selectAllWZ",pageInfo);
+		model.addAttribute("NumAll",selectWZNum);
 		return "houtai/super_cg5";
 	}
 	
+	//处方管理详情页面
+	@RequestMapping("OrderInfo")
+	public String OrderInfo(Model model,int id) {
+		Users_biger selectOneWZ = adminService.selectOneWZ(id);
+		model.addAttribute("selectOneWZ", selectOneWZ);
+		return "houtai/OrderInfo";
+	}
 	
 	// iframe显示jsp代码 不要动
 	// 科别详情页面

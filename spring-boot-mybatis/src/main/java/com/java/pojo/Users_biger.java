@@ -2,6 +2,7 @@ package com.java.pojo;
 
 public class Users_biger {
 	private String d_name;//医生名字
+	private String d_tel;//医生电话
 	private String user_name;//用户名字
 	private String user_sex;//用户性别
 	private String user_tel;//用户电话
