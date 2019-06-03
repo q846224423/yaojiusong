@@ -226,7 +226,7 @@ public class AdminController {
 		PageInfo<KbKsZhongjianlei> pageInfo = new PageInfo<KbKsZhongjianlei>(selectAllkb);
 		model.addAttribute("selectAllkb",pageInfo);
 		model.addAttribute("NumAll",adminService.Allkbnum(id));
-		model.addAttribute("ksid",id);
+		model.addAttribute("id",id);
 		return "houtai/super_cg6";
 	}
 
@@ -246,6 +246,7 @@ public class AdminController {
 	@RequestMapping("tianjiakebie")
 	public String insertOneKb(Model model,Kb kb,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer ks_id) {
 		int insertOneKb = adminService.insertOneKb(kb);
+		System.out.println(ks_id);
 		List<Kb> selectAllkb = adminService.selectkb(ks_id);
 		PageInfo<Kb> pageInfo = new PageInfo<Kb>(selectAllkb);
 		model.addAttribute("selectAllkb",pageInfo);
@@ -399,7 +400,7 @@ public class AdminController {
 	@RequestMapping("yishi_guanli")
 	public String yishi_guanli(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		PageHelper.startPage(pageNum,5);
-		 List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll01();
+		 List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll02();
 		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(selectAll01);
 		model.addAttribute("selectAllDoctor",pageInfo);
 		int allDoctorNum = adminService.AllDoctorNum();
@@ -425,7 +426,7 @@ public class AdminController {
 		DoctorChange findonedoctor = adminService.findonedoctor(d_id);
 		adminService.shenheyishi(findonedoctor);
 		PageHelper.startPage(pageNum,5);
-		List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll01();
+		List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll02();
 		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(selectAll01);
 		model.addAttribute("selectAllDoctor",pageInfo);
 		int allDoctorNum = adminService.AllDoctorNum();
@@ -439,7 +440,7 @@ public class AdminController {
 	public String deleteOneYs(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
 		adminService.deleteOneYs(id);
 		PageHelper.startPage(pageNum,5);
-		List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll01();
+		List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll02();
 		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(selectAll01);
 		model.addAttribute("selectAllDoctor",pageInfo);
 		int allDoctorNum = adminService.AllDoctorNum();
@@ -456,6 +457,7 @@ public class AdminController {
 		List<Kb> selectAllkb = adminService.selectkb(ksid);
 		PageInfo<Kb> pageInfo = new PageInfo<Kb>(selectAllkb);
 		model.addAttribute("selectAllkb",pageInfo);
+		model.addAttribute("id",ksid);
 		return "houtai/super_cg6";		
 	}
 	
@@ -464,7 +466,7 @@ public class AdminController {
 	public String renzhenwancheng(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer d_id,Doctor doctor) {
 		adminService.updateRz(doctor);
 		PageHelper.startPage(pageNum,5);
-		List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll01();
+		List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll02();
 		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(selectAll01);
 		model.addAttribute("selectAllDoctor",pageInfo);
 		int allDoctorNum = adminService.AllDoctorNum();

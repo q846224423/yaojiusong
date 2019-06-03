@@ -92,7 +92,7 @@
 			<dl class="PD-list clearfix">
 				<dt>科别名称：</dt>
 				<dd><input type="text" class="txt" name="kb_name">
-				<input type="hidden"  name="ks_id" value="${ksid }">
+				<input type="hidden"  name="ks_id" value="${id }">
 				</dd>
 			</dl>
 			

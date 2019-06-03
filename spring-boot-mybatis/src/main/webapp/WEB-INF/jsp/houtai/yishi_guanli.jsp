@@ -99,7 +99,7 @@
 												<td style="width: 8%;text-align: center; color: red;">未认证</td>
 											</c:when>
 											<c:when test="${list.d_control ==2}">
-												<td style="width: 8%;text-align: center; color: red;">未认证</td>
+												<td style="width: 8%;text-align: center; color: red;">已认证</td>
 											</c:when>
 										</c:choose>
 										<c:choose>

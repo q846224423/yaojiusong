@@ -420,4 +420,9 @@ public class AdminServiceImpl implements AdminService {
 			public int deletekb(int id) {
 				return kbmapper.deletekb(id);
 			}
+
+			//查医师
+			public List<ZhongjianCalssYiShi> selectAll02() {
+				return doctorMapper.selectAll02();
+			}
 }

@@ -101,4 +101,8 @@ public interface DoctorMapper {
   //查未认证的医师
     @Select("select * from shituone where d_id=#{id}")
     Doctor selectRzYishi01(int id);
+    
+	//查询所有医师
+	@Select("select * from shituone where d_id is not null")
+	List<ZhongjianCalssYiShi> selectAll02();
 }
