@@ -35,14 +35,14 @@
 			<!--main-->
 		</div>
 		<!--content E-->
-		<form action="shenhe" method="post">
 		<div class="zx-dtlMain">
 			<input type="hidden" value="${findonedoctor.d_id}" name="d_id">
 				<span>修改后医师头像：</span>
 				<img src="upload/chen/Cassiopeia.png" style="vertical-align: middle;"  />
+				<input name="d_head" value="${findonedoctor.d_head }" type="hidden">
 			<br/>
 				<span>医师姓名：</span>
-				<input name="d_name" value="${findonedoctor.d_name }" type="text">
+				<input name="d_name" value="${findonedoctor.d_name }">
 			<br/>
 				<span>修改后医师性别：</span>
 				<input name="d_sex" value="${findonedoctor.d_sex }">
@@ -63,7 +63,6 @@
 				<input name="d_zc" value="${findonedoctor.d_zc }">
 			<br/>
 				<span>审核状态：</span>
-				<input name="d_change" value="${findonedoctor.d_change }" type="hidden">
 				<c:choose >
 					<c:when test="${findonedoctor.d_change ==0}">
 					<dd>未认证</dd>
@@ -79,11 +78,10 @@
 				<span>修改后医师的介绍：</span>
 				<input name="d_introduce" value="${findonedoctor.d_introduce }">
 			<dl class="PD-list clearfix">
-				<a href="shenheyishi?id=${findonedoctor.d_id }" class="saveBtn">通过</a>
-				<a href="yishi_Team" class="saveBtn">拒绝</a>
+				<a href="shenheyishi?d_id=${findonedoctor.d_id }" class="saveBtn" style="font-size: 22px">通过</a>
+				<a href="yishi_Team" class="saveBtn" style="font-size: 22px" >拒绝</a>
 			</dl>
 		</div>
-		</form>
 	</body>
 
 </html>

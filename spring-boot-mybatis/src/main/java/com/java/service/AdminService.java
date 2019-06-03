@@ -189,11 +189,14 @@ public interface AdminService {
 	public int OAllNum();
 
 	//根据id审核
-	public int shenheyishi(int id);
+	public int shenheyishi(DoctorChange doctorChange);
 	
 	//刪除主单
 	public int deleteOrderZ(int id);
 			
 	//刪除详单
 	public int deleteOrderX(int id);
+	
+	//通过后删除
+	public int deleteshenhe(int id);
 }

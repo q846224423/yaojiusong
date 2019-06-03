@@ -345,8 +345,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	//审核医师
-	public int shenheyishi(int id) {
-		return doctorChangeMapper.shenheyishi(id);
+	public int shenheyishi(DoctorChange doctorChange) {
+		return doctorChangeMapper.shenheyishi(doctorChange);
 	}
 
 	//刪除主单
@@ -360,5 +360,12 @@ public class AdminServiceImpl implements AdminService {
 			int deleteOrderX = drugstoreMapper.deleteOrderX(id);
 			return deleteOrderX;
 		}
+
+		//审核后删除
+		public int deleteshenhe(int id) {
+			return doctorChangeMapper.deleteshenhe(id);
+		}
+
+
 	
 }

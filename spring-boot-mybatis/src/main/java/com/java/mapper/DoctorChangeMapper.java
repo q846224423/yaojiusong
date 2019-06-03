@@ -58,10 +58,10 @@ public interface DoctorChangeMapper {
 	public DoctorChange findonedoctor(int id);
 	
 	//根据id审核
-	@Update("update `shop1`.`doctor` set`d_change`=2 where d_id= #{id}")
-	public int shenheyishi(int id);
+	@Update("update doctor  set d_name = #{d_name},d_sex =#{d_sex},`d_age`=#{d_age},`d_introduce`=#{d_introduce},`kb_id`=#{kb_id},`d_zc`=#{d_zc},`d_money`=#{d_money},`d_tel`=#{d_tel},`d_head`=#{d_head},d_change=2 where `d_id` = #{d_id}")
+	public int shenheyishi(DoctorChange doctorChange);
 	
-	//审核
-	@Update("update `shop1`.`doctor` set`d_name` = #{d_name},`d_sex` = #{d_sex},`d_age` = #{d_age},`d_control` = #{d_control},`d_url` = #{d_url},`d_introduce` = #{d_introduce},`d_state` = #{d_state},`kb_id` = #{kb_id},`d_zc` = #{d_zc},`d_money` = #{d_money},`d_tel` = #{d_tel},`people_id` = #{people_id},`d_head` = #{d_head} where `d_id` = #{d_id}")
-	public int shenhe(Doctor doctor );
+	//通过后删除
+	@Delete("delete from doctorchange where d_id=#{id}")
+	public int deleteshenhe(int id);
 }
