@@ -7,10 +7,24 @@ public class Users_biger {
 	private String user_tel;//用户电话
 	private Integer isOpenDrug;//用户是否开处方
 	private Integer  r_status;//是否问诊
-	private Integer  user_id;
-	private  String  r_tel;
+	private Integer  user_id;//用户id
+	private String  r_tel;//处方图
+	private Integer r_id;//处方id
 	
 	
+	
+	public String getR_tel() {
+		return r_tel;
+	}
+	public void setR_tel(String r_tel) {
+		this.r_tel = r_tel;
+	}
+	public Integer getR_id() {
+		return r_id;
+	}
+	public void setR_id(Integer r_id) {
+		this.r_id = r_id;
+	}
 	public Integer getUser_id() {
 		return user_id;
 	}

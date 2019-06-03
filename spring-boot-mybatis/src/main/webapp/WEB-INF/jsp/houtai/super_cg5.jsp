@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d"><head>
 	<meta charset="utf-8">
@@ -49,32 +50,40 @@
 				<div class="Mian-cont-wrap">
 					<div class="defaultTab-T">
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
-							<tbody><tr><th class="td_6">问诊记录id</th><th class="td_7">用户id</th><th class="td_12">医生id</th><th class="td_8">是否开处方筏</th><th class="td_11">是否拿药</th><th class="td_10">操作</th></tr>
+							<tbody>
+							<tr>
+								<th class="td_6">问诊记录Id</th>
+								<th class="td_7">用户姓名</th>
+								<th class="td_12">医生姓名</th>
+								<th class="td_8">处方筏状态</th>
+								<th class="td_11">是否拿药</th>
+							</tr>
 						</tbody></table>
 					</div>
 					<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
-						<tbody><tr>
+						<tbody>
+						<c:forEach items="${aSelectOrderZ.list}" var="list">
+						<tr>
 							<td class="td_6">123</td>
 							<td class="td_7"><a href="#">123</a></td>
 							<td class="td_12">123</td>
 							<td class="td_8"><a href="#" >是</a></td> 	
 							<td class="td_11"><a href="#" >是</a></td>
-							<td class="td_10"><div class="btn"><a href="#" style="background: #ff980b; color: #fff;">删除</a></div></td>
 						</tr>
-						
-						
-					</tbody></table>
+						</c:forEach>
+						</tbody>
+					</table>
 					<!--pages S-->
 					<div class="pageSelect">
-						<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
-						<div class="pageWrap">
-							<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-							<a href="#" class="pagenumb cur">1</a>
-							<a href="#" class="pagenumb">2</a>
-							<a href="#" class="pagenumb">3</a>
-							<a href="#" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+							<span>共 <b>${NumAll}</b> 条 每页 <b>5 </b>条 </span>
+							<div class="pageWrap">
+								<a href="super_cg3?pageNum=1" class="pagenumb">首页</a>
+								<a href="super_cg3?pageNum=${aSelectOrderZ.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
+								<b>${aSelectOrderZ.pageNum}</b>/<b>${aSelectOrderZ.pages}</b>
+								<a href="super_cg3?pageNum=${aSelectOrderZ.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="super_cg3?pageNum=${aSelectOrderZ.pages}" class="pagenumb">尾页</a>
+							</div>
 						</div>
-					</div>
 					<!--pages E-->
 				</div>
 				

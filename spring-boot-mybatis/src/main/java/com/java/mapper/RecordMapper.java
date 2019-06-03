@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.java.pojo.Ks;
 import com.java.pojo.Record;
+import com.java.pojo.Users_biger;
 
 @Repository
 public interface RecordMapper {
@@ -28,4 +29,11 @@ public interface RecordMapper {
 		//修改问诊记录
 		@Update("update ks set (d_id = #{d_id},isOpenDrug = #{isOpenDrug},isGetMedicine = #{isGetMedicine},u_id = #{u_id}")
 		public int updateOneKs(Record record);
+		//后台查询所有问诊记录
+		@Select("select * from wzjlu")
+		public List<Users_biger> selectWZ();
+		//查询所有问诊记录条数
+		@Select("select count(0) from wzjlu")
+		public int selectWZNum();
+		
 }
