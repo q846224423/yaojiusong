@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.java.mapper.DoctorMapper;
 import com.java.mapper.KsMapper;
 import com.java.pojo.Doctor;
+import com.java.pojo.DoctorChange;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.Kb;
 import com.java.pojo.Ks;
@@ -100,6 +101,15 @@ private KsMapper ksMapper;
 	public void changerzzt(int id) {
 		doctorMapper.changerzzt(id);		
 	}
+
+	@Override
+	public void updatemrz(Doctor doctor) {
+		
+		doctorMapper.updatemrz(doctor);
+		
+	}
+
+
 
 
 }
