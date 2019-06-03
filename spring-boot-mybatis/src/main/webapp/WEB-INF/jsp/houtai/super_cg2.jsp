@@ -27,7 +27,7 @@
 		<div class="super-content RightMain" id="RightMain">
 
 			<div class="super-header clearfix">
-				<h2>订单管理</h2>
+				<h2>订单详情</h2>
 				<div class="head-right">
 					<i class="ico-user"></i>当前用户：
 					<div class="userslideDown">
@@ -59,12 +59,10 @@
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
 								<tbody>
 									<tr>
-										<th class="td_6">订单号</th>
-										<th class="td_7">下单时间</th>
-										<th class="td_12">订单金额</th>
-										<th class="td_8">发货状态</th>
-										<th class="td_11">买家姓名</th>
-										<th class="td_12">药店名称</th>
+										<th class="td_6">商品名称</th>
+										<th class="td_7">商品单价</th>
+										<th class="td_12">商品数量</th>
+										<th class="td_8">商品小计</th>
 										<th class="td_10">操作</th>
 									</tr>
 								</tbody>
@@ -75,19 +73,15 @@
 							<c:forEach items="${aSelectOrderZ.list}" var="list">
 								<tr>
 									<td class="td_6">
-										<a href="super_cg2?id=${list.z_id}">${list.z_id }</a>
+										${list.menu3_name }
 									</td>
 									<td class="td_7">
-										<a href="super_cg2?id=${list.z_id}">${list.z_time}</a>
+										${list.menu3_price}
 									</td>
-									<td class="td_12">${list.z_total}</td>
+									<td class="td_12">${list.trade_num}</td>
 									<td class="td_8">
-										<a href="super_cg2?id=${list.z_id}" class="txdoc">${list.z_statu}</a>
+										<a href="#" class="txdoc">${list.sum_price}</a>
 									</td>
-									<td class="td_11">
-										<a href="super_cg2?id=${list.z_id}" class="txdoc">${list.user_name}</a>
-									</td>
-									<td class="td_12">${list.yd_name}</td>
 									<td class="td_10">
 										<div class="btn">
 											<a href="#" style="background: #ff980b; color: #fff;">删除</a>

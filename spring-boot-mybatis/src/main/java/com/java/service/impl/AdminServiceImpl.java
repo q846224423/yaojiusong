@@ -20,8 +20,11 @@ import com.java.pojo.DrugStore;
 import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Kb;
 import com.java.pojo.Pcad;
+import com.java.pojo.Shop_orderx;
+import com.java.pojo.Shop_orderz;
 import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
+import com.java.pojo.Oud;
 import com.java.pojo.Pca;
 import com.java.pojo.Users;
 import com.java.pojo.Users_copy;
@@ -313,5 +316,23 @@ public class AdminServiceImpl implements AdminService {
 	//根据id查单个医师
 	public DoctorChange findonedoctor(int id) {
 		return doctorChangeMapper.findonedoctor(id);
+	}
+	
+	//后台查看用户非处方订单主表
+	public List<Oud> aSelectOrderZ(){
+		List<Oud> aSelectOrderZ = drugstoreMapper.aSelectOrderZ();
+		return aSelectOrderZ;
+	}
+		
+	//通过主订单的z_id查找出详单信息
+	public List<Shop_orderx> ydOrderx(int id){
+		List<Shop_orderx> ydOrderx = drugstoreMapper.ydOrderx(id);
+		return ydOrderx;
+	}
+	
+	//统计订单总数
+	public int OAllNum() {
+		int oAllNum = drugstoreMapper.OAllNum();
+		return oAllNum;
 	}
 }

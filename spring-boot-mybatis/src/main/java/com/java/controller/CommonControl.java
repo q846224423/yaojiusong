@@ -45,7 +45,7 @@ public class CommonControl {
 		if (p.getRole() == 1) {
 			Admin admin = cm.getAdmin(p.getId());
 			session.setAttribute("admin", admin);
-			return "admin";
+			return "houtai/public_super_cg";
 		} else if (p.getRole() == 2) {
 			
 			Doctor_big doctor = big.selectone(p.getId());

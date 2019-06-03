@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Update;
 import com.java.pojo.DrugStore;
 import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Menu3;
+import com.java.pojo.Oud;
 import com.java.pojo.Pcad;
 import com.java.pojo.Shop_orderx;
 import com.java.pojo.Shop_orderz;
@@ -83,6 +84,10 @@ public interface DrugstoreMapper {
     //药店查看用户非处方订单主表
 	@Select("select * from order_z where yd_id = #{yd_id}")
 	public List<Shop_orderz> ydOrderz(int yd_id);
+	
+	//后台查看用户非处方订单主表
+	@Select("select * from oud")
+	public List<Oud> aSelectOrderZ();
     
 	// 通过主订单的z_id查找出详单信息
 	@Select("select * from order_x where z_id= #{id}")
@@ -122,4 +127,7 @@ public interface DrugstoreMapper {
 	@Update("update menuthree set ep_stick=0 where ep_stick=1 and menu3_id = #{id}")
 	public void qxzd(int id);
 	
+	//统计订单总数
+	@Select("select count(0) from order_z")
+	public int OAllNum();
 }

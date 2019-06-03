@@ -14,8 +14,11 @@ import com.java.pojo.DrugStore;
 import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Kb;
 import com.java.pojo.Pcad;
+import com.java.pojo.Shop_orderx;
+import com.java.pojo.Shop_orderz;
 import com.java.pojo.KbKsZhongjianlei;
 import com.java.pojo.Ks;
+import com.java.pojo.Oud;
 import com.java.pojo.Pca;
 import com.java.pojo.Users;
 import com.java.pojo.Users_copy;
@@ -163,4 +166,13 @@ public interface AdminService {
 
 	// 根据县id查找省市县
 	public Pca selectPCA(int id);
+	
+	//后台查看用户非处方订单主表
+	public List<Oud> aSelectOrderZ();
+	
+	//通过主订单的z_id查找出详单信息
+	public List<Shop_orderx> ydOrderx(int id);
+	
+	//统计订单总数
+	public int OAllNum();
 }
