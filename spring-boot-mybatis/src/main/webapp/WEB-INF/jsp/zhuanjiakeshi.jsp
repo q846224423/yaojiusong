@@ -17,7 +17,6 @@
 <meta name="keywords"
 	content="视频看医生|视频问诊|北上广专家|在线视频问诊|视频问诊|视频看医生|复诊|视频复诊|在线问诊|网上看病|移动医疗|温暖医生|好大夫|春雨医生|微医|挂号网|视频看医生|视频问诊" />
 
-<title>温暖医生·视频看医生 &#8211;
 	国内首家视频医疗健康咨询服务平台，平台上医生均来自北京、上海、广州、湘雅、华西的主任副主任医师</title>
 <!-- script | dynamic -->
 <script id="mfn-dnmc-config-js">
@@ -2752,7 +2751,7 @@ var retina = window.devicePixelRatio > 1 ? true : false;if( retina ){var retinaE
 								<!-- .logo -->
 								<div class="logo text-logo">
 									<a id="logo" href="http://www.warmdoctor.com"
-										title="温暖医生·视频看医生">温暖医生·视频看医生</a>
+										title="药急送·在线看医生">药急送·在线看医生</a>
 								</div>
 
 								<div class="menu_wrapper">
@@ -2760,7 +2759,7 @@ var retina = window.devicePixelRatio > 1 ? true : false;if( retina ){var retinaE
 										<ul id="menu-main-menu" class="menu">
 											<li id="menu-item-73"
 												class="menu-item menu-item-type-custom menu-item-object-custom"><a
-												href="http://mp.weixin.qq.com/s/dIFUTRvi0coiRFvhOQhIqA"><span>了解温暖医生</span></a></li>
+												href="http://mp.weixin.qq.com/s/dIFUTRvi0coiRFvhOQhIqA"><span>了解药急送</span></a></li>
 											<li id="menu-item-74"
 												class="menu-item menu-item-type-custom menu-item-object-custom"><a
 												href="http://mp.weixin.qq.com/s/vbH1JpK3KO5fN5zgc5lqyA"><span>客户评价</span></a></li>
@@ -2940,7 +2939,7 @@ var retina = window.devicePixelRatio > 1 ? true : false;if( retina ){var retinaE
 												<h2
 													style="display: inline-block; margin-right: 35px; position: relative; top: -26px;">关于医生信息</h2>
 												<a class="button  button_large button_js"
-													href="2.html"
+													href="keshi"
 													style="background-color: #FFFFFF !important;"><span
 													class="button_label">了解更多</span></a>
 											</div>

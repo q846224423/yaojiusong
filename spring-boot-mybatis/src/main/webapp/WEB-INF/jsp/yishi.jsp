@@ -72,7 +72,28 @@
 			.sss:hover{
 				background-color: rgb(4,176,188)
 				}
-
+.sss1{
+    display: inline-block;	
+	height: 35px;
+				width: 65px;
+				background-color: rgb(8,194,207);
+				 text-align:center;
+				 line-height: 35px;
+				  border-radius: 8px;
+				  color: white;
+				 position: relative;
+				  left: 1100px;
+				   top:-60px;
+				   font-size:13px;
+}
+.sss1	a{
+				text-decoration: none;
+				 color: white;
+			}
+		.qwe{
+		margin-top: 75px;
+		margin-left: -160px;
+		}
 </style>
 </head>
 <body>
@@ -106,9 +127,11 @@
 		</div>
 		</div>
 		</c:forEach>
-		<a href="yisheng?pageNum=1&id=${id}">首页</a>
-	<a href="yisheng?pageNum=${pageInfo.pageNum-1}&id=${id}">上一页</a>
-	<a href="yisheng?pageNum=${pageInfo.pageNum+1}&id=${id}">下一页</a>
-	<a href="yisheng?pageNum=${pageInfo.pages}&id=${id}">尾页</a>
+		<div class="qwe">
+	<div class="sss1">	<a href="yisheng?pageNum=1&id=${id}">首页</a></div>
+	<div class="sss1"><a href="yisheng?pageNum=${pageInfo.pageNum-1}&id=${id}">上一页</a></div>
+	<div class="sss1"><a href="yisheng?pageNum=${pageInfo.pageNum+1}&id=${id}">下一页</a></div>
+	<div class="sss1"><a href="yisheng?pageNum=${pageInfo.pages}&id=${id}">尾页</a></div>
+	</div>
 </body>
 </html>

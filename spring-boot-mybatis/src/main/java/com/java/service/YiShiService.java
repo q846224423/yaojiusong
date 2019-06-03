@@ -3,6 +3,8 @@ package com.java.service;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.java.pojo.DrugStore;
 import com.java.pojo.Users_biger;
@@ -24,4 +26,9 @@ public interface YiShiService {
 	
 	// 通过县得ID查询该县所有的药店
 	List<DrugStore> showAllYao(@Param("county_id") int county_id);
+	
+	//修改处方状态 当处方状态为0开处方时才可以修改处方申请中将状态0改成1
+		int updatestart(@Param("yhid") int yhid);
+		//通过医师ID查找处方信息
+		Users_biger chufang(@Param("wzid") int wzid);
 }

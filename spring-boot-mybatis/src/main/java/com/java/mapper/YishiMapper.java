@@ -34,6 +34,9 @@ public interface YishiMapper {
 	@Select("SELECT * FROM drugstore WHERE county_id=${county_id}")
 	List<DrugStore> showAllYao(@Param("county_id") int county_id);
 	//修改处方状态 当处方状态为0开处方时才可以修改处方申请中将状态0改成1
-	/*@Update("update record set isOpenDrug=1 where isOpenDrug=0 and r_id=1");*/
-	
+	@Update("update record set isOpenDrug=1 where isOpenDrug=0 and r_id=${yhid}")
+	int updatestart(@Param("yhid") int yhid);
+	//通过医师ID查找处方信息
+	@Select("select * from wzjlu where r_id =${wzid}")
+	Users_biger chufang(@Param("wzid") int wzid);
 }

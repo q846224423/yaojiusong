@@ -126,7 +126,7 @@ p{
 		<span class="lijizhifu">立即支付</span><span class="span"><a href="ii">返回</a></span>
 	</div>
 		<div class="a1">
-			请在47分钟内付款，否则预约讲取消
+			完成付款后，可直接进入一对一医生聊天
 		</div>
 		<div class="zhongjianda">
 		<div class="zhongjian">
@@ -169,7 +169,7 @@ p{
 		</div>
 		<div class="hou">
 			<p>亲，您在咨询结束后可随时查看您的问诊记录。<br/>
-			指引:【下载APP】 →【我的预约】→【完善病历】</p>
+			指引:【返回首页】 →【我的信息】→【问诊记录】</p>
 		</div>
 		<div class="hou2">
 			<div class="img">

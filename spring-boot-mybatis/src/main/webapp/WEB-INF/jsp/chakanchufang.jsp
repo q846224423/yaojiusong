@@ -20,69 +20,8 @@
         
 	<script type="text/javascript" src="js/index/select.js"></script>
 	<script type="text/javascript">
-    	jQuery(function(){
-			jQuery.ajax({
-				"url":"getProvince",
-				"type":"post",
-				"data":{},
-				"dataType":"json",
-				"success":function(res){
-					jQuery.each(res,function(){
-						jQuery("#province").append('<option value="'+this.provinceCode+'" >'+this.provinceName+'</option>');
-					 }) 
-				}
-			})
-			jQuery("#province").change(function(){
-				var provinceCode = jQuery(this).val();
-				jQuery.ajax({
-				"url":"getCity",
-				"type":"post",
-				"data":{"provinceCode":provinceCode},
-				"dataType":"json",
-				"success":function(res){
-					jQuery("#city>option:gt(0)").remove();
-					jQuery.each(res,function(){
-						jQuery("#city").append('<option value="'+this.cityCode+'" >'+this.cityName+'</option>');
-					 }) 
-				}
-			})
-		})
-		 jQuery("#city").change(function(){
-				var cityCode = jQuery(this).val();
-				jQuery.ajax({
-				"url":"getArea",
-				"type":"post",
-				"data":{"cityCode":cityCode},
-				"dataType":"json",
-				"success":function(res){
-					jQuery("#area>option:gt(0)").remove();
-					jQuery.each(res,function(){
-						jQuery("#area").append('<option value="'+this.areaId+'" >'+this.areaName+'</option>');
-					 }) 
-				}
-			})
-		}) 
-		
-		
-		
-		 jQuery("#area").change(function(){
-				var cit = jQuery(this).val();
-				jQuery.ajax({
-				"url":"yaodian",
-				"type":"post",
-				"data":{"cit":cit},
-				"dataType":"json",
-				"success":function(res){
-					jQuery("#yao>option:gt(0)").remove();
-					jQuery.each(res,function(){
-						jQuery("#yao").append('<option value="'+this.yd_id+'" >'+this.yd_name+'</option>');
-					 }) 
-				}
-			})
-		}) 
-		
-		
-	})
+    	
+	
 	</script>
 <script type="text/javascript" src="js/index/select.js"></script>
 <style> 
@@ -220,30 +159,7 @@ function closeDialog(){
 <title>我的信息</title>
 </head>
 <body>
-   <div id="cont_b" class="cont">
-		  	
-		  	<div id="gb"><a href = "javascript:void(0)"  onclick = "document.getElementById('cont_b').style.display='none'">关闭</a></div>
-           <div id="address">选择药店</div>
-              <div id="xiala">
-         	<div class="sanji">选择相应的省：<select id="province" style="font-size: 14px;" name="province" >
-					<option value="0">请选择</option>
-					</select> <br/></div>
-              <div  class="sanji">选择相应的市：<select  id="city" style="font-size: 14px" name="city">
-                      <option value="0" >请选择</option>
-                    </select><br/></div>
-                  <div  class="sanji"> 选择相应的区： <select   id="area" style="font-size: 14px;" name="user_countyid">
-                      <option value="${user.user_countyid }" >请选择</option>
-                    </select><br/></div>
-                 <div  class="sanji"> 选择相应的药店：   <select   id="yao" style="font-size: 14px;" name="yaodian">
-                      <option value="药店" >请选择</option>
-                    </select>
-                    </div></div>
-                 <div id="sss"><a href="updatestart?yhid=${value.r_id}">
-			确定
-		
-		</a></div>
-        
-    </div>
+   
 	<!--Begin Header Begin-->
 	<div class="soubg">
 		<div class="sou">
@@ -397,60 +313,16 @@ function closeDialog(){
 				</div>
 			</div>
 			<div class="m_right">
-         <div style="font-size: 18px; margin-left: 36px; padding-top:15px ;margin-top: 30px;">问诊记录</div>
-<div style="font-size: 18px; margin-left: 860px; margin-top: -25px;"><a href="javascript:void(0)" onclick = "document.getElementById('cont_b').style.display='block' ">选择药店</a></div>
-<table border="1" cellspacing="0px" >
-	  	
-            <tr>
-            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;">用户姓名</td>
-            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;">医生姓名</td>
-            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;">问诊时间</td>
-            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" >处方信息</td>
-  <td colspan="2" style="width: 175px; text-align: center;line-height: 30px;height: 30px;">是否开处方</td>              
-            </tr>
-            <c:forEach items="${pageInfo.list}" var="value">
-            
-            <tr>
-             <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" name="name2">${value.user_name}</td>
-              <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" id="iphone">${value.d_name}</td>
-            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" id="tjr">${value.r_time}</td>
-            <td style="width: 175px; text-align: center;line-height: 30px;height: 30px;" id="leixin"><a href="chufang?wzid=${value.r_id}">查看处方</a></td>
-            <!-- 处方信息的div -->
-            <div id="cont_b1" class="cont1">
-		  	
-		  	<div id="gb"><a href = "javascript:void(0)"  onclick = "document.getElementById('cont_b').style.display='none'">关闭</a></div>
-           
-                 
+          <div style="margin-left: 60px; margin-top: 10px; font-size: 15px; height: 30px">处方详情</div>
         
-    </div>
-            
-             <!--    javascript:void(0)" onclick = "document.getElementById('cont_b').style.display='block' -->
-             <td style="width: 40px; text-align: center;line-height: 30px;height: 30px;"><a href ="updatestart?yhid=${value.r_id}" >
-             	 <c:choose>
-             
-         
-    <c:when test="${value.isOpenDrug==0}">
-       开处方
-    </c:when>
-    <c:when test="${value.isOpenDrug==1}">
-       申请处方中
-    </c:when>
-    <c:otherwise>
-        已开
-    </c:otherwise>
-</c:choose>
+                       <img src="img/${chufang.r_tel}"></img>
+          
            
-            </a></td>
-            </tr>
-            
-            </c:forEach>
-            </table>
-            <div style="margin-left: 670px;">
-            <p style="border:1px solid darkgray; height: 30px; width: 40px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block; "><a href="wenzhen2?pageNum=1">首页</a></p>
-                  <p style="border:1px solid darkgray; height: 30px; width: 60px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block "><a href="wenzhen2?pageNum=${pageInfo.pageNum-1}">上一页</a></p>
-              <p style="border:1px solid darkgray; height: 30px; width: 60px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block "><a href="wenzhen2?pageNum=${pageInfo.pageNum+1}">下一页</a></p>
-              <p style="border:1px solid darkgray; height: 30px; width: 40px; text-align: center; line-height: 30px; font-size: 20px;display:inline-block"><a href="wenzhen2?pageNum=${pageInfo.pages}">尾页</a></p>         
-</div>
+           
+           
+           
+           
+           
         </div>
 		</div>
 		<!--End 用户中心 End-->

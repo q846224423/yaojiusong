@@ -31,6 +31,15 @@ public class KsController {
 	KsServiceImpl ksi;
 	@Autowired
 	YiShiServiceImpl ysi;
+
+	// 跳转第二个页面
+	@RequestMapping("dier")
+	public String selectKs() {
+		
+		return "zhuanjiakeshi";
+	}
+	
+	
 	// 跳转选择科室界面
 	@RequestMapping("keshi")
 	public String selectKs(Model model) {
@@ -44,11 +53,9 @@ public class KsController {
 	@RequestMapping("yisheng")
 	public String selectyishi(Model model, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,int id) {
 		PageHelper.startPage(pageNum, 6);
-		
 		List<ZhongjianCalssYiShi> shouAll = ysi.yishiShouAll(id);
 		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(shouAll);
 		model.addAttribute("pageInfo", pageInfo);
-	
 		model.addAttribute("id", id);
 		return "yishi";
 	}
@@ -60,7 +67,7 @@ public class KsController {
 		ZhongjianCalssYiShi yishiShouOne = ysi.yishiShouOne(ks_id, d_id);
 		ys_id=yishiShouOne.getD_id();
 		if (yishiShouOne.getD_state() == 0) {
-			PageHelper.startPage(pageNum, 5);
+			PageHelper.startPage(pageNum, 6);
 			List<ZhongjianCalssYiShi> shouAll = ysi.yishiShouAll(ks_id);
 			PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(shouAll);
 			model.addAttribute("pageInfo", pageInfo);
@@ -121,9 +128,22 @@ public class KsController {
 			return "yonghuliaotian";
 		}
    //修改处方状态 当处方状态为0开处方时才可以修改处方申请中将状态0改成1
-		public String updateStart() {
-			
-			return "";
+		@RequestMapping("updatestart")
+		public String updateStart(Model model,Integer yhid, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		System.out.println("问诊ID"+yhid);
+			int updatestart = ysi.updatestart(yhid);
+			PageHelper.startPage(pageNum, 5);
+			List<Users_biger> wzjl = ysi.wzjl();
+			PageInfo<Users_biger> pageInfo = new PageInfo<Users_biger>(wzjl);
+			model.addAttribute("pageInfo", pageInfo);
+			System.out.println(updatestart);
+			return "wenzhenjilu";
 		}
-
+		//通过医师ID查找处方信息
+		@RequestMapping("chufang")
+		public String chufang(Model model,int wzid) {
+			Users_biger chufang = ysi.chufang(wzid);
+			model.addAttribute("chufang", chufang);
+			return "chakanchufang";
+		}
 }
