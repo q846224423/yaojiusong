@@ -130,4 +130,12 @@ public interface DrugstoreMapper {
 	//统计订单总数
 	@Select("select count(0) from order_z")
 	public int OAllNum();
+	
+	//刪除主单
+	@Delete("delete from order_z where z_id =#{id}")
+	public int deleteOrderZ(int id);
+	
+	//刪除详单
+	@Delete("delete from order_x where x_id =#{id}")
+	public int deleteOrderX(int id);
 }

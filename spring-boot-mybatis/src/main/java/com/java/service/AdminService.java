@@ -190,4 +190,10 @@ public interface AdminService {
 
 	// 根据id审核
 	public int shenheyishi(Doctor doctor);
+	
+	//刪除主单
+	public int deleteOrderZ(int id);
+		
+	//刪除详单
+	public int deleteOrderX(int id);
 }

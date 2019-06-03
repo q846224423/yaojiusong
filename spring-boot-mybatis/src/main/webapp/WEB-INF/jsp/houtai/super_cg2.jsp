@@ -70,7 +70,7 @@
 						</div>
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 							<tbody>
-							<c:forEach items="${aSelectOrderZ.list}" var="list">
+							<c:forEach items="${aSelectOrderX.list}" var="list">
 								<tr>
 									<td class="td_6">
 										${list.menu3_name }
@@ -84,7 +84,7 @@
 									</td>
 									<td class="td_10">
 										<div class="btn">
-											<a href="#" style="background: #ff980b; color: #fff;">删除</a>
+											<a href="deleteOrderX?id=${list.z_id}&xid=${list.x_id}" style="background: #ff980b; color: #fff;">删除</a>
 										</div>
 									</td>
 								</tr>
@@ -93,13 +93,12 @@
 						</table>
 						<!--pages S-->
 						<div class="pageSelect">
-							<span>共 <b>${NumAll}</b> 条 每页 <b>5 </b>条 </span>
 							<div class="pageWrap">
 								<a href="super_cg3?pageNum=1" class="pagenumb">首页</a>
 								<a href="super_cg3?pageNum=${aSelectOrderZ.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-								<b>${selectAllUsers.pageNum}</b>/<b>${aSelectOrderZ.pages}</b>
-								<a href="super_cg3?pageNum=${aSelectOrderZ.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
-								<a href="super_cg3?pageNum=${aSelectOrderZ.pages}" class="pagenumb">尾页</a>
+								<b>${aSelectOrderX.pageNum}</b>/<b>${aSelectOrderX.pages}</b>
+								<a href="super_cg3?pageNum=${aSelectOrderX.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="super_cg3?pageNum=${aSelectOrderX.pages}" class="pagenumb">尾页</a>
 							</div>
 						</div>
 						<!--pages E-->

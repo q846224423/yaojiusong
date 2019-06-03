@@ -145,11 +145,45 @@ public class AdminController {
 		PageHelper.startPage(pageNum,5);
 		List<Shop_orderx> ydOrderx = adminService.ydOrderx(id);
 		PageInfo<Shop_orderx> info = new PageInfo<Shop_orderx>(ydOrderx);
-		model.addAttribute("aSelectOrderZ", info);
+		model.addAttribute("aSelectOrderX", info);
 		int oAllNum = adminService.OAllNum();
 		model.addAttribute("NumAll",oAllNum);
 		return "houtai/super_cg2";
 	}
+	
+	//删除主单
+	@RequestMapping("deleteOrderZ")
+	public String deleteOrderZ(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,int id) {
+		List<Shop_orderx> ydOrderx = adminService.ydOrderx(id);
+		if (ydOrderx.size()==0) {
+			adminService.deleteOrderZ(id);
+			PageHelper.startPage(pageNum,5);
+			List<Oud> aSelectOrderZ = adminService.aSelectOrderZ();
+			PageInfo<Oud> info = new PageInfo<Oud>(aSelectOrderZ);
+			model.addAttribute("aSelectOrderZ", info);
+			int oAllNum = adminService.OAllNum();
+			model.addAttribute("NumAll",oAllNum);
+			return "houtai/super_cg3";
+		}
+		else {
+			return "houtai/cuowu";
+		}
+		
+	}
+	
+	//删除详单
+		@RequestMapping("deleteOrderX")
+		public String deleteOrderX(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,int id,int xid) {
+			adminService.deleteOrderX(xid);
+			PageHelper.startPage(pageNum,5);
+			List<Shop_orderx> ydOrderx = adminService.ydOrderx(id);
+			PageInfo<Shop_orderx> info = new PageInfo<Shop_orderx>(ydOrderx);
+			model.addAttribute("aSelectOrderZ", info);
+			int oAllNum = adminService.OAllNum();
+			model.addAttribute("NumAll",oAllNum);
+			return "houtai/super_cg2";
+		}
+	
 	
 	// iframe显示jsp代码 不要动
 	// 科别科室管理

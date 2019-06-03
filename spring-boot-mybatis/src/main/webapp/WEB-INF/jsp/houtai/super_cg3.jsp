@@ -90,7 +90,7 @@
 									<td class="td_12">${list.yd_name}</td>
 									<td class="td_10">
 										<div class="btn">
-											<a href="#" style="background: #ff980b; color: #fff;">删除</a>
+											<a href="deleteOrderZ?id=${list.z_id}" style="background: #ff980b; color: #fff;">删除</a>
 										</div>
 									</td>
 								</tr>
@@ -103,7 +103,7 @@
 							<div class="pageWrap">
 								<a href="super_cg3?pageNum=1" class="pagenumb">首页</a>
 								<a href="super_cg3?pageNum=${aSelectOrderZ.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-								<b>${selectAllUsers.pageNum}</b>/<b>${aSelectOrderZ.pages}</b>
+								<b>${aSelectOrderZ.pageNum}</b>/<b>${aSelectOrderZ.pages}</b>
 								<a href="super_cg3?pageNum=${aSelectOrderZ.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
 								<a href="super_cg3?pageNum=${aSelectOrderZ.pages}" class="pagenumb">尾页</a>
 							</div>

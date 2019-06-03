@@ -348,4 +348,16 @@ public class AdminServiceImpl implements AdminService {
 			int oAllNum = drugstoreMapper.OAllNum();
 			return oAllNum;
 	}
+	
+	//刪除主单
+	public int deleteOrderZ(int id) {
+		int deleteOrderZ = drugstoreMapper.deleteOrderZ(id);
+		return deleteOrderZ;
+	}
+			
+	//刪除详单
+	public int deleteOrderX(int id) {
+		int deleteOrderX = drugstoreMapper.deleteOrderX(id);
+		return deleteOrderX;
+	}
 }
