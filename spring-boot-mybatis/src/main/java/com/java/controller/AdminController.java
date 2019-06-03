@@ -147,6 +147,7 @@ public class AdminController {
 		model.addAttribute("aSelectOrderX", info);
 		int oAllNum = adminService.OAllNum();
 		model.addAttribute("NumAll",oAllNum);
+		model.addAttribute("id",id);
 		return "houtai/super_cg2";
 	}
 	

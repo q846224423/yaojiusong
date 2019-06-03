@@ -16,6 +16,13 @@ public class Users_biger {
 	private String r_time;   //时间
 	private String isGetMedicine; //发货状态 1：未发货 2：已发货 3:已签收
 	
+	
+	public String getD_tel() {
+		return d_tel;
+	}
+	public void setD_tel(String d_tel) {
+		this.d_tel = d_tel;
+	}
 	public Integer getYd_id() {
 		return yd_id;
 	}

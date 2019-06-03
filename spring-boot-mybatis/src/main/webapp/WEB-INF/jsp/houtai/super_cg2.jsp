@@ -94,16 +94,18 @@
 						<!--pages S-->
 						<div class="pageSelect">
 							<div class="pageWrap">
-								<a href="super_cg3?pageNum=1" class="pagenumb">首页</a>
-								<a href="super_cg3?pageNum=${aSelectOrderZ.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
+								<a href="super_cg2?pageNum=1&id=${id}" class="pagenumb">首页</a>
+								<a href="super_cg2?pageNum=${aSelectOrderZ.pageNum-1}&id=${id}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
 								<b>${aSelectOrderX.pageNum}</b>/<b>${aSelectOrderX.pages}</b>
-								<a href="super_cg3?pageNum=${aSelectOrderX.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
-								<a href="super_cg3?pageNum=${aSelectOrderX.pages}" class="pagenumb">尾页</a>
+								<a href="super_cg2?pageNum=${aSelectOrderX.pageNum+1}&id=${id}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="super_cg2?pageNum=${aSelectOrderX.pages}&id=${id}" class="pagenumb">尾页</a>
 							</div>
 						</div>
 						<!--pages E-->
 					</div>
-
+					<dl class="PD-list clearfix" style="text-align: right;position:relative;left: -230px">
+						<a href="super_cg3"><input type="submit" value="返回" class="saveBtn"></a>
+					</dl>
 				</div>
 			</div>
 			<!--main-->

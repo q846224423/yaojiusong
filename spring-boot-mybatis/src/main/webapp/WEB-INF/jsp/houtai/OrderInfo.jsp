@@ -50,7 +50,7 @@
 			</dl>
 			<dl>
 				<span>医生电话：</span>
-				<dd>${selectOneDS.d_tel }</dd>
+				<dd>${selectOneWZ.d_tel }</dd>
 			</dl>
 			<dl class="PD-list clearfix">
 				<a href="super_cg5"><input type="submit" value="返回" class="saveBtn"></a>

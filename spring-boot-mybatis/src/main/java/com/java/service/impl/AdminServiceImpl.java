@@ -392,6 +392,7 @@ public class AdminServiceImpl implements AdminService {
 	  	
 	  	//查询具体问诊记录
 	  	public Users_biger selectOneWZ(int id) {
-	  		return recordMapper.selectOneWZ(id);
+	  		Users_biger selectOneWZ = recordMapper.selectOneWZ(id);
+	  		return selectOneWZ;
 	  	}
 }
