@@ -316,7 +316,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	//审核医师
-	public int shenheyishi(Doctor doctor) {
-		return doctorChangeMapper.shenheyishi(doctor);
+	public int shenheyishi(int id) {
+		return doctorChangeMapper.shenheyishi(id);
 	}
 }

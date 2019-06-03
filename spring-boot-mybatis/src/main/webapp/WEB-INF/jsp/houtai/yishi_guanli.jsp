@@ -69,7 +69,7 @@
 											<th class="td_11">医师介绍</th>
 											<th class="td_12">医师职称</th>
 											<th class="td_13">科室科别</th>
-											<th class="td_14">医生状态</th>
+											<th class="td_14">审核状态</th>
 											<th class="td_10">操作</th>
 										</tr>
 										
@@ -93,7 +93,17 @@
 										</td>
 										<td class="td_12">${list.d_zc }</td>
 										<td class="td_13">${list.kb_name }</td>
-										<td class="td_14">${list.d_state }</td>
+										<c:choose>
+											<c:when test="${list.d_change ==2}">
+												<td class="td_14">已过审核</td>
+											</c:when>
+											<c:when test="${list.d_change ==0}">
+												<td class="td_14">默认</td>
+											</c:when>
+											<c:when test="${list.d_change ==1}">
+												<td class="td_14">未审核</td>
+											</c:when>
+										</c:choose>
 										<td class="td_10">
 											<div class="btn">
 												<a href="#" style="background: #ff980b; color: #fff;">删除</a>

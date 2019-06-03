@@ -13,7 +13,14 @@ public class ZhongjianCalssYiShi {
 	int d_age;//年龄
 	String d_introduce;//介绍
 	String d_tel;//电话
+	int d_change;
 	
+	public int getD_change() {
+		return d_change;
+	}
+	public void setD_change(int d_change) {
+		this.d_change = d_change;
+	}
 	public String getD_sex() {
 		return d_sex;
 	}

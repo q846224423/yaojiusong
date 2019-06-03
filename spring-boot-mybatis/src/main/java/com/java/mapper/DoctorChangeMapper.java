@@ -58,6 +58,6 @@ public interface DoctorChangeMapper {
 	public DoctorChange findonedoctor(int id);
 	
 	//根据id审核
-	@Update("update `shop1`.`doctor` set d_name=#{d_name},d_age=#{d_age},d_sex=#{d_sex},d_tel=#{d_tel},kb_id=#{kb_id},d_money=#{d_money},d_zc=#{d_zc},d_introduce=#{d_introduce},d_change=#{d_change} where d_id=#{d_id} ")
-	public int shenheyishi(Doctor doctor);
+	@Update("update `shop1`.`doctor` set`d_change`=2 where d_id= #{id}")
+	public int shenheyishi(int id);
 }

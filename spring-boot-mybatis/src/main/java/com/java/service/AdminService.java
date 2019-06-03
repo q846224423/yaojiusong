@@ -165,5 +165,5 @@ public interface AdminService {
 	public Pca selectPCA(int id);
 	
 	//根据id审核
-	public int shenheyishi(Doctor doctor);
+	public int shenheyishi(int id);
 }
