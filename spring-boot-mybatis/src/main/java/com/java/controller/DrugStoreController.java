@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +15,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.java.pojo.DrugStore;
+import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Menu1;
 import com.java.pojo.Menu2;
 import com.java.pojo.Menu3;
 import com.java.pojo.Shop_orderx;
 import com.java.pojo.Shop_orderz;
+import com.java.pojo.User_big;
+import com.java.pojo.Users_copy;
+import com.java.service.Commonservice;
 import com.java.service.FjtDrugstoreService;
 import com.java.service.StoreService;
 
@@ -29,6 +35,9 @@ public class DrugStoreController {
 	
 	@Autowired
 	private StoreService ssi;
+	
+	@Autowired
+	private Commonservice cm;
 
 	//跳转药店后台iframe需要
 	@RequestMapping("Store_info")
@@ -73,7 +82,7 @@ public class DrugStoreController {
 	//添加商品
 	@RequestMapping("addSp")
 	public String checkIdcard(MultipartFile file1, HttpServletRequest rq,Model model) throws IllegalStateException, IOException {
-		// 获取IDcard文件夹所在的绝对路径
+		// 获取sp文件夹所在的绝对路径
 		String path = "c:/Users/Administrator/git/yaojiusongy/spring-boot-mybatis/src/main/resources/static/upload/sp/";
 		String fileName = file1.getOriginalFilename();
 		// 上传
@@ -216,6 +225,56 @@ public class DrugStoreController {
 		return "drugstore/drugstore_manager";
 	}
 	
+	//药店的认证及修改信息
+	// 实名认证
+	@RequestMapping("ydshenhe")
+	public String checkIdcard(MultipartFile yd_head,MultipartFile yd_url, HttpServletRequest rq) throws IllegalStateException, IOException {
+		// 获取IDcard文件夹所在的绝对路径
+		String path1 = "c:/Users/Administrator/git/yaojiusongy/spring-boot-mybatis/src/main/resources/static/upload/ydhead/";
+		String path2 = "c:/Users/Administrator/git/yaojiusongy/spring-boot-mybatis/src/main/resources/static/upload/ydinfo/";
+		String fileName1 = yd_head.getOriginalFilename();
+		String fileName2 = yd_url.getOriginalFilename();
+		// 上传
+		MultipartHttpServletRequest request = (MultipartHttpServletRequest) rq;
+		yd_head.transferTo(new File(path1 + fileName1));
+		yd_url.transferTo(new File(path2 + fileName2));
+		
+		String yd_id1 = request.getParameter("yd_id");
+		int yd_id = Integer.parseInt(yd_id1);         //
+		String area1 = request.getParameter("area");
+		int county_id = Integer.parseInt(area1);      //
+		
+		String yd_name = request.getParameter("yd_name");
+		String regist_info = request.getParameter("regist_info");
+		//String yd_statu = request.getParameter("yd_statu");
+		String yd_head1 = "upload/ydhead/" + fileName1;
+		String yd_url1 = "upload/ydinfo/" + fileName2;
+		
+		// 改变主表认证状态，为认证中
+		ds.storeChangerz(yd_id);
+		
+		//更新提取最新的认证状态
+		String people_id1 = request.getParameter("people_id");
+		int people_id = Integer.parseInt(people_id1);
+		DrugStore drugStore = cm.getDrugStore(people_id);
+		String yd_statu = drugStore.getYd_statu();
+		
+		//存入对象，后面添加入副表
+		DrugStore_copy dc = new DrugStore_copy();
+		dc.setYd_id(yd_id);
+		dc.setYd_name(yd_name);
+		dc.setCounty_id(county_id);
+		dc.setRegist_info(regist_info);
+		
+		dc.setYd_head(yd_head1);
+		dc.setYd_url(yd_url1);
+		dc.setYd_statu(yd_statu);
+		//将最新的认证状态 添加副表，待管理员审核
+		ds.insertYdcopy(dc);
+
+		rq.getSession().setAttribute("drugStore", drugStore);
+		return "drugstore/Store_info";
+	}
 	
 	
 }

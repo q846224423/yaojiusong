@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.java.mapper.DrugstoreMapper;
 import com.java.pojo.DrugStore;
+import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Menu3;
 import com.java.pojo.Shop_orderx;
 import com.java.pojo.Shop_orderz;
@@ -93,6 +94,16 @@ public class DrugstoreServiceImpl implements FjtDrugstoreService {
 	@Override
 	public void qxzd(int id) {
 		dm.qxzd(id);
+	}
+
+	@Override
+	public void insertYdcopy(DrugStore_copy dc) {
+		dm.insertYdcopy(dc);
+	}
+
+	@Override
+	public void storeChangerz(int id) {
+		dm.storeChangerz(id);
 	}
 	
 	

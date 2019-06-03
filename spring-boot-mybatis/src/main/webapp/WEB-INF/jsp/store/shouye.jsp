@@ -34,7 +34,12 @@
 <link rel="stylesheet" href="css/index/base1.css">
 <link rel="stylesheet" href="css/index/index.css">
 <script type="text/javascript" src="js/index/paramsForStatic"></script>
-	
+	<style>
+.product img {
+width: 150px;
+height: 120px
+}	
+	</style>
 <title>易买网</title>
 </head>
 <body>  
@@ -436,7 +441,7 @@
 		<div class="w1200">
 			<div id="special" class="special">
 				<div class="tab">
-					<ul>
+					<ul >
 						<li tab-target="0" color='#fa462d' class="bg-left">国药特色</li>
 						<li class="spacer"></li>
 						<li tab-target="1" color='#fabf13'>优惠推荐</li>
@@ -452,12 +457,12 @@
 						<div class="tab-line-arrow"></div>
 					</div>
 				</div>
-				<div class="product">
-				<ul class="cong_ul">
-				<c:forEach items="ZDlist" var="zd">
+				<div class="product" >
+				<ul class="cong_ul" top="1">
+				<c:forEach items="${selectZD }" var="zd">
 						<li>
 						<a href="Showinfo?id=${zd.menu3_id }"> 
-                        <img src="${zd.ep_url }" alt="${zd.menu3_name } ${zd.ep_size }">
+                        <img style="" src="${zd.ep_url }" alt="${zd.menu3_name } ${zd.ep_size }">
 						</a> 
                         <a href="Showinfo?id=${zd.menu3_id }" class="cong_a text-overflow"
 							target="_blank">${zd.menu3_name } ${zd.ep_size }</a> <span class="price_opr"></span>

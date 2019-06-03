@@ -59,10 +59,11 @@ public class StoreController {
 		//这里先自己给一个药店id，测试，为1
 		int yd_id = 1;
 		List<Menu3> selectZD = ssi.selectZD(yd_id);
+		System.out.println("selectZD"+selectZD.toString());
 		List<Lookcart> lookCart = ssi.lookCart(users.getUser_id());
 		double allPrice = ssi.getAllPrice(lookCart);
 		session.setAttribute("list", list1);
-		session.setAttribute("ZDlist", selectZD);
+		session.setAttribute("selectZD", selectZD);
 		session.setAttribute("Cartlist", lookCart);
 		session.setAttribute("AllPrice", allPrice);
 		return "store/shouye";

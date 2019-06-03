@@ -20,6 +20,52 @@
 		<!--[if IE]>
 	<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
 	<![endif]-->
+	<script type="text/javascript">
+    	jQuery(function(){
+			jQuery.ajax({
+				"url":"getProvince",
+				"type":"post",
+				"data":{},
+				"dataType":"json",
+				"success":function(res){
+					jQuery.each(res,function(){
+						jQuery("#province").append('<option value="'+this.provinceCode+'" >'+this.provinceName+'</option>');
+					 }) 
+				}
+			})
+			jQuery("#province").change(function(){
+				var provinceCode = jQuery(this).val();
+				jQuery.ajax({
+				"url":"getCity",
+				"type":"post",
+				"data":{"provinceCode":provinceCode},
+				"dataType":"json",
+				"success":function(res){
+					jQuery("#city>option:gt(0)").remove();
+					jQuery.each(res,function(){
+						jQuery("#city").append('<option value="'+this.cityCode+'" >'+this.cityName+'</option>');
+					 }) 
+				}
+			})
+		})
+		 jQuery("#city").change(function(){
+				var cityCode = jQuery(this).val();
+				jQuery.ajax({
+				"url":"getArea",
+				"type":"post",
+				"data":{"cityCode":cityCode},
+				"dataType":"json",
+				"success":function(res){
+					jQuery("#area>option:gt(0)").remove();
+					jQuery.each(res,function(){
+						jQuery("#area").append('<option value="'+this.areaId+'" >'+this.areaName+'</option>');
+					 }) 
+				}
+			})
+		}) 
+	})
+	</script>
+	
 	</head>
 
 	<body style="background: #f6f5fa;">
@@ -38,7 +84,7 @@
 		<div class="zx-dtlMain">
 			<dl>
 				<span>药店图片：</span>
-				<img src="${drugStore.yd_head }" style="vertical-align: middle;" />
+				<img style="width: 300px;height: 210px" src="${drugStore.yd_head }" style="vertical-align: middle;" />
 			</dl>
 			<dl>
 				<span>药店名称：</span>
@@ -49,96 +95,103 @@
 				<dd>${drugStore.regist_info }</dd>
 			</dl>
 			
-			<c:choose>
-			<c:when test="">
 				<dl>
 			<span>认证状态：</span>
 				<dd>${drugStore.yd_statu }</dd>
 			</dl>
-			</c:when>
-			<c:otherwise>
-			
-			
-			</c:otherwise>
-			</c:choose>
-			
-			
-			
-			<dl class="PD-list clearfix">
-<a href="javascript:;" class="modify cg-xiugai-a"style="background:rgb(0,132,62); color: #fff;" >修改</a>			
-				
-			</dl>
 		</div>
-	<div class="xcXgBox layuiBox newPindaoBox newPindaoBox-xg">
+<div class="Mian-cont-btn clearfix">
+<div class="operateBtn">
+<c:choose>
+<c:when test="${drugStore.yd_statu=='已认证' }">
+<a href="javascript:;" class="greenbtn add sp-add">修改信息</a>
+</c:when>
+<c:when test="${drugStore.yd_statu=='认证中'}">
+<a href="javascript:;" class="greenbtn" style="width: 136px">请耐心等待</a>
+</c:when>
+<c:otherwise>
+<a href="javascript:;" class="greenbtn add sp-add">立即认证</a>
+</c:otherwise>
+</c:choose>
+</div>
+</div>
+
+
+		<div class="addFeileibox layuiBox newPindaoBox">
+	<form action="ydshenhe" method="post" enctype="multipart/form-data">
 		<div class="layer-title clearfix">
-			<h2>修改</h2>
+			<h2>审核</h2>
 			<span class="layerClose"></span>
 		</div>
 		<div class="layer-content">
-		<!-- 一级分类 -->
+		
+
+<!-- 一级分类 -->
 <input type="hidden" name="yd_id" value="${drugStore.yd_id }" />
 <dl class="PD-list clearfix">    
-<dt>一级分类：</dt>
+<dt>省：</dt>
 <dd>
-<select id="menu1" name="menu1" class="txt">
+<select id=province name="province" class="txt">
 <option >-请选择-</option>
-<c:forEach items="${allmenu1 }" var="menu1">
-<option value="${menu1.menu1_id }" >${menu1.menu1_name }</option>
-</c:forEach>
  </select>
  </dd>
 </dl>
 <!-- 二级分类 -->
 <dl class="PD-list clearfix">    
-<dt>二级分类：</dt>
+<dt>市：</dt>
 <dd>
-<select id="menu2" name="menu2" class="txt">
-<option value="${sp.menu3_menu2_id }">-请选择-</option>
+<select id="city" name="city" class="txt">
+<option >-请选择-</option>
  </select>
  </dd>
 </dl>
+<!-- 二级分类 -->
+<dl class="PD-list clearfix">    
+<dt>区：</dt>
+<dd>
+<select id="area" name="area" class="txt">
+<option value="${drugStore.county_id }" >-请选择-</option>
+ </select>
+ </dd>
+</dl>
+
 			<dl class="PD-list clearfix">
-				<dt>商品名称：</dt>
+				<dt>药店名称：</dt>
 				<dd>
 				<input type="hidden" name="yd_id" value="${drugStore.yd_id }">
-					<input type="text" name="menu3_name" value="${sp.menu3_name }" class="txt">
+				<input type="text" name="yd_name" value="${drugStore.yd_name }">
+				<input type="hidden" name="people_id" value="${drugStore.people_id }">	
 				</dd>
 			</dl>
 			<dl class="PD-list clearfix">
-				<dt>价格：</dt>
+				<dt>药店信息：</dt>
 				<dd>
-					<input type="text" name="ep_price" value="${sp.ep_price }" class="txt">
+				
+			<input type="hidden" name="yd_statu" class="txt" value="${drugStore.yd_statu }">
+			<input type="text" name="regist_info" class="txt" value="${drugStore.regist_info }">
 				</dd>
 			</dl>
 			<dl class="PD-list clearfix">
-				<dt>规格：</dt>
+				<dt>药店的相关证明</dt>
 				<dd>
-					<input type="text" name="ep_size"  value="${sp.ep_size }" class="txt">
+					<input type="file" name="yd_url" class="txt">
 				</dd>
 			</dl>
 			<dl class="PD-list clearfix">
-				<dt>说明：</dt>
+				<dt>门店图片：</dt>
 				<dd>
-					<input type="text" name="ep_description"  value="${sp.ep_description }" class="txt">
+					<input type="file" name="yd_head" class="txt">
 				</dd>
 			</dl>
 
 			<dl class="PD-list clearfix">
-				<dt>库存：</dt>
-				<dd>
-					<input type="text" name="ep_stock" value="${sp.ep_stock }"  class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>上传图片：</dt>
-				<dd>
-					<input type="file" name="file1" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<input type="submit" value="确定修改" class="saveBtn">
+			<dd>
+				<input type="submit" value="提交" class="saveBtn" />
+			</dd>
 			</dl>
 		</div>
+		</form>
+	</div>
 	</body>
 
 </html>

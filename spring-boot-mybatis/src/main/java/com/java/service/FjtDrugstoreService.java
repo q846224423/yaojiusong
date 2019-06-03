@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.java.pojo.DrugStore;
+import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Menu3;
 import com.java.pojo.Shop_orderx;
 import com.java.pojo.Shop_orderz;
@@ -54,4 +55,11 @@ public interface FjtDrugstoreService {
 	public void zdsp(int id);
 	//商品取消置顶
 	public void qxzd(int id);
+	
+	//商家上传信息去认证或者修改
+	//加入副表中
+	public void insertYdcopy(DrugStore_copy dc);
+	
+	//改变门店的认证状态，由未认证变成认证中
+	public void storeChangerz(int id);
 }

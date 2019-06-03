@@ -50,6 +50,9 @@ $(function(){
 	});
 	})
 });	
+function tishispan(){
+	$("#tishispan").text("尚未认证，无法添加商品");
+}
 </script>
 </head>
 
@@ -74,9 +77,20 @@ $(function(){
 
 				<div class="ctab-Mian-cont">
 					<div class="Mian-cont-btn clearfix">
-						<div class="operateBtn">
+					<c:choose>
+					<c:when test="${drugStore.yd_statu=='已认证' }">
+					<div class="operateBtn">
 							<a href="javascript:;" class="greenbtn add sp-add">添加商品</a>
-						</div>
+					</div>
+					</c:when>
+					<c:otherwise>
+					<div class="operateBtn">
+							<a href="javascript:;" class="greenbtn" onclick="tishispan();">添加商品</a>
+					</div><span id="tishispan"></span>
+					
+					</c:otherwise>
+					</c:choose>
+						
 						<div class="searchBar">
 						<form action="ydByName" method="post">
 						<input type="hidden" name="yd_id" value="${drugStore.yd_id }"/>
