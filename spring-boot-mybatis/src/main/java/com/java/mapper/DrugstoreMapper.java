@@ -141,5 +141,6 @@ public interface DrugstoreMapper {
 	@Update("update drugstore set yd_statu ='认证中' where yd_statu = '未认证' and yd_id = #{id}")
 	public void storeChangerz(int id);
 	
-
+	//查看非处方订单的记录
+	
 }
