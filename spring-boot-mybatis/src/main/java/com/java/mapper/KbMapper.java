@@ -14,7 +14,8 @@ public interface KbMapper {
     //通过科室的id查询科别
     @Select("select * from kb where ks_id=#{id}")
     List<Kb> selectkb(int id);
-    //增加科室
+    //增加科别
   	@Insert("insert into kb(kb_name,ks_id) values (#{kb_name},#{ks_id})")
   	public int insertOneKb(Kb kb);
+  	//根据科别id查出科室id
 }

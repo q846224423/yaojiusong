@@ -55,6 +55,7 @@
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
 							<tbody>
 								<tr><th style="width: 40%; text-align: center;">科别号</th><th style="width: 40%; text-align: center;">科别名</th>
+									<th style="width: 20%; text-align: center;">操作</th>
 								</tr>
 							</tbody>
 						</table>
@@ -65,6 +66,7 @@
 							<tr>
 								<td style="width: 40%; text-align: center;">${list.kb_id }</td>
 								<td style="width: 40%; text-align: center;">${list.kb_name }</td>
+								<td style="width: 20%; text-align: center;"><a href="deletekb?id=${list.kb_id}">删除</a></td>
 							</tr>
 						 </c:forEach>
 						</tbody>

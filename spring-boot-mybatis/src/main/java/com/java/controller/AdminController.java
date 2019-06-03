@@ -244,16 +244,12 @@ public class AdminController {
 		
 	}
 	//添加科别
-		@RequestMapping("tianjiakebie")
-		public String insertOneKb(Model model,Kb kb,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+	@RequestMapping("tianjiakebie")
+	public String insertOneKb(Model model,Kb kb,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
 		adminService.insertOneKb(kb);
-		PageHelper.startPage(pageNum,3);
-		List<KbKsZhongjianlei> selectAllkb = adminService.selectAllkb(kb.getKs_id());
-		PageInfo<KbKsZhongjianlei> pageInfo = new PageInfo<KbKsZhongjianlei>(selectAllkb);
-		model.addAttribute("selectAllkb",pageInfo);
-		model.addAttribute("NumAll",adminService.Allkbnum(kb.getKs_id()));
-		return "houtai/super_cg6";	
-	}
+		
+		return "houtai/super_cg4";
+}
 	
 	//删除科室
 	@RequestMapping("deleteks")
@@ -371,14 +367,19 @@ public class AdminController {
 	// iframe显示jsp代码 不要动
 	// 医师行医资格详情页面
 	@RequestMapping("xingyi_dtl")
-	public String xingyi_dtl() {
+	public String xingyi_dtl(Model model,Integer id) {
+		model.addAttribute("weirenzhen",adminService.selectRzYishi01(id));
 		return "houtai/xingyi_dtl";
 	}
 
 	// iframe显示jsp代码 不要动
 	// 医师行医资格主界面
 	@RequestMapping("xingyi_Team")
-	public String xingyi_Team() {
+	public String xingyi_Team(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
+		PageHelper.startPage(pageNum, 5);
+		List<ZhongjianCalssYiShi> selectRzYishi = adminService.selectRzYishi();
+		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(selectRzYishi);
+		model.addAttribute("wrzyishi",pageInfo);
 		return "houtai/xingyi_Team";
 	}
 	
@@ -442,7 +443,30 @@ public class AdminController {
 		int allDoctorNum = adminService.AllDoctorNum();
 		model.addAttribute("allDoctorNum",allDoctorNum);
 		return "houtai/yishi_guanli";
-		
 	}
-
+	
+	//删除科别
+	@RequestMapping("deletekb")
+	public String deletekb(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer id) {
+		adminService.deleteOneKs(id);
+		PageHelper.startPage(pageNum,5);
+		List<Ks> ks = adminService.selectAllKs();
+		PageInfo<Ks> info = new PageInfo<Ks>(ks);
+		model.addAttribute("ks",info);
+		model.addAttribute("NumAll",adminService.ksAll());
+		return "houtai/super_cg4";		
+	}
+	
+	//医师认证
+	@RequestMapping("renzhenyishi")
+	public String renzhenwancheng(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,Integer d_id,Doctor doctor) {
+		adminService.updateRz(doctor);
+		PageHelper.startPage(pageNum,5);
+		List<ZhongjianCalssYiShi> selectAll01 = adminService.selectAll01();
+		PageInfo<ZhongjianCalssYiShi> pageInfo = new PageInfo<ZhongjianCalssYiShi>(selectAll01);
+		model.addAttribute("selectAllDoctor",pageInfo);
+		int allDoctorNum = adminService.AllDoctorNum();
+		model.addAttribute("allDoctorNum",allDoctorNum);
+		return "houtai/yishi_guanli";	
+	}
 }

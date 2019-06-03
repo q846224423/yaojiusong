@@ -395,4 +395,24 @@ public class AdminServiceImpl implements AdminService {
 	  		Users_biger selectOneWZ = recordMapper.selectOneWZ(id);
 	  		return selectOneWZ;
 	  	}
+	  	
+	  //查科别
+	  		public List<Kb> selectkb(int id) {
+	  			return kbmapper.selectkb(id);
+	  		}
+
+	  		//医生资格认证
+	  		public int updateRz(Doctor doctor) {
+	  			return doctorMapper.updateRz(doctor);
+	  		}
+
+	  		//查未认证的医师
+	  		public List<ZhongjianCalssYiShi> selectRzYishi() {
+	  			return doctorMapper.selectRzYishi();
+	  		}
+
+	  		@Override
+	  		public Doctor selectRzYishi01(int id) {
+	  			return doctorMapper.selectRzYishi01(id);
+	  		}
 }

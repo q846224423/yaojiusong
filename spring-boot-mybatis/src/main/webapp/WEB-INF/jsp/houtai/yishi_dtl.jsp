@@ -65,13 +65,13 @@
 				<span>审核状态：</span>
 				<c:choose >
 					<c:when test="${findonedoctor.d_change ==0}">
-					<dd>未认证</dd>
+					<dd style="color: red;">未审核</dd>
 					</c:when>
 					<c:when test="${findonedoctor.d_change ==1}">
-					<dd>认证中</dd>
+					<dd style="color: red;">审核中</dd>
 					</c:when>
 					<c:otherwise>
-					<dd>已认证</dd>
+					<dd style="color: red;">已审核</dd>
 					</c:otherwise>
 				</c:choose>
 			<br/>

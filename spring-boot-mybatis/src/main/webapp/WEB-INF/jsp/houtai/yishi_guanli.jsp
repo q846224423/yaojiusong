@@ -8,7 +8,7 @@
 		<meta charset="utf-8">
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>活动管理</title>
+		<title></title>
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/page.css">
 		<!--[if lte IE 8]>
@@ -28,7 +28,7 @@
 		<div class="super-content">
 			<div class="superCtab">
 				<div class="ctab-title clearfix">
-					<h3>医师管理</h3>
+					<h3>医师信息</h3>
 				</div>
 
 				<div class="ctab-Main">
@@ -38,10 +38,10 @@
 								<a href="yishi_guanli">医师信息</a>
 							</li>
 							<li>
-								<a href="yishi_Team">信息审核</a>
+								<a href="yishi_Team">审核修改</a>
 							</li>
 							<li>
-								<a href="xingyi_Team">行医资料</a>
+								<a href="xingyi_Team">行医资格</a>
 							</li>
 						</ul>
 					</div>
@@ -62,13 +62,14 @@
 									<tbody>
 									
 										<tr>
-											<th class="td_6">医师姓名</th>
-											<th class="td_7">性别</th>
-											<th class="td_12">年龄</th>
-											<th class="td_8">联系电话</th>
-											<th class="td_11">医师介绍</th>
+											<th style="width: 8%; text-align: center;">医师姓名</th>
+											<th style="width: 8%">性别</th>
+											<th style="width: 8%">年龄</th>
+											<th style="width: 14%">联系电话</th>
+											<th style="width: 18%">医师介绍</th>
 											<th class="td_12">医师职称</th>
 											<th class="td_13">科室科别</th>
+											<th style="width: 8%;text-align: center;">认证状态</th>
 											<th class="td_14">审核状态</th>
 											<th class="td_10">操作</th>
 										</tr>
@@ -80,25 +81,33 @@
 								<tbody>
 								<c:forEach items="${selectAllDoctor.list}" var="list">
 									<tr>
-										<td class="td_6">${list.d_name }</td>
-										<td class="td_7">
+										<td style="width: 8%; text-align: center;">${list.d_name }</td>
+										<td style="width: 8%; text-align: center;">
 											<a href="#">${list.d_sex }</a>
 										</td>
-										<td class="td_12">${list.d_age }</td>
-										<td class="td_8">
+										<td style="width: 8%; text-align: center;">${list.d_age }</td>
+										<td style="width: 14%; text-align: center;">
 											<a href="#" class="txdoc">${list.d_tel }</a>
 										</td>
-										<td class="td_11">
+										<td style="width: 18%; text-align: center;">
 											<a href="#" class="txdoc">${list.d_introduce }</a>
 										</td>
 										<td class="td_12">${list.d_zc }</td>
 										<td class="td_13">${list.kb_name }</td>
 										<c:choose>
+											<c:when test="${list.d_control ==0}">
+												<td style="width: 8%;text-align: center; color: red;">未认证</td>
+											</c:when>
+											<c:when test="${list.d_control ==2}">
+												<td style="width: 8%;text-align: center; color: red;">未认证</td>
+											</c:when>
+										</c:choose>
+										<c:choose>
 											<c:when test="${list.d_change ==0}">
-												<td class="td_14">已过审核</td>
+												<td class="td_14" style="color: red">已审核</td>
 											</c:when>
 											<c:when test="${list.d_change ==1}">
-												<td class="td_14">未审核</td>
+												<td class="td_14" style="color: red">未审核</td>
 											</c:when>
 										</c:choose>
 										<td class="td_10">

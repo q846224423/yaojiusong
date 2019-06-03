@@ -200,9 +200,6 @@ public interface AdminService {
 	
 	//通过后删除
 	public int deleteshenhe(int id);
-	
-	//删除单个医生数据
-    int deleteOneYs(int id);
     
     //后台查询所有问诊记录
   	public List<Users_biger> selectWZ();
@@ -215,4 +212,19 @@ public interface AdminService {
   	
   	//查询具体问诊记录
   	public Users_biger selectOneWZ(int id);
+  	
+  //删除单个医生数据
+    public int deleteOneYs(int id);
+    
+    //通过科室的id查询科别
+    public List<Kb> selectkb(int id);
+    
+    //资格认证
+    int updateRz(Doctor doctor);
+    
+    //查未认证的医师
+    List<ZhongjianCalssYiShi> selectRzYishi();
+    
+    //查未认证的医师
+    Doctor selectRzYishi01(int id);
 }

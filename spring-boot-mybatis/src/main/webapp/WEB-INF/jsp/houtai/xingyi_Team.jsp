@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html class=" js csstransforms3d">
 
 	<head>
@@ -39,7 +40,7 @@
 								<a href="yishi_Team">信息审核</a>
 							</li>
 							<li class="cur">
-								<a href="xingyi_Team">行医资料</a>
+								<a href="xingyi_Team">行医资格</a>
 							</li>
 						</ul>
 					</div>
@@ -47,7 +48,7 @@
 					<div class="ctab-Mian-cont">
 						<div class="Mian-cont-btn Mian-cont-btn2 clearfix">
 							<div class="operateBtn">
-								<div class="wd-msg">您有 <span>2</span> 条未读咨询信息！</div>
+								<div class="wd-msg">您有 <span>1</span> 条未读咨询信息！</div>
 							</div>
 							<div class="searchBar">
 								<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入子站关键字搜索">
@@ -60,8 +61,8 @@
 								<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
 									<tbody>
 										<tr>
-											<th class="t_1">医师编号</th>
-											<th class="t_2_1">行医资料</th>
+											<th style="width: 30%; text-align: center;">医师编号</th>
+											<th style="width: 40%; text-align: center;">行医资格证书</th>
 											<th>操作</th>
 										</tr>
 									</tbody>
@@ -69,28 +70,29 @@
 							</div>
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
 								<tbody>
+								<c:forEach items="${wrzyishi.list }" var="list">
 									<tr class="wd">
-										<td class="t_1">2015001</td>
-										<td class="t_2_1">
-											<a href="xingyi_dtl" class="team-a">张三行医资料</a>
+										<td  style="width: 30%; text-align: center;">${list.d_id }</td>
+										<td  style="width: 40%; text-align: center;">
+											<a href="xingyi_dtl?id=${list.d_id }" class="team-a">${list.d_name }&nbsp;资格认证书</a>
 										</td>
 										<td class="alcenter">
-											<a href="xingyi_dtl" class="export-a">查看修改信息</a>
+											<a href="xingyi_dtl?id=${list.d_id }" class="export-a">查看</a>
 										</td>
 									</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 							<!--pages S-->
 							<div class="pageSelect">
-								<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
-								<div class="pageWrap">
-									<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-									<a href="#" class="pagenumb cur">1</a>
-									<a href="#" class="pagenumb">2</a>
-									<a href="#" class="pagenumb">3</a>
-									<a href="#" class="pagenext"><i class="ico-next">&nbsp;</i></a>
-								</div>
-							</div>
+								<span>共 <b>1</b> 条 每页 <b>5 </b>条   </span>
+							<div class="pageWrap">
+							<a href="xingyi_Team?pageNum=1" class="pagenumb">首页</a>
+								<a href="xingyi_Team?pageNum=${wrzyishi.pageNum-1}" class="pagePre"><i class="ico-pre">&nbsp;</i></a>
+								<b>${wrzyishi.pageNum}</b>/<b>${wrzyishi.pages}</b>
+								<a href="xingyi_Team?pageNum=${wrzyishi.pageNum+1}" class="pagenext"><i class="ico-next">&nbsp;</i></a>
+								<a href="xingyi_Team?pageNum=${wrzyishi.pages}" class="pagenumb">尾页</a>
+						</div>
 							<!--pages E-->
 						</div>
 					</div>

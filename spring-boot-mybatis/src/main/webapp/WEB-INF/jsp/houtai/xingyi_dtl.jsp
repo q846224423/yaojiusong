@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d">
 
@@ -36,43 +37,53 @@
 		<!--content E-->
 		<div class="zx-dtlMain">
 			<dl>
-				<span>医师头像：</span>
-				<img src="images/吴彦祖.png" style="vertical-align: middle;" />
+				<span>医师资格认证书：</span>
+				<img src="upload/chen/doctor.png" style="vertical-align: middle" />
 			</dl>
 			<dl>
 				<span>姓名：</span>
-				<dd>吴彦祖</dd>
+				<dd>${weirenzhen.d_name}</dd>
+			</dl>
+			<dl>
+				<span>医师状态：</span>
+				<c:choose >
+					<c:when test="${weirenzhen.d_control ==0}">
+					<dd style="color: red;">未认证</dd>
+					</c:when>
+					<c:when test="${weirenzhen.d_control ==1}">
+					<dd style="color: red;">认证中</dd>
+					</c:when>
+					<c:otherwise>
+					<dd style="color: red;">已认证</dd>
+					</c:otherwise>
+				</c:choose>
 			</dl>
 			<dl>
 				<span>医师性别：</span>
-				<dd>男</dd>
+				<dd>${weirenzhen.d_sex }</dd>
 			</dl>
 			<dl>
 				<span>医师电话：</span>
-				<dd>123131312312</dd>
+				<dd>${weirenzhen.d_tel }</dd>
+			</dl>
+
+			<dl>
+				<span>问诊金额：</span>
+				<dd>${weirenzhen.d_money }</dd>
 			</dl>
 			<dl>
-				<span>科别id：</span>
-				<dd>2</dd>
+				<span>医师职称：</span>
+				<dd>${weirenzhen.d_zc }</dd>
 			</dl>
 			<dl>
-				<span>修改后医师问诊金额：</span>
-				<dd>123</dd>
-			</dl>
-			<dl>
-				<span>修改后医师职称：</span>
-				<dd>副主任医师</dd>
-			</dl>
-			<dl>
-				<span>修改后医师的介绍：</span>
-				<dd>四十年老医生，非常棒!!!</dd>
+				<span>医师介绍：</span>
+				<dd>${weirenzhen.d_introduce }</dd>
 			</dl>
 			<dl class="PD-list clearfix">
-				<input type="submit" value="通过" class="saveBtn">
-				<input type="submit" value="拒绝" class="saveBtn">
+				<a href="renzhenyishi" class="saveBtn" style="font-size: 22px">通过</a>
+				<a href="xingyi_Team" class="saveBtn" style="font-size: 22px" >拒绝</a>
 			</dl>
 		</div>
-
 	</body>
 
 </html>

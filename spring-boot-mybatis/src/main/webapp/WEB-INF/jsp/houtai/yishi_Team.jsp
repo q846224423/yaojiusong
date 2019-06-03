@@ -28,7 +28,7 @@
 		<div class="super-content">
 			<div class="superCtab">
 				<div class="ctab-title clearfix">
-					<h3>医师审核</h3>
+					<h3>审核修改</h3>
 				</div>
 				<div class="ctab-Main">
 					<div class="ctab-Main-title">
@@ -37,7 +37,7 @@
 								<a href="yishi_guanli">医师信息</a>
 							</li>
 							<li class="cur">
-								<a href="yishi_Team">信息审核</a>
+								<a href="yishi_Team">修改审核</a>
 							</li>
 							<li>
 								<a href="xingyi_Team">行医资料</a>

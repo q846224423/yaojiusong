@@ -14,7 +14,14 @@ public class ZhongjianCalssYiShi {
 	String d_introduce;//介绍
 	String d_tel;//电话
 	int d_change;
+	int d_control;//医生状态
 	
+	public int getD_control() {
+		return d_control;
+	}
+	public void setD_control(int d_control) {
+		this.d_control = d_control;
+	}
 	public int getD_change() {
 		return d_change;
 	}
@@ -99,9 +106,8 @@ public class ZhongjianCalssYiShi {
 	public String toString() {
 		return "ZhongjianCalssYiShi [d_id=" + d_id + ", d_head=" + d_head + ", d_zc=" + d_zc + ", kb_name=" + kb_name
 				+ ", d_name=" + d_name + ", d_money=" + d_money + ", d_state=" + d_state + ", ks_id=" + ks_id
-				+ ", d_sex=" + d_sex + ", d_age=" + d_age + ", d_introduce=" + d_introduce + ", d_tel=" + d_tel + "]";
+				+ ", d_sex=" + d_sex + ", d_age=" + d_age + ", d_introduce=" + d_introduce + ", d_tel=" + d_tel
+				+ ", d_change=" + d_change + ", d_control=" + d_control + "]";
 	}
-
-
 
 }
