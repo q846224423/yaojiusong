@@ -140,5 +140,6 @@ public interface DrugstoreMapper {
 	// 改变门店的认证状态，由未认证变成认证中
 	@Update("update drugstore set yd_statu ='认证中' where yd_statu = '未认证' and yd_id = #{id}")
 	public void storeChangerz(int id);
+	
 
 }

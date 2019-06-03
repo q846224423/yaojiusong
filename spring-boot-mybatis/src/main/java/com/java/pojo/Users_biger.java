@@ -5,14 +5,41 @@ public class Users_biger {
 	private String user_name;//用户名字
 	private String user_sex;//用户性别
 	private String user_tel;//用户电话
-	private Integer isOpenDrug;//用户是否开处方
+	private Integer isOpenDrug;//用户是否开处方     0：开 1：不开 2：处理中
 	private Integer  r_status;//是否问诊
 	private Integer  user_id;//用户id
 	private String  r_tel;//处方图
-	private Integer r_id;//处方id
+	private Integer r_id;//问诊id
+	private Integer yd_id; //药店id
+	private String yd_name;//药店名字
+	private String r_time;   //时间
+	private String isGetMedicine; //发货状态 1：未发货 2：已发货 3:已签收
 	
+	public Integer getYd_id() {
+		return yd_id;
+	}
+	public void setYd_id(Integer yd_id) {
+		this.yd_id = yd_id;
+	}
+	public String getYd_name() {
+		return yd_name;
+	}
+	public void setYd_name(String yd_name) {
+		this.yd_name = yd_name;
+	}
 	
-	
+	public String getR_time() {
+		return r_time;
+	}
+	public void setR_time(String r_time) {
+		this.r_time = r_time;
+	}
+	public String getIsGetMedicine() {
+		return isGetMedicine;
+	}
+	public void setIsGetMedicine(String isGetMedicine) {
+		this.isGetMedicine = isGetMedicine;
+	}
 	public String getR_tel() {
 		return r_tel;
 	}
