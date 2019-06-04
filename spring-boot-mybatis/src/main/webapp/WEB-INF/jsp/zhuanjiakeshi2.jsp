@@ -54,7 +54,7 @@
 			<div class="input"><input type="text" style="height: 34px; width: 1000px; "placeholder="输入科室名查找" /></div>
 			<div class="img"><img src="img/1558498361(1).jpg"></div>
 		</div>
-		<img src="img/123.jpg" width="1235px"/>
+		<img src="img/123.jpg" width="1270px"/>
 		<div class="table">
 			<table  border="1" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
 			<tr>

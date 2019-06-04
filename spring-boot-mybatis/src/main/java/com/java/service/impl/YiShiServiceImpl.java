@@ -38,8 +38,8 @@ public class YiShiServiceImpl implements YiShiService {
 		return ym.showAllYao(county_id);
 	}
 	//修改处方状态 当处方状态为0开处方时才可以修改处方申请中将状态0改成1
-	public int updatestart(int yhid) {
-		return ym.updatestart(yhid);
+	public int updatestart(int yhid,int yd) {
+		return ym.updatestart(yhid, yd);
 	}
 	//通过医师ID查找处方信息
 	public Users_biger chufang(int wzid) {

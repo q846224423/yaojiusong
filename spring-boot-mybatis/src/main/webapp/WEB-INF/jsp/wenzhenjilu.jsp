@@ -220,6 +220,7 @@ function closeDialog(){
 <title>我的信息</title>
 </head>
 <body>
+   <form action="getydid" method="post">
    <div id="cont_b" class="cont">
 		  	
 		  	<div id="gb"><a href = "javascript:void(0)"  onclick = "document.getElementById('cont_b').style.display='none'">关闭</a></div>
@@ -235,16 +236,16 @@ function closeDialog(){
                       <option value="${user.user_countyid }" >请选择</option>
                     </select><br/></div>
                  <div  class="sanji"> 选择相应的药店：   <select   id="yao" style="font-size: 14px;" name="yaodian">
-                      <option value="药店" >请选择</option>
+                      <option value="1" >请选择</option>
                     </select>
                     </div></div>
-                 <div id="sss"><a href="">
-			确定
+                 <div id="sss">
+			 <input type=image src="img/e7752e646da5c148a68f93a89ce45ad4.png" />
 		
 		</a></div>
         
     </div>
-	
+	</form>
 	<div class="bigdiv">
 <!--Begin Header Begin-->
 <div class="soubg">
@@ -485,7 +486,7 @@ function closeDialog(){
     </div>
             
              <!--    javascript:void(0)" onclick = "document.getElementById('cont_b').style.display='block' -->
-             <td style="width: 40px; text-align: center;line-height: 30px;height: 30px;"><a href ="updatestart?yhid=${value.r_id}" >
+             <td style="width: 40px; text-align: center;line-height: 30px;height: 30px;"><a href ="updatestart?yhid=${value.r_id}&yd=${ydid}" >
              	 <c:choose>
              
          

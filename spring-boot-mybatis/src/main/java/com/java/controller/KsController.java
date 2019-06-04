@@ -6,6 +6,7 @@ import java.util.List;
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -133,16 +134,16 @@ public class KsController {
 		}
    //修改处方状态 当处方状态为0开处方时才可以修改处方申请中将状态0改成1
 		@RequestMapping("updatestart")
-		public String updateStart(Model model,Integer yhid,HttpSession session,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		public String updateStart(@Param("yhid")Integer yhid,@Param("yd")Integer yd,Model model,HttpSession session,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		System.out.println("问诊ID"+yhid);
-			int updatestart = ysi.updatestart(yhid);
+			int updatestart = ysi.updatestart(yhid,yd);
 			PageHelper.startPage(pageNum, 5);
-			User_big attribute2 = (User_big)session.getAttribute("doctor");
+			User_big attribute2 = (User_big)session.getAttribute("user");
 			Integer user_id = attribute2.getUser_id();
 			List<Users_biger> wzjl = ysi.wzjl(user_id);
 			PageInfo<Users_biger> pageInfo = new PageInfo<Users_biger>(wzjl);
 			model.addAttribute("pageInfo", pageInfo);
-			System.out.println(updatestart);
+			System.out.println(123);
 			return "wenzhenjilu";
 		}
 		//通过医师ID查找处方信息
@@ -152,4 +153,19 @@ public class KsController {
 			model.addAttribute("chufang", chufang);
 			return "chakanchufang";
 		}
+		
+		
+		//存储点击选择药店获得药店ID
+		@RequestMapping("getydid")
+		 public String getydID(Model model,HttpSession session, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,int yaodian) {
+			 PageHelper.startPage(pageNum, 5);
+				User_big attribute2 = (User_big)session.getAttribute("user");
+				Integer user_id = attribute2.getUser_id();
+				System.out.println(123+user_id);
+				List<Users_biger> wzjl = ysi.wzjl(user_id);
+				PageInfo<Users_biger> pageInfo = new PageInfo<Users_biger>(wzjl);
+				model.addAttribute("pageInfo", pageInfo);
+			model.addAttribute("ydid", yaodian);
+				return "wenzhenjilu";
+		 }
 }
