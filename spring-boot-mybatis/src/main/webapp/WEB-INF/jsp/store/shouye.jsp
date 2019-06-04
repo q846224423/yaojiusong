@@ -277,7 +277,12 @@ height: 120px
             <li><a href="showBy1id?id=5">计生用品</a></li>
             <li><a href="showBy1id?id=6">中药饮品</a></li>
         </ul>
-        <div class="m_ad">中秋送好礼！</div>
+        <div class="m_ad">
+        <c:choose>
+        <c:when test="${user.user_card ==null }"><a href="">在线咨询</a></c:when>
+        <c:otherwise><a href="dier">在线咨询</a></c:otherwise>
+        </c:choose>
+        </div>
     </div>
 </div>
 <!--End Menu End--> 
