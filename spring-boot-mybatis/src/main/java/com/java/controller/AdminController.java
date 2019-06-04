@@ -67,6 +67,8 @@ public class AdminController {
 	//通过实名
 	@RequestMapping("tgsm")
 	public String tgsm(Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,int id) {
+		Users_copy selectOneUC = adminService.selectOneUC(id);
+		adminService.AupdateUser(selectOneUC);
 		adminService.updateTYSM(id);
 		adminService.deleteUC(id);
 		PageHelper.startPage(pageNum, 5);

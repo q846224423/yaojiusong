@@ -59,6 +59,10 @@ public interface UsersMapper {
 	@Update("update users set user_control = 0 where user_id=#{user_id} ")
 	public int updateJJSM(int id);
 	
+	//修改用戶信息
+	@Update("update users set user_name =#{user_name},user_card=#{user_card} where user_id =#{user_id}")
+	public int AupdateUser(Users_copy users_copy);
+	
 	//删除修改用户信息
 	@Delete("delete from users_copy where user_id=#{id}")
 	public int deleteUC(int id);

@@ -234,4 +234,7 @@ public interface AdminService {
 	//查询所有医师
 	@Select("select * from shituone where d_id is not null")
 	List<ZhongjianCalssYiShi> selectAll02();
+	
+	//修改用戶信息
+	public int AupdateUser(Users_copy users_copy);
 }

@@ -425,4 +425,10 @@ public class AdminServiceImpl implements AdminService {
 			public List<ZhongjianCalssYiShi> selectAll02() {
 				return doctorMapper.selectAll02();
 			}
+			
+			//修改用戶信息
+			public int AupdateUser(Users_copy users_copy) {
+				int aupdateUser = usersMapper.AupdateUser(users_copy);
+				return aupdateUser;
+			}
 }
