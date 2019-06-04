@@ -389,6 +389,7 @@ function closeDialog(){
         <!-- 弹窗 -->
         <div id="light" class="white_content">
         <form action="checkIdcard" method="post" enctype="multipart/form-data" >
+        <p onclick = "closeDialog()" style="text-align:right;">关闭</p>
             <table>
             <tr> 
             <td> <input type="hidden" name="user_id" value="${user.user_id }"/></td></tr>

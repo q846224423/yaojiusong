@@ -26,6 +26,165 @@
     <script type="text/javascript" src="js/index/tban.js"></script>
     <script type="text/javascript" src="js/index/jquery-3.js"></script>
 	<script type="text/javascript" src="js/index/lrscroll_1.js"></script>
+	<script type="text/javascript">
+    	jQuery(function(){
+			jQuery.ajax({
+				"url":"getProvince",
+				"type":"post",
+				"data":{},
+				"dataType":"json",
+				"success":function(res){
+					jQuery.each(res,function(){
+						jQuery("#province").append('<option value="'+this.provinceCode+'" >'+this.provinceName+'</option>');
+					 }) 
+				}
+			})
+			jQuery("#province").change(function(){
+				var provinceCode = jQuery(this).val();
+				jQuery.ajax({
+				"url":"getCity",
+				"type":"post",
+				"data":{"provinceCode":provinceCode},
+				"dataType":"json",
+				"success":function(res){
+					jQuery("#city>option:gt(0)").remove();
+					jQuery.each(res,function(){
+						jQuery("#city").append('<option value="'+this.cityCode+'" >'+this.cityName+'</option>');
+					 }) 
+				}
+			})
+		})
+		 jQuery("#city").change(function(){
+				var cityCode = jQuery(this).val();
+				jQuery.ajax({
+				"url":"getArea",
+				"type":"post",
+				"data":{"cityCode":cityCode},
+				"dataType":"json",
+				"success":function(res){
+					jQuery("#area>option:gt(0)").remove();
+					jQuery.each(res,function(){
+						jQuery("#area").append('<option value="'+this.areaId+'" >'+this.areaName+'</option>');
+					 }) 
+				}
+			})
+		}) 
+		
+		
+		
+		 jQuery("#area").change(function(){
+				var cit = jQuery(this).val();
+				jQuery.ajax({
+				"url":"yaodian",
+				"type":"post",
+				"data":{"cit":cit},
+				"dataType":"json",
+				"success":function(res){
+					jQuery("#yao>option:gt(0)").remove();
+					jQuery.each(res,function(){
+						jQuery("#yao").append('<option value="'+this.yd_id+'" >'+this.yd_name+'</option>');
+					 }) 
+				}
+			})
+		}) 
+		
+		
+	})
+	</script>
+<script type="text/javascript" src="js/index/select.js"></script>
+<style> 
+        .black_overlay{ 
+            display: none; 
+            position: absolute; 
+            top: 0%; 
+            left: 0%; 
+            width: 100%; 
+            height: 100%; 
+            background-color: black; 
+            z-index:1001; 
+            -moz-opacity: 0.8; 
+            opacity:.80; 
+            filter: alpha(opacity=88); 
+        } 
+        .white_content { 
+            display: none; 
+            position: absolute; 
+            top: 25%; 
+            left: 43%; 
+            width: 54%; 
+            height: 55%; 
+            padding: 20px; 
+            border: 10px solid peachpuff; 
+            background-color: white; 
+            z-index:1002; 
+            overflow: auto; 
+        } 
+        .cont{
+				  display: none; 
+    position: fixed; 
+    top: 25%; 
+    left: 25%; 
+    width: 50%; 
+    height: 50%; 
+    padding: 20px; 
+    border: 1px solid rgb(205,205,205); 
+    background-color: rgb(246,246,246);
+    color:#004680;
+    z-index:1; 
+    overflow: auto; 
+			}
+			.cont1{
+				  display: none; 
+    position: fixed; 
+    top: 25%; 
+    left: 25%; 
+    width: 50%; 
+    height: 50%; 
+    padding: 20px; 
+    border: 1px solid rgb(205,205,205); 
+    background-color: rgb(246,246,246);
+    color:#004680;
+    z-index:1; 
+    overflow: auto; 
+			}
+		#xiala{
+		margin-top: 0px;
+		}
+				#address{
+				text-align: center;
+				font-size: 20px;
+				font-weight: 600;
+			}
+			select{
+				width: 80px;
+				height: 20px;
+			}
+			.sanji{
+				padding-bottom: 20px;
+			}
+			#sss{
+				height: 40px;
+				width: 85px;
+				background-color: rgb(8,194,207);
+				 text-align:center;
+				 line-height: 40px;
+				  border-radius: 8px;
+				  color: white;
+ 	margin-left: 250px;	
+			}
+			a{
+				text-decoration: none;
+			}
+			
+			.sss:hover{
+				background-color: rgb(4,176,188)
+				}
+				
+				#gb{
+					margin-left: 590px;
+				}
+    </style> 
+	
 	
 <link rel="stylesheet"
 	href="css/index/owl.carousel.css">
@@ -279,7 +438,7 @@ height: 120px
         </ul>
         <div class="m_ad">
         <c:choose>
-        <c:when test="${user.user_card ==null }"><a href="">在线咨询</a></c:when>
+        <c:when test="${user.user_control ==2 }"><a href="">在线咨询</a></c:when>
         <c:otherwise><a href="dier">在线咨询</a></c:otherwise>
         </c:choose>
         </div>
