@@ -27,8 +27,8 @@
 			<ul>
 				<li class="on"><a href="Store_info" target="Mainindex"><i class="ico-7"></i>我的药店</a></li>
 				<li><a href="sp_guanli?yd_id=${drugStore.yd_id }" target="Mainindex"><i class="ico-8"></i>商品管理</a></li>
-				<li><a href="Order_gl?yd_id=${drugStore.yd_id }" target="Mainindex"><i class="ico-1"></i>非处方订单管理</a></li>
-				<li><a href="Order_gl1?yd_id=${drugStore.yd_id }" target="Mainindex"><i class="ico-1"></i>处方订单管理</a></li>
+				<li><a href="Order_gl?yd_id=${drugStore.yd_id }" target="Mainindex"><i class="ico-1"></i>订单管理</a></li>
+				<li><a href="Order_gl1?yd_id=${drugStore.yd_id }" target="Mainindex"><i class="ico-1"></i>处方管理</a></li>
 			</ul>
 		</div>
 	</div>

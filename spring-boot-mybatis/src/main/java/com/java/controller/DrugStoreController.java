@@ -63,7 +63,11 @@ public class DrugStoreController {
 
 	//跳转药店后台iframe需要
 	@RequestMapping("Store_info")
-	public String Store_info() {
+	public String Store_info(HttpSession session) {
+		DrugStore ddds = (DrugStore)session.getAttribute("drugStore");
+		DrugStore drugStore = cm.getDrugStore(ddds.getPeople_id());
+		session.setAttribute("drugStore", drugStore);
+		
 		return "drugstore/Store_info";
 	}
 	

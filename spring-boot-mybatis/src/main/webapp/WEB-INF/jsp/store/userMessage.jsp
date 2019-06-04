@@ -327,7 +327,7 @@ function closeDialog(){
 
 						<!-- 判断是否需要认证 -->
 						<c:choose>
-							<c:when test="${user.user_control==null || user.user_control==0 }">
+							<c:when test="${user.user_control==0 }">
 								<tr>
 									<td width="30%">实名认证：<span style="color: #555555;">
 									<a href = "JavaScript:void(0)" onclick = "openDialog()">未认证</a></span></td>

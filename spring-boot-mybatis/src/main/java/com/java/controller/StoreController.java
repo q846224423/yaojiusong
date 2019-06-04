@@ -52,9 +52,6 @@ public class StoreController {
 			session.setAttribute("list", list1);
 			return "store/shouye";
 		}
-		//实际是选择药店门店后，session中带的
-		//Object ydid = session.getAttribute("yd_id");
-		//int yd_id = Integer.parseInt(ydid.toString());
 		
 		//这里先自己给一个药店id，测试，为1
 		int yd_id = 1;
@@ -66,6 +63,7 @@ public class StoreController {
 		session.setAttribute("selectZD", selectZD);
 		session.setAttribute("Cartlist", lookCart);
 		session.setAttribute("AllPrice", allPrice);
+		session.setAttribute("yd_id", yd_id);
 		return "store/shouye";
 	}
 
@@ -95,7 +93,12 @@ public class StoreController {
 
 	// 跳转用户个人信息
 	@RequestMapping("userMessage")
-	public String touserMessage(Model model) {
+	public String touserMessage(Model model,HttpSession session) {
+		User_big users = (User_big) (session.getAttribute("user"));
+		User_big user = ssi.getUser(users.getPeople_id());
+		System.out.println("peopleid" + users.getPeople_id());
+		session.setAttribute("user", user);
+		
 		return "store/userMessage";
 	}
 

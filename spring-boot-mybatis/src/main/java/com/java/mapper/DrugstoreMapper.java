@@ -70,7 +70,7 @@ public interface DrugstoreMapper {
 	public int deleteOneSQ(int id);
 
 	// 门店信息修改
-	@Update("update drugstore set yd_name = #{yd_name},county_id=#{county_id},regist_info=#{regist_info},yd_url=#{yd_url} where yd_id=#{yd_id}")
+	@Update("update drugstore set yd_name = #{yd_name},county_id=#{county_id},regist_info=#{regist_info},yd_url=#{yd_url},yd_head=#{yd_head} where yd_id=#{yd_id}")
 	public int updateStore(DrugStore_copy drugStore_copy);
 
 	// yb
