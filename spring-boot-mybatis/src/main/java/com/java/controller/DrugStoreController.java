@@ -11,19 +11,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.java.mapper.CommonMapper;
+import com.java.mapper.DoctorMapper;
+import com.java.mapper.RecordMapper;
+import com.java.mapper.UsersMapper;
+import com.java.pojo.Doctor_big;
 import com.java.pojo.DrugStore;
 import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Menu1;
 import com.java.pojo.Menu2;
 import com.java.pojo.Menu3;
+import com.java.pojo.Pca;
 import com.java.pojo.Shop_orderx;
 import com.java.pojo.Shop_orderz;
 import com.java.pojo.User_big;
+import com.java.pojo.Users;
+import com.java.pojo.Users_biger;
 import com.java.pojo.Users_copy;
+import com.java.pojo.ZhongjianCalssYiShi;
+import com.java.service.AdminService;
 import com.java.service.Commonservice;
 import com.java.service.FjtDrugstoreService;
 import com.java.service.StoreService;
@@ -38,6 +51,15 @@ public class DrugStoreController {
 	
 	@Autowired
 	private Commonservice cm;
+	
+	@Autowired
+	private CommonMapper cmm;
+	
+	@Autowired
+	private DoctorMapper dmm;
+	
+	@Autowired
+	private RecordMapper rmm;
 
 	//跳转药店后台iframe需要
 	@RequestMapping("Store_info")
@@ -54,20 +76,30 @@ public class DrugStoreController {
 	//跳转药店后台iframe需要 
 	// 显示药店所有药品
 	@RequestMapping("sp_guanli")
-	public String sp_guanli(Model model,int yd_id) {
+	public String sp_guanli(Model model,int yd_id,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		PageHelper.startPage(pageNum, 4);
+		
 		List<Menu3> allmenu3 = ds.getAllmenu3(yd_id);
 		List<Menu1> allmenu1 = ssi.selectA1();
 		model.addAttribute("allmenu3",allmenu3);
+		PageInfo<Menu3> pageInfo = new PageInfo<Menu3>(allmenu3);
+		model.addAttribute("pageInfo", pageInfo);	
 		model.addAttribute("allmenu1",allmenu1);
 		return "drugstore/sp_guanli";
 	}
 	
 	//删除商品
 	@RequestMapping("yddelSp")
-	public String yddelSp(Model model,int menu3_id,int yd_id) {
+	public String yddelSp(Model model,int menu3_id,int yd_id,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		ds.delSp(menu3_id);
 		List<Menu3> allmenu3 = ds.getAllmenu3(yd_id);
-		model.addAttribute("allmenu3",allmenu3);
+		
+		PageHelper.startPage(pageNum, 4);
+		
+		List<Menu1> allmenu1 = ssi.selectA1();
+		PageInfo<Menu3> pageInfo = new PageInfo<Menu3>(allmenu3);
+		model.addAttribute("pageInfo", pageInfo);	
+		model.addAttribute("allmenu1",allmenu1);
 		return "drugstore/sp_guanli";
 	}
 	
@@ -81,7 +113,7 @@ public class DrugStoreController {
 	
 	//添加商品
 	@RequestMapping("addSp")
-	public String checkIdcard(MultipartFile file1, HttpServletRequest rq,Model model) throws IllegalStateException, IOException {
+	public String addSp(MultipartFile file1, HttpServletRequest rq,Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) throws IllegalStateException, IOException {
 		// 获取sp文件夹所在的绝对路径
 		String path = "c:/Users/Administrator/git/yaojiusongy/spring-boot-mybatis/src/main/resources/static/upload/sp/";
 		String fileName = file1.getOriginalFilename();
@@ -114,53 +146,119 @@ public class DrugStoreController {
 		System.out.println(menu3.toString());
 		ds.addSp(menu3);
 		//更新
-		List<Menu3> allmenu3 = ds.getAllmenu3(yd_id);
+		PageHelper.startPage(pageNum, 4);
 		List<Menu1> allmenu1 = ssi.selectA1();
-		model.addAttribute("allmenu3",allmenu3);
+		List<Menu3> allmenu3 = ds.getAllmenu3(yd_id);
+		
+		PageInfo<Menu3> pageInfo = new PageInfo<Menu3>(allmenu3);
+		model.addAttribute("pageInfo", pageInfo);
+		model.addAttribute("allmenu1",allmenu1);
 		model.addAttribute("allmenu1",allmenu1);
 		return "drugstore/sp_guanli";
 	}
 	// 旁边的搜素框
 	@RequestMapping("ydByName")
-	public String ydByName(String name, Model model,int yd_id) {
+	public String ydByName(String name, Model model,int yd_id,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		List<Menu3> allmenu3 = ds.ydByName(name, yd_id);
 		List<Menu1> allmenu1 = ssi.selectA1();
-		model.addAttribute("allmenu3",allmenu3);
+		
+		PageHelper.startPage(pageNum, 4);
+		PageInfo<Menu3> pageInfo = new PageInfo<Menu3>(allmenu3);
+		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("allmenu1",allmenu1);
 		return "drugstore/sp_guanli";
 	}
 	
 	//修改前记住商品信息 
 	@RequestMapping("remenberSp")
-	public String remenberSp(int menu3_id, Model model,int yd_id) {
+	public String remenberSp(int menu3_id,Model model,int yd_id) {
 		Menu3 sp = ssi.select3By3id(menu3_id);
-		
-		
 		List<Menu3> allmenu3 = ds.getAllmenu3(yd_id);
 		List<Menu1> allmenu1 = ssi.selectA1();
 		model.addAttribute("sp", sp);
 		model.addAttribute("allmenu3",allmenu3);
 		model.addAttribute("allmenu1",allmenu1);
-		return "drugstore/sp_guanli";
+		return "drugstore/sp_guanli2";
 	}
+	
+	//
+	//修改商品
+		@RequestMapping("xiugaisp")
+		public String xiugaisp(MultipartFile file1, HttpServletRequest rq,Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) throws IllegalStateException, IOException {
+			// 获取sp文件夹所在的绝对路径
+			String path = "c:/Users/Administrator/git/yaojiusongy/spring-boot-mybatis/src/main/resources/static/upload/sp/";
+			String fileName = file1.getOriginalFilename();
+			System.out.println(path+fileName);
+			// 上传
+			MultipartHttpServletRequest request = (MultipartHttpServletRequest) rq;
+			file1.transferTo(new File(path + fileName));
+			String id1 = request.getParameter("yd_id");
+			int yd_id = Integer.parseInt(id1);      //
+			String id2 = request.getParameter("menu2");
+			int menu2_id = Integer.parseInt(id2);      //
+			String menu3_id1 = request.getParameter("menu3_id");
+			int menu3_id = Integer.parseInt(menu3_id1);      //
+			String ep_stock1 = request.getParameter("ep_stock");
+			int ep_stock = Integer.parseInt(ep_stock1);   //
+			String ep_price1 = request.getParameter("ep_price");
+			double ep_price = Double.parseDouble(ep_price1); //
+			
+			String menu3_name = request.getParameter("menu3_name");
+			String ep_size = request.getParameter("ep_size");
+			String ep_description = request.getParameter("ep_description");
+			String ep_url = "upload/sp/" + fileName;
+			
+			Menu3 menu3 = new Menu3();
+			menu3.setMenu3_menu2_id(menu2_id);
+			menu3.setYd_id(yd_id);
+			menu3.setMenu3_name(menu3_name);
+			menu3.setEp_price(ep_price);
+			menu3.setEp_description(ep_description);
+			menu3.setEp_size(ep_size);
+			menu3.setEp_stock(ep_stock);
+			menu3.setEp_url(ep_url);
+			menu3.setMenu3_id(menu3_id);
+			System.out.println(menu3.toString());
+			ds.xiugaisp(menu3);
+			//更新
+			List<Menu3> allmenu3 = ds.getAllmenu3(yd_id);
+			List<Menu1> allmenu1 = ssi.selectA1();
+			
+			PageHelper.startPage(pageNum, 4);
+			
+			PageInfo<Menu3> pageInfo = new PageInfo<Menu3>(allmenu3);
+			model.addAttribute("pageInfo", pageInfo);
+			model.addAttribute("allmenu1",allmenu1);
+			return "drugstore/sp_guanli";
+		}
+	
+	
+	
 	
 	//取消置顶 
 	@RequestMapping("qxzd")
-	public String qxzd(int menu3_id, Model model,int yd_id) {
+	public String qxzd(int menu3_id, Model model,int yd_id,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		ds.qxzd(menu3_id);
+		PageHelper.startPage(pageNum, 4);
+		
 		List<Menu3> allmenu3 = ds.getAllmenu3(yd_id);
 		List<Menu1> allmenu1 = ssi.selectA1();
 		model.addAttribute("allmenu3",allmenu3);
 		model.addAttribute("allmenu1",allmenu1);
+		
+		PageInfo<Menu3> pageInfo = new PageInfo<Menu3>(allmenu3);
+		model.addAttribute("pageInfo", pageInfo);	
 		return "drugstore/sp_guanli";
 	}	
 	//置顶 
 	@RequestMapping("zdsp")
-	public String zdsp(int menu3_id, Model model,int yd_id) {
+	public String zdsp(int menu3_id, Model model,int yd_id,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		ds.zdsp(menu3_id);
+		PageHelper.startPage(pageNum, 4);
 		List<Menu3> allmenu3 = ds.getAllmenu3(yd_id);
 		List<Menu1> allmenu1 = ssi.selectA1();
-		model.addAttribute("allmenu3",allmenu3);
+		PageInfo<Menu3> pageInfo = new PageInfo<Menu3>(allmenu3);
+		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("allmenu1",allmenu1);
 		return "drugstore/sp_guanli";
 	}	
@@ -212,11 +310,15 @@ public class DrugStoreController {
 	}
 	
 	
-	//跳转药店后台iframe需要，处方
+	//跳转药店后台iframe需要，处方订单
 		@RequestMapping("Order_gl1")
-		public String Order_gl1() {
+		public String Order_gl1(int yd_id,Model model) {
+		//通过药店id筛选	
+		List<Users_biger> ydcfOrder = ds.ydcfOrder(yd_id);
+			model.addAttribute("ydcfOrder", ydcfOrder);
 			return "drugstore/Order_gl1";
 		}
+		
 	
 	//跳转药店后台iframe需要
 	@RequestMapping("drugstore_manager")
@@ -276,5 +378,39 @@ public class DrugStoreController {
 		return "drugstore/Store_info";
 	}
 	
+	//药店处方订单中，我要发货
+	@RequestMapping("ydcfwyfh")
+	public String ydcfwyfh(int r_id,int yd_id,Model model) {
+		ds.ydcfwyfh(r_id);
+		List<Users_biger> ydcfOrder = ds.ydcfOrder(yd_id);
+		model.addAttribute("ydcfOrder", ydcfOrder);
+		return "drugstore/Order_gl1";
+	};
+	
+	//商家处方订单中进入用户详情
+	@RequestMapping("userxq")
+	public String userxq(int user_id,Model model) {
+		Users user = ssi.selectOneUsers(user_id);
+		Pca pca = cmm.selectPCA(user.getUser_countyid());
+		model.addAttribute("user", user);
+		model.addAttribute("pca", pca);
+		return "drugstore/userxq";
+	};
+	
+	//商家处方订单中进入用户详情
+	@RequestMapping("doctorxq")
+	public String doctorxq(int people_id,Model model) {
+		Doctor_big doctor = dmm.selectone(people_id);
+		model.addAttribute("d", doctor);
+		return "drugstore/doctorxq";
+	};
+	
+	//商家处方订单中进入用户详情
+	@RequestMapping("orderxxx")
+	public String orderxxx(int r_id,Model model) {
+		Users_biger ub = rmm.selectOneWZ(r_id);
+		model.addAttribute("ub", ub);
+		return "drugstore/orderxxx";
+	};
 	
 }

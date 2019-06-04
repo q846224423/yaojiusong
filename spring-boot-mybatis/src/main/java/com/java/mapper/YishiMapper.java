@@ -28,12 +28,15 @@ public interface YishiMapper {
 	public int insertWenzhen(@Param("yishi_id") int yishi_id, @Param("yh_id") int yh_id);
 //查询所有问诊记录
 	@Select("select * from wzjlu")
-	public List<Users_biger> wzjl();
+	public List<Users_biger> wzjl(int user_id);
 
 	// 通过县得ID查询该县所有的药店
 	@Select("SELECT * FROM drugstore WHERE county_id=${county_id}")
 	List<DrugStore> showAllYao(@Param("county_id") int county_id);
 	//修改处方状态 当处方状态为0开处方时才可以修改处方申请中将状态0改成1
-	/*@Update("update record set isOpenDrug=1 where isOpenDrug=0 and r_id=1");*/
-	
+	@Update("update record set isOpenDrug=1 where isOpenDrug=0 and r_id=${yhid}")
+	int updatestart(@Param("yhid") int yhid);
+	//通过医师ID查找处方信息
+	@Select("select * from wzjlu where r_id =${wzid}")
+	Users_biger chufang(@Param("wzid") int wzid);
 }

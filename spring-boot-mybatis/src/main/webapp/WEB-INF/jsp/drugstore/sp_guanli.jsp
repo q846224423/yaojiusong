@@ -113,8 +113,7 @@ function tishispan(){
 										<th class="td_8">库存</th>
 										<th class="td_12">图片</th>
 										<th class="td_13">是否置顶</th>
-										<th class="td_14">修改</th>
-										<th class="td_10">删除</th>
+										<th class="td_14">操作</th>
 									</tr>
 								</tbody>
 							</table>
@@ -122,15 +121,15 @@ function tishispan(){
 						<table border="0" cellspacing="0" cellpadding="0"
 							class="defaultTable defaultTable2">
 							<tbody>
-								<c:forEach items="${allmenu3 }" var="menu3">
+								<c:forEach items="${pageInfo.list }" var="menu3">
 									<tr>
 										<td class="td_6">${menu3.menu3_name }</td>
-										<td class="td_7"><a href="#">${menu3.ep_price }</a></td>
+										<td class="td_7">${menu3.ep_price }</td>
 										<td class="td_12">${menu3.ep_size }</td>
 										<td class="td_11"><a href="#" class="txdoc">${menu3.ep_description}</a>
 										</td>
-										<td class="td_8"><a href="super_cg_PinDao.html"
-											>${menu3.ep_stock }</a></td>
+										<td class="td_8">
+											${menu3.ep_stock }</td>
 										<td class="td_12">
 										
 										<img alt="${menu3.menu3_name }" src="${menu3.ep_url }">
@@ -138,7 +137,7 @@ function tishispan(){
 										<td class="td_13">
 										<c:choose>
 										<c:when test="${menu3.ep_stick==0 }">
-						<a href="zdsp?yd_id=${drugStore.yd_id}&menu3_id=${menu3.menu3_id}" >否</a></c:when>
+						                 <a href="zdsp?yd_id=${drugStore.yd_id}&menu3_id=${menu3.menu3_id}" >否</a></c:when>
 										<c:otherwise>
 										<a href="qxzd?yd_id=${drugStore.yd_id}&menu3_id=${menu3.menu3_id}" >是</a>
 										</c:otherwise>
@@ -146,16 +145,9 @@ function tishispan(){
 										</c:choose>
 										</td>
 										<td class="td_14">
-										<a href="remenberSp?yd_id=${drugStore.yd_id}&menu3_id=${menu3.menu3_id}" >&nbsp;</a><br />
-											<div class="btn">
-                                         <a href="javascript:;" class="modify cg-xiugai-a"style="background: #ff980b; color: #fff;" > 修改</a><br />
-											</div>
-											</td>
-											<td class="td_10">
-											<div class="btn">
-												<a href="yddelSp?yd_id=${drugStore.yd_id}&menu3_id=${menu3.menu3_id}" style="background: #ff980b; color: #fff;">删除</a>
-											</div>
-
+                     <a href="remenberSp?yd_id=${drugStore.yd_id}&menu3_id=${menu3.menu3_id}" style="background: green; color: #fff;" > 修改</a><br/><br/>
+					<a href="yddelSp?yd_id=${drugStore.yd_id}&menu3_id=${menu3.menu3_id}" style="background: green; color: #fff;">删除</a>
+											
 										</td>
 									</tr>
 								</c:forEach>
@@ -163,15 +155,11 @@ function tishispan(){
 							</tbody>
 						</table>
 						<!--pages S-->
-						<div class="pageSelect">
-							<span>共 <b>188</b> 条 每页 <b>10 </b>条 1/18
-							</span>
-							<div class="pageWrap">
-								<a class="pagePre"><i class="ico-pre">&nbsp;</i></a> <a href="#"
-									class="pagenumb cur">1</a> <a href="#" class="pagenumb">2</a> <a
-									href="#" class="pagenumb">3</a> <a href="#" class="pagenext"><i
-									class="ico-next">&nbsp;</i></a>
-							</div>
+						<div class="pageSelect"  style="text-align: center;">
+	<a href="sp_guanli?pageNum=1&yd_id=${drugStore.yd_id}">首页</a>
+	<a href="sp_guanli?pageNum=${pageInfo.pageNum-1}&yd_id=${drugStore.yd_id}">上一页</a>
+	<a href="sp_guanli?pageNum=${pageInfo.pageNum+1}&yd_id=${drugStore.yd_id}">下一页</a>
+	<a href="sp_guanli?pageNum=${pageInfo.pages}&yd_id=${drugStore.yd_id}">尾页</a>			
 						</div>
 						<!--pages E-->
 					</div>
@@ -340,77 +328,7 @@ function tishispan(){
 		</div>
 		</form>
 	</div>
-	<div class="xcXgBox layuiBox newPindaoBox newPindaoBox-xg">
-		<div class="layer-title clearfix">
-			<h2>修改</h2>
-			<span class="layerClose"></span>
-		</div>
-		<div class="layer-content">
-		<!-- 一级分类 -->
-<input type="hidden" name="yd_id" value="${drugStore.yd_id }" />
-<dl class="PD-list clearfix">    
-<dt>一级分类：</dt>
-<dd>
-<select id="menu1" name="menu1" class="txt">
-<option >-请选择-</option>
-<c:forEach items="${allmenu1 }" var="menu1">
-<option value="${menu1.menu1_id }" >${menu1.menu1_name }</option>
-</c:forEach>
- </select>
- </dd>
-</dl>
-<!-- 二级分类 -->
-<dl class="PD-list clearfix">    
-<dt>二级分类：</dt>
-<dd>
-<select id="menu2" name="menu2" class="txt">
-<option value="${sp.menu3_menu2_id }">-请选择-</option>
- </select>
- </dd>
-</dl>
-			<dl class="PD-list clearfix">
-				<dt>商品名称：</dt>
-				<dd>
-				<input type="hidden" name="yd_id" value="${drugStore.yd_id }">
-					<input type="text" name="menu3_name" value="${sp.menu3_name }" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>价格：</dt>
-				<dd>
-					<input type="text" name="ep_price" value="${sp.ep_price }" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>规格：</dt>
-				<dd>
-					<input type="text" name="ep_size"  value="${sp.ep_size }" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>说明：</dt>
-				<dd>
-					<input type="text" name="ep_description"  value="${sp.ep_description }" class="txt">
-				</dd>
-			</dl>
 
-			<dl class="PD-list clearfix">
-				<dt>库存：</dt>
-				<dd>
-					<input type="text" name="ep_stock" value="${sp.ep_stock }"  class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>上传图片：</dt>
-				<dd>
-					<input type="file" name="file1" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<input type="submit" value="确定修改" class="saveBtn">
-			</dl>
-		</div>
-	</div>
 </body>
 
 </html>

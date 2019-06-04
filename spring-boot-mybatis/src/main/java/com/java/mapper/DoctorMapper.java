@@ -44,7 +44,7 @@ public interface DoctorMapper {
 	@Select("select * from wzjlu where user_id =#{id}")
     public Users_biger userone(int id);
 	//医生改变处方状态
-	@Update("update record set isOpenDrug=0 where user_id =#{id}")
+	@Update("update record set isOpenDrug=2 where isOpenDrug=1 and user_id =#{id}")
 	public void d_isOpenDrug(int id);
 	
     

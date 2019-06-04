@@ -13,6 +13,7 @@ import com.java.pojo.Oud;
 import com.java.pojo.Pcad;
 import com.java.pojo.Shop_orderx;
 import com.java.pojo.Shop_orderz;
+import com.java.pojo.Users_biger;
 
 public interface DrugstoreMapper {
 
@@ -141,6 +142,15 @@ public interface DrugstoreMapper {
 	@Update("update drugstore set yd_statu ='认证中' where yd_statu = '未认证' and yd_id = #{id}")
 	public void storeChangerz(int id);
 	
-	//查看非处方订单的记录
+	//查看处方订单的记录
+	@Select("select * from wzjlu where yd_id = #{id} and isOpenDrug = '0'")
+	public List<Users_biger> ydcfOrder(int id);
 	
+	// 药店 处方药 我要发货
+	@Update("update `record` set isGetMedicine = '1' where isGetMedicine = '0' and r_id=#{id}")
+	public void ydcfwyfh(int id);
+	
+	// 添加商品
+	@Insert("update menuthree set `menu3_menu2_id` = #{menu3_menu2_id},`menu3_name` = #{menu3_name},`ep_price` = #{ep_price},`ep_size` =#{ep_size},`ep_description` = #{ep_description},`ep_stock` =#{ep_stock} ,`ep_url` = #{ep_url} where `menu3_id` = #{menu3_id} ")
+	public void xiugaisp(Menu3 menu3);
 }

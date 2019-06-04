@@ -159,7 +159,7 @@ pageEncoding="UTF-8"%>
 	</div>
 	<div class="top">
 		<div class="logo">
-			<a href="show"><img src="images/index/logo.png" /></a>
+			<a href="show"><img style="position: absolute;left: 2%;top:8%;" src="images/index/logo.png" /></a>
 		</div>
 		<div class="search">
 			<form action="QueryByName" method="post">

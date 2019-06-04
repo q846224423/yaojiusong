@@ -57,11 +57,14 @@
 				<td class="t_5">				
 			<c:choose>
          <c:when test="${list.isOpenDrug==0}">
-              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;               是
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;               否
+        </c:when>
+              <c:when test="${list.isOpenDrug==1}">
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;               申请中
         </c:when>
            <c:otherwise>
          
-                 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;    否
+                 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;    已开
         
          </c:otherwise>
           </c:choose>

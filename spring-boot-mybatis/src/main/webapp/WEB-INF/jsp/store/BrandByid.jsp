@@ -6,137 +6,224 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>【高血压】高血压用药,高血压吃什么药好_国药网</title>
+<title></title>
 <link rel="stylesheet" href="css/index/brand_files/base.css" />
 <link rel="stylesheet" href="css/index/brand_files/search.css" />
+	<link type="text/css" rel="stylesheet" href="css/index/style.css" />   
+    <script type="text/javascript" src="js/index/jquery-1.11.1.min_044d0927.js"></script>
+	<script type="text/javascript" src="js/index/jquery.bxslider_e88acd1b.js"></script>
+    
+    <script type="text/javascript" src="js/index/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/index/menu.js"></script>    
+        
+	<script type="text/javascript" src="js/index/select.js"></script>
+    
+	<script type="text/javascript" src="js/index/lrscroll.js"></script>
+    
+    <script type="text/javascript" src="js/index/iban.js"></script>
+    <script type="text/javascript" src="js/index/fban.js"></script>
+    <script type="text/javascript" src="js/index/f_ban.js"></script>
+    <script type="text/javascript" src="js/index/mban.js"></script>
+    <script type="text/javascript" src="js/index/bban.js"></script>
+    <script type="text/javascript" src="js/index/hban.js"></script>
+    <script type="text/javascript" src="js/index/tban.js"></script>
+    <script type="text/javascript" src="js/index/jquery-3.js"></script>
+	<script type="text/javascript" src="js/index/lrscroll_1.js"></script>
+	
+<link rel="stylesheet"
+	href="css/index/owl.carousel.css">
+<link rel="stylesheet"
+	href="css/index/owl.theme.css">
+<link rel="stylesheet" href="css/index/base1.css">
+<link rel="stylesheet" href="css/index/index.css">
+<script type="text/javascript" src="js/index/paramsForStatic"></script>
+
 </head>
 <body>
-	<div class="header_fix">
-		<div class="header-bar">
-			<div class="w1200 clear" style="height: 28px;">
-				<ul class="fl xinxifu">
-					<li>互联网药品交易服务资格证：沪C20160003&nbsp;&nbsp;&nbsp;&nbsp;互联网药品信息服务资格证书：(沪)-非经营性-2016-0011</li>
-				</ul>
-				<ul class="fr">
-					<li class="usname">你好，<a
-						href="https://login.yao123.com/login?plat=gw&amp;returnUrl=https%3A%2F%2Fwww.yao123.com%2FusercenterLogin&amp;retUrl=https%3A%2F%2Fwww.yao123.com%2Fcategory_70">请登录</a></li>
-					<li class="spacer"></li>
-					<li class="uregist"><a
-						href="https://login.yao123.com/register?plat=gw">免费注册</a></li>
-					<li class="spacer"></li>
-					<li><a href="https://www.yao123.com/memberorders">我的订单</a></li>
-					<li class="spacer"></li>
-					<li><a href="https://www.yao123.com/membercollection">我的收藏</a></li>
-					<li class="spacer"></li>
-					<li class="spacer"></li>
-					<li class="linksbox relative"><a
-						href="https://www.yao123.com/category_70">网站导航<i
-							class="link-ico"></i></a>
-					<div class="linksline"></div>
-						<div class="links-wrap"></div></li>
-					<li class="spacer"></li>
-					<li class="">客服电话：<span style="color: #fa462d;">4001-151-161</span></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="header_ed w1200"></div>
-	<div class="header">
-		<div class="header-body">
-			<div class="w1200">
-				<div class="logo after_apend">
-					<a href="show" class="logo-link"><img
-						src="css/index/brand_files/logo.png" width="218" alt="国药网,网上药店" /></a>
-				</div>
-				<div class="fl headimg_ed"></div>
-				<div class="dorpdown settleup">
-					<div class="cw-icon">
-						<i class="ci-left"></i><i class="ci-right">&gt;</i><i
-							id="shopping-amount" class="ci-count">0</i><a class="go_cart"
-							href="https://www.yao123.com/shopCar" target="_blank">我的购物车</a>
-					</div>
-					<div class="c-dorpdown-layer">
-						<div class="spacer"></div>
-						<div id="settleup-content">
-							<div class="prompt">
-								<div class="nogoods">
-									<b></b>
-									<p class="no_text">购物车中还没有商品，请赶紧选购吧！</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="search">
-					<div class="form">
-						<input class="searchbox" maxlength="64" placeholder="请输入药品名"
-							value="" text="text"><button class="searchbtn">
-								搜索<i></i>
-							</button>
-					</div>
-				</div>
-				<div class="hotwords">
-					<a target="_blank" href="https://www.yao123.com/category_249">纸尿裤</a>
-					<a target="_blank"
-						href="https://www.yao123.com/search?keyword=SK-II">SK-II</a> <a
-						target="_blank"
-						href="https://www.yao123.com/search?keyword=%E6%89%8B%E6%9C%BA%E7%94%B5%E8%84%91">手机电脑</a>
-					<a target="_blank"
-						href="https://www.yao123.com/activity/20161013/index.html">平安健康卡</a>
-					<a target="_blank"
-						href="https://www.yao123.com/search/0-0-0-0-0-desc?keyword=%E7%94%B5%E9%A3%8E%E6%89%87">电风扇</a>
-					<a target="_blank"
-						href="https://www.yao123.com/search/0-0-5009?keyword=%E6%B5%B7%E8%93%9D%E4%B9%8B%E8%B0%9C">海蓝之谜</a>
-					<a target="_blank"
-						href="https://www.yao123.com/search?keyword=%E4%B9%B3%E8%83%B6%E6%9E%95">乳胶枕</a>
-					<a target="_blank"
-						href="https://www.yao123.com/search?keyword=%E9%98%B2%E6%99%92">防晒</a>
-					<a target="_blank"
-						href="https://www.yao123.com/search?keyword=%E7%9B%8A%E5%AE%89%E5%AE%81%E4%B8%B8">益安宁丸</a>
-					<a target="_blank"
-						href="https://www.yao123.com/search?keyword=%E5%93%88%E8%8D%AF">哈药</a>
-				</div>
-			</div>
-		</div>
-		<div class="sucktop" style="z-index: 1000; top: -46px;">
-			<div class="sucktop_header clear">
-				<div class="fl">
-					<img src="css/index/brand_files/logo_nav.png">
-				</div>
-				<div class="fl">
-					<div class="form">
-						<input class="searchbox" maxlength="64" placeholder="请输入药品名"
-							value="" text="text"><button class="searchbtn">
-								搜索<i></i>
-							</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="header-nav">
-			<div class="w1200">
-			
-				<div class="navitems">
-					<ul>
-						<li><a href="https://www.yao123.com/" target="_blank">首页</a></li>
-						<li><a href="https://www.yao123.com/category_70"
-							target="_blank">高血压</a></li>
-						<li><a href="https://www.yao123.com/category_104"
-							target="_blank">呼吸系统</a></li>
-						<li><a href="https://www.yao123.com/category_88"
-							target="_blank">糖尿病</a></li>
-						<li><a href="https://www.yao123.com/category_80"
-							target="_blank">帕金森</a></li>
-						<li><a href="https://www.yao123.com/category_78"
-							target="_blank">抑郁症</a></li>
-						<li><a
-							href="https://www.yao123.com/activity/20161013/index.html"
-							target="_blank">平安健康卡</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+	
+	<div class="bigdiv">
+<!--Begin Header Begin-->
+<div class="soubg">
+	<div class="sou">
+    	<!--Begin 所在收货地区 Begin-->
+    	<span class="s_city_b">
+        	<span class="fl">送货至：</span>
+            <span class="s_city">
+            	<span>四川</span>
+                <div class="s_city_bg">
+                	<div class="s_city_t"></div>
+                    <div class="s_city_c">
+                    	<h2>请选择所在的收货地区</h2>
+                        <table border="0" class="c_tab" style="width:235px; margin-top:10px;" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <th>A</th>
+                            <td class="c_h"><span>安徽</span><span>澳门</span></td>
+                          </tr>
+                          <tr>
+                            <th>B</th>
+                            <td class="c_h"><span>北京</span></td>
+                          </tr>
+                          <tr>
+                            <th>C</th>
+                            <td class="c_h"><span>重庆</span></td>
+                          </tr>
+                          <tr>
+                            <th>F</th>
+                            <td class="c_h"><span>福建</span></td>
+                          </tr>
+                          <tr>
+                            <th>G</th>
+                            <td class="c_h"><span>广东</span><span>广西</span><span>贵州</span><span>甘肃</span></td>
+                          </tr>
+                          <tr>
+                            <th>H</th>
+                            <td class="c_h"><span>河北</span><span>河南</span><span>黑龙江</span><span>海南</span><span>湖北</span><span>湖南</span></td>
+                          </tr>
+                          <tr>
+                            <th>J</th>
+                            <td class="c_h"><span>江苏</span><span>吉林</span><span>江西</span></td>
+                          </tr>
+                          <tr>
+                            <th>L</th>
+                            <td class="c_h"><span>辽宁</span></td>
+                          </tr>
+                          <tr>
+                            <th>N</th>
+                            <td class="c_h"><span>内蒙古</span><span>宁夏</span></td>
+                          </tr>
+                          <tr>
+                            <th>Q</th>
+                            <td class="c_h"><span>青海</span></td>
+                          </tr>
+                          <tr>
+                            <th>S</th>
+                            <td class="c_h"><span>上海</span><span>山东</span><span>山西</span><span class="c_check">四川</span><span>陕西</span></td>
+                          </tr>
+                          <tr>
+                            <th>T</th>
+                            <td class="c_h"><span>台湾</span><span>天津</span></td>
+                          </tr>
+                          <tr>
+                            <th>X</th>
+                            <td class="c_h"><span>西藏</span><span>香港</span><span>新疆</span></td>
+                          </tr>
+                          <tr>
+                            <th>Y</th>
+                            <td class="c_h"><span>云南</span></td>
+                          </tr>
+                          <tr>
+                            <th>Z</th>
+                            <td class="c_h"><span>浙江</span></td>
+                          </tr>
+                        </table>
+                    </div>
+                </div>
+            </span>
+        </span>
+        <!--End 所在收货地区 End-->
+			<span class="fr"> <c:choose>
+					<c:when test="${user==null}">
+						<span class="fl">你好，请<a href="loginb.html">登录</a>&nbsp; <a
+							href="Regist.html" style="color: #ff4e00;">免费注册</a>
+					</c:when>
+					<c:otherwise>
+						<span class="fl">${user.user_name},你好&nbsp;<a
+							href="loginb.html">登录</a>
+					</c:otherwise>
+				</c:choose> &nbsp;|&nbsp;<a href="userOrderz?user_id=${user.user_id }">我的订单</a>&nbsp;|
+			</span> 
+        	
+        	<span class="ss">
+            	<div class="ss_list">
+                	<a href="#">收藏夹</a>
+                    <div class="ss_list_bg">
+                    	<div class="s_city_t"></div>
+                        <div class="ss_list_c">
+                        	<ul>
+                            	<li><a href="#">我的收藏夹</a></li>
+                                <li><a href="#">我的收藏夹</a></li>
+                            </ul>
+                        </div>
+                    </div>     
+                </div>
+                <div class="ss_list">
+                	<a href="#">客户服务</a>
+                    <div class="ss_list_bg">
+                    	<div class="s_city_t"></div>
+                        <div class="ss_list_c">
+                        	<ul>
+                            	<li><a href="#">客户服务</a></li>
+                                <li><a href="#">客户服务</a></li>
+                                <li><a href="#">客户服务</a></li>
+                            </ul>
+                        </div>
+                    </div>    
+                </div>
+                <div class="ss_list">
+                	<a href="#">网站导航</a>
+                    <div class="ss_list_bg">
+                    	<div class="s_city_t"></div>
+                        <div class="ss_list_c">
+                        	<ul>
+                            	<li><a href="#">网站导航</a></li>
+                                <li><a href="#">网站导航</a></li>
+                            </ul>
+                        </div>
+                    </div>    
+                </div>
+            </span>
+            <span class="fl">|&nbsp;关注我们：</span>
+            <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
+            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/index/s_tel.png" align="absmiddle" /></a></span>
+        </span>
+    </div>
+</div>
+<div class="top">
+    <div class="logo"><a href="show"><img style="position: absolute;left: 2%;top:8%;" src="images/index/logo.png" /></a></div>
+    <div class="search">
+    	<form action="showByname" method="post" >
+        	<input type="text" name="name" class="s_ipt" />
+            <input type="submit" value="搜索" class="s_btn" />
+        </form>                      
+        <span class="fl"><a href="Showinfo?id=1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;葵花 胃康灵</a><a href="Showinfo?id=4">云南白药</a><a href="Showinfo?id=13">阿莫西林颗粒</a><a href="Showinfo?id=33">桂林西瓜霜</a><a href="Showinfo?id=30">健兴 肺力咳合剂</a></span>
+    </div>
+        <div class="i_car">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;购物车
+    <c:choose>
+    
+    <c:when test="${user== null }">
+    <div class="car_bg">
+    <ul class="cars">
+    <li>
+    <div class="un_login">还未登录！<a href="Loginb.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+    </li>
+    </ul>
+    </div>
+    </c:when>
+    
+    <c:otherwise>
+    <div class="car_t">购物车 [ <span>${Cartlist.size() }</span> ]</div>
+        <div class="car_bg">
+            <!--Begin 购物车已登录 Begin-->
+            <div class="un_login" style="color:#ff4e00">欢迎登录！</div>
+            <ul class="cars">
+            <c:forEach items="${Cartlist }" var="shop">
+            	<li>
+                	<div class="img"><a href="#"><img src="${shop.ep_url }" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">${shop.menu3_name } ${shop.ep_size }</a></div>
+                    <div class="price"><font color="#ff4e00">￥${shop.ep_price }</font> X${shop.trade_num }</div>
+                </li>
+            </c:forEach>
+              
+            </ul>
+            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span id="AllPrice">${AllPrice }</span></div>
+            <div class="price_a"><a style="color:black" href="buycar1">去购物车结算</a></div>
+            <!--End 购物车已登录 End-->
+        </div>
+      	  </c:otherwise>
+   		 </c:choose>
+        </div> 
+</div>
 	<div class="toolbar sidebar" style="right: 0px;">
 		<div class="tab">
 			<ul>

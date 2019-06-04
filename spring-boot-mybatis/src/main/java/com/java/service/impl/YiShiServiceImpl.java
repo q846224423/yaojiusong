@@ -30,12 +30,20 @@ public class YiShiServiceImpl implements YiShiService {
 		return ym.insertWenzhen(yishi_id, yh_id);
 	}
 	//查看所有问诊记录
-	public List<Users_biger> wzjl() {
-		return ym.wzjl();
+	public List<Users_biger> wzjl( int user_id) {
+		return ym.wzjl(user_id);
 	}
 	//通过县的ID查询该县所有的药店
 	public List<DrugStore> showAllYao(int county_id) {
 		return ym.showAllYao(county_id);
+	}
+	//修改处方状态 当处方状态为0开处方时才可以修改处方申请中将状态0改成1
+	public int updatestart(int yhid) {
+		return ym.updatestart(yhid);
+	}
+	//通过医师ID查找处方信息
+	public Users_biger chufang(int wzid) {
+		return ym.chufang(wzid);
 	}
 
 

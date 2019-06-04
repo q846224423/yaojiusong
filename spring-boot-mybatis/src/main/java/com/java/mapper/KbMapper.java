@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import com.java.pojo.Kb;
+import com.java.pojo.Ks;
 
 @Repository
 public interface KbMapper {
@@ -22,4 +23,6 @@ public interface KbMapper {
   	//删除科别
   	@Delete("delete from kb where kb_id = #{id}")
   	int deletekb(int id);
+  	
+
 }

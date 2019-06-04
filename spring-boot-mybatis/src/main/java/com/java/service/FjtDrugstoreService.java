@@ -12,6 +12,7 @@ import com.java.pojo.DrugStore_copy;
 import com.java.pojo.Menu3;
 import com.java.pojo.Shop_orderx;
 import com.java.pojo.Shop_orderz;
+import com.java.pojo.Users_biger;
 
 public interface FjtDrugstoreService {
 
@@ -62,4 +63,13 @@ public interface FjtDrugstoreService {
 	
 	//改变门店的认证状态，由未认证变成认证中
 	public void storeChangerz(int id);
+	
+	//查看处方订单的记录
+	public List<Users_biger> ydcfOrder(int id);
+	
+	// 药店 处方药 我要发货
+	public void ydcfwyfh(int id);
+	
+	// 修改商品
+	public void xiugaisp(Menu3 menu3);
 }

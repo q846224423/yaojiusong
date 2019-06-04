@@ -28,6 +28,7 @@ import com.java.pojo.Users_biger;
 import com.java.service.DoctorChangeservice;
 import com.java.service.Doctorservice;
 import com.java.service.KbService;
+import com.java.service.KsService;
 
 @Controller
 public class DoctorController {
@@ -41,6 +42,9 @@ public class DoctorController {
 	   
 	   @Autowired
 	   private DoctorChangeservice dc;
+	   
+	   @Autowired
+	   private  KsService  ks;
 
 	private HttpSession session;
 	
@@ -346,6 +350,8 @@ public class DoctorController {
 			session = request.getSession();
 			session.setAttribute("doctor",doctor);		
 			System.out.println(r_tel);
+			
+			
 		return "chen/doctorwzjlu";
 		}
 		
@@ -377,5 +383,22 @@ public class DoctorController {
 			return "chen/yishiliaotian";
 	
 		}
+		
+		//医生注册
+		@ResponseBody
+		@RequestMapping(value = "doctorzuc", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+		public String doctorzuc() {
+			
+			List<Ks> ksList = ks.KsList();
+			
+			
+			
+			
+			return "chen/index1";
+	
+		}
+		
+
+		
 		
 }

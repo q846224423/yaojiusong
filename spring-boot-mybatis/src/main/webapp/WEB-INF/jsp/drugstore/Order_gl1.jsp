@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class=" js csstransforms3d"><head>
 	<meta charset="utf-8">
@@ -39,7 +40,6 @@
 		</div>
 		<div class="superCtab">
 			<div class="cg-title clearfix">
-				<a href="javascript:;" class="default-add-btn newPdBtn"><i class="ico-add"></i>添加用户</a>
 				<div class="searchBar">
 					<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
 					<input type="button" class="srhBtn" value="">
@@ -49,20 +49,47 @@
 				<div class="Mian-cont-wrap">
 					<div class="defaultTab-T">
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
-							<tbody><tr><th class="td_6">问诊记录id</th><th class="td_7">用户id</th><th class="td_12">医生id</th><th class="td_8">是否开处方筏</th><th class="td_11">是否拿药</th><th class="td_10">操作</th></tr>
+							<tbody>
+							<tr><th class="td_6">处方订单号</th>
+							<th class="td_7">用户姓名</th>
+							<th class="td_12">医生姓名</th>
+							<th class="td_12">医生电话</th>
+							<th class="td_12">处方笺</th>
+							<th class="td_8">下单时间</th>
+							<th class="td_11">配送状态</th>
+							<th class="td_10">操作</th>
+							</tr>
 						</tbody></table>
 					</div>
 					<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
-						<tbody><tr>
-							<td class="td_6">123</td>
-							<td class="td_7"><a href="#">123</a></td>
-							<td class="td_12">123</td>
-							<td class="td_8"><a href="#" >是</a></td> 	
-							<td class="td_11"><a href="#" >是</a></td>
-							<td class="td_10"><div class="btn"><a href="javascript:;" class="modify cg-xiugai-a">修改</a></div><br><div class="btn"><a href="#" style="background: #ff980b; color: #fff;">删除</a></div></td>
+						<tbody>
+					<c:forEach items="${ydcfOrder }" var="cf">
+						<tr>
+							<td class="td_6">${cf.r_id }</td>
+							<td class="td_7"><a href="userxq?user_id=${cf.user_id }">${cf.user_name }</a></td>
+							<td class="td_12">${cf.d_name }</a></td>
+							<td class="td_12">${cf.d_tel }</a></td>
+						    <td class="td_12">
+						<div class="btn">
+                         <a href="orderxxx?r_id=${cf.r_id }" style="background: #ff980b; color: #fff;" > 查看</a><br />
+                         
+						</div>
+						    
+						    
+						    </td>
+							<td class="td_8"><a href="#" >${cf.r_time }</a></td> 
+							<td class="td_11">
+							<c:choose>
+							<c:when test="${cf.isGetMedicine==0 }">未发货</c:when>
+							<c:when test="${cf.isGetMedicine==1 }">已发货</c:when>
+							<c:when test="${cf.isGetMedicine==2 }">已签收</c:when>
+							<c:otherwise></c:otherwise>
+							</c:choose>
+							</td> 	
+							<td class="td_10"><div class="btn"><a href="ydcfwyfh?r_id=${cf.r_id }&yd_id=${cf.yd_id }" class="modify">发货</a></div></td>
 						</tr>
 						
-						
+					</c:forEach>	
 					</tbody></table>
 					<!--pages S-->
 					<div class="pageSelect">
@@ -87,72 +114,12 @@
 	
 	<div class="layuiBg"></div><!--公共遮罩-->
 	<!--点击新建频道弹出-->
-	<div class="addFeileibox layuiBox newPindaoBox">
-		<div class="layer-title clearfix"><h2>新建用户</h2><span class="layerClose"></span></div>
-		<div class="layer-content">
-			<dl class="PD-list clearfix">
-				<dt>问诊记录id：</dt>
-				<dd><input type="text" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>用户id：</dt>
-				<dd><input type="text" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>医生id：</dt>
-				<dd><input type="text" class="txt">
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>是否开处方筏：</dt>
-				<dd>
-					<select id="chufangfa" class="txt">
-                	<option>是</option>
-                	<option>否</option>
-            		</select> 
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>是否拿药：</dt>
-				<dd>
-					<select id="nayao1" class="txt">
-                	<option>是</option>
-                	<option>否</option>
-            		</select> 
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<input type="submit" value="保存" class="saveBtn">
-			</dl>
-		</div>
-	</div>
+
 	<!--点击修改弹出-->
 	<div class="xcXgBox layuiBox newPindaoBox newPindaoBox-xg">
 		<div class="layer-title clearfix"><h2>修改</h2><span class="layerClose"></span></div>
 		<div class="layer-content">
-			<dl class="PD-list clearfix">
-				<dt>是否开处方筏：</dt>
-				<dd>
-					<select id="chufangfa" class="txt">
-                	<option>是</option>
-                	<option>否</option>
-            		</select> 
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<dt>是否拿药：</dt>
-				<dd>
-					<select id="nayao1" class="txt">
-                	<option>是</option>
-                	<option>否</option>
-            		</select> 
-				</dd>
-			</dl>
-			<dl class="PD-list clearfix">
-				<input type="button" value="保存" class="saveBtn">
-			</dl>
+			<img src="${cf.r_tel }" />
 		</div>
 	</div>
 	
