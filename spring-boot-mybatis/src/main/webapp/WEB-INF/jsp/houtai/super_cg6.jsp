@@ -67,7 +67,7 @@
 							<tr>
 								<td style="width: 40%; text-align: center;">${list.kb_id }</td>
 								<td style="width: 40%; text-align: center;">${list.kb_name }</td>
-								<td style="width: 20%; text-align: center;"><a href="deletekb?id=${list.kb_id}&ksid=${list.ks_id}">删除</a></td>
+								<td style="width: 20%; text-align: center;"><div class="btn"><a href="deletekb?id=${list.kb_id}&ksid=${list.ks_id}" style="background: #ff980b; color: #fff;">删除</a></div></td>
 							</tr>
 						 </c:forEach>
 						</tbody>

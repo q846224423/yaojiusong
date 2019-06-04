@@ -67,7 +67,7 @@ public interface DoctorMapper {
     public int updateDc(DoctorChange doctorChange);
     
 	//查询医生总条数
-	@Select("select count(0) from doctor")
+	@Select("select count(0) from shituone where d_id is not null")
 	public int AllDoctorNum();
 	
 	//查询所有医师
