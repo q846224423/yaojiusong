@@ -346,6 +346,8 @@ public class DoctorController {
 			session = request.getSession();
 			session.setAttribute("doctor",doctor);		
 			System.out.println(r_tel);
+			
+			
 		return "chen/doctorwzjlu";
 		}
 		
