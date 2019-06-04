@@ -66,7 +66,7 @@
 	<!--content E-->
 	
 	<div class="zx-dtlMain">
-		<div style="position: relative; width: 200px; height: 200px; border: solid seagreen 1px; left: 70px; top: 6px;">
+		<div style="position: relative; width: 200px; height: 200px;  left: 70px; top: 6px;">
 		<img src="${doctor.d_head}" /> </div>
 		
 		

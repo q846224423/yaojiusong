@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,8 +31,32 @@
 		<div class="side-menu">
 			<ul>
 				<li class="on"><a href="zixun_dtl" target="Mainindex"><i class="ico-3"></i>个人信息</a></li>
-				<li class=""><a href="yishiliaotian" target="Mainindex"><i class="ico-8"></i>在线问诊</a></li>
-				<li><a href="doctorwzjlu" target="Mainindex"><i class="ico-1"></i>问诊记录</a></li>
+				
+	<c:choose>
+        <c:when test="${doctor.d_control == 0}">
+        <li ><a  target="Mainindex"><i class="ico-8"></i>在线问诊</a></li>
+        <li><a  target="Mainindex"><i class="ico-1"></i>问诊记录</a></li>
+        </c:when>
+  <c:when test="${doctor.d_control == 1}">
+  
+  <li ><a  target="Mainindex"><i class="ico-8"></i>在线问诊</a></li>
+        <li><a target="Mainindex"><i class="ico-1"></i>问诊记录</a></li>
+  
+  
+  </c:when>
+        <c:when test="${doctor.d_control == 2}">
+           
+             <li ><a href="yishiliaotian" target="Mainindex"><i class="ico-8"></i>在线问诊</a></li>
+        <li><a href="doctorwzjlu" target="Mainindex"><i class="ico-1"></i>问诊记录</a></li>
+     </c:when>
+     
+       </c:choose> 
+				
+				
+				
+				
+				
+				
 				
 				
 				
