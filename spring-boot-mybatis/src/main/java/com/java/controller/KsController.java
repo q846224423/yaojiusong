@@ -101,9 +101,11 @@ public class KsController {
 	}
 	//跳转问诊记录
 	@RequestMapping("wenzhen2")
-	public String wenzhen2(Model model, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+	public String wenzhen2(Model model,HttpSession session, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		PageHelper.startPage(pageNum, 5);
-		List<Users_biger> wzjl = ysi.wzjl();
+		User_big attribute2 = (User_big)session.getAttribute("doctor");
+		Integer user_id = attribute2.getUser_id();
+		List<Users_biger> wzjl = ysi.wzjl(user_id);
 		PageInfo<Users_biger> pageInfo = new PageInfo<Users_biger>(wzjl);
 		model.addAttribute("pageInfo", pageInfo);
 		return "wenzhenjilu";
@@ -129,11 +131,13 @@ public class KsController {
 		}
    //修改处方状态 当处方状态为0开处方时才可以修改处方申请中将状态0改成1
 		@RequestMapping("updatestart")
-		public String updateStart(Model model,Integer yhid, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
+		public String updateStart(Model model,Integer yhid,HttpSession session,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		System.out.println("问诊ID"+yhid);
 			int updatestart = ysi.updatestart(yhid);
 			PageHelper.startPage(pageNum, 5);
-			List<Users_biger> wzjl = ysi.wzjl();
+			User_big attribute2 = (User_big)session.getAttribute("doctor");
+			Integer user_id = attribute2.getUser_id();
+			List<Users_biger> wzjl = ysi.wzjl(user_id);
 			PageInfo<Users_biger> pageInfo = new PageInfo<Users_biger>(wzjl);
 			model.addAttribute("pageInfo", pageInfo);
 			System.out.println(updatestart);

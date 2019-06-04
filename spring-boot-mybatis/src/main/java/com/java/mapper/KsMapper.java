@@ -30,4 +30,6 @@ public interface KsMapper {
 	//查科室总条数
 	@Select("select count(0) from ks")
 	public int ksAll();
+
+	 
 }

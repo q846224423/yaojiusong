@@ -22,7 +22,7 @@ public interface YiShiService {
 	public int insertWenzhen(@Param("yishi_id") int yishi_id, @Param("yh_id") int yh_id);
 
 //查询所有问诊记录
-	public List<Users_biger> wzjl();
+	public List<Users_biger> wzjl(int user_id);
 	
 	// 通过县得ID查询该县所有的药店
 	List<DrugStore> showAllYao(@Param("county_id") int county_id);

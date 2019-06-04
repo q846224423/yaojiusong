@@ -30,8 +30,8 @@ public class YiShiServiceImpl implements YiShiService {
 		return ym.insertWenzhen(yishi_id, yh_id);
 	}
 	//查看所有问诊记录
-	public List<Users_biger> wzjl() {
-		return ym.wzjl();
+	public List<Users_biger> wzjl( int user_id) {
+		return ym.wzjl(user_id);
 	}
 	//通过县的ID查询该县所有的药店
 	public List<DrugStore> showAllYao(int county_id) {
