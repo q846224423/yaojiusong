@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.java.mapper.DrugstoreMapper;
+import com.java.pojo.DrugStore;
 import com.java.pojo.FjtArea;
 import com.java.pojo.FjtCity;
 import com.java.pojo.FjtProvince;
@@ -41,10 +43,13 @@ public class StoreController {
 
 	@Autowired
 	private StoreService ssi;
+	@Autowired
+	private DrugstoreMapper dsm;
 
 	// 展示所有的左侧菜单
 	@RequestMapping("show")
 	public String showMenu(Model model, HttpSession session) {
+		int yd_id;
 		List<Menu1> list1 = ssi.getAllMenu();
 		// 菜单列表
 		User_big users = (User_big) (session.getAttribute("user"));
@@ -52,13 +57,21 @@ public class StoreController {
 			session.setAttribute("list", list1);
 			return "store/shouye";
 		}
-		
-		//这里先自己给一个药店id，测试，为1
-		int yd_id = 1;
+		Object attribute = session.getAttribute("yd_id");
+		if(attribute==null) {
+			yd_id = 1;
+		}else {
+		yd_id = Integer.parseInt(attribute.toString());
+		}
 		List<Menu3> selectZD = ssi.selectZD(yd_id);
 		System.out.println("selectZD"+selectZD.toString());
 		List<Lookcart> lookCart = ssi.lookCart(users.getUser_id());
 		double allPrice = ssi.getAllPrice(lookCart);
+		
+		DrugStore drugStore = dsm.dsselectone(yd_id);
+		String yd_name = drugStore.getYd_name();
+		session.setAttribute("yd_name1", yd_name);
+		
 		session.setAttribute("list", list1);
 		session.setAttribute("selectZD", selectZD);
 		session.setAttribute("Cartlist", lookCart);
@@ -375,4 +388,16 @@ public class StoreController {
 		return "store/wenzhenjilu";
 	}
 	
+	//首页的选择药店，改变session中yd_id
+	//changeYd
+	// ajax动态显示buycar1
+		@ResponseBody
+		@RequestMapping(value = "changeYd", produces = "application/json;charset=UTF-8")
+		public String changeYd(int yd_id,HttpSession session ) {
+			session.setAttribute("yd_id", yd_id);	
+			DrugStore drugStore = dsm.dsselectone(yd_id);
+			String yd_name = drugStore.getYd_name();
+			session.setAttribute("yd_name1", yd_name);
+			return yd_name;
+		}
 }

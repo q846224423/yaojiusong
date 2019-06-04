@@ -88,6 +88,20 @@
 			})
 		}) 
 		
+		 jQuery("#yao").change(function(){
+				var yd_id = jQuery(this).val();
+				jQuery.ajax({
+				"url":"changeYd",
+				"type":"post",
+				"data":{"yd_id":yd_id},
+				"dataType":"json",
+				"success":function(res){
+					alert(res);
+					jQuery("#yd_name1").text("");
+				}
+			})
+		}) 	
+		
 		
 	})
 	</script>
@@ -208,8 +222,9 @@ height: 120px
     	<!--Begin 所在收货地区 Begin-->
     	<span class="s_city_b">
         	<span class="fl">药店：</span>
+        	<span id="yd_name1">${yd_name1} ${yd_id }</span>
             <span class="s_city">
-            	<span>长江大药店</span>
+            	
                 <div class="s_city_bg" style="position: absolute;top:2%;left:3%;height:350px ">
                 	<div class="s_city_t"></div>
                     <div class="s_city_c">
