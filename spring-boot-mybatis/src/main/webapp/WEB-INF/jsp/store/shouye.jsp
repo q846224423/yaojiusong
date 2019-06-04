@@ -213,7 +213,7 @@ width: 150px;
 height: 120px
 }	
 	</style>
-<title>易买网</title>
+<title>药急送</title>
 </head>
 <body>  
 <!--Begin Header Begin-->
@@ -222,7 +222,7 @@ height: 120px
     	<!--Begin 所在收货地区 Begin-->
     	<span class="s_city_b">
         	<span class="fl">药店：</span>
-        	<span id="yd_name1">${yd_name1} ${yd_id }</span>
+        	<span id="yd_name1">${yd_name1} </span>
             <span class="s_city">
             	
                 <div class="s_city_bg" style="position: absolute;top:2%;left:3%;height:350px ">
@@ -408,8 +408,8 @@ height: 120px
         </ul>
         <div class="m_ad">
         <c:choose>
-        <c:when test="${user.user_control ==2 }"><a href="">在线咨询</a></c:when>
-        <c:otherwise><a href="dier">在线咨询</a></c:otherwise>
+        <c:when test="${user.user_control ==2 }"><a href="dier">在线咨询</a></c:when>
+        <c:otherwise><a>在线咨询</a></c:otherwise>
         </c:choose>
         </div>
     </div>

@@ -100,7 +100,7 @@ function CreadMsg(user, content)
     <div class="abs cover contaniner">
         <div class="abs cover pnl">
             <div class="top pnl-head">
-            	<div id="yishi">医生</div>
+            	<div id="yishi">用户</div>
             <div id="guanbi">
             	<table>
             		<tr>

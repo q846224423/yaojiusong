@@ -119,7 +119,7 @@ public class DrugStoreController {
 	@RequestMapping("addSp")
 	public String addSp(MultipartFile file1, HttpServletRequest rq,Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) throws IllegalStateException, IOException {
 		// 获取sp文件夹所在的绝对路径
-		String path = "c:/Users/Administrator/git/yaojiusongy/spring-boot-mybatis/src/main/resources/static/upload/sp/";
+		String path = "D:/Git/ck/yaojiusong/spring-boot-mybatis/src/main/resources/static/upload/sp/";
 		String fileName = file1.getOriginalFilename();
 		// 上传
 		MultipartHttpServletRequest request = (MultipartHttpServletRequest) rq;
@@ -190,7 +190,7 @@ public class DrugStoreController {
 		@RequestMapping("xiugaisp")
 		public String xiugaisp(MultipartFile file1, HttpServletRequest rq,Model model,@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) throws IllegalStateException, IOException {
 			// 获取sp文件夹所在的绝对路径
-			String path = "c:/Users/Administrator/git/yaojiusongy/spring-boot-mybatis/src/main/resources/static/upload/sp/";
+			String path = "D:/Git/ck/yaojiusong/spring-boot-mybatis/src/main/resources/static/upload/sp/";
 			String fileName = file1.getOriginalFilename();
 			System.out.println(path+fileName);
 			// 上传
@@ -336,8 +336,8 @@ public class DrugStoreController {
 	@RequestMapping("ydshenhe")
 	public String checkIdcard(MultipartFile yd_head,MultipartFile yd_url, HttpServletRequest rq) throws IllegalStateException, IOException {
 		// 获取IDcard文件夹所在的绝对路径
-		String path1 = "c:/Users/Administrator/git/yaojiusongy/spring-boot-mybatis/src/main/resources/static/upload/ydhead/";
-		String path2 = "c:/Users/Administrator/git/yaojiusongy/spring-boot-mybatis/src/main/resources/static/upload/ydinfo/";
+		String path1 = "D:/Git/ck/yaojiusong/spring-boot-mybatis/src/main/resources/static/upload/ydhead/";
+		String path2 = "D:/Git/ck/yaojiusong/spring-boot-mybatis/src/main/resources/static/upload/ydinfo/";
 		String fileName1 = yd_head.getOriginalFilename();
 		String fileName2 = yd_url.getOriginalFilename();
 		// 上传
