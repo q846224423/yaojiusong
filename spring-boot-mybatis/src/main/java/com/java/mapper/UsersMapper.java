@@ -8,7 +8,9 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
+import com.java.pojo.Doctor;
 import com.java.pojo.Lookcart;
+import com.java.pojo.People;
 import com.java.pojo.Shop_orderx;
 import com.java.pojo.Shop_orderz;
 import com.java.pojo.Shopcart;
@@ -139,5 +141,19 @@ public interface UsersMapper {
 	//用户我要退款
 	@Update("update order_z set z_statu='退款中' where z_statu = '未发货' and z_id =#{id}")
 	public void wytq(int id);
+	
+	//userRegist
+	//判断用户名没重复，
+	@Select("select * from people where username = #{username}")
+	public People checkname(String username);
+	
+	//添加入people表中
+	@Insert("insert into people(username,pwd,role) values (#{username},#{pwd},#{role})")
+	public void userzc1(People p);
+	
+	//添加入doctor表中
+	@Insert("insert into users(people_id) values (#{people_id})")
+	public void userzc2(int people_id);
+	
 	
 }

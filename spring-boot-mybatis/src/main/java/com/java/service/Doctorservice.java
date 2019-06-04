@@ -10,6 +10,7 @@ import com.java.pojo.DoctorChange;
 import com.java.pojo.Doctor_big;
 
 import com.java.pojo.Ks;
+import com.java.pojo.People;
 import com.java.pojo.Users_biger;
 
 public interface Doctorservice {
@@ -44,6 +45,7 @@ public interface Doctorservice {
 	
 	 void updatemrz(Doctor doctor);
 
-
+	 //医生注册
+	 public void doctorzc(People p,int kb_id);
 
 }

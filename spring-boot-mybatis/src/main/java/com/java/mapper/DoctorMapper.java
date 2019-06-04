@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.java.pojo.Doctor;
 import com.java.pojo.DoctorChange;
 import com.java.pojo.Doctor_big;
+import com.java.pojo.People;
 import com.java.pojo.Users_biger;
 import com.java.pojo.ZhongjianCalssYiShi;
 @Repository
@@ -105,4 +106,17 @@ public interface DoctorMapper {
 	//查询所有医师
 	@Select("select * from shituone where d_id is not null")
 	List<ZhongjianCalssYiShi> selectAll02();
+	
+	//doctorzucwc
+	//判断用户名没重复，
+	@Select("select * from people where username = #{username}")
+	public People doctorzc1(String username);
+	
+	//添加入people表中
+	@Insert("insert into people(username,pwd,role) values (#{username},#{pwd},#{role})")
+	public void doctorzcp(People p);
+	
+	//添加入doctor表中
+	@Insert("insert into doctor(kb_id,people_id) values (#{kb_id},#{people_id})")
+	public void doctorzcd(Doctor d);
 }

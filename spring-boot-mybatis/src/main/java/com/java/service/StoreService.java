@@ -32,21 +32,20 @@ public interface StoreService {
 	public List<Menu2> select2By1id(int id);
 
 	// 通过2级id找三级
-	public List<Menu3> select3By2id(int id);
+	public List<Menu3> select3By2id(int id,int yd_id);
 
 	// 获取左侧三级菜单栏集合
-
-	public List<Menu1> getAllMenu();
+	public List<Menu1> getAllMenu(int yd_id);
 
 	/**
 	 * @各种菜单的点击查询
 	 */
 	// 搜索框来模糊查询
 
-	public List<Menu3> select3ByName(String name);
+	public List<Menu3> select3ByName(String name,int yd_id);
 
 	// 通过1级查询所有商品
-	public List<Menu3> select3By1id(int id);
+	public List<Menu3> select3By1id(int id,int yd_id);
 
 	// 通过2级查询所有商品 select3By2id
 	// 通过3级查询商品
@@ -123,4 +122,5 @@ public interface StoreService {
 	public List<Menu3> selectZD(int id);
 	
 	public Users selectOneUsers(int id);
+	
 }

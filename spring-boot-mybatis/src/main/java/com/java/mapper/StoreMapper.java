@@ -29,8 +29,8 @@ public interface StoreMapper {
 	public List<Menu2> select2By1id(int id);
 
 	// 通过2级id找三级
-	@Select("select * from menuthree where menu3_menu2_id=#{id}")
-	public List<Menu3> select3By2id(int id);
+	@Select("select * from menuthree where menu3_menu2_id=#{0} and yd_id=#{1}")
+	public List<Menu3> select3By2id(int id,int yd_id);
 
 	// 获取左侧三级菜单栏集合
 	// public List<Menu1> getAllMenu();
@@ -39,12 +39,12 @@ public interface StoreMapper {
 	 * @各种菜单的点击查询
 	 */
 	// 搜索框来模糊查询
-	@Select("select * from menuthree where menu3_name like concat('%',#{name},'%')")
-	public List<Menu3> select3ByName(String name);
+	@Select("select * from menuthree where menu3_name like concat('%',#{0},'%') and yd_id=#{1} ")
+	public List<Menu3> select3ByName(String name,int yd_id);
 
 	// 通过1级查询所有商品
-	@Select("select `menu3_id`,`menu3_menu2_id`,`menu3_name`,`ep_price`,`ep_size`,`ep_description`,`ep_stock`,`ep_url`,`ep_stick`,`yd_id` from view1  where menu1_id=#{id}")
-	public List<Menu3> select3By1id(int id);
+	@Select("select `menu3_id`,`menu3_menu2_id`,`menu3_name`,`ep_price`,`ep_size`,`ep_description`,`ep_stock`,`ep_url`,`ep_stick`,`yd_id` from view1  where menu1_id=#{0} and yd_id=#{1}")
+	public List<Menu3> select3By1id(int id,int yd_id);
 
 	// 通过2级查询所有商品 select3By2id
 	// 通过3级查询商品

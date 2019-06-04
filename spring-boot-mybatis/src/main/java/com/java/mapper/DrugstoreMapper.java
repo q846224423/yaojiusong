@@ -150,7 +150,7 @@ public interface DrugstoreMapper {
 	@Update("update `record` set isGetMedicine = '1' where isGetMedicine = '0' and r_id=#{id}")
 	public void ydcfwyfh(int id);
 	
-	// 添加商品
-	@Insert("update menuthree set `menu3_menu2_id` = #{menu3_menu2_id},`menu3_name` = #{menu3_name},`ep_price` = #{ep_price},`ep_size` =#{ep_size},`ep_description` = #{ep_description},`ep_stock` =#{ep_stock} ,`ep_url` = #{ep_url} where `menu3_id` = #{menu3_id} ")
+	// 修改商品
+	@Update("update menuthree set `menu3_menu2_id` = #{menu3_menu2_id},`menu3_name` = #{menu3_name},`ep_price` = #{ep_price},`ep_size` =#{ep_size},`ep_description` = #{ep_description},`ep_stock` =#{ep_stock} ,`ep_url` = #{ep_url} where `menu3_id` = #{menu3_id} ")
 	public void xiugaisp(Menu3 menu3);
 }

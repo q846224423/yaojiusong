@@ -24,6 +24,7 @@ import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.Kb;
 import com.java.pojo.Ks;
+import com.java.pojo.People;
 import com.java.pojo.Users_biger;
 import com.java.service.DoctorChangeservice;
 import com.java.service.Doctorservice;
@@ -383,18 +384,21 @@ public class DoctorController {
 			return "chen/yishiliaotian";
 	
 		}
-		
-		//医生注册
-		@ResponseBody
-		@RequestMapping(value = "doctorzuc", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+		//doctorzuc
+		//到医生注册页面
+		@RequestMapping("doctorzuc")
 		public String doctorzuc() {
+			return "chen/doctorzuc";
+	
+		}	
+		
+		//医生注册操作
+		@RequestMapping("doctorzucc")
+		public String doctorzucc(People p,int kb_id) {
+			//调用
+			big.doctorzc(p, kb_id);
 			
-			List<Ks> ksList = ks.KsList();
-			
-			
-			
-			
-			return "chen/index1";
+			return "chen/loginb1";
 	
 		}
 		

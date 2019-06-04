@@ -48,13 +48,11 @@ form button{
 <body>
 <div class="headtop"></div>
 <div class="login">
-  <h1>医生注册</h1>
-  <form action="doctorzucc" method="post">
-  <input type="hidden" name="role" value="2">
+  <h1>用户注册</h1>
+  <form action="userzcc" method="post">
+  <input type="hidden" name="role" value="1">
     <input type="text" name="username" placeholder="用户名" required="required">
     <input type="password" name="pwd" placeholder="密  码" required="required">
-    <input type="password" name="ks_id" placeholder="科室id" required="required">
-    <input type="password" name="kb_id" placeholder="科别id" required="required">   
   <button type="submit">注册</button>
   </form>
 </div>

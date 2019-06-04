@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.java.mapper.StoreMapper;
 import com.java.mapper.UsersMapper;
+import com.java.pojo.Doctor;
 import com.java.pojo.FjtArea;
 import com.java.pojo.FjtCity;
 import com.java.pojo.FjtProvince;
@@ -43,19 +44,19 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public List<Menu3> select3By2id(int id) {
-		return ss.select3By2id(id);
+	public List<Menu3> select3By2id(int id,int yd_id) {
+		return ss.select3By2id(id,yd_id);
 	}
 
 	@Override
-	public List<Menu1> getAllMenu() {
+	public List<Menu1> getAllMenu(int yd_id) {
 		 List<Menu1> list1 = ss.selectA1();
 			for (Menu1 menu1 : list1) {
 				List<Menu2> list2 = ss.select2By1id(menu1.getMenu1_id());
 			menu1.setChlidren(list2);
 			
 			for (Menu2 menu2 : list2) {
-				List<Menu3> list3 = ss.select3By2id(menu2.getMenu2_id());
+				List<Menu3> list3 = ss.select3By2id(menu2.getMenu2_id(), yd_id);
 				menu2.setChlidren(list3);
 				
 			}}	
@@ -63,13 +64,13 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public List<Menu3> select3ByName(String name) {
-		return ss.select3ByName(name);
+	public List<Menu3> select3ByName(String name,int yd_id) {
+		return ss.select3ByName(name,yd_id);
 	}
 
 	@Override
-	public List<Menu3> select3By1id(int id) {
-		return ss.select3By1id(id);
+	public List<Menu3> select3By1id(int id,int yd_id) {
+		return ss.select3By1id(id,yd_id);
 	}
 
 	@Override
@@ -211,5 +212,7 @@ public class StoreServiceImpl implements StoreService {
 
 	public Users selectOneUsers(int id) {
 		return um.selectOneUsers(id);
-	};
+	}
+
+	
 }

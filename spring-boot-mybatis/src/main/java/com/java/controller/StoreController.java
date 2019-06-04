@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.java.mapper.DrugstoreMapper;
+import com.java.mapper.UsersMapper;
 import com.java.pojo.DrugStore;
 import com.java.pojo.FjtArea;
 import com.java.pojo.FjtCity;
@@ -45,24 +46,30 @@ public class StoreController {
 	private StoreService ssi;
 	@Autowired
 	private DrugstoreMapper dsm;
+	
+	@Autowired
+	private UsersMapper um;
 
 	// 展示所有的左侧菜单
 	@RequestMapping("show")
 	public String showMenu(Model model, HttpSession session) {
-		int yd_id;
-		List<Menu1> list1 = ssi.getAllMenu();
-		// 菜单列表
-		User_big users = (User_big) (session.getAttribute("user"));
-		if (users == null) {
-			session.setAttribute("list", list1);
-			return "store/shouye";
-		}
+		int yd_id; //定义一个
+		
 		Object attribute = session.getAttribute("yd_id");
 		if(attribute==null) {
 			yd_id = 1;
 		}else {
 		yd_id = Integer.parseInt(attribute.toString());
 		}
+		
+		List<Menu1> list1 = ssi.getAllMenu(yd_id);
+		// 菜单列表
+		User_big users = (User_big) (session.getAttribute("user"));
+		if (users == null) {
+			session.setAttribute("list", list1);
+			return "store/shouye";
+		}
+		
 		List<Menu3> selectZD = ssi.selectZD(yd_id);
 		System.out.println("selectZD"+selectZD.toString());
 		List<Lookcart> lookCart = ssi.lookCart(users.getUser_id());
@@ -90,16 +97,20 @@ public class StoreController {
 
 	// 跳转Brand显示详细的药品信息
 	@RequestMapping("showBy1id")
-	public String showBy1id(int id, Model model) {
-		List<Menu3> list = ssi.select3By1id(id);
+	public String showBy1id(int id, Model model,HttpSession session) {
+		Object attribute = session.getAttribute("yd_id");//session中的药店id
+		int yd_id = Integer.parseInt(attribute.toString());//一种是直接登陆id为1
+		List<Menu3> list = ssi.select3By1id(id,yd_id);//一种是选择改变session中id
 		model.addAttribute("productlist", list);
 		return "store/BrandByid";
 	}
 
 	// 跳转Brand显示详细的药品信息
 	@RequestMapping("showByname")
-	public String showByname(String name, Model model) {
-		List<Menu3> list = ssi.select3ByName(name);
+	public String showByname(String name, Model model,HttpSession session) {
+		Object attribute = session.getAttribute("yd_id");
+		int yd_id = Integer.parseInt(attribute.toString());
+		List<Menu3> list = ssi.select3ByName(name,yd_id);
 		model.addAttribute("productlist", list);
 		return "store/BrandByName";
 	}
@@ -400,4 +411,32 @@ public class StoreController {
 			session.setAttribute("yd_name1", yd_name);
 			return yd_name;
 		}
+		
+	//商城的用户注册
+		@RequestMapping("userzc")
+		public String regist() {
+			
+			return "store/userzc";
+		}
+	
+		//商城的用户注册操作
+		@RequestMapping("userzcc")
+		public String userzc(People p) {
+			People people = um.checkname(p.getUsername());
+			//该用户名不存在，可添加
+			if(people==null) {
+				um.userzc1(p);//添加到people
+				//获得该对象的people——id
+		  People p1 = um.checkname(p.getUsername());	
+		  System.out.println("peopleid"+p1.getId());
+		  
+				//添加带有people_id的记录，完成注册
+				um.userzc2(p1.getId());	
+				return "chen/loginb1";
+			}else {
+				return "store/regist";
+			}
+			
+		};
+		
 }
