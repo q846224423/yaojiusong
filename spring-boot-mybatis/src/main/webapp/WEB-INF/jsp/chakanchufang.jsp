@@ -315,7 +315,7 @@ function closeDialog(){
 			<div class="m_right">
           <div style="margin-left: 60px; margin-top: 10px; font-size: 15px; height: 30px">处方详情</div>
         
-                       <img src="img/${chufang.r_tel}"></img>
+                       <img src="${chufang.r_tel}"></img>
           
            
            

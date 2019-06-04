@@ -27,8 +27,8 @@ public interface YishiMapper {
 	@Insert("INSERT INTO record(user_id,d_id)VALUES(${yh_id},${yishi_id})")
 	public int insertWenzhen(@Param("yishi_id") int yishi_id, @Param("yh_id") int yh_id);
 //查询所有问诊记录
-	@Select("select * from wzjlu")
-	public List<Users_biger> wzjl(int user_id);
+	@Select("select * from wzjlu where user_id=${user_id} order by r_time desc")
+	public List<Users_biger> wzjl(@Param("user_id") int user_id);
 
 	// 通过县得ID查询该县所有的药店
 	@Select("SELECT * FROM drugstore WHERE county_id=${county_id}")

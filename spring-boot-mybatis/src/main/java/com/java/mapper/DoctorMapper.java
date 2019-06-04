@@ -38,10 +38,10 @@ public interface DoctorMapper {
 	
     
 	//通过医生id查用户信息
-	@Select("select * from wzjlu where d_id =#{id}")
+	@Select("select * from wzjlu where d_id =#{id} order by r_time desc")
 	public List<Users_biger> userall(@Param("id")int id,@Param("id1")int id1);
 	//通过用户id查单条
-	@Select("select * from wzjlu where user_id =#{id}")
+	@Select("select * from wzjlu where r_id =#{id}")
     public Users_biger userone(int id);
 	//医生改变处方状态
 	@Update("update record set isOpenDrug=2 where isOpenDrug=1 and user_id =#{id}")
@@ -67,7 +67,7 @@ public interface DoctorMapper {
     public int updateDc(DoctorChange doctorChange);
     
 	//查询医生总条数
-	@Select("select count(0) from shituone where d_id is not null")
+	@Select("select count(0) from doctor")
 	public int AllDoctorNum();
 	
 	//查询所有医师

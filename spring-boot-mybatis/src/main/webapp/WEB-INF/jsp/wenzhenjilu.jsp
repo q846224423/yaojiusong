@@ -238,7 +238,7 @@ function closeDialog(){
                       <option value="药店" >请选择</option>
                     </select>
                     </div></div>
-                 <div id="sss"><a href="updatestart?yhid=${value.r_id}">
+                 <div id="sss"><a href="">
 			确定
 		
 		</a></div>

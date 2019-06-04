@@ -42,7 +42,7 @@
 					<div class="Mian-cont-wrap">
 						<div class="defaultTab-T">
 							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
-								<tbody><tr><th class="t_1">问诊医生</th><th class="t_2_1">问诊人</th><th class="t_3">问诊人电话</th><th class="t_5">是否开处方</th><th class="t_4">操作</th></tr>
+								<tbody><tr><th class="t_1">问诊医生</th><th class="t_1">问诊人</th><th class="t_1">时间</th><th class="t_1">是否开处方</th><th class="t_1">操作</th></tr>
 							</tbody></table>
 						</div>
 						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
@@ -51,10 +51,10 @@
         <c:forEach items="${pageInfo.list}" var="list">
 							<tr>
 								<td class="t_1">${list.d_name}</td>
-								<td class="t_2_1">${list.user_name}</td>
-								<td class="t_3">${list.user_tel}</td>
+								<td class="t_1">${list.user_name}</td> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;    
+								<td class="t_1">${list.r_time}</td>
 								
-				<td class="t_5">				
+				<td class="t_1">				
 			<c:choose>
          <c:when test="${list.isOpenDrug==0}">
               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;               否
@@ -82,7 +82,7 @@
 								
 								
 								
-								<td class="t_4"><div class="btn"><a class="Top" href="doctorkcf?id=${list.user_id}" >开处方</a><a href="zixun_wzjlu2?id=${list.user_id}" class="modify">查看详情</a></div></td>
+								<td class="t_4"><div class="btn"><a class="Top" href="doctorkcf?id=${list.user_id}" >开处方</a><a href="zixun_wzjlu2?id=${list.r_id}" class="modify">查看详情</a></div></td>
 							</tr>
 							
 							</c:forEach>

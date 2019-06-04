@@ -394,8 +394,8 @@ h2 {
 		sNow += String(vNow.getSeconds());
 		sNow += String(vNow.getMilliseconds());
 		document.getElementById("WIDout_trade_no").value =  sNow;
-		document.getElementById("WIDsubject").value = "测试";
-		document.getElementById("WIDtotal_amount").value = "555";
+		document.getElementById("WIDsubject").value = "10006";
+		document.getElementById("WIDtotal_amount").value = "100";
 	}
 	GetDateNow();
 </script>

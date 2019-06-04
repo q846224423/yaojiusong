@@ -93,18 +93,20 @@ public class KsController {
 	@RequestMapping("wenzhen")
 	public String wenzhen(HttpSession session) {
 		/*int attribute = (int) session.getAttribute("yishengID");*/
-		/*User_big attribute2 = (User_big)session.getAttribute("doctor");
-		Integer user_id = attribute2.getUser_id();*/
-		int i = ysi.insertWenzhen(1, 2);
+		User_big attribute2 = (User_big)session.getAttribute("user");
+		Integer user_id = attribute2.getUser_id();
+		System.out.println(user_id);
+		int i = ysi.insertWenzhen(1, user_id);
 		System.out.println(i);
-		return "zhifu";
+		return "store/shouye";
 	}
 	//跳转问诊记录
 	@RequestMapping("wenzhen2")
 	public String wenzhen2(Model model,HttpSession session, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum) {
 		PageHelper.startPage(pageNum, 5);
-		User_big attribute2 = (User_big)session.getAttribute("doctor");
+		User_big attribute2 = (User_big)session.getAttribute("user");
 		Integer user_id = attribute2.getUser_id();
+		System.out.println(123+user_id);
 		List<Users_biger> wzjl = ysi.wzjl(user_id);
 		PageInfo<Users_biger> pageInfo = new PageInfo<Users_biger>(wzjl);
 		model.addAttribute("pageInfo", pageInfo);
