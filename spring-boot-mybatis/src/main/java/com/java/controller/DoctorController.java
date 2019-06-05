@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.java.mapper.DoctorMapper;
 import com.java.pojo.Doctor;
 import com.java.pojo.Doctor_big;
 import com.java.pojo.Kb;
@@ -46,6 +47,9 @@ public class DoctorController {
 	   
 	   @Autowired
 	   private  KsService  ks;
+	   
+	   @Autowired
+	   private DoctorMapper doctorMapper;
 
 	private HttpSession session;
 	
@@ -395,10 +399,23 @@ public class DoctorController {
 		//医生注册操作
 		@RequestMapping("doctorzucc")
 		public String doctorzucc(People p,int kb_id) {
-			//调用
-			big.doctorzc(p, kb_id);
-			
-			return "chen/loginb1";
+			People people = doctorMapper.doctorzc1(p.getUsername());
+			//该用户名不存在，可添加
+			if(people==null) {
+				doctorMapper.doctorzcp(p);	//添加到people
+				//获得该对象的people——id
+		  People p1 = doctorMapper.doctorzc1(p.getUsername());	
+		  System.out.println("peopleid"+p1.getId());
+				//set对象中，存入doctor中
+				Doctor doctor = new Doctor();
+				doctor.setPeople_id(p1.getId());
+				doctor.setKb_id(kb_id);
+				//添加完成
+				doctorMapper.doctorzcd(doctor);	
+				//跳转登陆页面
+				return "chen/loginb1";
+			}
+		return "chen/doctorzuc";	
 	
 		}
 		

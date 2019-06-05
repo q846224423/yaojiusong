@@ -110,26 +110,4 @@ private KsMapper ksMapper;
 		
 	}
 
-	@Override
-	public void doctorzc(People p, int kb_id) {
-		People people = doctorMapper.doctorzc1(p.getUsername());
-		//该用户名不存在，可添加
-		if(people==null) {
-			doctorMapper.doctorzcp(p);	//添加到people
-			//获得该对象的people——id
-	  People p1 = doctorMapper.doctorzc1(p.getUsername());	
-	  System.out.println("peopleid"+p1.getId());
-			//set对象中，存入doctor中
-			Doctor doctor = new Doctor();
-			doctor.setPeople_id(p1.getId());
-			doctor.setKb_id(kb_id);
-			//添加完成
-			doctorMapper.doctorzcd(doctor);	
-		}
-		
-	}
-
-
-
-
 }

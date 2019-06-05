@@ -253,7 +253,7 @@ height: 120px
         <!--End 所在收货地区 End-->
         <span class="fr">
         <c:choose>
-        <c:when test="${user==null}"><span class="fl">你好，请<a href="Loginb.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>
+        <c:when test="${user==null}"><span class="fl">你好，请<a href="Loginb.html">登录</a>&nbsp; <a href="userzc" style="color:#ff4e00;">免费注册</a>
         &nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         </c:when>
         <c:otherwise> <span class="fl">${user.user_name},你好&nbsp; <a href="userMessage" style="color:#ff4e00;">我的信息</a>
@@ -409,7 +409,7 @@ height: 120px
         <div class="m_ad">
         <c:choose>
         <c:when test="${user.user_control ==2 }"><a href="dier">在线咨询</a></c:when>
-        <c:otherwise><a>在线咨询</a></c:otherwise>
+        <c:otherwise><a href="zxjump3">在线咨询</a></c:otherwise>
         </c:choose>
         </div>
     </div>

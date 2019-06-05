@@ -19,6 +19,7 @@ import com.java.pojo.Menu1;
 import com.java.pojo.Menu3;
 import com.java.pojo.People;
 import com.java.pojo.User_big;
+import com.java.pojo.Users_biger;
 import com.java.service.Doctorservice;
 import com.java.service.StoreService;
 import com.java.service.impl.Commonserviceipml;
@@ -97,5 +98,19 @@ public class CommonControl {
 		String phoneNumber = phone.substring(0, 3) + "****" + phone.substring(7, phone.length());
 		return phoneNumber;
 	}
+	
+	//jump错误页面
+	//商家处方订单中进入用户详情
+	@RequestMapping("zxjump3")
+	public String jump3() {
+		return "store/Jump3";
+	};
+	
+	//jump错误页面
+	//商家处方订单中进入用户详情
+	@RequestMapping("zxerror")
+	public String error() {
+		return "login";
+	};
 
 }
