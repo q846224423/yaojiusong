@@ -45,7 +45,4 @@ public interface Doctorservice {
 	
 	 void updatemrz(Doctor doctor);
 
-	 //医生注册
-	 public void doctorzc(People p,int kb_id);
-
 }

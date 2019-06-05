@@ -434,7 +434,7 @@ public class StoreController {
 				um.userzc2(p1.getId());	
 				return "chen/loginb1";
 			}else {
-				return "store/regist";
+				return "store/userzc";
 			}
 			
 		};
