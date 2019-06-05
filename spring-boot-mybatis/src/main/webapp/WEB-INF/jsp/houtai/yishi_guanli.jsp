@@ -98,16 +98,22 @@
 											<c:when test="${list.d_control ==0}">
 												<td style="width: 8%;text-align: center; color: red;">未认证</td>
 											</c:when>
+											<c:when test="${list.d_control ==1}">
+												<td style="width: 8%;text-align: center; color: red;">认证中</td>
+											</c:when>
 											<c:when test="${list.d_control ==2}">
 												<td style="width: 8%;text-align: center; color: red;">已认证</td>
 											</c:when>
 										</c:choose>
 										<c:choose>
 											<c:when test="${list.d_change ==0}">
-												<td class="td_14" style="color: red">已审核</td>
+												<td class="td_14" style="color: red">未审核</td>
 											</c:when>
 											<c:when test="${list.d_change ==1}">
-												<td class="td_14" style="color: red">未审核</td>
+												<td class="td_14" style="color: red">审核中</td>
+											</c:when>
+											<c:when test="${list.d_change ==2}">
+												<td class="td_14" style="color: red">已审核</td>
 											</c:when>
 										</c:choose>
 										<td class="td_10">
