@@ -63,8 +63,10 @@
               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;               申请中
         </c:when>
            <c:otherwise>
-         
-                 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;    已开
+                    <c:if test="${list.isOpenDrug==2 }">
+       &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;    已开
+     </c:if>
+                
         
          </c:otherwise>
           </c:choose>
