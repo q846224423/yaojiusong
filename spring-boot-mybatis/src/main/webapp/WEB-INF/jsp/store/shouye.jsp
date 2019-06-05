@@ -409,7 +409,7 @@ height: 120px
         <div class="m_ad">
         <c:choose>
         <c:when test="${user.user_control ==2 }"><a href="dier">在线咨询</a></c:when>
-        <c:otherwise><a>在线咨询</a></c:otherwise>
+        <c:otherwise><a href="zxjump3">在线咨询</a></c:otherwise>
         </c:choose>
         </div>
     </div>

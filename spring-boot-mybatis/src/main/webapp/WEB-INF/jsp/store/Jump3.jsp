@@ -1,6 +1,3 @@
-<%@page import="com.shop.service.Yg_RegistService"%>
-<%@page import="com.shop.daoimpl.Yg_RegistDaoImpl"%>
-<%@page import="com.shop.entity.UserAccountInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,12 +6,12 @@
 <meta charset="UTF-8">
 <title>没有权限...</title>
 <script type="text/javascript"> 
-var i = 5; 
+var i = 1; 
 var intervalid; 
 intervalid = setInterval("fun()", 1000); 
 function fun() { 
 if (i == 0) { 
-window.location.href = "Login.jsp"; 
+window.location.href = "zxerror"; 
 clearInterval(intervalid); 
 } 
 document.getElementById("mes").innerHTML = i; 
@@ -23,7 +20,7 @@ i--;
 </script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="css/index/style.css" />
     <!--[if IE 6]>
     <script src="js/iepng.js" type="text/javascript"></script>
         <script type="text/javascript">
@@ -62,7 +59,7 @@ i--;
         	<span class="fl">你好，请<a href="Login.jsp">登录</a>&nbsp; <a href="Regist.jsp" style="color:#ff4e00;">免费注册</a></span>
             <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/s_tel.png" align="absmiddle" /></a></span>
+            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/index/s_tel.png" align="absmiddle" /></a></span>
         </span>
     </div>
 </div>
@@ -70,15 +67,15 @@ i--;
 <!--Begin Login Begin-->
 <div class="log_bg">	
     <div class="top">
-        <div class="logo"><a href="Index.jsp"><img src="images/logo.png" /></a></div>
+        <div class="logo"><a href="Index.jsp"><img src="" /></a></div>
     </div>
 	<div class="Jump">
-    	<div class="log_img"><img src="images/l_img.png" width="611" height="425" /></div>
+    	<div class="log_img"><img src="images/index/l_img.png" width="611" height="425" /></div>
         	<div id="errorfrm"> 
 <h2>~~~对不起,您没有该权限,请先登录~~~</h2> 
 <div id="error"> 
-<img src="images/error.gif" mce_src="images/error.gif" alt="" /> 
-<p>将在 <span style="font-size: 15px;font-weight: bold" id="mes">5</span> 秒钟后跳转登录界面！</p> 
+<img src="" mce_src="images/index/error.gif" alt="" /> 
+<p>将在 <span style="font-size: 15px;font-weight: bold" id="mes">3</span> 秒钟后跳转登录界面！</p> 
 </div> 
         	
         </div>
@@ -88,7 +85,7 @@ i--;
 <div class="btmbg">
     <div class="btm">
         备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
-        <img src="images/b_1.gif" width="98" height="33" /><img src="images/b_2.gif" width="98" height="33" /><img src="images/b_3.gif" width="98" height="33" /><img src="images/b_4.gif" width="98" height="33" /><img src="images/b_5.gif" width="98" height="33" /><img src="images/b_6.gif" width="98" height="33" />
+        <img src="images/index/b_1.gif" width="98" height="33" /><img src="images/index/b_2.gif" width="98" height="33" /><img src="images/index/b_3.gif" width="98" height="33" /><img src="images/index/b_4.gif" width="98" height="33" /><img src="images/index/b_5.gif" width="98" height="33" /><img src="images/index/b_6.gif" width="98" height="33" />
     </div>    	
 </div>
 <!--End Footer End --> 
