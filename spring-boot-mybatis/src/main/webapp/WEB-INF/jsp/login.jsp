@@ -20,7 +20,7 @@
 			<tr><td class="title">密   码：</td><td><input type="password" class="form-control txt" name="pwd" /></td></tr>
 			<tr><td class="title">验证码：</td><td><input type="text" class="form-control txt txt2" /><span class="yzm"><img src="images/yzm.jpg"/></span></td></tr>
 			<tr><td>&nbsp;</td><td><input type="submit" class="loginbtn" value="登录" />
-			<input type="button" class="resetbtn" value="立即注册" onclick="location.href='doctorzuc' "/>
+			<input type="button" class="resetbtn" value="立即注册" onclick="location.href='userzc' "/>
 			</td></tr>		
 			<tr><td>&nbsp;</td><td class="forgetpsw"></td></tr>	
 		</table>

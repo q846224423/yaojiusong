@@ -105,6 +105,7 @@
         <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>1.4.2.RELEASE</version>
             <configuration>
                 <fork>true</fork>
             </configuration>
@@ -116,7 +117,7 @@
             <resource>
                 <!-- ??JSP包打包到资源里 -->
                 <directory>src/main/webapp</directory>
-                <targetPath>META-INF/resources</targetPath>
+                <targetPath>WEB-INF/jsp</targetPath>
                 <includes>
                     <include>**/**</include>
                 </includes>
