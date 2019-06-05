@@ -97,9 +97,10 @@
 
 	</dependencies>
 	
-	<!-- 类文件热部署 -->
+	
 	<build>
     <plugins>
+    	<!-- 类文件热部署 -->
         <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
@@ -107,8 +108,9 @@
                 <fork>true</fork>
             </configuration>
         </plugin>
+         
     </plugins>
-</build>
+	</build>
 
 
 </project>

@@ -67,12 +67,12 @@
 					<c:when test="${findonedoctor.d_change ==0}">
 					<dd style="color: red;">未审核</dd>
 					</c:when>
-					<c:when test="${findonedoctor.d_change ==2}">
+					<c:when test="${findonedoctor.d_change ==1}">
 					<dd style="color: red;">审核中</dd>
 					</c:when>
-					<c:otherwise>
+					<c:when test="${findonedoctor.d_change ==2}">
 					<dd style="color: red;">已审核</dd>
-					</c:otherwise>
+					</c:when>
 				</c:choose>
 			<br/>
 				<span>修改后医师的介绍：</span>
