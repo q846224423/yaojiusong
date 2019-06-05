@@ -69,6 +69,7 @@ public class CommonControl {
 			//查出左侧菜单，置顶商品，购物车，总价
 			List<Menu3> selectZD = ssi.selectZD(yd_id);
 			System.out.println("selectZD"+selectZD.toString());
+			System.out.println("user.getUser_id()"+user.getUser_id());
 			List<Lookcart> lookCart = ssi.lookCart(user.getUser_id());
 			double allPrice = ssi.getAllPrice(lookCart);
 			

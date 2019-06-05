@@ -328,7 +328,7 @@ pageEncoding="UTF-8"%>
                 <c:choose>
                 
                 <c:when test="${user== null }">
-                <span class="fl"><a href="Jump3.jsp"><img src="images/index/j_car.png" /></a>
+                <span class="fl"><a href="zxjump3"><img src="images/index/j_car.png" /></a>
                 </c:when>
                 
                 <c:otherwise>
